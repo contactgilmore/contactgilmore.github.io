@@ -22,7 +22,7 @@
 title: Mike Gilmore
 email: your-email@example.com
 image:
-  path: /images/eder-oliveira-180877.jpg
+  path: /image/wg_blurred_backgrounds_17.jpg
 description: >- # this means to ignore newlines until "baseurl:"
   In progress...
 baseurl: "" # the subpath of your site, e.g. /blog
