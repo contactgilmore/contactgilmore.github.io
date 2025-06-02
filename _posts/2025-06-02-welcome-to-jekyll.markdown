@@ -1,21 +1,9 @@
 ---
 layout: post
-# title:  "Welcome to Jekyll!"
+title:  "Welcome to Jekyll!"
 date:   2025-06-02 10:48:46 -0600
-# categories: jekyll update
+categories: jekyll update
 
-title: "Layout: Hero Image"
-image: 
-  path: /images/so-simple-sample-image-3.jpg
-  thumbnail: /images/so-simple-sample-image-3-400x200.jpg
-  caption: "Photo from [WeGraphics](http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/)"
-categories:
-  - Layout
-tags:
-  - content
-  - image
-  - layout
-last_modified_at: 2018-01-31T14:28:50-05:00
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
