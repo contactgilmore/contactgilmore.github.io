@@ -1,7 +1,5 @@
 ---
 layout: post
-image:
-  path: /images/eder-oliveira-180877.jpg
 title:  "Welcome to Jekyll!"
 date:   2025-06-02 10:48:46 -0600
 categories: jekyll update
