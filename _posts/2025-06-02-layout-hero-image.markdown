@@ -1,5 +1,5 @@
 ---
-Layout: Hero Image
+Layout: default
 title: "Layout: Hero Image"
 image: 
   path: /images/so-simple-sample-image-3.jpg
