@@ -71,7 +71,8 @@ body {
 
 .about-section-content {
   display: flex;
-  width: 50%;
+  float: left;
+  width: 800px;
   flex-direction: column;
   gap: 34px;
 }
