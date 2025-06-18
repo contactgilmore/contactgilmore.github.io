@@ -119,9 +119,25 @@ body {
 }
 
 
-/* Project Section */
+/* Blog Section */
 
 #my-blog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* About Section */
+
+/* #my-about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+} */
+
+/* Resume Section */
+
+#my-resume-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
