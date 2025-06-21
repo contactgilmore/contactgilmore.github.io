@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,11 +33,19 @@
 <body>
   <!-- NAVBAR -->
   <div class="navbar">
-    <div class="nav-title-link-wrapper">
-  <a class="button" href="http://www.linkedin.com/in/contactgilmore">
-    <span class="button-text">Contact Me</span>
-  </a>
-</div>
+    <a class="nav-title-link" href="./index.html">
+      <!-- TODO - Change the "Portfolio Title" to whatever you want displayed in the top left -->
+      <span class="nav-title">in/contactgilmore</span>
+      <!-- <p></p>
+              <a class="no-underline" target="_blank"
+          href="https://opensea.io/assets/0xe0be388ab81c47b0f098d2030a1c9ef190691a8a/1311">
+          <span class="nav-title-link">based on this template</span>
+        </a> -->
+      <!-- TODO - Change the email after 'mailto:' to your email address for contact -->
+      <a class="button" href="http://www.linkedin.com/in/contactgilmore">
+        <span class="button-text">Contact Me</span>
+      </a>
+    </a>
   </div>
 
   <!-- MAIN PAGE CONTENT -->
@@ -49,7 +61,7 @@
             - Change the number to point to your Unemployable & replace the OpenSea link with your own
             - If you aren't using an Unemployable as your image, remove the entire "a" element
           -->
-        <img src="./assets/images/MGInitials2.png" alt="Mike Gilmore initials" class="portfolio-header-image">
+        <img src="./assets/images/MGInitials2.png" class="portfolio-header-image">
         <!-- <a class="no-underline" target="_blank"
           href="https://opensea.io/assets/0xe0be388ab81c47b0f098d2030a1c9ef190691a8a/1311">
           <span class="image-caption">based on this template</span>
@@ -67,35 +79,35 @@
         <div class="header-text">
           <span class="main-title">Hey, I'm Mike Gilmore.</span>
           <div class="body-text">
-            <br>
+            <p></p>
             This page is where I’ll be sharing things I’ve learned (and am still learning) about cloud architecture,
             observability, tooling, automation, and working smarter—not just harder. Expect a mix of tech deep-dives,
             war stories, and maybe the occasional strong opinion about HCL.
-            
+            <p></p>
             I have been messing with different templates and changing things around. I did not like
             Jekyll much so here we are.
             I'll be playing around, updating, and adding my projects over the next few weeks. Currently, I'm working on
             this locally in my free time.
-            
+            <p></p>
             The blog section I think will be the most fun as I can write about my experiences, projects, and things I
             learn along the way. Mainly the nerd stuff I like to do day to day.
           </div>
         </div>
         <a class="button" id="my-work-link">
           <span class="button-text">Check out my projects</span>
-          <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+          <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
         </a>
         <a class="button" id="my-blog-link">
           <span class="button-text">Check out my blog</span>
-          <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+          <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
         </a>
         <!-- <a class="button" id="my-about-link">
           <span class="button-text">About me</span>
-          <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+          <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
         </a> -->
         <!-- <a class="button" id="my-resume-link">
           <span class="button-text">Resume</span>
-          <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+          <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
         </a> -->
       </div>
     </div>
@@ -157,44 +169,43 @@
                 <li>Limited Exposure: Google Cloud Platform GCP (CE, VPC, KMS, Cloud Monitoring)</li>
               </ul>
             </li>
-            
+            <p></p>
             <li><strong>Operating Systems:</strong> Windows Server, Linux (Ubuntu), MacOS</li>
-            
+            <p></p>
 
             <li><strong>Software & Architecture:</strong> Infrastructure-as-Code (IaC), Cloud-native tools,
               Containerization, Kafka</li>
-            
+            <p></p>
 
             <li><strong>IaC & Configuration:</strong> Terraform, CloudFormation, Ansible</li>
-            
+            <p></p>
 
             <li><strong>Containers & Orchestration:</strong> Kubernetes (EKS), Helm (charts), Karpenter, Docker</li>
-            
+            <p></p>
 
             <li><strong>Observability:</strong> Prometheus, Grafana, New Relic, Splunk, Kibana (ELK), Datadog</li>
-            
+            <p></p>
 
             <li><strong>Languages:</strong> Python, Bash, PowerShell, C# (trunk-based), Go, SQL</li>
-            
+            <p></p>
 
             <li><strong>Version Control & Workflow:</strong> Git, GitHub, GitLab, CI/CD Pipelines, Jenkins, Argo CD
             </li>
-            
+            <p></p>
 
             <li><strong>Incident & Agile Change Management:</strong> PagerDuty, Jira (Kanban), Confluence, Blameless,
               Slack</li>
-            
+            <p></p>
 
             <li><strong>Security & Compliance:</strong> IAM, Firewall Integration, SSL Configuration, SOC 2</li>
           </ul>
-          <br>
         </div>
       </div>
 
       <!-- PROJECTS / MY WORK SECTION -->
       <div id="my-work-section">
         <!-- TODO - Change the subheader-text to whatever you want the Projects section header to say -->
-        
+        <p></p>
 
         <span class="main-title">Example Personal Projects
           <hr>
@@ -214,7 +225,7 @@
               </div>
               <a class="button" href="./project-pages/PROJECT_PAGE_NAME.html">
                 <span class="button-text">Read More</span>
-                <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
+                <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
               </a>
             </div>
 
@@ -234,13 +245,13 @@
               <div class="body-text project-card-text">This is an infrastructure-as-code deployment showing Terraform
                 capabilities within Azure Cloud. It's not too complex, but it does show how subscription-level
                 configurations are handled in code.
-                
+                <p></p>
                 README explains.
               </div>
             </div>
             <a class="button" href="https://github.com/contactgilmore/azure-basic">
               <span class="button-text">Read More</span>
-              <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
             </a>
           </div>
           <!-- #2 -->
@@ -252,50 +263,27 @@
     <!-- END OF MY WORK SECTION -->
     <!-- BLOG -->
 
-    <div id="my-blog-section">
-      <!-- TODO - Change the subheader-text to whatever you want the Projects section header to say -->
-      
-      
-      <span class="main-title">Blog
-        <hr>
-      </span>
-
-      <div class="projects-container">
-        <!-- 
-            TODO
-
-            This is where the project cards live. Here's a base level project card for you to copy:
-            <div class="project-card">
-              <img src="./assets/images/IMAGE_NAME" class="project-image">
-              <div class="project-card-text-container">
-                <div class="subheader-text project-title">PROJECT_NAME</div>
-                <div class="body-text project-card-text">SMALL_PROJECT_DESCRIPTION</div>
-              </div>
-              <a class="button" href="./project-pages/PROJECT_PAGE_NAME.html">
-                <span class="button-text">Read More</span>
-                <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon"/>
-              </a>
-            </div>
-
-            - To add a project to the this area, copy the above, paste it below this comment, and change the following:
-                - IMAGE_NAME: the name of the image file in assets/images
-                - PROJECT_NAME: the name of the project (keep it short, it only shows 1 line)
-                - SMALL_PROJECT_DESCRIPTION: a quick project description (max 4 lines)
-                - PROJECT_PAGE_NAME.html: the html filename for the project (must be in project-pages folder)
-          -->
-        <div class="project-card">
-          <!-- <img src="./assets/images/IMAGE_NAME" class="project-image"> -->
-          <div class="project-card-text-container">
-            <div class="subheader-text project-title">Checking Blog Formatting</div>
-            <div class="body-text project-card-text">Testing to see what the blog section looks like.</div>
-          </div>
-          <a class="button" href="./_site/index.html">
-            <span class="button-text">Read More</span>
-            <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
-          </a>
-        </div>
+    
+<!-- BLOG -->
+<div id="my-blog-section">
+  <span class="main-title">Blog<hr></span>
+  <div class="projects-container">
+    {% for post in site.posts %}
+    <div class="project-card">
+      <img src="{{ post.thumbnail }}" class="project-image" alt="Blog thumbnail" />
+      <div class="project-card-text-container">
+        <div class="subheader-text project-title">{{ post.title }}</div>
+        <div class="body-text project-card-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
       </div>
+      <a class="button" href="{{ post.url }}">
+        <span class="button-text">Read More</span>
+        <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+      </a>
     </div>
+    {% endfor %}
+  </div>
+</div>
+
   </div>
   <!-- FOOTER -->
   <div id="footer">
@@ -305,7 +293,7 @@
         This should be the same across all pages.
       -->
     <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/contactgilmore/">
-      <img src="./assets/icons/linkedin.svg" class="footer-icon" />
+      <image src="./assets/icons/linkedin.svg" class="footer-icon" />
     </a>
     <!-- 
         TODO - Change href to your Twitter account (can also delete entire "a" element if no Twitter) 
@@ -313,7 +301,7 @@
         This should be the same across all pages.
       -->
     <!-- <a class="icon-link" target="_blank" href="https://twitter.com/whitevans_eth">
-        <img src="./assets/icons/twitter.svg" class="footer-icon" />
+        <image src="./assets/icons/twitter.svg" class="footer-icon" />
       </a> -->
     <!-- 
         TODO - Change the email after "mailto" to your contact email 
@@ -321,7 +309,7 @@
         This should be the same across all pages.
       -->
     <a class="icon-link" href="https://www.linkedin.com/in/contactgilmore/">
-      <img src="./assets/icons/mail.svg" class="footer-icon" />
+      <image src="./assets/icons/mail.svg" class="footer-icon" />
     </a>
   </div>
 

@@ -1,0 +1,4 @@
+title: contactgilmore
+description: Personal blog and portfolio
+markdown: kramdown
+permalink: /:title/
