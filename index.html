@@ -1,7 +1,3 @@
----
-layout: default
----
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +14,7 @@ layout: default
 
       This should be the same across all pages.
      -->
-  <link rel="icon" href="./assets/images/1311.png" />
+  <link rel="icon" href="{{ site.baseurl }}/assets/images/1311.png" />
   <title>contactgilmore</title>
   <!-- <meta name="description" content="A portfolio template for the Unemployables community."> -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -79,16 +75,16 @@ layout: default
         <div class="header-text">
           <span class="main-title">Hey, I'm Mike Gilmore.</span>
           <div class="body-text">
-            <p></p>
+            <br>
             This page is where I’ll be sharing things I’ve learned (and am still learning) about cloud architecture,
             observability, tooling, automation, and working smarter—not just harder. Expect a mix of tech deep-dives,
             war stories, and maybe the occasional strong opinion about HCL.
-            <p></p>
+            
             I have been messing with different templates and changing things around. I did not like
             Jekyll much so here we are.
             I'll be playing around, updating, and adding my projects over the next few weeks. Currently, I'm working on
             this locally in my free time.
-            <p></p>
+            
             The blog section I think will be the most fun as I can write about my experiences, projects, and things I
             learn along the way. Mainly the nerd stuff I like to do day to day.
           </div>
@@ -169,43 +165,44 @@ layout: default
                 <li>Limited Exposure: Google Cloud Platform GCP (CE, VPC, KMS, Cloud Monitoring)</li>
               </ul>
             </li>
-            <p></p>
+            
             <li><strong>Operating Systems:</strong> Windows Server, Linux (Ubuntu), MacOS</li>
-            <p></p>
+            
 
             <li><strong>Software & Architecture:</strong> Infrastructure-as-Code (IaC), Cloud-native tools,
               Containerization, Kafka</li>
-            <p></p>
+            
 
             <li><strong>IaC & Configuration:</strong> Terraform, CloudFormation, Ansible</li>
-            <p></p>
+            
 
             <li><strong>Containers & Orchestration:</strong> Kubernetes (EKS), Helm (charts), Karpenter, Docker</li>
-            <p></p>
+            
 
             <li><strong>Observability:</strong> Prometheus, Grafana, New Relic, Splunk, Kibana (ELK), Datadog</li>
-            <p></p>
+            
 
             <li><strong>Languages:</strong> Python, Bash, PowerShell, C# (trunk-based), Go, SQL</li>
-            <p></p>
+            
 
             <li><strong>Version Control & Workflow:</strong> Git, GitHub, GitLab, CI/CD Pipelines, Jenkins, Argo CD
             </li>
-            <p></p>
+            
 
             <li><strong>Incident & Agile Change Management:</strong> PagerDuty, Jira (Kanban), Confluence, Blameless,
               Slack</li>
-            <p></p>
+            
 
             <li><strong>Security & Compliance:</strong> IAM, Firewall Integration, SSL Configuration, SOC 2</li>
           </ul>
+          <br>
         </div>
       </div>
 
       <!-- PROJECTS / MY WORK SECTION -->
       <div id="my-work-section">
         <!-- TODO - Change the subheader-text to whatever you want the Projects section header to say -->
-        <p></p>
+        
 
         <span class="main-title">Example Personal Projects
           <hr>
@@ -218,7 +215,7 @@ layout: default
             This is where the project cards live. Here's a base level project card for you to copy:
             
             <div class="project-card">
-              <img src="./assets/images/IMAGE_NAME" class="project-image">
+              <img src="{{ site.baseurl }}/assets/images/IMAGE_NAME" class="project-image">
               <div class="project-card-text-container">
                 <div class="subheader-text project-title">PROJECT_NAME</div>
                 <div class="body-text project-card-text">SMALL_PROJECT_DESCRIPTION</div>
@@ -238,14 +235,14 @@ layout: default
 
           <!-- PROJECT CARDS START HERE -->
           <div class="project-card">
-            <img src="./assets/images/Azure_Terraform_062025.png" class="project-image">
+            <img src="{{ site.baseurl }}/assets/images/Azure_Terraform_062025.png" class="project-image">
             <div class="project-card-text-container">
               <div class="subheader-text project-title">Azure - Basic Infrastructure (Terraform)
               </div>
               <div class="body-text project-card-text">This is an infrastructure-as-code deployment showing Terraform
                 capabilities within Azure Cloud. It's not too complex, but it does show how subscription-level
                 configurations are handled in code.
-                <p></p>
+                
                 README explains.
               </div>
             </div>
