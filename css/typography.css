@@ -47,3 +47,6 @@ body {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+.body-text {
+  line-height: 1.6;
+}
