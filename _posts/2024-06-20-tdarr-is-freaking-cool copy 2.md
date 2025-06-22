@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Tdarr is freaking cool..."
 date: 2024-06-20
 thumbnail: /assets/images/tdarr_thumbnail.png
