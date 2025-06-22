@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="blog-post">
+<div class="blog-post">
   <div class="blog-post-content">
     <img src="{{ page.thumbnail }}" class="blog-thumbnail" alt="Blog thumbnail">
     <h1 class="main-title">{{ page.title }}</h1>
@@ -11,20 +11,18 @@ layout: default
       {{ content }}
     </div>
   </div>
-</article>
 
-<hr class="my-10">
+  <div class="blog-nav-links">
+    {% if page.previous %}
+      <a href="{{ page.previous.url }}" class="blog-nav-link">
+        &larr; {{ page.previous.title }}
+      </a>
+    {% endif %}
 
-<div class="blog-nav-links">
-  {% if page.previous %}
-    <a href="{{ page.previous.url }}" class="blog-nav-link">
-      &larr; {{ page.previous.title }}
-    </a>
-  {% endif %}
-
-  {% if page.next %}
-    <a href="{{ page.next.url }}" class="blog-nav-link">
-      {{ page.next.title }} &rarr;
-    </a>
-  {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url }}" class="blog-nav-link">
+        {{ page.next.title }} &rarr;
+      </a>
+    {% endif %}
+  </div>
 </div>

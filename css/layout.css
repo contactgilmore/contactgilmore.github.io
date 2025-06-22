@@ -320,3 +320,41 @@ body {
 .blog-nav-link:hover {
   text-decoration: underline;
 }
+
+
+
+.blog-post {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 120px;
+}
+
+.blog-post-content {
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blog-nav-links {
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.blog-nav-link {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
+.blog-nav-link:hover {
+  text-decoration: underline;
+}
