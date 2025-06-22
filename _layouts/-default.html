@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ site.description | default: 'Tech blog and portfolio' }}" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <!-- Google Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (optional for modern layout, or replace with your own CSS) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
+
+  <header class="bg-white shadow">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-semibold">
+        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </h1>
+      <nav class="space-x-4 text-sm">
+        <a href="{{ '/' | relative_url }}" class="hover:underline">Home</a>
+        <!-- <a href="{{ '/_posts/' | relative_url }}" class="hover:underline">Blog</a> -->
+        <!-- <a href="{{ '/about/' | relative_url }}" class="hover:underline">About</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    {{ content }}
+  </main>
+
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-4xl mx-auto px-4 py-6 text-sm text-center text-gray-500">
+      © {{ site.time | date: '%Y' }} {{ site.title }} — All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

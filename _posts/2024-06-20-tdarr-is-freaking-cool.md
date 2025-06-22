@@ -5,7 +5,7 @@ date: 2024-06-20
 thumbnail: /assets/images/blog2025/tdarrLogo.png
 ---
 
-# Blog Title: My SRE Monitoring Guide
+# Blog Title: My SRE Monitoring Guide, currently testing how I want to format and style my blog.
 
 ![Descriptive Alt Text](/assets/images/1311.png)
 
