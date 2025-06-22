@@ -1,9 +1,41 @@
 ---
 layout: post
-title: "Tdarr is freaking cool..."
+title: "Still testing..."
 date: 2024-06-20
-thumbnail: /assets/images/tdarr_thumbnail.png
+thumbnail: /assets/images/blog2025/tdarrLogo.png
 ---
 
-Just started messing around with Tdarr and love how customizable and powerful this tool is.
-It’s like having a transcoding army at your fingertips. Looking forward to using it for all my media server needs.
+# Blog Title: My SRE Monitoring Guide
+
+![Descriptive Alt Text](/assets/images/1311.png)
+
+## Introduction
+
+Welcome to my blog! In this post, we’ll dive into how I set up monitoring and alerting as a Site Reliability Engineer.
+
+---
+
+## Key Concepts
+
+- 📊 Real-time metrics
+- ⚠️ Alert thresholds
+- 🛠️ Incident response tooling
+
+## Example Dashboard
+
+Here's a snapshot of the dashboard in action:
+
+![Monitoring Dashboard](/assets/images/fallout.jpg)
+
+## Learn More
+
+Visit [New Relic's official documentation](https://docs.newrelic.com) for more tools and features.
+
+---
+
+## Code Sample
+
+```bash
+#!/bin/bash
+# Monitor disk space
+df -h | grep '/dev/sda1'
