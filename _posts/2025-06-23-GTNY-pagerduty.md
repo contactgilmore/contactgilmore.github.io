@@ -36,9 +36,9 @@ Right after college, I landed a job at a small company with fewer than 100 peopl
 
 Since I had the most hands-on experience, guess who ended up being on call 24/7? Yep, me. Anytime something broke—even small stuff—I’d get a call or a ping, sometimes straight from execs. We didn’t even know when things were down until clients called to complain. It was exhausting, and honestly, I started to dread every notification on my phone.
 
-Eventually, that company got acquired, and I moved into a larger environment with hundreds of engineers. That’s when I discovered PagerDuty—and everything changed. I set it up myself at the smaller company too before the acquisition. It was way easier than I expected.
+Eventually, that company got acquired, and I moved into a larger environment with hundreds of engineers. That’s when I discovered PagerDuty—and everything changed. I set it up myself for our smaller division. It was way easier than I expected.
 
-We created real on-call schedules, set up escalation paths, and tied it all into our monitoring tools. Suddenly I wasn’t the only one getting calls in the middle of the night. We had a rotation, and backup responders. If someone was out on PTO, PagerDuty handled overrides automatically.
+We created real on-call schedules, set up escalation paths, and tied it all into our monitoring tools. Suddenly I wasn’t the only one getting calls in the middle of the night. We had a rotation, and backup responders. If someone was out on PTO, PagerDuty handled overrides automatically. And with our rotation, everyone naturally started gaining much needed experience.
 
 The best part? My work-life balance improved almost overnight. I could sleep through the night without stressing about surprise outages. We finally had a plan, not just hope. PagerDuty took a chaotic, all-hours alert mess and turned it into a process that respected our time and sanity.
 
