@@ -19,9 +19,9 @@ First, admit the problem. Then focus on what matters. Then engineer and automate
 
 **I am biased here, this is my favorite tool out of all the arsenal of incident response options.**
 
-That’s where **New Relic** comes in. Observability is the difference between guessing and knowing. When systems start acting weird, you'd rather know. New Relic is like X-ray vision for your apps, infrastructure, users, and overall stack. Even if you're just getting started in SRE or wondering why your app is acting up, New Relic gives you the visibility you didn’t know you needed. From performance metrics to traces and logs—it helps make sense of what’s really going on.
+This is where **New Relic** comes in. Observability is the difference between guessing and knowing. When systems start acting weird, you'd rather know. New Relic is like X-ray vision for your apps, infrastructure, users, and overall stack. Even if you're just getting started in SRE or wondering why your app is acting up, New Relic gives you the visibility you didn’t know you needed. From performance metrics to traces and logs—it helps make sense of what’s really going on.
 
-It’s like having a mission control panel. One screen, full context.
+It’s like having a mission control panel. One screen, full context. It doesn't even have to be complex. A ping failure for more than a specified time, lets say 2 minutes, will trigger an alert (which we will get into later). SRE's respond the alert and first take a look at their Incident Dashboard to identify exactly what is causing the issue.
 
 And no, you don’t have to be a senior engineer to get value from it. Even beginners can learn so much from seeing live data, performance graphs, and real-world traffic in action. It bridges that gap between gut feeling and actual facts.
 
