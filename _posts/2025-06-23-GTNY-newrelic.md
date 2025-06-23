@@ -19,9 +19,7 @@ First, admit the problem. Then focus on what matters. Then engineer and automate
 
 **I am biased here, this is my favorite tool out of all the arsenal of incident response options.**
 
-That’s where **New Relic** comes in. Observability is the difference between guessing and knowing. When systems start acting weird, you'd rather know. New Relic is like X-ray vision for your apps, infrastructure, users, and overall stack.
-
-Even if you're just getting started in SRE or wondering why your app is acting up, New Relic gives you the visibility you didn’t know you needed. From performance metrics to traces and logs—it helps make sense of what’s really going on.
+That’s where **New Relic** comes in. Observability is the difference between guessing and knowing. When systems start acting weird, you'd rather know. New Relic is like X-ray vision for your apps, infrastructure, users, and overall stack. Even if you're just getting started in SRE or wondering why your app is acting up, New Relic gives you the visibility you didn’t know you needed. From performance metrics to traces and logs—it helps make sense of what’s really going on.
 
 It’s like having a mission control panel. One screen, full context.
 
@@ -41,23 +39,17 @@ New Relic lets you monitor app performance, system health, and user behavior—a
 
 When things go wrong, you’re not guessing. You’re tracking down the root cause—fast. Whether it’s a slow database, a memory leak, or a surge in traffic, New Relic points you to the right spot.
 
-You can think of it as a GPS for your infrastructure. It tracks where requests go, how long they take, and what’s slowing them down. And it does it all with clean visuals that make it easier to understand what’s happening.
-
-Best part? You don’t need to be in crisis mode to use it. New Relic also helps you continuously improve performance over time—set baselines, measure impact, and watch how things evolve with every deployment.
+You can think of it as a GPS for your infrastructure. It tracks where requests go, how long they take, and what’s slowing them down. And it does it all with clean visuals that make it easier to understand what’s happening. Best part? You don’t need to be in crisis mode to use it. New Relic also helps you continuously improve performance over time—set baselines, measure impact, and watch how things evolve with every deployment.
 
 ---
 
 ## A Real Story: How New Relic Helped My Team
 
-We used to get flooded with customer reports saying their apps were down or slow. It was a nightmare trying to figure out what was actually happening.
-
-Once we set up monitors in New Relic, we noticed a pattern. Multiple applications were sharing a single **FSx drive** for storage. That drive was running **Windows Updates and scheduled maintenance** on a regular basis—and during those times, it would disconnect just long enough to cause chaos.
+We used to get flooded with customer reports saying their apps were down or slow. It was a nightmare trying to figure out what was actually happening. Once we set up monitors in New Relic, we noticed a pattern. Multiple applications were sharing a single **FSx drive** for storage. That drive was running **Windows Updates and scheduled maintenance** on a regular basis—and during those times, it would disconnect just long enough to cause chaos.
 
 ![New Relic APM Example](/assets/images/blog2025/0622/newRelicAPM.png)
 
-New Relic helped us connect the dots. We rescheduled maintenance, fine-tuned alerts, and built custom dashboards so the support team could see issues in real time. The result? Way fewer tickets, faster answers, and a much happier team.
-
-It even let us set alerts on FSx performance itself. That way, we were able to notify teams before customers ever noticed a problem. That kind of visibility builds trust—not just with customers, but inside your org too.
+New Relic helped us connect the dots. We rescheduled maintenance, fine-tuned alerts, and built custom dashboards so the support team could see issues in real time. The result? Way fewer tickets, faster answers, and a much happier team. It even let us set alerts on FSx performance itself. That way, we were able to notify teams before customers ever noticed a problem. That kind of visibility builds trust—not just with customers, but inside your org too.
 
 ---
 
