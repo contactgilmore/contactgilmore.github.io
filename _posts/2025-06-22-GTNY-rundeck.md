@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Get to Know You: Rundeck"
+title: "#1. Git to Know You: Rundeck"
 date: 2025-06-22
 thumbnail: /assets/images/blog2025/0622/rundeckThumb.png
 ---
