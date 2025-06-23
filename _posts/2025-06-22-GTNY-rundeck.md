@@ -5,7 +5,7 @@ date: 2025-06-22
 thumbnail: /assets/images/blog2025/0622/rundeckThumb.png
 ---
 
-***If you're getting*** into Site Reliability Engineering (SRE) or just curious about how tech teams keep systems running smoothly, you'll want to know about **Rundeck**. It’s a tool that helps people automate common tasks—so instead of typing the same commands every day, you can press a button and let Rundeck handle it for you.
+**If you're getting** into Site Reliability Engineering (SRE) or just curious about how tech teams keep systems running smoothly, you'll want to know about **Rundeck**. It’s a tool that helps people automate common tasks—so instead of typing the same commands every day, you can press a button and let Rundeck handle it for you.
 
 It’s kind of like setting up a vending machine for your computer jobs. You pick what you want done (restart a server, back something up, run a script), and Rundeck takes care of the details.
 
@@ -32,7 +32,8 @@ At one point, my SRE team was constantly buried in support tickets. Most of them
 
 So we tried something new.
 
-Our three-person SRE team split the work like this:  
+Our three-person SRE team split the work like this:
+  
 Two of us wrote scripts for the most common support requests. Then I took those scripts, turned them into simple Rundeck jobs, and trained the support team on how to use them.
 
 ![Rundeck Job List Example](/assets/images/blog2025/0622/rundeckList.png)
