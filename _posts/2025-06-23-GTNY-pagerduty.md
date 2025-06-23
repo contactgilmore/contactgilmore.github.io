@@ -7,105 +7,111 @@ categories: [sre, incident-response, on-call]
 tags: [pagerduty, on-call, incident-management, reliability]
 ---
 
-**If you’ve been in the trenches** with production systems, you probably know this moment: it's 2 AM, your phone buzzes, and something's broken. What happens next depends a lot on your tooling—and that’s where **PagerDuty** makes a difference.
+**No way this is #3!** Imagine this, an incident occurs, automatically your workflow goes New Relic > Pagerduty > Slack > Rundeck > New Relic > Pagerduty > SRE On-Call > New Relic Dashboard > resolved with an RCA trail.
 
-As you get deeper into Site Reliability Engineering, dealing with incidents becomes part of the job. PagerDuty gives you the structure to handle those fire drills without panic. It alerts the right people, escalates if needed, and can even kick off automated fixes. If Rundeck helps reduce the hands-on toil and New Relic shows you what’s wrong, PagerDuty helps you act on it.
+**If you’ve been around** production systems long enough, you know this moment: it's 2 AM, your phone buzzes, and something’s on fire. What happens next depends a lot on your tooling—and that’s where **PagerDuty** shines.
+
+As you dig deeper into Site Reliability Engineering, incident response will become second nature. PagerDuty helps bridge the chaos gap by giving you structure when things go sideways. It routes alerts, wakes the right people, and lets you kick off automated responses—all while keeping everyone informed. If Rundeck was about reducing toil and New Relic about seeing the problem, PagerDuty is what helps you respond.
 
 ---
 
 > **Disclaimer:**  
-> Everything in this blog is meant for folks just getting started. If you're curious about SRE or trying to understand how it all fits together—this is for you. No jargon, no assumptions. Just practical stuff I’ve learned the hard way and wish someone had walked me through early on.
+> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I’m not here to throw jargon at you or assume you know it all. The goal is to keep it practical, simple, and clear. Whether you're switching roles, starting your tech journey, or just SRE-curious—welcome. This is the stuff I wish someone explained to me.
 
 ---
 
 ## Why PagerDuty?
 
-PagerDuty is a tool that helps teams react quickly when things go wrong. At its core, it makes sure the right person finds out fast—and gives you ways to track and resolve issues.
+PagerDuty is an incident response platform that helps teams react quickly when things go wrong. At its core, it makes sure the right person knows about a problem as soon as it starts—and provides tools to track, manage, and resolve it.
 
-Think of it like your on-call assistant. It ties into your monitoring tools (like New Relic or Prometheus), catches alerts, and figures out who should be pinged. Instead of everyone getting bombarded, it uses schedules and rules to notify just the right people.
+Think of it as your on-call assistant. It integrates with your monitoring tools (like New Relic, Datadog, Prometheus) and turns alerts into actionable incidents. Instead of every team member getting pinged, PagerDuty follows schedules, escalations, and rules to make sure the right engineer is contacted, in the right order, at the right time.
 
-Beyond alerts, PagerDuty is helpful for organizing how your team handles incidents. It keeps a record of what happened, lets others jump in, and helps everyone learn from what went wrong.
+It also helps centralize communication, coordinate responses, and log events for detailed postmortems. Whether you're managing a team of 3 or 30, PagerDuty scales to your needs and makes incident response repeatable and predictable.
 
 ---
 
 ## A Real Story: How PagerDuty Helped My Team
 
-Before we started using PagerDuty properly, our alerting setup was a mess. Alerts would show up in random places—Slack, email, or sometimes not at all. We'd waste time figuring out who was supposed to jump in, and sometimes nobody did because everyone assumed someone else was handling it.
+Right after college, I landed a job at a small company with fewer than 100 people. There were only four of us in IT—and just two of us really knew anything about cloud stuff or handling outages.
 
-Once we got PagerDuty set up, things changed. We created clean on-call schedules, added backup responders, and built escalation paths. No more “who’s on call right now?” moments. The team knew exactly what to expect.
+Since I had the most hands-on experience, guess who ended up being on call 24/7? Yep, me. Anytime something broke—even small stuff—I’d get a call or a ping, sometimes straight from execs. We didn’t even know when things were down until clients called to complain. It was exhausting, and honestly, I started to dread every notification on my phone.
 
-There was one case where a payment service for a big client went down. PagerDuty immediately alerted the right SRE. It also pinged our product team and kicked off a Rundeck job to restart the service while we investigated. We fixed it in minutes, and the client never even knew there was a problem. What could’ve been a chaotic incident became a smooth recovery.
+Eventually, that company got acquired, and I moved into a larger environment with hundreds of engineers. That’s when I discovered PagerDuty—and everything changed. I set it up myself for our smaller division. It was way easier than I expected.
+
+We created real on-call schedules, set up escalation paths, and tied it all into our monitoring tools. Suddenly I wasn’t the only one getting calls in the middle of the night. We had a rotation, and backup responders. If someone was out on PTO, PagerDuty handled overrides automatically. And with our rotation, everyone naturally started gaining much needed experience.
+
+The best part? My work-life balance improved almost overnight. I could sleep through the night without stressing about surprise outages. We finally had a plan, not just hope. PagerDuty took a chaotic, all-hours alert mess and turned it into a process that respected our time and sanity.
 
 ---
 
 ## Screenshots
 
 ![PagerDuty Incident Dashboard](/assets/images/blog2025/0623/pagerdutyDash.png)
-![PagerDuty On-Call Schedule](/assets/images/blog2025/0623/pagerdutySchedule.png)
+![SPagerDuty On-Call Schedule](/assets/images/blog2025/0623/pagerdutySchedule.png)
 
 ---
 
 ## Benefits
 
-- **Simple On-Call Setup**  
-  You can build rotating schedules, handle vacations, and automate escalations without spreadsheets.
+- **Structured On-Call Management**  
+  Schedules, escalations, overrides—it all just works. No more spreadsheets or “Did you get that alert?” confusion.
 
-- **Smart Alerting**  
-  Not every alert needs to wake someone up. PagerDuty can help filter the noise.
+- **Smart Alert Routing**  
+  PagerDuty filters out the noise and only alerts you when it matters—based on severity, time of day, or service.
 
-- **Automation-Friendly**  
-  Want to kick off a script, send a Slack update, or open a Jira ticket when an alert hits? Totally doable.
+- **Automation Hooks**  
+  Trigger Rundeck jobs, Slack notifications, or ticket creation automatically based on alert conditions.
 
-- **Easy Communication**  
-  PagerDuty lets you loop in teammates and stakeholders with status updates and incident logs.
+- **Status Pages and Communication**  
+  Keep your stakeholders and internal teams in the loop with built-in status updates and incident timelines.
 
-- **Built-In Learning Tools**  
-  After the smoke clears, you’ve got logs and reports to figure out what happened and how to prevent it.
+- **Postmortem Tools**  
+  Track what happened, how you responded, and how to improve it next time with rich data and audit trails.
 
-- **Great Mobile App**  
-  Acknowledge or escalate alerts right from your phone if you're out and about.
+- **Mobile-Friendly**  
+  The PagerDuty app makes it easy to acknowledge, escalate, or run actions from anywhere, even in the middle of the night.
 
-- **Plays Well With Others**  
-  Integrates with a ton of tools—New Relic, Datadog, AWS, Slack, GitHub, and more.
+- **Tons of Integrations**  
+  Works seamlessly with New Relic, Datadog, Slack, GitHub, AWS CloudWatch, ServiceNow, and many more.
 
-- **You’ll Get Notified**  
-  PagerDuty makes sure alerts find you with push, text, phone, or email.
+- **Reliable Notifications**  
+  Multiple delivery methods—push, SMS, phone call, email—ensure you don’t miss the alert that matters.
 
 ---
 
 ## Drawbacks
 
-- **A Bit Much at First**  
-  There's a learning curve when setting up your schedules, services, and rules.
+- **Can Be Overwhelming at First**  
+  Setting up schedules, escalation policies, and services takes time to learn, especially for new teams. The configuration options are powerful, but there’s a learning curve.
 
-- **Costs Can Sneak Up**  
-  You’ll get the basics for free, but full features mean jumping into a paid plan—especially for teams.
+- **Costs Add Up**  
+  The free tier is limited. If you want full automation, team features, and analytics, you’ll need a paid plan. For larger orgs, the costs can escalate quickly.
 
-- **Too Many Alerts?**  
-  If you're not careful, you'll burn out. You’ll want to fine-tune your alerts and thresholds.
+- **Alert Fatigue is Real**  
+  If not tuned properly, too many alerts can lead to burnout. You’ll want to be intentional about thresholds, deduplication, and suppressions.
 
-- **Interface Overload**  
-  There's a lot going on in the UI, which can feel overwhelming until you get the hang of it.
+- **UI Can Feel Busy**  
+  The interface is powerful but dense. New users might struggle with all the options and configuration panels.
 
-- **Not Ideal for Solo Projects**  
-  If you’re running a personal blog or tiny side project, it might be more tool than you need.
+- **Hard to Justify for Hobby Projects**  
+  If you’re running a personal site or a small internal app, PagerDuty can feel like overkill.
 
 ---
 
 ## Cost
 
-PagerDuty has a free tier for basic alerting and one on-call schedule—great for small teams or testing the waters.
+PagerDuty offers a free plan for small teams or testing, which includes basic alerting and one on-call schedule.
 
-Once you move into automation, analytics, or team workflows, you’ll want the Professional or Business plans. They add the features that make incident response smooth and scalable.
+From there, the pricing tiers expand with features like automation, service tiers, postmortem reports, and advanced integrations. Most SRE teams find value in the Professional or Business plan, especially if you’re managing real on-call rotations and incident workflows.
 
-See [PagerDuty's pricing](https://www.pagerduty.com/pricing) for all the details.
+Check out [PagerDuty's pricing](https://www.pagerduty.com/pricing) for the latest breakdown.
 
 ---
 
 ## Bottom Line
 
-PagerDuty takes the stress out of “what do we do when something breaks?” It gives you structure when you need it most and scales with your team.
+PagerDuty takes the panic out of incident response. Whether you're on your first on-call shift or leading an SRE team, it gives you a plan, a structure, and a way to improve over time.
 
-If you’re serious about uptime and fast incident resolution, PagerDuty is absolutely worth learning.
+If you’re building reliable systems, PagerDuty isn’t optional—it’s essential.
 
-More Git to Know You posts coming soon!
+Stay tuned for the next tool in the **Git to Know You** series!
