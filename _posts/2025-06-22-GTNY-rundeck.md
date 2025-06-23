@@ -33,7 +33,7 @@ At one point, my SRE team was constantly buried in support tickets. Most of them
 So we tried something new.
 
 Our three-person SRE team split the work like this:
-  
+
 Two of us wrote scripts for the most common support requests. Then I took those scripts, turned them into simple Rundeck jobs, and trained the support team on how to use them.
 
 ![Rundeck Job List Example](/assets/images/blog2025/0622/rundeckList.png)
@@ -100,6 +100,8 @@ For businesses that need more advanced features—like single sign-on, better pe
 But if you’re a beginner or a small team, the free version is more than enough to learn and automate useful stuff.
 
 ---
+
+## Bottom Line
 
 If you're just getting into SRE, DevOps, or automation in general, Rundeck is a great way to get hands-on experience with real-world tools. It’s beginner-friendly, highly practical, and honestly one of the easiest ways to make a big difference in team efficiency and response time.
 
