@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#1. Git to Know You: Rundeck"
-date: 2025-06-22
+date: 2025-06-17
 thumbnail: /assets/images/blog2025/0622/rundeckThumb.png
 ---
 
