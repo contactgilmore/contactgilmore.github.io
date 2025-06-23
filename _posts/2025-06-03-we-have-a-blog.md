@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "We have a blog!"
-date: 2025-06-20
+date: 2025-06-03
 thumbnail: /assets/images/blog2025/vaultBoy.png
 categories:
   - Blog
