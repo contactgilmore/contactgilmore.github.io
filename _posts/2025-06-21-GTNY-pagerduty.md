@@ -44,7 +44,7 @@ The best part? My work-life balance improved almost overnight. I could sleep thr
 
 ---
 
-## Screenshots
+## Dashboards
 
 ![PagerDuty Incident Dashboard](/assets/images/blog2025/0623/pagerdutyDash.png)
 ![SPagerDuty On-Call Schedule](/assets/images/blog2025/0623/pagerdutySchedule.png)
