@@ -7,7 +7,7 @@ categories: [sre, incident-response, on-call]
 tags: [pagerduty, on-call, incident-management, reliability]
 ---
 
-**No way this is #3!** Imagine this, an incident occurs, automatically your workflow goes New Relic > Pagerduty > Slack > Rundeck > New Relic > Pagerduty > SRE On-Call > New Relic Dashboard > resolved with an RCA trail.
+**No way this is #3!** Imagine this, an incident occurs, automatically your workflow goes New Relic > Pagerduty > Slack > Jira > Rundeck > New Relic > Pagerduty > SRE On-Call > New Relic Dashboard > resolved with an RCA trail.
 
 **If you’ve been around** production systems long enough, you know this moment: it's 2 AM, your phone buzzes, and something’s on fire. What happens next depends a lot on your tooling—and that’s where **PagerDuty** shines.
 
