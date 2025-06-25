@@ -11,7 +11,7 @@ tags: [terraform, infrastructure-as-code, iac, cloud]
 
 Now that you have a [TOIL](https://sre.google/sre-book/eliminating-toil/) rythm, your team is conducting great root cause analysis (RCA) calls with solid evidence, and you have version control in place... it's time for something you wished you had learned years ago. I promise, if you know any scripting language, it will be a breeze. If you don't, its as easy as HTML / CSS.
 
-If you are wasting time copy-pasting cloud console steps into a README, or worse—clicking through AWS manually every time you spin up a dev environment—it's time to meet Terraform.
+Tired of wasting time copy-pasting cloud console steps into a README, or worse—clicking through AWS manually every time you spin up a dev environment? It's time to meet Terraform. This isn't an ad campaign, it's truth.
 
 This post kicks off a beginner-friendly, technically sound breakdown of Terraform: what it is, why it matters, and how you can start using it like a pro. We'll touch on real-world workflows, advanced patterns like modules and remote state, and compare Terraform with native IaC tools like CloudFormation and Bicep.
 
