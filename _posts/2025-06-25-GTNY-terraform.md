@@ -7,7 +7,11 @@ categories: [sre, infrastructure, devops]
 tags: [terraform, infrastructure-as-code, iac, cloud]
 ---
 
-If you've ever found yourself copy-pasting cloud console steps into a README, or worse—clicking through AWS manually every time you spin up a dev environment—it's time to meet Terraform.
+**This one is big, REALLY big.** With zero sarcasm I can honestly tell you Terraform is mandatory. There is no way around this. Even if it feels like a steep learning curve for your team this is the best thing for you. I would put this #1 on every single list, however I believe there are prerequsites leading up to this point.
+
+Now that you have a [TOIL](https://sre.google/sre-book/eliminating-toil/) rythm, your team is conducting great root cause analysis (RCA) calls with solid evidence, and you have version control in place... it's time for something you wished you had learned years ago. I promise, if you know any scripting language, it will be a breeze. If you don't, its as easy as HTML / CSS.
+
+Wasting time copy-pasting cloud console steps into a README, or worse—clicking through AWS manually every time you spin up a dev environment—it's time to meet Terraform.
 
 This post kicks off a beginner-friendly, technically sound breakdown of Terraform: what it is, why it matters, and how you can start using it like a pro. We'll touch on real-world workflows, advanced patterns like modules and remote state, and compare Terraform with native IaC tools like CloudFormation and Bicep.
 
@@ -117,7 +121,7 @@ Then we adopted Terraform.
 
 We started small—just codifying a single VPC and one EC2 instance. But the impact was immediate. Once we could define infrastructure as code, it unlocked a whole new mindset. Everything was tracked in Git. We could `plan` our changes, review them in pull requests, and collaborate on architecture decisions like we would any other software change.
 
-Our TOIL dropped significantly—by at least 25%. Engineers weren’t wasting time manually clicking through the AWS Console anymore. We had standardized templates, reusable modules, and could spin up or destroy dev environments in minutes. It wasn’t just about saving time. It was about building trust. Everyone on the team could see exactly what the infrastructure looked like, at any given moment.
+Our [TOIL](https://sre.google/sre-book/eliminating-toil/) dropped significantly—by at least 25%. Engineers weren’t wasting time manually clicking through the AWS Console anymore. We had standardized templates, reusable modules, and could spin up or destroy dev environments in minutes. It wasn’t just about saving time. It was about building trust. Everyone on the team could see exactly what the infrastructure looked like, at any given moment.
 
 Best of all, when something went wrong, we didn’t scramble—we opened a PR, reverted the change, and applied. That kind of control turned our infrastructure from a liability into an asset.
 
