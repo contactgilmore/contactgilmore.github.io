@@ -1,52 +1,63 @@
-# Git to Know You – A DevOps & SRE Blog Series
+# Mike Gilmore – Portfolio & SRE/DevOps Blog
 
-Welcome to **Git to Know You**, a practical, beginner-friendly blog series for Site Reliability Engineers, DevOps practitioners, and curious technologists.
+Welcome to my portfolio site: a place where I showcase my work as a **Site Reliability Engineer**, **DevOps practitioner**, and lifelong learner.
 
-Whether you're just starting in tech, switching roles, or leveling up your SRE game, this blog is for you. Every post breaks down a real-world tool—like Terraform, PagerDuty, Rundeck, New Relic, and more—with simple explanations, casual storytelling, and battle-tested examples.
+This site highlights:
+- 🔧 Tools I use and trust
+- 📈 Projects that solve real problems
+- 🧠 Lessons from working across infrastructure, support, and cloud environments
 
-🔗 **Read the blog:** [contactgilmore.github.io](https://contactgilmore.github.io)
-
----
-
-## ✍️ What’s Inside
-
-This site is built with [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages. It includes:
-
-- A series of in-depth blog posts on essential SRE tools
-- Casual walkthroughs with real stories from production environments
-- Markdown-based content with minimal styling for clean readability
-- Custom CSS for typography and layout
+One of the standout features is my ongoing blog series, **[Git to Know You](https://contactgilmore.github.io)**—a beginner-friendly, tool-focused deep dive into the technologies that make up a modern SRE toolkit.
 
 ---
 
-## 📚 Posts in the Series
+## 🌐 Live Site
 
-- **#1 Rundeck** – Automate repetitive tasks and empower your support teams  
-- **#2 New Relic** – Gain full-stack observability and find performance bottlenecks  
-- **#3 PagerDuty** – Build structured on-call and incident response workflows  
-- **#4 Git** – Version control fundamentals for modern infrastructure  
-- **#5 Terraform** – Cloud-agnostic infrastructure as code and collaboration
-
-More coming soon...
+**Visit the portfolio:** [contactgilmore.github.io](https://contactgilmore.github.io)
 
 ---
 
-## 🛠️ Running Locally
+## 📁 What's in This Repo
 
-If you’d like to run or contribute to this site:
+This repository powers my GitHub Pages site and includes:
+
+- My personal portfolio content and homepage (HTML/CSS)
+- Custom stylesheets for typography and layout
+- The full **"Git to Know You"** blog series written in Markdown
+- Minimalist, responsive design with Jekyll as the engine
+
+---
+
+## ✍️ About the Blog
+
+**Git to Know You** is a blog series that blends casual storytelling with technical depth. Each post explores a DevOps or SRE tool with real-world examples, including:
+
+- **Rundeck** – Self-service automation for support and ops
+- **New Relic** – Observability from frontend to infra
+- **PagerDuty** – Structured incident response and on-call hygiene
+- **Git** – Source control practices for infrastructure teams
+- **Terraform** – Cloud-agnostic IaC and Git collaboration
+
+…and more on the way.
+
+---
+
+## 🚀 Getting Started Locally
+
+If you'd like to run the site locally or contribute:
 
 ```bash
-# Install Jekyll if needed
+# Install Jekyll and dependencies
 gem install bundler jekyll
 
-# Clone this repo
+# Clone the repo
 git clone https://github.com/yourusername/contactgilmore.github.io.git
 cd contactgilmore.github.io
 
-# Install dependencies
+# Install gems
 bundle install
 
-# Start the local server
+# Run it
 bundle exec jekyll serve
 
-# Visit http://localhost:4000
+# Open your browser to http://localhost:4000
