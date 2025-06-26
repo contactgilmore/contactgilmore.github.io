@@ -169,4 +169,4 @@ If you manage infrastructure and want to scale your systems (and sanity), Terraf
 
 ---
 
-*Next in the Git to Know You series: Kubernetes.*
+*Next in the Git to Know You series: GitHub Actions.*
