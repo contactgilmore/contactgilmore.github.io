@@ -10,7 +10,7 @@ tags: [terraform, infrastructure-as-code, iac, cloud]
 **This one’s a big deal. No exaggeration.**  
 No sarcasm—Terraform is a must-have. It’s hard to overstate how critical this tool is. Even if it feels like a steep learning curve at first, adopting Terraform is one of the smartest moves your team can make. I’d rank it #1 on any infrastructure list—but it helps to hit a few key milestones first.
 
-Once your team has tackled [TOIL](https://sre.google/sre-book/eliminating-toil/), is running solid root cause analysis (RCA) calls with real evidence, and has version control locked in—you’re ready to learn the tool you’ll wish you’d started with. If you’ve ever touched HTML or CSS, you’ll be fine. If you’ve written any code, this will feel like home. I promise, if you know any scripting language, it will be a breeze. If you don't, its as easy as HTML / CSS.
+Once your team has tackled [TOIL](https://sre.google/sre-book/eliminating-toil/), is running solid root cause analysis (RCA) calls with real evidence, and has version control locked in—you’re ready to learn the tool you’ll wish you’d started with. If you’ve ever touched HTML or CSS, you’ll be fine. If you’ve written any code, this will feel like home. I promise, if you know any scripting language, it will be a breeze.
 
 Tired of wasting time copy-pasting cloud console steps into a README, or worse—clicking through AWS manually every time you spin up a dev environment? It's time to meet Terraform. This isn't an ad campaign, it's truth.
 
