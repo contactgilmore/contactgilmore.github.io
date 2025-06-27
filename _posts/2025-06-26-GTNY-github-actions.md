@@ -14,8 +14,9 @@ This is where things start to feel like real DevOps. You push a commit and thing
 
 ---
 
-> **Disclaimer:**  
-> This blog is always written with beginners in mind. If you’re getting into DevOps, SRE, or cloud engineering and don’t know where to start—you’re exactly who this is for. No gatekeeping. No ego. Just straight talk, real tools, and lessons from the trenches.
+>
+> **Disclaimer:  
+> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I'm not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner-friendly. Whether you're switching roles, just getting started in tech, or exploring SRE for the first time—welcome! This is the stuff I wish I had been told.**
 >
 
 ---

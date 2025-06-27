@@ -13,10 +13,10 @@ It’s kind of like setting up a vending machine for your computer jobs. You pic
 
 ---
 
-> 
+>
 > **Disclaimer:  
 > Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I'm not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner-friendly. Whether you're switching roles, just getting started in tech, or exploring SRE for the first time—welcome! This is the stuff I wish I had been told.**
-> 
+>
 
 ---
 

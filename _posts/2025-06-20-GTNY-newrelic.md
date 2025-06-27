@@ -27,8 +27,9 @@ And no, you don’t have to be a senior engineer to get value from it. Even begi
 
 ---
 
+>
 > **Disclaimer:  
-> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I’m not here to throw jargon at you or assume you know it all. The goal is to keep it practical, simple, and clear. Whether you're switching roles, starting your tech journey, or just SRE-curious—welcome. This is the stuff I wish someone explained to me.**
+> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I'm not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner-friendly. Whether you're switching roles, just getting started in tech, or exploring SRE for the first time—welcome! This is the stuff I wish I had been told.**
 >
 
 ---

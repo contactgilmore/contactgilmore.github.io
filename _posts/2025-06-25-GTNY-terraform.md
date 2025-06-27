@@ -18,6 +18,13 @@ This post kicks off a beginner-friendly, technically sound breakdown of Terrafor
 
 ---
 
+>
+> **Disclaimer:  
+> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I'm not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner-friendly. Whether you're switching roles, just getting started in tech, or exploring SRE for the first time—welcome! This is the stuff I wish I had been told.**
+>
+
+---
+
 ## What is Terraform?
 
 Terraform is an open-source tool by HashiCorp for managing infrastructure as code. Using its domain-specific language, HCL (HashiCorp Configuration Language), you define what your infrastructure should look like. Then Terraform builds it, updates it, and tears it down.
