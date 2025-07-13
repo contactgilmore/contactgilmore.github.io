@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#3. Git to Know You: PagerDuty"
-date: 2025-06-21
+date: 2025-07-01
 thumbnail: /assets/images/blog2025/0623/pagerdutyThumb.png
 categories: [sre, incident-response, on-call]
 tags: [pagerduty, on-call, incident-management, reliability]
