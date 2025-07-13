@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#2. Git to Know You: New Relic"
-date: 2025-06-20
+date: 2025-06-24
 thumbnail: /assets/images/blog2025/0622/newRelicThumb.png
 categories: [sre, observability, monitoring]
 tags: [new relic, monitoring, apm, logs]

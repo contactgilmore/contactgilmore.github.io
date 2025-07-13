@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#5. Git to Know You: Terraform"
-date: 2025-06-25
+date: 2025-07-01
 thumbnail: /assets/images/blog2025/0625/terraformThumb.png
 categories: [sre, infrastructure, devops]
 tags: [terraform, infrastructure-as-code, iac, cloud]
