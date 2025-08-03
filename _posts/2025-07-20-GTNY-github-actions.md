@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#6. Git to Know You: GitHub Actions"
-date: 2025-07-13
+date: 2025-07-20
 thumbnail: /assets/images/blog2025/0626/githubActionsThumb.png
 categories: [sre, automation, ci-cd]
 tags: [github actions, ci/cd, workflows, automation, devops]
