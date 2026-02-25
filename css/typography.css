@@ -30,8 +30,8 @@ body {
 .body-text {
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.7;
-  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
 }
 
 .project-card-text {
@@ -49,11 +49,3 @@ body {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-.body-text {
-  line-height: 1.6;
-}
-
-/* .blog-post-content .body-text {
-  font-size: 18px;
-  line-height: 1.7;
-} */
