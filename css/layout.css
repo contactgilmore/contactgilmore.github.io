@@ -268,3 +268,28 @@ body {
   height: auto;
   display: block;
 }
+
+/* Blog post centering hard-fix */
+.blog-post,
+.blog-nav-links,
+.blog-post-content {
+  max-width: 960px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* If .blog-post is currently flex, this keeps it from drifting */
+.blog-post {
+  display: block;
+  padding: 0 20px;
+  margin-top: 120px; /* keep your existing spacing */
+}
+
+/* Optional: keep large header images centered too */
+.blog-post-content img,
+.blog-thumbnail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
