@@ -2,7 +2,7 @@
 layout: post
 title: "#7. Git to Know You: Cursor"
 date: 2026-02-25
-thumbnail: /assets/images/blog2026/022026/cursorlogo.png
+thumbnail: /assets/images/blog2026/022026/cursorlogo2.png
 categories: [sre, devops, ai]
 tags: [cursor, ai, productivity, infrastructure-as-code]
 ---
