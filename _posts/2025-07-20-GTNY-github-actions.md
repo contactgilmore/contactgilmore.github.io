@@ -8,9 +8,9 @@ tags: [github actions, ci/cd, workflows, automation, devops]
 ---
 
 **It’s automation time.**  
-You’ve learned Git, committed your first `.tf` file, maybe even dabbled in observability tooling. Now you’re staring at your repository and thinking, *"Wouldn’t it be cool if I didn’t have to manually build or deploy anything ever again?"* Enter GitHub Actions—a native CI/CD system that lets you connect events in your repo (like a push, PR, or release) to actual workflows that build, test, and ship your code automatically.
+You’ve learned Git, committed your first `.tf` file, maybe even dabbled in observability tooling. Now you’re staring at your repository and thinking, *"Wouldn’t it be cool if I didn’t have to manually build or deploy anything ever again?"* Enter GitHub Actions. A native CI/CD system that lets you connect events in your repo (like a push, PR, or release) to actual workflows that build, test, and ship your code automatically.
 
-This is where things start to feel like real DevOps. You push a commit and things just *happen*. Your tests run. Your infrastructure updates. Your app gets deployed. It feels like magic—but it's not. It's GitHub Actions.
+This is where things start to feel like real DevOps. You push a commit and things just *happen*. Your tests run. Your infrastructure updates. Your app gets deployed. It feels like magic but it's not. It's GitHub Actions.
 
 ---
 
@@ -23,7 +23,7 @@ This is where things start to feel like real DevOps. You push a commit and thing
 
 ## What Is GitHub Actions?
 
-GitHub Actions is a **CI/CD platform built into GitHub**. It lets you **automate workflows**—like testing code, deploying applications, building Docker containers, or even posting in Slack—whenever something happens in your repository.
+GitHub Actions is a **CI/CD platform built into GitHub**. It lets you **automate workflows** like testing code, deploying applications, building Docker containers, or even posting in Slack. Whenever something happens in your repository.
 
 Think of it like this:  
 🧠 “When something happens in GitHub → run one or more jobs automatically.”
@@ -39,7 +39,7 @@ GitHub Actions gives you automation without needing to leave your GitHub workflo
 
 ## Why GitHub Actions?
 
-There are a lot of CI/CD options—Jenkins, GitLab CI, CircleCI, Travis, ArgoCD, and more. But GitHub Actions has some serious advantages:
+There are a lot of CI/CD options: Jenkins, GitLab CI, CircleCI, Travis, ArgoCD, and more. But GitHub Actions has some serious advantages:
 
 - **Built-In Integration**  
   It’s already part of GitHub. No separate UI, account, or API needed.
@@ -48,7 +48,7 @@ There are a lot of CI/CD options—Jenkins, GitLab CI, CircleCI, Travis, ArgoCD,
   If you’ve used Terraform or Kubernetes, the syntax will feel familiar.
 
 - **Highly Event-Driven**  
-  Over 30 supported trigger events—from pushes and pull requests to issues and releases.
+  Over 30 supported trigger events, from pushes and pull requests to issues and releases.
 
 - **Massive Marketplace**  
   Thousands of pre-built actions you can drop into any workflow.
@@ -97,7 +97,7 @@ jobs:
         run: npm run deploy
 ```
 
-This small file lives in `.github/workflows` and becomes your new deployment script—fully automated, versioned, and repeatable.
+This small file lives in `.github/workflows` and becomes your new deployment script. It is fully automated, versioned, and repeatable.
 
 ---
 
@@ -107,11 +107,11 @@ Before GitHub Actions, our deployments were tedious and fragile. We built our ap
 
 As we moved toward microservices and containers, it became obvious that this wouldn’t scale. So we started using Git the right way: every change lived in a branch, every update had a pull request, and every merge had a peer review.
 
-GitHub Actions connected the rest of the dots. Now when we merge a PR, GitHub Actions runs a pipeline that builds, tests, and deploys our changes. It’s consistent. It’s fast. And if something goes wrong? We revert the PR and everything is back to the previous working state—no guesswork, no SSHing into servers.
+GitHub Actions connected the rest of the dots. Now when we merge a PR, GitHub Actions runs a pipeline that builds, tests, and deploys our changes. It’s consistent. It’s fast. And if something goes wrong? We revert the PR and everything is back to the previous working state. No guesswork, no SSHing into servers.
 
 This wasn’t just for apps either. Our infrastructure runs through GitHub Actions too. Terraform format, validate, plan, and apply are all part of our CI/CD flow. Our secrets live safely in a provider like Terraform Cloud, and GitHub Actions references those securely without ever exposing credentials.
 
-By the time we finished implementing it across teams, we had eliminated at least 25% of our [TOIL](https://sre.google/sre-book/eliminating-toil/)—no more babysitting deployments or fixing broken scripts in the middle of the night.
+By the time we finished implementing it across teams, we had eliminated at least 25% of our [TOIL](https://sre.google/sre-book/eliminating-toil/). No more babysitting deployments or fixing broken scripts in the middle of the night.
 
 ---
 
@@ -166,10 +166,10 @@ Need more power? You can always run your own **self-hosted runners** on-prem or 
 
 ## Bottom Line
 
-GitHub Actions brings real automation to your development workflow. From app builds to infrastructure as code, you can trigger anything—securely, automatically, and repeatably. It’s fast to learn, easy to scale, and powerful enough for teams of any size.
+GitHub Actions brings real automation to your development workflow. From app builds to infrastructure as code, you can trigger anything securely, automatically, and repeatably. It’s fast to learn, easy to scale, and powerful enough for teams of any size.
 
 It’s not just “nice to have.” It’s your next step toward reducing [TOIL](https://sre.google/sre-book/eliminating-toil/) and making your work smoother, faster, and more fun.
 
-Start with one workflow file—and watch your entire release process transform.
+Start with one workflow file and watch your entire release process transform.
 
 Stay tuned for the next post in the **Git to Know You** series.
