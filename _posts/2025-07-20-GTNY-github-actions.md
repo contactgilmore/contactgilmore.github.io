@@ -29,6 +29,7 @@ Think of it like this:
 🧠 “When something happens in GitHub → run one or more jobs automatically.”
 
 A few examples:
+
 - Push code to `main`? ✅ Run tests and deploy to staging.
 - Open a pull request? ✅ Lint the code and post results in the PR.
 - Merge to production? ✅ Deploy the app, notify the team, bump a version number.

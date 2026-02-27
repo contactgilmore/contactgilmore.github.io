@@ -5,7 +5,7 @@ date: 2025-06-17
 thumbnail: /assets/images/blog2025/0622/rundeckThumb.png
 ---
 
-**Why start at** #10 on the top 10 list of Site Reliability Engineering (SRE) tools? SRE is all about reducing <a href="https://sre.google/sre-book/eliminating-toil/">TOIL</a>. That means repeatable work that wastes your time, experience, and talent. You know that client-facing support team you love, but in reality they operate like a call center? Teach them Rundeck, guide them through it at first, then let them take ownership. You might be surprised what your teams can accomplish when you simply give them the opportunity.
+**Why start at** #10 on the top 10 list of Site Reliability Engineering (SRE) tools? SRE is all about reducing [TOIL](https://sre.google/sre-book/eliminating-toil/). That means repeatable work that wastes your time, experience, and talent. You know that client-facing support team you love, but in reality they operate like a call center? Teach them Rundeck, guide them through it at first, then let them take ownership. You might be surprised what your teams can accomplish when you simply give them the opportunity.
 
 If you're getting into SRE or just curious about how tech teams keep systems running smoothly, you'll want to know about **Rundeck**. It is a tool that helps people automate common tasks. Instead of typing the same commands every day, you can press a button and let Rundeck handle it for you.
 

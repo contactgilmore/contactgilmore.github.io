@@ -11,9 +11,9 @@ tags: [new relic, monitoring, apm, logs]
 
 Here is the real progression for most SREs:
 
-1. We do everything we can to eliminate <a href="https://sre.google/sre-book/eliminating-toil/">TOIL</a>.
+1. We do everything we can to eliminate [TOIL](https://sre.google/sre-book/eliminating-toil/).
 2. We hate incidents.
-3. We cannot focus on reducing incidents if we are buried in <a href="https://sre.google/sre-book/eliminating-toil/">TOIL</a>.
+3. We cannot focus on reducing incidents if we are buried in [TOIL](https://sre.google/sre-book/eliminating-toil/).
 
 First, admit the problem. Then focus on what matters. Then engineer and automate everything once you have the time to do it. We work across multiple teams and often sit in the middle of them. We just enabled our support team with Rundeck. Now it is time to get visibility into what is happening in our own systems.
 

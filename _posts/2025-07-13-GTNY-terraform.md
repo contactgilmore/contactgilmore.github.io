@@ -33,6 +33,7 @@ Terraform is an open-source tool by HashiCorp for managing infrastructure as cod
 Instead of manually launching EC2 instances or setting up IAM roles, you define them in `.tf` files. These configurations are versionable, reviewable, and reusable.
 
 ### Example
+
 ```hcl
 resource "aws_instance" "web" {
   ami           = "ami-0c55b159cbfafe1f0"
@@ -59,13 +60,13 @@ Terraform shines in a few key areas:
 Compared to AWS CloudFormation and Azure Bicep, Terraform:
 
 | Feature               | Terraform         | CloudFormation       | Bicep          |
-|-----------------------|-------------------|------------------------|----------------|
-| Multi-cloud support   | ✓ Yes             | x No                  | x No           |
-| Language              | HCL (custom)      | JSON/YAML             | Bicep DSL      |
-| Reusability/Modules   | ✓ Strong          | ~ Limited             | ✓ Moderate     |
-| Ecosystem             | Huge              | AWS only              | Azure only     |
-| Community Modules     | ✓ Available       | x None                | ~ Growing      |
-| State Management      | ✓ Built-in        | ✓ With StackSets       | ✓ Native       |
+|-----------------------|-------------------|----------------------|----------------|
+| Multi-cloud support   | ✓ Yes             | x No                 | x No           |
+| Language              | HCL (custom)      | JSON/YAML            | Bicep DSL      |
+| Reusability/Modules   | ✓ Strong          | ~ Limited            | ✓ Moderate     |
+| Ecosystem             | Huge              | AWS only             | Azure only     |
+| Community Modules     | ✓ Available       | x None               | ~ Growing      |
+| State Management      | ✓ Built-in        | ✓ With StackSets     | ✓ Native       |
 
 ---
 
@@ -74,12 +75,15 @@ Compared to AWS CloudFormation and Azure Bicep, Terraform:
 A basic Terraform lifecycle looks like this:
 
 ### `terraform fmt`
+
 Formats your code to standard HCL style.
 
 ### `terraform validate`
+
 Checks that your code is syntactically valid.
 
 ### `terraform plan`
+
 Generates an execution plan so you know what will happen before you run it.
 
 ```bash
@@ -87,6 +91,7 @@ terraform plan -out=tfplan.out
 ```
 
 ### `terraform apply`
+
 Executes the changes in your infrastructure.
 
 ```bash
@@ -94,6 +99,7 @@ terraform apply tfplan.out
 ```
 
 ### `terraform destroy`
+
 Tears down your infrastructure when you're done.
 
 This declarative workflow means safer, more predictable deployments. Combine it with GitHub Actions or Atlantis, and you've got full GitOps infrastructure pipelines.
@@ -111,14 +117,13 @@ It’s essentially Terraform’s official documentation and module hub. You’ll
 - **Prebuilt modules**: reusable chunks of infrastructure code you can plug and play.
 - **Versioning**: pin the exact version of a module or provider you want to use.
 
-## AWS S3 Bucket Resource - registry.terraform.io:
+## AWS S3 Bucket Resource - registry.terraform.io
 >
 > ![Terraform Registry S3 Example](/assets/images/blog2025/0625/terraformRegistrySS.png)
 
 The registry allows teams to write less and reuse more. Want to create a VPC with subnets and NAT gateways? Someone's probably built a module for that already.
 
 ---
-
 
 ## A Real Story: How Terraform Helped My Team
 
@@ -134,7 +139,6 @@ Our [TOIL](https://sre.google/sre-book/eliminating-toil/) dropped significantly,
 
 Best of all, when something went wrong, we did not panic. We opened a pull request, reverted the change, and applied it. That level of control turned our infrastructure from a liability into a reliable asset.
 
-
 ---
 
 ## Reusability and Git Collaboration
@@ -142,6 +146,7 @@ Best of all, when something went wrong, we did not panic. We opened a pull reque
 Terraform modules allow you to define reusable infrastructure components. Want a consistent VPC setup across dev, staging, and prod? Make a module.
 
 Example usage:
+
 ```hcl
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
@@ -160,6 +165,7 @@ Modules can be local or pulled from the Terraform Registry. By using Git for all
 ## Drawbacks
 
 Terraform isn’t perfect:
+
 - **State management requires care**. Use remote backends (S3 + DynamoDB) for team collaboration.
 - **Error messages can be cryptic**, especially with modules.
 - **Drift detection isn't automatic**. You must `plan` often.
