@@ -201,19 +201,21 @@ title: Home
     <!-- PROJECTS / MY WORK SECTION -->
     <div id="my-work-section">
       <div class="section-header">
-        <span class="main-title">Example Personal Projects</span>
+        <span class="main-title">Example Projects</span>
       </div>
 
       <div class="projects-container">
+
         <div class="project-card">
           <img src="{{ site.baseurl }}/assets/images/Azure_Terraform_062025.png" class="project-image"
             alt="Azure Terraform project thumbnail" />
           <div class="project-card-text-container">
-            <div class="subheader-text project-title">Azure - Basic Infrastructure (Terraform)</div>
+            <div class="subheader-text project-title">
+              Azure - Basic Infrastructure (Terraform)
+            </div>
             <div class="body-text project-card-text">
-              This is an infrastructure-as-code deployment showing Terraform capabilities within Azure Cloud. It's not
-              too complex,
-              but it does show how subscription-level configurations are handled in code. README explains.
+              This is an infrastructure-as-code deployment showing subscription-level configurations with Terraform
+              capabilities and Azure Cloud.
             </div>
           </div>
           <a class="button" href="https://github.com/contactgilmore/azure-basic">
@@ -221,44 +223,61 @@ title: Home
             <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" alt="" />
           </a>
         </div>
-      </div>
-    </div>
 
-    <!-- BLOG -->
-    <div id="my-blog-section">
-      <div class="section-header">
-        <span class="main-title">Blog</span>
-      </div>
-
-      <div class="projects-container">
-        {% for post in site.posts %}
         <div class="project-card">
-          <img src="{{ post.thumbnail }}" class="project-image" alt="Blog thumbnail" />
+          <img src="{{ site.baseurl }}/assets/images/blog2026/022026/new-relic-loop-thumb.png" class="project-image"
+            alt="Azure Terraform project thumbnail" />
           <div class="project-card-text-container">
-            <div class="subheader-text project-title">{{ post.title }}</div>
-            <div class="body-text project-card-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+            <div class="subheader-text project-title">
+              New Relic - Looped Tagging (PowerShell)
+            </div>
+            <div class="body-text project-card-text">
+              Utilizes New Relic's REST API to automate the tagging of synthetic monitors.
+            </div>
           </div>
-          <a class="button" href="{{ post.url }}">
+          <a class="button" href="https://github.com/contactgilmore/new-relic-loop">
             <span class="button-text">Read More</span>
             <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" alt="" />
           </a>
         </div>
-        {% endfor %}
+
       </div>
+<P></P>
+      <!-- BLOG -->
+      <div id="my-blog-section">
+        <div class="section-header">
+          <span class="main-title">Blog</span>
+        </div>
+
+        <div class="projects-container">
+          {% for post in site.posts %}
+          <div class="project-card">
+            <img src="{{ post.thumbnail }}" class="project-image" alt="Blog thumbnail" />
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">{{ post.title }}</div>
+              <div class="body-text project-card-text">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+            </div>
+            <a class="button" href="{{ post.url }}">
+              <span class="button-text">Read More</span>
+              <img src="./assets/icons/arrow-right.svg" class="right-arrow-icon" alt="" />
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
     </div>
 
-  </div>
+    <!-- FOOTER -->
+    <div id="footer">
+      <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/contactgilmore/">
+        <img src="./assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn" />
+      </a>
 
-  <!-- FOOTER -->
-  <div id="footer">
-    <a class="icon-link" target="_blank" href="https://www.linkedin.com/in/contactgilmore/">
-      <img src="./assets/icons/linkedin.svg" class="footer-icon" alt="LinkedIn" />
-    </a>
-
-    <a class="icon-link" href="https://www.linkedin.com/in/contactgilmore/">
-      <img src="./assets/icons/mail.svg" class="footer-icon" alt="Email" />
-    </a>
-  </div>
+      <a class="icon-link" href="https://www.linkedin.com/in/contactgilmore/">
+        <img src="./assets/icons/mail.svg" class="footer-icon" alt="Email" />
+      </a>
+    </div>
 </body>
 
 </html>
