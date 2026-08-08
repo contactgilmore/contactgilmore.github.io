@@ -5,6 +5,7 @@ const pages = [
   { path: '/work/', name: 'work' },
   { path: '/work/implementation-delivery/', name: 'implementation-case' },
   { path: '/work/reliability-remediation/', name: 'reliability-case' },
+  { path: '/work/operating-model/', name: 'operating-model-case' },
   { path: '/blog/', name: 'writing' },
   { path: '/about/', name: 'about' },
   { path: '/resume/', name: 'resume' },
