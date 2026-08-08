@@ -9,14 +9,22 @@ Historical sprint note:
 
 `docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
-Production authority:
+Current production authority:
 
 ```text
 production branch: main
+current production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
+current release: Git to Know You #8 — Kubernetes
+automatic Pages deployment run: 31284483589
+result: SUCCESS
+```
+
+Historical release anchors:
+
+```text
 P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
 release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
-automatic Pages deployment run: 31280952066
-result: SUCCESS
+first automatic Pages deployment run: 31280952066
 ```
 
 Current release model:
@@ -29,6 +37,7 @@ bounded branch
 -> merge to main = human production authorization
 -> push to main automatically builds and deploys GitHub Pages
 -> post-deploy verification
+-> living-state closeout
 ```
 
 `workflow_dispatch` remains available only as an operational fallback; it is no longer the normal release step.
@@ -37,14 +46,19 @@ bounded branch
 
 Do not manufacture a sprint merely because the repository is active. Open a bounded sprint only when there is a concrete multi-file outcome, publication batch, redesign, migration, or other material change.
 
-Directional backlog includes:
+Git to Know You #8 — Kubernetes is published and deployed. Directional backlog now begins with:
 
-- Git to Know You #8 — Kubernetes;
 - Git to Know You #9 — OpenTelemetry;
 - Git to Know You #10 — Argo CD / GitOps;
 - homepage hero typography review at MacBook-class viewports;
 - possible future Cloud Foundations and AI/engineering-workflow writing series;
 - periodic portfolio/content maintenance as evidence warrants.
+
+## Owner/local smoke posture
+
+Owner smoke-test command blocks must begin with `cd`, synchronize the candidate with fetch/switch/`git pull --ff-only`, protect tracked local edits, and reuse the established shared Playwright environment documented in the GPT guardrails/editorial workflow.
+
+Date-only editorial metadata must render consistently across machine timezones; do not change source publication dates to compensate for local rendering behavior.
 
 ## Public-repository rule
 
