@@ -106,6 +106,8 @@ Original publication dates are immutable historical facts. A materially revised 
 updated: YYYY-MM-DD
 ```
 
+Date-only frontmatter values represent calendar dates, not local instants. Render human-facing publication/update dates with an explicit UTC timezone so a local build in a negative UTC offset does not shift the displayed calendar date backward. Do not "fix" a rendering shift by changing the source publication date.
+
 Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
 
 ```yaml
