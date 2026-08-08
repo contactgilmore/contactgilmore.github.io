@@ -1,26 +1,30 @@
 # Sprint P2 — Professional Positioning and Information Architecture
 
 Opened: 2026-08-08  
-Status: OPEN  
+Status: OPEN — OWNER POSITIONING GATE  
 Owner: Mike Gilmore  
 Project manager/executor: GPT  
 Working branch: `portfolio-2.0-foundation`
 
 ## Thesis
 
-Turn the Astro migration foundation into a professional portfolio structure that communicates Mike's value quickly, prioritizes evidence over skill lists, preserves the technical blog as proof of communication ability, and gives recruiters, hiring managers, and technical leaders clear paths to evaluate his work.
+Turn the validated Astro migration foundation into a professional portfolio structure that communicates Mike's value quickly, prioritizes evidence over skill lists, preserves technical writing as proof of communication ability, and gives recruiters, hiring managers, and technical leaders clear paths to evaluate his work.
 
 ## Public-disclosure boundary
 
-This entire sprint is designed for a public repository. Do not record private applications, interview details, compensation, private correspondence, home/private infrastructure details, health/financial information, or confidential employer/customer information.
+This sprint is designed for a public repository. Do not record private applications, interview details, compensation, private correspondence, home/private infrastructure details, health/financial information, or confidential employer/customer information.
 
 Professional case studies must be sanitized and must not expose proprietary systems, customer identities, credentials, internal URLs, sensitive datasets, or unpublished business information.
 
-## Positioning direction to test
+## Recommended positioning
 
-The site should move away from presenting multiple competing identities such as SRE, cloud architect, sales engineer, and support leader simultaneously.
+Primary umbrella:
 
-The working direction is a customer-facing technical delivery identity spanning role families such as:
+```text
+Technical Delivery & Customer Solutions
+```
+
+Supporting role territory:
 
 ```text
 Implementation / Professional Services
@@ -29,79 +33,123 @@ Solutions / Customer Engineering
 Technical Program or Systems Delivery
 ```
 
-Technical depth remains supporting evidence through SaaS integrations, APIs, SQL, cloud, automation, observability, troubleshooting, and technical writing.
-
-Final public wording remains an owner gate.
-
-## Proposed visitor model
-
-Primary visitors:
-
-1. recruiter or talent partner performing a fast credibility scan;
-2. hiring manager evaluating role fit and seniority;
-3. technical interviewer/leader looking for evidence of systems thinking and technical depth;
-4. professional peer or reader arriving through a blog article or GitHub project.
-
-The homepage should answer quickly:
+Supporting technical credibility:
 
 ```text
-Who is Mike?
-What kind of problems does he solve?
-What evidence supports that claim?
-What should I look at next?
-How do I contact or evaluate him further?
+SaaS integrations
+REST APIs and authentication
+SQL/data troubleshooting
+cloud and automation
+observability and reliability
+technical documentation/writing
 ```
 
-## Work-package queue
+Three proof pillars:
+
+```text
+Implementation & Technical Delivery
+Integrations & Troubleshooting
+Customer & Stakeholder Leadership
+```
+
+Cloud/SRE depth supports the main identity instead of competing with it in the hero.
+
+## Work-package results
 
 ### P2-WP1 — Professional portfolio benchmark and visitor decision model
-Status: IN PROGRESS
+Status: COMPLETE
 
-Research current professional portfolio, content-design, accessibility, and technical-personal-site patterns. Distill only patterns that improve credibility, scanning, proof, and navigation.
+Reviewed current Linear, Stripe, and Vercel homepages as hierarchy/evidence references, plus WCAG 2.2 and web.dev guidance for semantics, typography, navigation, responsiveness, and interaction.
 
-Acceptance: documented benchmark principles and visitor decision model that can drive the homepage without copying another site's visual identity.
+Accepted transferable pattern:
+
+```text
+one concise promise
+-> grouped proof
+-> concrete examples/evidence
+-> deeper detail
+-> clear next action
+```
+
+Portfolio adaptation:
+
+```text
+one coherent professional identity
+-> value/problem framing
+-> professional proof
+-> selected work
+-> supporting technical depth and writing
+-> clear evaluation/contact paths
+```
 
 ### P2-WP2 — Positioning hierarchy and message architecture
-Status: QUEUED
+Status: COMPLETE — PENDING OWNER ACCEPTANCE
 
-Define headline hierarchy, value proposition, proof categories, technical-depth role, and what should be removed or demoted from the existing homepage.
-
-Acceptance: one recommended positioning architecture plus bounded alternatives where an owner decision is needed.
+Recommended one coherent umbrella rather than the current competing Cloud Architect / SRE / Sales Engineering / Support identities. Detailed message hierarchy is recorded in `docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md`.
 
 ### P2-WP3 — Site information architecture
-Status: QUEUED
+Status: COMPLETE — PENDING OWNER ACCEPTANCE
 
-Define navigation and page responsibilities for Home, Work/Case Studies, Technical Projects, Writing, About, and contact/resume paths.
+Recommended top-level structure:
 
-Acceptance: every major content type has one clear home and the homepage no longer acts as the full archive.
+```text
+Home
+Work
+Writing
+About
+Resume
+```
+
+Technical Projects is deliberately demoted from top-level navigation and becomes supporting evidence under Work/homepage.
 
 ### P2-WP4 — Case-study and proof framework
-Status: QUEUED
+Status: COMPLETE
 
-Create a reusable sanitized case-study structure emphasizing problem, role, constraints, approach, collaboration, technologies, decisions, and outcomes/lessons. Identify which existing public projects remain technical-lab evidence rather than primary senior-level case studies.
+A public-safe reusable case-study contract is recorded in `docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md` with strict truth/confidentiality gates and no requirement for fabricated metrics.
 
-Acceptance: case-study schema is useful without exposing confidential information or inventing outcomes.
+Candidate evidence lanes remain:
+
+1. SaaS integration and API troubleshooting;
+2. customer implementation and technical delivery;
+3. reliability / operational improvement.
 
 ### P2-WP5 — Homepage content blueprint
-Status: QUEUED
+Status: COMPLETE — PENDING OWNER ACCEPTANCE
 
-Produce the section-by-section homepage content blueprint, including hero, proof pillars, selected case studies, technical projects, featured writing, experience summary, about, and contact CTA.
+Recommended sequence:
 
-Acceptance: content density and sequence support both fast scanning and deeper exploration.
+```text
+Hero
+Proof pillars
+Selected professional work
+Technical depth
+Featured writing
+Experience snapshot
+About/contact CTA
+```
+
+Detailed density and section contracts are recorded in `docs/product/contactgilmore-portfolio/02_CONTENT_AND_INFORMATION_ARCHITECTURE.md`.
 
 ### P2-WP6 — Owner positioning gate and implementation handoff
-Status: QUEUED
+Status: IN PROGRESS
 
-Present recommended public identity and homepage architecture to Mike for acceptance, record decisions, and prepare the visual-design/implementation sprint.
+Owner decisions requested:
 
-Acceptance: final positioning direction and information architecture are explicitly accepted before they become polished public copy.
+1. accept `Technical Delivery & Customer Solutions` as the primary positioning umbrella;
+2. accept the three proof pillars;
+3. accept the reduced navigation with Technical Projects demoted beneath Work;
+4. accept the homepage section sequence;
+5. authorize the next sprint to implement the accepted architecture and visual system in Astro on the working branch.
+
+## Visual constraints already established
+
+The visual direction is restrained modern B2B/technical rather than developer-portfolio themed. Hard standards include responsive centered layout, readable line lengths, semantic landmarks/headings, WCAG 2.2 AA contrast where applicable, visible focus, adequate pointer targets, restrained motion, case studies outranking labs, and no skill meters/logo walls/cyberpunk gimmicks.
 
 ## Non-goals
 
 - production deployment;
 - private job-search tracking;
 - fabricated metrics or customer outcomes;
-- final visual styling implementation;
 - rewriting historical blog bodies;
 - adding frontend frameworks for aesthetic reasons.
 
@@ -109,7 +157,11 @@ Acceptance: final positioning direction and information architecture are explici
 
 - every recommendation maps to a visitor need or evidence function;
 - public-safety review;
-- no confidential or private career details enter tracked documentation;
+- no confidential/private career details in tracked documentation;
 - no unsupported claims or invented metrics;
-- information architecture remains usable on desktop and mobile;
+- information architecture works as one semantic order on desktop/mobile;
 - final positioning remains Mike's decision.
+
+## Checkpoint 2026-08-08 — Ready for owner gate
+
+Benchmark, positioning architecture, information architecture, case-study contract, homepage blueprint, and visual hard standards are now documented. No polished production copy or redesign implementation should be treated as final until Mike accepts the positioning gate.

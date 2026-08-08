@@ -1,41 +1,45 @@
 # Active Sprint
 
 Sprint: **P2 — Professional Positioning and Information Architecture**  
-Status: OPEN  
+Status: OPEN — OWNER POSITIONING GATE  
 Opened: 2026-08-08  
 Branch: `portfolio-2.0-foundation`
 
-Current work package: **P2-WP1 — Professional portfolio benchmark and visitor decision model**
+Current work package: **P2-WP6 — Owner positioning gate and implementation handoff**
 
 Sprint note: `docs/sprint_notes/SPRINT_P2_POSITIONING_AND_INFORMATION_ARCHITECTURE_2026-08-08.md`
 
-Completed predecessor sprint:
+Completed work packages:
 
 ```text
-P1 — Portfolio 2.0 Foundation and Astro Migration
+P2-WP1 — Professional portfolio benchmark and visitor decision model
+P2-WP2 — Positioning hierarchy and message architecture
+P2-WP3 — Site information architecture
+P2-WP4 — Case-study and proof framework
+P2-WP5 — Homepage content blueprint
+```
+
+Recommended owner decisions:
+
+```text
+Primary umbrella: Technical Delivery & Customer Solutions
+Proof pillars:
+  - Implementation & Technical Delivery
+  - Integrations & Troubleshooting
+  - Customer & Stakeholder Leadership
+Top nav: Home / Work / Writing / About / Resume
+Technical Projects: supporting evidence beneath Work, not peer navigation
+Homepage: Hero -> Proof -> Selected Work -> Technical Depth -> Featured Writing -> Experience -> About/Contact
 ```
 
 Protected boundaries:
 
 ```text
 main production branch
-nine historical blog article bodies
-legacy article URLs including case
-published blog assets
+historical blog article bodies and URLs
+published assets
 public-disclosure safety
 no production Pages cutover during P2
 ```
 
-Current technical authority:
-
-```text
-Astro 7+ + TypeScript
-Markdown/content collections
-custom HTML/CSS
-minimal client JavaScript
-GitHub-hosted ubuntu-latest Actions
-GitHub Pages target
-validated non-deploying Pages artifact from P1
-```
-
-Owner gate: Mike approval is required before final public positioning language is treated as accepted copy or before production cutover.
+Owner gate: Mike acceptance of the positioning and information architecture is required before the next implementation sprint treats this direction as final public structure/copy.

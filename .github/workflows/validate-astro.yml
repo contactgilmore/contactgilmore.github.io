@@ -4,9 +4,25 @@ on:
   push:
     branches:
       - portfolio-2.0-foundation
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-astro.yml'
   pull_request:
     branches:
       - main
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-astro.yml'
 
 permissions:
   contents: read
