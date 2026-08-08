@@ -1,63 +1,54 @@
 # Active Sprint
 
-Sprint: **P3 — Astro Visual System and Portfolio Shell**  
+Sprint: **P4 — Professional Case Studies and Content Refresh**  
 Status: OPEN  
 Opened: 2026-08-08  
 Branch: `portfolio-2.0-foundation`
 
-Current work package: **P3-WP4 — Visual and content regression**
+Current work package: **P4-WP1 — Evidence inventory and case-study truth map**
 
-Sprint note: `docs/sprint_notes/SPRINT_P3_ASTRO_VISUAL_SYSTEM_AND_PORTFOLIO_SHELL_2026-08-08.md`
+Sprint note: `docs/sprint_notes/SPRINT_P4_PROFESSIONAL_CASE_STUDIES_AND_CONTENT_REFRESH_2026-08-08.md`
 
-Completed work packages:
+Completed predecessor sprint:
 
 ```text
-P3-WP1 — Shared visual system and primary page shell
-P3-WP2 — Work, About, and public Resume pages
-P3-WP3 — Writing/archive and article reading experience
+P3 — Astro Visual System and Portfolio Shell
+final Playwright smoke: 21 / 21 passed
+brand doctrine: smoke-tested and active
 ```
 
-Accepted positioning:
+Professional positioning:
 
 ```text
-Primary umbrella: Technical Delivery & Customer Solutions
-Proof pillars:
-  - Implementation & Technical Delivery
-  - Integrations & Troubleshooting
-  - Customer & Stakeholder Leadership
-Top nav: Home / Work / Writing / About / Resume
-Homepage: Hero -> Proof -> Selected Work -> Technical Depth -> Featured Writing -> Experience -> About/Contact
+Technical Delivery & Customer Solutions
+
+Proof dimensions:
+- Implementation & Technical Delivery
+- Integrations & Troubleshooting
+- Customer & Stakeholder Leadership
+- Business / Systems Analysis and Program Delivery as explicit supporting capability
+- Operational / Reliability Leadership as technical credibility
 ```
 
-Resume calibration carried into implementation:
+P4 case-study lanes:
 
 ```text
-customer delivery
-+ business/systems analysis
-+ technical integration depth
-+ operational/reliability leadership
-```
-
-Current implementation evidence:
-
-```text
-branch head: 2603d6799811456c402f73e6bc5179da100c40c5
-validation workflow: success
-source-integrity check: success
-Astro build: success
-legacy route/asset regression: success
-non-deploying Pages package: success
+1. Enterprise implementation and migration delivery
+2. Reliability and cross-functional remediation
+3. Program delivery and operating-model improvement
 ```
 
 Protected boundaries:
 
 ```text
 main production branch
-historical blog article bodies and URLs
+historical blog article bodies and compatibility URLs
 published assets
 public-disclosure safety
-avoid unnecessary personal data in public portfolio source
-no production Pages cutover during P3 without owner approval
+no confidential customer/employer details
+no invented metrics or outcomes
+no unnecessary private contact information
+no production Pages cutover without explicit owner approval
 ```
 
-Next target: perform visual/content regression and owner review before any production cutover decision.
+Design authority: the P3 smoke-tested Portfolio 2.0 brand system in `docs/brand/` is active. P4 extends that system rather than reopening basic color/navigation/layout decisions without a product reason.
