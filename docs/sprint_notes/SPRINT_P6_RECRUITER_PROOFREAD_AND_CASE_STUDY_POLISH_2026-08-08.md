@@ -101,7 +101,7 @@ Hierarchy implemented:
 - Case studies: full narrative/evidence;
 - Resume: concise chronology and selected outcomes.
 
-### P6-WP7 — regression — COMPLETE
+### P6-WP7 — regression and visual review — COMPLETE
 
 PR: **#15 — Portfolio 2.0: Recruiter proofread and case-study polish**  
 PR status: draft / unmerged
@@ -115,6 +115,7 @@ Regression evidence:
 ```text
 Validate Astro migration run 31273655569: SUCCESS
 Playwright portfolio smoke run 31273655669: SUCCESS
+Playwright evidence artifact 9026379657
 browser smoke tests: SUCCESS
 axe accessibility checks: SUCCESS
 blog source-integrity protection: SUCCESS
@@ -122,6 +123,22 @@ public asset audit: SUCCESS
 Astro build: SUCCESS
 internal-link verification: SUCCESS
 ```
+
+Visual review was performed from the full-page Playwright screenshots rather than inferred from test status. Reviewed surfaces at desktop, tablet, and phone widths:
+
+```text
+Home
+Work
+About
+Resume
+Implementation case study
+Reliability case study
+Operating-model case study
+Writing archive
+Representative long-form article
+```
+
+Visual judgment: ACCEPT. The editorial headline scale, section rhythm, card reflow, dark/light contrast, case-study hierarchy, and mobile reading order remain cohesive. No visual change is justified solely for aesthetic churn before owner proofread.
 
 Changed source-page scope at regression:
 
@@ -136,6 +153,16 @@ src/pages/resume/index.astro
 ```
 
 No historical Markdown post, asset, workflow, or design-system file changed in this copy pass.
+
+## Next editorial work after P6
+
+Open a separate blog/editorial sprint after the P6 owner gate. Initial decisions from the first blog audit:
+
+- the current chronological list presentation is visually clean and scales well on desktop/tablet/phone;
+- do not change original publication dates merely to make articles look newer;
+- when an article receives a substantive refresh, preserve `datePublished` and add a visible/structured `dateModified` / `updated` value instead;
+- explore lightweight series metadata (series name, order, status) before the archive grows beyond the current Git to Know You sequence;
+- preserve the current simple archive unless additional series make grouping/navigation materially useful.
 
 ### P6-WP8 — owner proofread gate — READY
 
