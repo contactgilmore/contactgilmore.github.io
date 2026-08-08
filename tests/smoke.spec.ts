@@ -136,6 +136,19 @@ test('series continuation reaches Kubernetes', async ({ page }) => {
   seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
   await expect(seriesNav.getByRole('link', { name: /Previous.*Cursor/i })).toHaveAttribute('href', '/GTNY-cursor/');
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /kubernetes-icon-color\.svg$/);
+
+  await page.goto('/blog/', { waitUntil: 'networkidle' });
+  const archiveRow = page.locator('.writing-row').filter({
+    has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
+  });
+  await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
+
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const featuredCard = page.locator('.article-card').filter({
+    has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
+  });
+  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
+  await expect(featuredCard.getByRole('link', { name: '#8. Git to Know You: Kubernetes' })).toHaveAttribute('href', '/gtny-kubernetes/');
 });
 
 test('retired launch note points readers to current Writing', async ({ page }) => {
