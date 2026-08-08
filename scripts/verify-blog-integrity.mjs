@@ -1,7 +1,6 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 
-const legacyPostNames = [
-  '2025-06-03-we-have-a-blog.md',
+const activeLegacyPostNames = [
   '2025-06-10-SRE-tools.md',
   '2025-06-17-GTNY-rundeck.md',
   '2025-06-24-GTNY-newrelic.md',
@@ -12,16 +11,19 @@ const legacyPostNames = [
   '2026-02-25-GTNY-cursor.md',
 ];
 
+const retiredLegacyPosts = [
+  {
+    source: '2025-06-03-we-have-a-blog.md',
+    compatibilityPage: 'src/pages/we-have-a-blog.astro',
+  },
+];
+
 const sourceFiles = (await readdir('_posts')).filter((name) => /^\d{4}-\d{2}-\d{2}-.+\.md$/.test(name));
-const migratedFiles = (await readdir('src/content/blog')).filter((name) => name.endsWith('.md'));
+const currentFiles = (await readdir('src/content/blog')).filter((name) => name.endsWith('.md'));
 
-if (sourceFiles.length !== legacyPostNames.length) {
-  throw new Error(`Expected ${legacyPostNames.length} legacy source posts, found ${sourceFiles.length}: ${sourceFiles.join(', ')}`);
-}
-
-for (const name of legacyPostNames) {
+for (const name of activeLegacyPostNames) {
   if (!sourceFiles.includes(name)) throw new Error(`Missing preserved legacy source post: ${name}`);
-  if (!migratedFiles.includes(name)) throw new Error(`Missing Astro blog post for legacy route: ${name}`);
+  if (!currentFiles.includes(name)) throw new Error(`Missing active Astro blog post for legacy route: ${name}`);
 
   const legacy = (await readFile(`_posts/${name}`, 'utf8')).replace(/\r\n/g, '\n');
   const current = (await readFile(`src/content/blog/${name}`, 'utf8')).replace(/\r\n/g, '\n');
@@ -40,8 +42,12 @@ for (const name of legacyPostNames) {
   }
 }
 
-if (migratedFiles.length < legacyPostNames.length) {
-  throw new Error(`Expected at least ${legacyPostNames.length} Astro blog posts, found ${migratedFiles.length}`);
+for (const { source, compatibilityPage } of retiredLegacyPosts) {
+  if (!sourceFiles.includes(source)) throw new Error(`Missing historical source record for retired post: ${source}`);
+  if (currentFiles.includes(source)) throw new Error(`Retired post is still present in the active Astro article collection: ${source}`);
+  await access(compatibilityPage);
 }
 
-console.log(`Verified ${legacyPostNames.length} legacy article identities and publication dates are preserved; editorial revisions and new posts are allowed.`);
+console.log(
+  `Verified ${activeLegacyPostNames.length} active legacy article identities/publication dates and ${retiredLegacyPosts.length} retired compatibility route.`
+);
