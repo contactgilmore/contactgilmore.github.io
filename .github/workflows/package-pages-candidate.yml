@@ -1,0 +1,41 @@
+name: Package Astro Pages candidate
+
+on:
+  push:
+    branches:
+      - portfolio-2.0-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.20.0'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Verify migrated blog source integrity
+        run: node scripts/verify-blog-integrity.mjs
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Verify legacy routes and required assets
+        run: node scripts/verify-build-output.mjs
+
+      - name: Upload non-deploying Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
