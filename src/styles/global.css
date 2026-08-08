@@ -88,7 +88,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .pillar-card, .article-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: 0 1px 0 rgba(14, 20, 28, .02); }
 .pillar-card { min-height: 300px; display: flex; flex-direction: column; }
-.card-index { color: #9aa5b3; font-size: 0.82rem; font-weight: 800; letter-spacing: .08em; }
+.card-index { color: var(--muted); font-size: 0.82rem; font-weight: 800; letter-spacing: .08em; }
 .pillar-card h3, .article-card h3, .work-card h3 { margin: auto 0 16px; color: var(--ink-strong); font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.15; letter-spacing: -0.025em; }
 .pillar-card p, .article-card p, .work-card p, .contact-band p { color: var(--muted); line-height: 1.7; }
 
@@ -107,7 +107,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .skill-cloud li { border: 1px solid #344353; background: var(--dark-soft); border-radius: 999px; padding: 10px 14px; color: #e7edf5; font-weight: 650; }
 
 .article-card { min-height: 220px; }
-.article-card__date { margin-top: 0; color: #8290a0 !important; font-size: .86rem; }
+.article-card__date { margin-top: 0; color: var(--muted) !important; font-size: .86rem; }
 .article-card h3 { margin: 30px 0 14px; }
 .article-card h3 a { text-decoration: none; }
 .article-card h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
