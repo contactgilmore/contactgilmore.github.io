@@ -25,7 +25,8 @@ for (const pageTarget of pages) {
 
     const overflow = await page.evaluate(() => {
       const clientWidth = document.documentElement.clientWidth;
-      const offenders = [...document.querySelectorAll<HTMLElement>('body *')]
+      const elements = [...document.querySelectorAll<HTMLElement>('body *')];
+      const positionedOffenders = elements
         .map((element) => {
           const rect = element.getBoundingClientRect();
           return {
@@ -41,16 +42,30 @@ for (const pageTarget of pages) {
         .sort((a, b) => b.right - a.right)
         .slice(0, 8);
 
+      const internalOffenders = elements
+        .filter((element) => element.scrollWidth > element.clientWidth + 1)
+        .map((element) => ({
+          tag: element.tagName.toLowerCase(),
+          className: typeof element.className === 'string' ? element.className : '',
+          text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90),
+          clientWidth: element.clientWidth,
+          scrollWidth: element.scrollWidth,
+          overflowX: getComputedStyle(element).overflowX,
+        }))
+        .sort((a, b) => (b.scrollWidth - b.clientWidth) - (a.scrollWidth - a.clientWidth))
+        .slice(0, 8);
+
       return {
         scrollWidth: document.documentElement.scrollWidth,
         clientWidth,
-        offenders,
+        positionedOffenders,
+        internalOffenders,
       };
     });
 
     expect(
       overflow.scrollWidth,
-      `${pageTarget.path} should not overflow horizontally (${overflow.scrollWidth}px > ${overflow.clientWidth}px). Offenders: ${JSON.stringify(overflow.offenders)}`,
+      `${pageTarget.path} should not overflow horizontally (${overflow.scrollWidth}px > ${overflow.clientWidth}px). Positioned: ${JSON.stringify(overflow.positionedOffenders)} Internal: ${JSON.stringify(overflow.internalOffenders)}`,
     ).toBeLessThanOrEqual(overflow.clientWidth + 1);
 
     expect(consoleErrors, `browser errors on ${pageTarget.path}`).toEqual([]);
