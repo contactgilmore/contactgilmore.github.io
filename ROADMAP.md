@@ -79,22 +79,27 @@ Goals:
 - retain original publication dates and use a separate Updated/dateModified field only after substantive revisions;
 - add typed series metadata and lightweight series continuity;
 - use GPT as the default research/drafting engine while preserving Mike's established voice and requiring owner approval;
-- never invent personal experience, employer/customer details, metrics, or first-person claims;
-- reconsider the original Git to Know You topic list based on current relevance instead of mechanically finishing it;
+- never invent personal experience, employer/customer details, metrics, screenshots, or first-person claims;
 - preserve product-logo thumbnails as the default visual pattern for tool articles unless a logo is obsolete, low-quality, or visually unsuitable;
 - keep the public repository documentation concise, sanitized, and professionally readable.
 
 Current editorial decisions:
 
 ```text
-“We have a blog!”: retired from the active article set; legacy URL retained as a compatibility page
-SRE Tools overview: evolve into a living series introduction
+“We have a blog!”: retired from active article set; legacy URL retained as compatibility page
+SRE Tools overview: living series introduction; series-level thumbnail refresh still pending
 Terraform: substantive 2026 refresh in progress
 GitHub Actions: substantive 2026 refresh in progress
-Git to Know You #8–#10 working direction: Kubernetes -> OpenTelemetry -> Argo CD / GitOps
-AWS: better candidate for a future cloud-foundations series than one oversized tool article
-FireHydrant: no longer an obligation; lower incremental educational value than current candidates
+Git to Know You #8: Kubernetes
+Git to Know You #9: OpenTelemetry
+Git to Know You #10: Argo CD / GitOps
+AWS: future cloud-foundations lane rather than one oversized generic tool article
+FireHydrant: no longer required to complete Git to Know You
 ```
+
+The reusable GPT publishing workflow is documented at:
+
+`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
 ## Directional future work
 
@@ -102,7 +107,7 @@ The portfolio uses a lightweight roadmap plus bounded sprints rather than a perm
 
 Likely future themes:
 
-- complete and maintain the Git to Know You series;
+- complete and maintain Git to Know You through Kubernetes, OpenTelemetry, and Argo CD / GitOps;
 - establish a second AI/engineering-workflow writing series when there is enough material;
 - consider a focused cloud-foundations series rather than a single broad AWS article;
 - periodically refresh professional case studies after meaningful career changes;
