@@ -10,6 +10,40 @@ This is the repository-wide start-here authority for the ContactGilmore professi
 
 The project goal is to evolve `contactgilmore.github.io` into a polished professional profile and portfolio that supports Mike's career positioning while preserving the existing technical blog and public URL continuity.
 
+## Public repository disclosure law
+
+`contactgilmore/contactgilmore.github.io` is a public repository. Every tracked file, branch, commit, pull request, workflow, artifact, issue, discussion, image, metadata field, and generated output must be treated as publicly discoverable.
+
+```text
+PUBLIC_DISCLOSURE_DEFAULT=YES
+SENSITIVE_DATA_ALLOWED=NO
+SECRETS_IN_REPOSITORY=PROHIBITED
+PRIVATE_CONTEXT_IN_PROJECT_DOCS=PROHIBITED
+```
+
+Never commit, paste into tracked documentation, expose through workflow logs/artifacts, or otherwise publish:
+
+```text
+home or private physical addresses
+private phone numbers
+credentials, passwords, API keys, access tokens, cookies, SSH/private keys, recovery codes, or secrets
+financial account information, balances, tax records, loan details, or private compensation records
+health, diagnosis, medication, disability, insurance, or other medical information
+private job-search records, unpublished applications, recruiter correspondence, interview notes, or negotiation details
+private emails, calendar data, contact records, or personal correspondence
+private infrastructure details that materially increase attack surface, including credentials, internal-only addresses, privileged topology, or security-sensitive configuration
+local filesystem paths or machine information when disclosure creates unnecessary security or privacy risk
+third-party confidential, proprietary, NDA-covered, customer, employer, or partner information
+resume/application source documents containing information not intentionally approved for public display
+unredacted screenshots, logs, exports, backups, database contents, or metadata containing any of the above
+```
+
+Public professional facts may be published only when they are intentionally part of the portfolio and appropriate for unrestricted public disclosure.
+
+Before every tracked change, GPT must apply a public-disclosure review. If content is not clearly safe to publish, exclude or sanitize it and ask Mike when necessary. Convenience, sprint velocity, debugging value, or documentation completeness never overrides this rule.
+
+Git history is durable. Accidentally committed sensitive information must be treated as exposed even if later deleted from the current tree; stop and address credential rotation or history-remediation requirements as appropriate.
+
 ## Six-file startup doctrine law
 
 Startup doctrine is exactly six files:
@@ -104,6 +138,7 @@ Default route:
 connected GitHub read
 -> bounded branch from exact current main
 -> GPT performs approved tracked-source changes
+-> public-disclosure review
 -> review exact changed-file set
 -> repository-portable validation
 -> draft PR while evidence is incomplete
@@ -133,6 +168,7 @@ Rules:
 3. Preserve image references or migrate them with verified replacements.
 4. Keep current production deployable until the Astro replacement passes acceptance.
 5. Framework modernization must not erase authorship history or article metadata without an explicit content decision.
+6. Historical content is not exempt from the public-disclosure law; if an audit discovers sensitive material, stop and classify it before migration or republication.
 
 ## Technology direction
 
@@ -150,9 +186,15 @@ GitHub Pages
 
 React or another UI framework is not a default dependency. Add one only when a real interaction requires it.
 
-## Self-hosted Actions runner
+## GitHub Actions runner policy
 
-Mike maintains a dedicated local GitHub Actions runner. The exact labels and runner contract must be verified before workflows are committed. Do not guess labels from another repository.
+Because this repository is public, ordinary CI and deployment use GitHub-hosted standard runners such as:
+
+```text
+ubuntu-latest
+```
+
+Public-repository workflows must not run untrusted pull-request or fork code on Mike's dedicated Node3 self-hosted server. Node3 is not registered for this portfolio by default.
 
 Repository-portable checks should eventually include:
 
@@ -165,11 +207,13 @@ Lighthouse or equivalent quality checks
 URL regression checks for migrated blog posts
 ```
 
+Workflows and artifacts must also comply with the public-disclosure law. Never echo secrets or private data into Actions logs or upload sensitive artifacts.
+
 ## Roles
 
 Mike owns priority, approval, final visual acceptance, career positioning decisions, and production merge authorization.
 
-GPT owns project management, doctrine review, roadmap and sprint design, tracked repository execution, migration planning, content-structure recommendations, verification design, risk classification, and closeout/handoff updates.
+GPT owns project management, doctrine review, roadmap and sprint design, tracked repository execution, migration planning, content-structure recommendations, verification design, risk classification, public-disclosure review, and closeout/handoff updates.
 
 ## Root hygiene
 
@@ -196,17 +240,19 @@ Legacy Jekyll files may remain during migration until their retirement is an exp
 Gate 1 — current authority identified
 Gate 2 — startup doctrine and living state read
 Gate 3 — exact scope and no-touch paths declared
-Gate 4 — blog/URL/production protection resolved
-Gate 5 — required domain doctrine read
-Gate 6 — exact changed-file set reviewed
-Gate 7 — proof matches the claim
-Gate 8 — Mike's current decision controls
-Gate 9 — living state and sprint authority updated when truth changes
-Gate 10 — production cutover is explicit, reversible, and verified
+Gate 4 — public-disclosure safety verified; no sensitive/private material introduced
+Gate 5 — blog/URL/production protection resolved
+Gate 6 — required domain doctrine read
+Gate 7 — exact changed-file set reviewed
+Gate 8 — proof matches the claim
+Gate 9 — Mike's current decision controls
+Gate 10 — living state and sprint authority updated when truth changes
+Gate 11 — production cutover is explicit, reversible, and verified
 ```
 
 If a gate fails, stop and state what is missing.
 
 ## Change history
 
+- **2026-08-08:** Made public-disclosure safety a hard repository law and established GitHub-hosted runners as the default for the public portfolio; prohibited exposing Node3 to untrusted public-repository workflow code.
 - **2026-08-08:** Established Portfolio 2.0 governance modeled on Job Search Studio, with Astro migration direction, production protection, blog preservation, and GitHub-first execution.
