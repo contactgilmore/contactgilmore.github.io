@@ -24,6 +24,7 @@ const work = [
     summary: 'Improved the systems around delivery and operations: alert clarity, escalation paths, documentation, governance, readiness, and shared operating practices across combined teams.',
     evidence: ['60% improvement in response and recovery metrics', 'Operating practices standardized across three combined businesses', 'India-based team onboarded into shared practices'],
     skills: ['Program delivery', 'Process improvement', 'Change management', 'Documentation & governance', 'Operational analysis'],
+    href: '/work/operating-model/',
   },
 ];
 ---
@@ -53,7 +54,7 @@ const work = [
         <ul class="tag-list" aria-label="Capabilities demonstrated">
           {item.skills.map((skill) => <li>{skill}</li>)}
         </ul>
-        {item.href && <a class="text-link detail-card__link" href={item.href}>View case study →</a>}
+        <a class="text-link detail-card__link" href={item.href}>View case study →</a>
       </article>
     ))}
   </section>
