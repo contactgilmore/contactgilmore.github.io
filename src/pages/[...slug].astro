@@ -19,6 +19,27 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+let previousInSeries: { title: string; href: string } | undefined;
+let nextInSeries: { title: string; href: string } | undefined;
+
+if (post.data.series && post.data.seriesOrder !== undefined) {
+  const seriesPosts = (await getCollection('blog'))
+    .filter(({ data }) => data.draft !== true && data.series === post.data.series && data.seriesOrder !== undefined)
+    .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+
+  const currentIndex = seriesPosts.findIndex(({ id }) => id === post.id);
+  const previous = currentIndex > 0 ? seriesPosts[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 && currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : undefined;
+
+  if (previous) {
+    previousInSeries = { title: previous.data.title, href: getLegacyBlogPath(previous.id) };
+  }
+
+  if (next) {
+    nextInSeries = { title: next.data.title, href: getLegacyBlogPath(next.id) };
+  }
+}
 ---
 
 <BlogPostLayout
@@ -28,6 +49,8 @@ const { Content } = await render(post);
   thumbnail={post.data.thumbnail}
   series={post.data.series}
   seriesOrder={post.data.seriesOrder}
+  previousInSeries={previousInSeries}
+  nextInSeries={nextInSeries}
 >
   <Content />
 </BlogPostLayout>
