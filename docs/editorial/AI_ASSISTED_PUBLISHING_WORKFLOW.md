@@ -106,6 +106,8 @@ Original publication dates are immutable historical facts. A materially revised 
 updated: YYYY-MM-DD
 ```
 
+Date-only frontmatter values represent calendar dates, not local instants. Render human-facing publication/update dates with an explicit UTC timezone so a local build in a negative UTC offset does not shift the displayed calendar date backward. Do not "fix" a rendering shift by changing the source publication date.
+
 Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
 
 ```yaml
@@ -155,6 +157,10 @@ Before owner review:
 
 Do not weaken a quality gate merely to make a draft pass.
 
+When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root, synchronize the candidate with GitHub, and include the pull before the build/smoke commands. Never assume the shell is already in the correct directory or that the checkout is current. Use the exact current local checkout path when it is available from private conversation context. If the current path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Never commit an expanded personal home path when a home-relative path is sufficient.
+
+For local Playwright smoke tests, use the established shared environment first: `~/Dev/dependencies/playwright`, with `NODE_PATH="$HOME/Dev/dependencies/playwright/node_modules"` and `PLAYWRIGHT_BROWSERS_PATH="$HOME/Dev/dependencies/playwright/ms-playwright"`. A project-local browser-executable miss does not by itself mean Playwright is absent. Reuse the shared browser cache before installing another copy. If the current project requires a browser revision not already present, add only that required revision to the shared cache using the current project's Playwright version, then rerun the smoke suite.
+
 ## 10. Owner editorial gate
 
 Present the owner with:
@@ -171,16 +177,16 @@ The owner may request copy/technical changes or approve the candidate.
 
 Use a bounded branch and draft PR for material article batches, series changes, or editorial-system changes.
 
-Production deployment remains manual-only unless the operating doctrine changes.
+Merge to `main` is the current human production authorization. GitHub Pages deploys automatically from pushes to `main`; `workflow_dispatch` is an operational fallback, not the normal release path.
 
 After approval:
 
-1. confirm exact-head CI is green;
-2. update repository living state/sprint authority;
+1. confirm exact-head CI is green for the implementation change set;
+2. update repository living state/sprint authority when required by current doctrine;
 3. merge using the repository's current release contract;
-4. deploy through the approved Pages workflow;
+4. allow the `main` push to trigger the approved Pages workflow automatically;
 5. perform a live-site spot check;
-6. record the release/closeout state.
+6. record release/closeout state when required by repository authority.
 
 ## 12. Maintenance cadence
 

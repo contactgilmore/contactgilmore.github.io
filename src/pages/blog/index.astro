@@ -7,6 +7,13 @@ import '../../styles/blog.css';
 const posts = (await getCollection('blog'))
   .filter(({ data }) => data.draft !== true)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatShortDate = (value: Date) => value.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
 ---
 
 <BaseLayout
@@ -27,8 +34,8 @@ const posts = (await getCollection('blog'))
       <article class="writing-row">
         <div>
           <p class="writing-row__date">
-            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-            {post.data.updated && <> · Updated {post.data.updated.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</>}
+            {formatShortDate(post.data.date)}
+            {post.data.updated && <> · Updated {formatShortDate(post.data.updated)}</>}
           </p>
           <h2><a href={getBlogPath(post.id, post.data.slug)}>{post.data.title}</a></h2>
         </div>

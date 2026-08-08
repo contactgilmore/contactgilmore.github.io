@@ -18,6 +18,7 @@ const pages = [
   { path: '/GTNY-terraform/', name: 'terraform-article' },
   { path: '/GTNY-github-actions/', name: 'actions-article' },
   { path: '/GTNY-cursor/', name: 'cursor-article' },
+  { path: '/gtny-kubernetes/', name: 'kubernetes-article' },
   { path: '/we-have-a-blog/', name: 'retired-launch-note' },
 ];
 
@@ -122,6 +123,34 @@ test('updated article metadata and series navigation are coherent', async ({ pag
   expect(JSON.stringify(jsonLd)).toContain('dateModified');
 });
 
+test('series continuation reaches Kubernetes', async ({ page }) => {
+  await page.goto('/GTNY-cursor/', { waitUntil: 'networkidle' });
+
+  let seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
+  await expect(seriesNav.getByRole('link', { name: /Next.*Kubernetes/i })).toHaveAttribute('href', '/gtny-kubernetes/');
+
+  await page.goto('/gtny-kubernetes/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Git to Know You: Kubernetes');
+  await expect(page.locator('.post-date')).toContainText('Published August 8, 2026');
+
+  seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
+  await expect(seriesNav.getByRole('link', { name: /Previous.*Cursor/i })).toHaveAttribute('href', '/GTNY-cursor/');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /kubernetes-icon-color\.svg$/);
+
+  await page.goto('/blog/', { waitUntil: 'networkidle' });
+  const archiveRow = page.locator('.writing-row').filter({
+    has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
+  });
+  await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
+
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const featuredCard = page.locator('.article-card').filter({
+    has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
+  });
+  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
+  await expect(featuredCard.getByRole('link', { name: '#8. Git to Know You: Kubernetes' })).toHaveAttribute('href', '/gtny-kubernetes/');
+});
+
 test('retired launch note points readers to current Writing', async ({ page }) => {
   await page.goto('/we-have-a-blog/', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1 })).toContainText('retired');
@@ -149,7 +178,7 @@ test('structured data stays public-safe and article metadata is complete', async
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });
 
-for (const target of ['/', '/work/', '/blog/', '/SRE-tools/', '/GTNY-terraform/', '/GTNY-cursor/']) {
+for (const target of ['/', '/work/', '/blog/', '/SRE-tools/', '/GTNY-terraform/', '/GTNY-cursor/', '/gtny-kubernetes/']) {
   test(`axe accessibility scan passes for ${target}`, async ({ page }) => {
     await page.goto(target, { waitUntil: 'networkidle' });
     const results = await new AxeBuilder({ page }).analyze();
