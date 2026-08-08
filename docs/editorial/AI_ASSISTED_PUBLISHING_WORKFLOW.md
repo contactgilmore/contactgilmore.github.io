@@ -155,6 +155,8 @@ Before owner review:
 
 Do not weaken a quality gate merely to make a draft pass.
 
+When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root; never assume the shell is already in the correct directory. Use the exact local path only from current private context and never commit that personal filesystem path into the public repository.
+
 ## 10. Owner editorial gate
 
 Present the owner with:
@@ -175,10 +177,10 @@ Merge to `main` is the current human production authorization. GitHub Pages depl
 
 After approval:
 
-1. confirm exact-head CI is green;
-2. update repository living state/sprint authority when the work package requires a state change;
+1. confirm exact-head CI is green for the implementation change set;
+2. update repository living state/sprint authority when required by current doctrine;
 3. merge using the repository's current release contract;
-4. verify the automatic Pages deployment succeeds;
+4. allow the `main` push to trigger the approved Pages workflow automatically;
 5. perform a live-site spot check;
 6. record release/closeout state when required by repository authority.
 
