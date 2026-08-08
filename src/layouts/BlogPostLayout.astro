@@ -2,6 +2,11 @@
 import BaseLayout from './BaseLayout.astro';
 import '../styles/blog.css';
 
+interface SeriesLink {
+  title: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   date: Date;
@@ -9,9 +14,20 @@ interface Props {
   thumbnail: string;
   series?: string;
   seriesOrder?: number;
+  previousInSeries?: SeriesLink;
+  nextInSeries?: SeriesLink;
 }
 
-const { title, date, updated, thumbnail, series, seriesOrder } = Astro.props;
+const {
+  title,
+  date,
+  updated,
+  thumbnail,
+  series,
+  seriesOrder,
+  previousInSeries,
+  nextInSeries,
+} = Astro.props;
 const siteUrl = 'https://contactgilmore.github.io';
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const structuredData = {
@@ -50,5 +66,29 @@ const structuredData = {
     <div class="prose">
       <slot />
     </div>
+
+    {series && (previousInSeries || nextInSeries) && (
+      <nav class="series-nav" aria-label={`${series} series navigation`}>
+        <p class="series-nav__label">Continue {series}</p>
+        <div class="series-nav__grid">
+          <div>
+            {previousInSeries && (
+              <a class="series-nav__link" href={previousInSeries.href}>
+                <span>← Previous</span>
+                <strong>{previousInSeries.title}</strong>
+              </a>
+            )}
+          </div>
+          <div>
+            {nextInSeries && (
+              <a class="series-nav__link series-nav__link--next" href={nextInSeries.href}>
+                <span>Next →</span>
+                <strong>{nextInSeries.title}</strong>
+              </a>
+            )}
+          </div>
+        </div>
+      </nav>
+    )}
   </article>
 </BaseLayout>
