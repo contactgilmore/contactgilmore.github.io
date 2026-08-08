@@ -7,7 +7,7 @@ Updated: 2026-08-08
 
 Portfolio 2.0 is live at `https://contactgilmore.github.io/` using Astro and GitHub Pages workflow publishing.
 
-P6 recruiter/case-study polish and public-repository hardening were accepted and squash-merged to `main`:
+Current production baseline:
 
 ```text
 P6 merge commit: 21031c0a18ae1c10ab9bafcbd0922c4b620c5383
@@ -21,16 +21,14 @@ Production remains unchanged while P7 is developed on `portfolio-blog-editorial`
 ## Durable decisions
 
 - Astro 7+ with TypeScript/content collections is the production static-site foundation.
-- Preserve technical-writing URLs/history unless an explicit editorial decision changes content or metadata.
-- Use GitHub-hosted `ubuntu-latest` for this public repository; do not expose private self-hosted infrastructure to ordinary public-repo workflows.
-- Treat all repository content, branches, PRs, logs, artifacts, screenshots, metadata, and evidence as public disclosure surfaces.
-- Public repository documentation may demonstrate SDLC, sprint execution, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery, but must never become private project memory.
-- Retain only public assets that have a content, brand, or compatibility reason.
-- Avoid React/CMS/database additions unless a later requirement justifies them.
-- The smoke-tested Portfolio 2.0 brand system remains active visual authority.
-- Routine design/UX/navigation/color/layout decisions are delegated to GPT, with owner review for material representation/production decisions.
-- Production deployment is intentionally manual-only unless a later owner-approved operating decision changes that policy.
-- Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work.
+- Use GitHub-hosted runners for ordinary public-repository workflows; do not expose private self-hosted infrastructure.
+- Treat repository content, docs, branches, PRs, logs, artifacts, screenshots, and metadata as public disclosure surfaces.
+- Public docs may demonstrate SDLC, sprint execution, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery, but must never become private project memory.
+- Retain only public assets with a current content, brand, or compatibility purpose.
+- Avoid React/CMS/database additions unless a real requirement justifies them.
+- The smoke-tested Portfolio 2.0 visual system remains brand authority.
+- Production deployment remains manual-only unless owner-approved doctrine changes it.
+- Portfolio planning uses a lightweight directional roadmap plus bounded sprints.
 
 ## Current production structure
 
@@ -38,7 +36,7 @@ Production remains unchanged while P7 is developed on `portfolio-blog-editorial`
 Home / Work / Writing / About / Resume
 ```
 
-Current professional positioning:
+Current positioning:
 
 ```text
 Technical Delivery & Customer Solutions
@@ -57,78 +55,84 @@ Current case studies:
 
 ## P6 — complete
 
-P6 improved recruiter scanability, first-person ownership, case-study specificity, career narrative, and public-repository governance. Full Astro/Playwright/axe regression and manual screenshot review passed before owner acceptance.
+P6 improved recruiter scanability, first-person ownership, case-study specificity, career narrative, responsive visual QA, and public-repository governance. It was owner-approved and merged before P7 began.
 
-Historical sprint record:
+Historical record:
 
 `docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
 
-## P7 — active
+## P7 — active, implementation complete
 
 Sprint: **Blog Editorial System and AI-Assisted Publishing**  
 Branch: `portfolio-blog-editorial`  
-Draft PR: `#16`
+Draft PR: `#16`  
+Current work package: **P7-WP7 — browser/editorial regression and owner gate**
 
-Sprint authority:
+Authorities:
 
-`docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
-
-Editorial workflow:
-
-`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
-
-Current work package: **P7-WP4 — article refresh and series cleanup**.
+```text
+docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md
+docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+```
 
 Status:
 
 ```text
 P7-WP1 editorial strategy / topic relevance / AI authoring contract: COMPLETE
 P7-WP2 existing-content editorial audit: COMPLETE
-P7-WP3 typed series + updated-date metadata foundation: COMPLETE
-P7-WP4 article refresh and series cleanup: ACTIVE
+P7-WP3 content schema / updated / series / slug model: COMPLETE
+P7-WP4 article refresh and series cleanup: COMPLETE
 P7-WP5 Git to Know You continuation decision: COMPLETE
 P7-WP6 reusable AI publication workflow: COMPLETE
-P7-WP7 browser/editorial regression and owner gate: PENDING
+P7-WP7 browser/editorial regression and owner gate: ACTIVE
 ```
 
-Accepted P7 decisions:
+P7 candidate state:
 
-- keep the clean Writing list unless evidence justifies a visual change;
-- retain original publication dates and add separate Updated/dateModified values only after substantive refresh;
-- Terraform and GitHub Actions are the first high-priority technical refreshes;
-- the old byte-for-byte migration guard has been evolved to protect active legacy article identity, original publication dates, and compatibility handling while allowing reviewed editorial maintenance;
-- `We have a blog!` is retired from the active article collection; `/we-have-a-blog/` remains as a lightweight compatibility page pointing readers to Writing;
-- its old Vault Boy thumbnail is removed because it no longer serves active content;
-- product-logo thumbnails remain the default Git to Know You pattern unless a specific image is obsolete, low-quality, misleading, or visually unsuitable;
-- `Git to Know You: SRE Tools` is now a living series introduction rather than a promise to complete an outdated ten-tool list;
-- final continuation sequence is **#8 Kubernetes -> #9 OpenTelemetry -> #10 Argo CD / GitOps**;
-- AWS moves to a possible future cloud-foundations series rather than one oversized generic tool article;
-- FireHydrant is no longer required to complete Git to Know You;
-- GPT is the default research/drafting engine but may not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims;
-- owner approval remains required before merge/deploy.
+- eight active articles remain; the obsolete `We have a blog!` launch article is retired from the active collection;
+- `/we-have-a-blog/` remains as a compatibility page to Writing and its weak Vault Boy thumbnail is removed;
+- `Git to Know You: SRE Tools` is a living series introduction rather than a fixed 2025 top-ten promise;
+- Rundeck, New Relic, PagerDuty, Terraform, GitHub Actions, and Cursor received substantive 2026 refreshes with separate Updated metadata;
+- Git remains largely unchanged because its core content is durable; it received series metadata without an artificial Updated date;
+- migrated posts retain exact legacy URLs; future posts declare a typed lowercase/hyphenated `slug` so new publishing does not require route-map edits;
+- the overview and #1–#7 use explicit series metadata and articles now provide previous/next series navigation;
+- orphan logo assets created by the overview reframe were pruned rather than exempted from the asset policy;
+- product-logo thumbnails remain the default for individual tool articles unless a specific asset is obsolete, low-quality, misleading, or visually unsuitable;
+- no replacement overview artwork is required unless final browser evidence demonstrates a visual problem.
+
+Approved Git to Know You continuation:
+
+```text
+#8 Kubernetes
+#9 OpenTelemetry
+#10 Argo CD / GitOps
+```
+
+AWS moves to a possible future Cloud Foundations series because it is too broad for one generic tool article. FireHydrant is no longer required to complete Git to Know You.
+
+GPT is the default research/drafting engine for future posts, but it must not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims. Owner approval remains required before merge/deploy.
 
 ## Brand backlog note
 
-A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This is backlogged, not an active P7 redesign. A future visual-maintenance pass should compare a modestly wider hero measure and/or lower desktop maximum using Playwright screenshots while preserving the confident editorial hierarchy.
+A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This remains a future visual-maintenance item, not P7 scope. Compare a modestly wider hero measure and/or lower desktop maximum with Playwright evidence while preserving the confident editorial hierarchy.
 
 ## Public-writing boundaries
 
 Do not publish customer identities, private employer/customer artifacts, proprietary scripts/configuration, privileged topology, internal host names, ticket IDs, private RCA documents, private correspondence, unsupported metrics, or private job-search/personal context.
 
-For AI-assisted articles, do not fabricate personal anecdotes or tool usage. Use sourced technical examples or ask for a small amount of factual input when a genuine first-person story materially improves the article.
+For AI-assisted articles, do not fabricate anecdotes or tool usage. Use sourced generic examples or ask for small factual input when a genuine first-person story materially improves an article.
 
-## Verification posture
+## P7 final verification posture
 
-Any P7 publication candidate must pass the checks appropriate to its scope, including:
+Required before owner approval:
 
 ```text
-technical/source verification
-Astro validation
+exact-head Astro validation
 legacy identity/date/compatibility checks
-public asset audit
+zero-orphan public asset audit
 internal-link verification
-Playwright responsive smoke for affected surfaces
-axe accessibility checks where presentation changes
-public-disclosure review
-owner editorial approval before merge/deploy
+expanded Playwright desktop/tablet/phone coverage
+axe representative Writing/article scans
+rendered screenshot visual review
+public-disclosure/editorial diff review
 ```
