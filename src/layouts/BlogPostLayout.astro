@@ -2,13 +2,32 @@
 import BaseLayout from './BaseLayout.astro';
 import '../styles/blog.css';
 
+interface SeriesLink {
+  title: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   date: Date;
+  updated?: Date;
   thumbnail: string;
+  series?: string;
+  seriesOrder?: number;
+  previousInSeries?: SeriesLink;
+  nextInSeries?: SeriesLink;
 }
 
-const { title, date, thumbnail } = Astro.props;
+const {
+  title,
+  date,
+  updated,
+  thumbnail,
+  series,
+  seriesOrder,
+  previousInSeries,
+  nextInSeries,
+} = Astro.props;
 const siteUrl = 'https://contactgilmore.github.io';
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const structuredData = {
@@ -17,6 +36,7 @@ const structuredData = {
   mainEntityOfPage: canonical,
   headline: title,
   datePublished: date.toISOString(),
+  ...(updated ? { dateModified: updated.toISOString() } : {}),
   author: {
     '@id': `${siteUrl}/#person`,
   },
@@ -35,13 +55,40 @@ const structuredData = {
   <article class="blog-post shell">
     <a class="text-link blog-back" href="/blog/">← All writing</a>
     <header class="blog-post__header">
-      <p class="eyebrow">Technical writing</p>
+      <p class="eyebrow">{series ? `${series}${seriesOrder ? ` · Part ${seriesOrder}` : ''}` : 'Technical writing'}</p>
       <h1>{title}</h1>
-      <p class="post-date">{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      <p class="post-date">
+        Published {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        {updated && <> · Updated {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</>}
+      </p>
     </header>
     <img src={thumbnail} alt="" class="blog-thumbnail" />
     <div class="prose">
       <slot />
     </div>
+
+    {series && (previousInSeries || nextInSeries) && (
+      <nav class="series-nav" aria-label={`${series} series navigation`}>
+        <p class="series-nav__label">Continue {series}</p>
+        <div class="series-nav__grid">
+          <div>
+            {previousInSeries && (
+              <a class="series-nav__link" href={previousInSeries.href}>
+                <span>← Previous</span>
+                <strong>{previousInSeries.title}</strong>
+              </a>
+            )}
+          </div>
+          <div>
+            {nextInSeries && (
+              <a class="series-nav__link series-nav__link--next" href={nextInSeries.href}>
+                <span>Next →</span>
+                <strong>{nextInSeries.title}</strong>
+              </a>
+            )}
+          </div>
+        </div>
+      </nav>
+    )}
   </article>
 </BaseLayout>

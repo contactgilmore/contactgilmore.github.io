@@ -10,7 +10,15 @@ const pages = [
   { path: '/blog/', name: 'writing' },
   { path: '/about/', name: 'about' },
   { path: '/resume/', name: 'resume' },
-  { path: '/GTNY-cursor/', name: 'article' },
+  { path: '/SRE-tools/', name: 'series-overview' },
+  { path: '/GTNY-rundeck/', name: 'rundeck-article' },
+  { path: '/GTNY-newrelic/', name: 'newrelic-article' },
+  { path: '/GTNY-pagerduty/', name: 'pagerduty-article' },
+  { path: '/GTNY-git/', name: 'git-article' },
+  { path: '/GTNY-terraform/', name: 'terraform-article' },
+  { path: '/GTNY-github-actions/', name: 'actions-article' },
+  { path: '/GTNY-cursor/', name: 'cursor-article' },
+  { path: '/we-have-a-blog/', name: 'retired-launch-note' },
 ];
 
 for (const pageTarget of pages) {
@@ -98,6 +106,28 @@ test('primary navigation and skip link work', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
 });
 
+test('updated article metadata and series navigation are coherent', async ({ page }) => {
+  await page.goto('/GTNY-terraform/', { waitUntil: 'networkidle' });
+
+  await expect(page.locator('.post-date')).toContainText('Published July 13, 2025');
+  await expect(page.locator('.post-date')).toContainText('Updated August 8, 2026');
+
+  const seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
+  await expect(seriesNav).toBeVisible();
+  await expect(seriesNav.getByRole('link', { name: /Previous.*Git/i })).toHaveAttribute('href', '/GTNY-git/');
+  await expect(seriesNav.getByRole('link', { name: /Next.*GitHub Actions/i })).toHaveAttribute('href', '/GTNY-github-actions/');
+
+  const jsonLdText = await page.locator('script[type="application/ld+json"]').textContent();
+  const jsonLd = JSON.parse(jsonLdText || '{}');
+  expect(JSON.stringify(jsonLd)).toContain('dateModified');
+});
+
+test('retired launch note points readers to current Writing', async ({ page }) => {
+  await page.goto('/we-have-a-blog/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('retired');
+  await expect(page.getByRole('link', { name: /Go to Writing/i })).toHaveAttribute('href', '/blog/');
+});
+
 test('structured data stays public-safe and article metadata is complete', async ({ page }) => {
   await page.goto('/GTNY-cursor/', { waitUntil: 'networkidle' });
 
@@ -119,7 +149,7 @@ test('structured data stays public-safe and article metadata is complete', async
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });
 
-for (const target of ['/', '/work/', '/GTNY-cursor/']) {
+for (const target of ['/', '/work/', '/blog/', '/SRE-tools/', '/GTNY-terraform/', '/GTNY-cursor/']) {
   test(`axe accessibility scan passes for ${target}`, async ({ page }) => {
     await page.goto(target, { waitUntil: 'networkidle' });
     const results = await new AxeBuilder({ page }).analyze();

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { getLegacyBlogPath } from '../../lib/blog-paths';
+import { getBlogPath } from '../../lib/blog-paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/blog.css';
 
@@ -17,8 +17,8 @@ const posts = (await getCollection('blog'))
     <p class="eyebrow">Writing</p>
     <h1>Technical ideas, made practical.</h1>
     <p>
-      Notes and explainers on reliability, infrastructure, automation, observability, and the tools behind modern technical work.
-      The archive stays intentionally separate from the portfolio homepage so the writing can grow without overwhelming the professional story.
+      Notes and explainers on reliability, infrastructure, automation, observability, AI-assisted engineering, and the tools behind modern technical work.
+      I use this space to make unfamiliar systems easier to understand, connect the tools to real operating problems, and document what changes as the technology evolves.
     </p>
   </header>
 
@@ -26,10 +26,13 @@ const posts = (await getCollection('blog'))
     {posts.map((post) => (
       <article class="writing-row">
         <div>
-          <p class="writing-row__date">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
-          <h2><a href={getLegacyBlogPath(post.id)}>{post.data.title}</a></h2>
+          <p class="writing-row__date">
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            {post.data.updated && <> · Updated {post.data.updated.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</>}
+          </p>
+          <h2><a href={getBlogPath(post.id, post.data.slug)}>{post.data.title}</a></h2>
         </div>
-        <p>{post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</p>
+        <p>{post.data.series || post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</p>
       </article>
     ))}
   </section>

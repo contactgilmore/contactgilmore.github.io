@@ -1,90 +1,88 @@
 # Active Sprint
 
-Sprint: **P6 — Recruiter Proofread, Voice, and Case-Study Polish**  
-Status: OWNER PROOFREAD GATE  
+Sprint: **P7 — Blog Editorial System and AI-Assisted Publishing**  
+Status: ACTIVE  
 Opened: 2026-08-08  
-Branch: `portfolio-2.0-polish`
+Branch: `portfolio-blog-editorial`
 
-Current work package: **P6-WP8 — Owner proofread gate and production merge/deploy decision**
+Current work package: **P7-WP7 — browser/editorial regression and owner gate**
 
-Sprint note: `docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
+Sprint note: `docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
+Editorial workflow: `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
 Production baseline:
 
 ```text
-Portfolio 2.0 production site-source commit: bb2968e523bd7af87e3cd31a3a7e045ecb44947b
-current production branch: main
+P6 accepted and squash-merged to main: 21031c0a18ae1c10ab9bafcbd0922c4b620c5383
 GitHub Pages build type: workflow
 production deployment: manual-only
 ```
 
-Completed P6 scope:
+P7 status:
 
 ```text
-P6-WP1 recruiter/hiring-manager audit + continuity capture: COMPLETE
-P6-WP2 implementation case-study specificity and first-person ownership: COMPLETE
-P6-WP3 reliability case-study specificity and first-person ownership: COMPLETE
-P6-WP4 operating-model case-study specificity and leadership evidence: COMPLETE
-P6-WP5 About/career-foundation narrative and people-powered leadership philosophy: COMPLETE
-P6-WP6 Home/Work/Resume de-duplication and recruiter scan polish: COMPLETE
-P6-WP7 public-disclosure review + Playwright/axe/build regression: COMPLETE
-P6-WP8 owner proofread gate and production merge/deploy decision: READY
+P7-WP1 editorial strategy / topic relevance / AI authoring contract: COMPLETE
+P7-WP2 existing-content editorial audit: COMPLETE
+P7-WP3 content schema and updated/series metadata foundation: COMPLETE
+P7-WP4 article refresh and series cleanup: COMPLETE
+P7-WP5 Git to Know You continuation decision: COMPLETE
+P7-WP6 reusable AI publication workflow: COMPLETE
+P7-WP7 browser/editorial regression and owner gate: ACTIVE
 ```
 
-Polished site-source regression commit:
+## Accepted editorial decisions
 
-`83961de7f671112f050130e84089a87b5ffe261b`
+- Original publication dates remain historical facts.
+- Materially revised articles use a separate `updated` date and `dateModified` structured data.
+- The clean Writing list remains the default archive presentation.
+- Series ordering/status and future article slugs are typed content metadata rather than hard-coded editorial logic.
+- Existing migrated articles retain their exact compatibility URLs; future articles declare a lowercase hyphenated `slug`.
+- GPT is the default research/drafting engine but must not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims.
+- Product-logo thumbnails remain the default for individual tool articles unless obsolete, low-quality, misleading, or visually unsuitable.
+- `We have a blog!` is retired from the active article set. `/we-have-a-blog/` remains as a compatibility page and the weak launch thumbnail is removed.
+- The current SRE Tools overview visual remains unless final browser evidence shows a real problem; do not create replacement artwork merely for novelty.
+- `Git to Know You: SRE Tools` is now a living series introduction rather than a fixed 2025 top-ten promise.
+- Final continuation sequence: **#8 Kubernetes -> #9 OpenTelemetry -> #10 Argo CD / GitOps**.
+- AWS moves to a possible future cloud-foundations series rather than one oversized generic tool article.
+- FireHydrant is no longer required to complete Git to Know You.
 
-Regression evidence:
+## P7-WP4 completed implementation
+
+- retired the obsolete launch article and removed its orphan thumbnail;
+- reframed the series overview;
+- materially refreshed Rundeck, New Relic, PagerDuty, Terraform, GitHub Actions, and Cursor using current source verification;
+- retained Git as a durable/light-touch article and added structural series metadata without manufacturing an Updated date;
+- applied explicit series metadata to the overview and #1–#7;
+- added Published/Updated presentation plus `dateModified` structured data;
+- added metadata-driven previous/next series navigation;
+- evolved migration-era integrity checks to preserve historical identity/date/compatibility while permitting deliberate editorial maintenance;
+- pruned orphan public assets created by the overview reframe;
+- added slug-aware routing for future AI-authored posts without changing legacy URLs;
+- expanded Playwright coverage to the active Writing archive, series overview, all seven current installments, retirement compatibility page, updated metadata, and series navigation.
+
+## Final gate
+
+Before P7 can be offered for owner approval:
 
 ```text
-Validate Astro migration run 31273655569: SUCCESS
-Playwright portfolio smoke run 31273655669: SUCCESS
-browser smoke tests: SUCCESS
-axe accessibility checks: SUCCESS
-blog source-integrity protection: SUCCESS
-public asset audit: SUCCESS
-Astro build: SUCCESS
-internal-link verification: SUCCESS
-Playwright evidence artifact: 9026379657
+exact-head Astro validation: REQUIRED GREEN
+public asset audit: REQUIRED GREEN
+legacy identity/date/compatibility checks: REQUIRED GREEN
+internal-link verification: REQUIRED GREEN
+expanded Playwright desktop/tablet/phone: REQUIRED GREEN
+axe representative article/archive scans: REQUIRED GREEN
+rendered screenshot visual review: REQUIRED
+public-disclosure/editorial diff review: REQUIRED
 ```
 
-Visual review:
+Production remains unchanged until owner approval and a separate merge/deploy action.
 
-- 27 Playwright full-page screenshots were manually reviewed across desktop, tablet, and phone viewport classes.
-- Home, Work, About, Resume, all three case studies, Writing, and a representative long-form article were reviewed for hierarchy, spacing, wrapping, card reflow, section rhythm, and narrow-screen presentation.
-- Human visual assessment: PASS; no design change is required before owner proofread.
+## Portfolio planning model
 
-Continuity / public-repository doctrine hardening completed after visual review:
+Maintain a lightweight directional roadmap for durable themes and known future work, but execute changes through bounded one-off/maintenance sprints when there is a concrete outcome.
 
-- `00_MASTER/00_MASTER_DOCTRINE.md` is now the single fresh-chat entry point and deterministically routes startup reads.
-- routine ZIP/package/local-script/upload handoff is explicitly retired; connected GitHub is the normal recovery/execution surface.
-- tracked doctrines/sprint notes/decision records are explicitly treated as recruiter-readable public engineering artifacts, never private project memory.
-- every tracked sentence must pass both public-safety and professional-read gates.
+Roadmap answers **where the portfolio is heading**. Sprints answer **what we are changing now**.
 
-PR:
+## Public-repository rule
 
-**#15 — Portfolio 2.0: Recruiter proofread and case-study polish**  
-Status: draft / unmerged
-
-Current polish themes:
-
-- implementation story centers on converting a difficult early migration into scripts, validation, runbooks, and repeatable orchestration;
-- reliability story centers on customer outage complaints -> observability -> pattern isolation -> RCA -> leadership communication -> software remediation;
-- operating-model story centers on useful dashboards/alerts, standardized runbooks/RCA practices, incident documentation, Jira workflow automation, and team adoption;
-- About explains influence without authority, the career progression into technical delivery, and a complementary-strengths leadership philosophy;
-- Home, Work, and Resume have less metric repetition and clearer recruiter-scan roles;
-- governance-sounding public disclaimers were replaced with normal confidentiality language;
-- wording that understated engineering depth was corrected.
-
-Planned follow-up after P6:
-
-- blog/editorial audit;
-- preserve the current clean Writing list unless evidence justifies a layout change;
-- review technical accuracy, links, screenshots/examples, and writing quality;
-- add honest `dateModified` / updated-date support only for materially refreshed articles;
-- design series metadata/navigation for finishing the current series and starting future series.
-
-Public-disclosure rule remains absolute. No customer identities, proprietary scripts/configuration, private employer artifacts, internal host names, ticket IDs, private RCA documents, private correspondence, or private project-memory details belong in tracked documentation or public copy.
-
-Production remains unchanged until Mike proofreads the candidate and explicitly approves merge/deployment.
+All P7 notes, drafts committed to Git, source research summaries, PRs, workflow artifacts, and metadata are public artifacts. Do not use the repository as private brainstorming memory. Research notes must be concise, sanitized, professionally readable, and necessary to reproduce an editorial decision.

@@ -2,13 +2,13 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry, GetStaticPaths } from 'astro';
 import BlogPostLayout from '../layouts/BlogPostLayout.astro';
-import { getLegacyBlogPath } from '../lib/blog-paths';
+import { getBlogPath } from '../lib/blog-paths';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('blog');
 
   return posts.map((post) => ({
-    params: { slug: getLegacyBlogPath(post.id).replace(/^\//, '').replace(/\/$/, '') },
+    params: { slug: getBlogPath(post.id, post.data.slug).replace(/^\//, '').replace(/\/$/, '') },
     props: { post },
   }));
 }) satisfies GetStaticPaths;
@@ -19,8 +19,38 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+let previousInSeries: { title: string; href: string } | undefined;
+let nextInSeries: { title: string; href: string } | undefined;
+
+if (post.data.series && post.data.seriesOrder !== undefined) {
+  const seriesPosts = (await getCollection('blog'))
+    .filter(({ data }) => data.draft !== true && data.series === post.data.series && data.seriesOrder !== undefined)
+    .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+
+  const currentIndex = seriesPosts.findIndex(({ id }) => id === post.id);
+  const previous = currentIndex > 0 ? seriesPosts[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 && currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : undefined;
+
+  if (previous) {
+    previousInSeries = { title: previous.data.title, href: getBlogPath(previous.id, previous.data.slug) };
+  }
+
+  if (next) {
+    nextInSeries = { title: next.data.title, href: getBlogPath(next.id, next.data.slug) };
+  }
+}
 ---
 
-<BlogPostLayout title={post.data.title} date={post.data.date} thumbnail={post.data.thumbnail}>
+<BlogPostLayout
+  title={post.data.title}
+  date={post.data.date}
+  updated={post.data.updated}
+  thumbnail={post.data.thumbnail}
+  series={post.data.series}
+  seriesOrder={post.data.seriesOrder}
+  previousInSeries={previousInSeries}
+  nextInSeries={nextInSeries}
+>
   <Content />
 </BlogPostLayout>

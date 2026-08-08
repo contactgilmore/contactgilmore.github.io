@@ -2,175 +2,185 @@
 layout: post
 title: "#6. Git to Know You: GitHub Actions"
 date: 2025-07-20
+updated: 2026-08-08
 thumbnail: /assets/images/blog2025/0626/githubActionsThumb.png
 categories: [sre, automation, ci-cd]
 tags: [github actions, ci/cd, workflows, automation, devops]
+series: "Git to Know You"
+seriesOrder: 6
+seriesStatus: "ongoing"
 ---
 
-**It’s automation time.**  
-You’ve learned Git, committed your first `.tf` file, maybe even dabbled in observability tooling. Now you’re staring at your repository and thinking, *"Wouldn’t it be cool if I didn’t have to manually build or deploy anything ever again?"* Enter GitHub Actions. A native CI/CD system that lets you connect events in your repo (like a push, PR, or release) to actual workflows that build, test, and ship your code automatically.
+**It’s automation time.**
 
-This is where things start to feel like real DevOps. You push a commit and things just *happen*. Your tests run. Your infrastructure updates. Your app gets deployed. It feels like magic but it's not. It's GitHub Actions.
+You have Git. You have infrastructure as code. Now comes the dangerous question: *“Why am I still doing this part by hand?”*
+
+That question is where CI/CD starts becoming practical instead of theoretical.
+
+GitHub Actions lets events in a repository trigger repeatable workflows. Open a pull request and run validation. Merge approved code and build an artifact. Publish a release and deploy it. Schedule a maintenance check. The important part is not that things happen automatically. The important part is that the process is **versioned, reviewable, and repeatable**.
+
+This portfolio is a good example. Changes go through Git, automated validation, browser testing, accessibility checks, and a controlled GitHub Pages deployment workflow. The automation does not remove judgment; it makes the judgment points explicit.
 
 ---
 
->
-> **Disclaimer:  
-> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and don't know where to start—you're exactly who this is for. I'm not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner-friendly. Whether you're switching roles, just getting started in tech, or exploring SRE for the first time—welcome! This is the stuff I wish I had been told.**
->
+> **Beginner note:**  
+> GitHub Actions can automate powerful operations, so start with validation before deployment. A workflow that runs tests on a pull request is a much safer place to learn than one that immediately changes production infrastructure.
 
 ---
 
 ## What Is GitHub Actions?
 
-GitHub Actions is a **CI/CD platform built into GitHub**. It lets you **automate workflows** like testing code, deploying applications, building Docker containers, or even posting in Slack. Whenever something happens in your repository.
+GitHub Actions is GitHub's workflow automation and CI/CD platform. Workflow files live in `.github/workflows/` and are written in YAML.
 
-Think of it like this:  
-🧠 “When something happens in GitHub → run one or more jobs automatically.”
+The basic model is simple:
 
-A few examples:
+**event → workflow → jobs → steps**
 
-- Push code to `main`? ✅ Run tests and deploy to staging.
-- Open a pull request? ✅ Lint the code and post results in the PR.
-- Merge to production? ✅ Deploy the app, notify the team, bump a version number.
+For example:
 
-GitHub Actions gives you automation without needing to leave your GitHub workflow.
+- Open or update a pull request → run tests and linting.
+- Merge to `main` → build a deployable artifact.
+- Manually approve a release → deploy that artifact.
+- Run on a schedule → check links, dependencies, or other maintenance tasks.
+
+The workflow becomes part of the repository, so changes to the delivery process can go through the same review history as changes to the application.
+
+---
+
+## A modern beginner example
+
+Here is a small Node workflow that validates a project when code is pushed or a pull request is opened:
+
+```yaml
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+```
+
+There are a few details here that matter more than they first appear.
+
+`npm ci` gives CI a dependency install based on the lockfile instead of casually changing dependency resolution. The workflow declares read-only repository permissions because validation does not need write access. And the Node version is explicit instead of depending on whatever happens to be preinstalled on the runner.
+
+Current major versions will change again eventually. That is normal. Treat workflow dependencies like any other dependency: review and update them deliberately.
 
 ---
 
 ## Why GitHub Actions?
 
-There are a lot of CI/CD options: Jenkins, GitLab CI, CircleCI, Travis, ArgoCD, and more. But GitHub Actions has some serious advantages:
+GitHub Actions is especially convenient when the source already lives in GitHub:
 
-- **Built-In Integration**  
-  It’s already part of GitHub. No separate UI, account, or API needed.
+- **Repository-native automation** — pull requests, branches, releases, issues, and schedules can all become workflow triggers.
+- **Versioned delivery logic** — the YAML lives beside the code it validates or deploys.
+- **Hosted and self-hosted runners** — jobs can run on GitHub-managed infrastructure or on appropriately secured infrastructure you operate.
+- **Reusable actions and workflows** — common steps can be composed instead of rewritten everywhere.
+- **Environment and approval controls** — sensitive deployment paths can require explicit gates.
+- **OIDC support** — cloud workloads can often use short-lived identity federation instead of storing long-lived cloud credentials as repository secrets.
 
-- **YAML-Based & Declarative**  
-  If you’ve used Terraform or Kubernetes, the syntax will feel familiar.
-
-- **Highly Event-Driven**  
-  Over 30 supported trigger events, from pushes and pull requests to issues and releases.
-
-- **Massive Marketplace**  
-  Thousands of pre-built actions you can drop into any workflow.
-
-- **Generous Free Tier**  
-  Plenty of free minutes for personal and open-source projects.
-
-- **Secure Secrets Handling**  
-  Store secrets like tokens, keys, and passwords directly in GitHub, with restricted access.
-
----
-
-## A Simple Example
-
-Here’s a basic workflow triggered by a push to the `main` branch:
-
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy App
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Deploy
-        run: npm run deploy
-```
-
-This small file lives in `.github/workflows` and becomes your new deployment script. It is fully automated, versioned, and repeatable.
+GitHub Actions is not the only good CI/CD platform. Jenkins, GitLab CI/CD, CircleCI, Azure DevOps, Buildkite, and others can all be the right answer. The transferable skill is designing a delivery process that is observable, repeatable, appropriately privileged, and easy to recover when something fails.
 
 ---
 
 ## A Real Story: How GitHub Actions Helped My Team
 
-Before GitHub Actions, our deployments were tedious and fragile. We built our apps in TeamCity, downloaded the artifacts manually, unzipped them, and ran install scripts by hand. It was easy to mess up and nearly impossible to track changes reliably.
+Before GitHub Actions, our deployments were tedious and fragile. We built applications in TeamCity, downloaded artifacts manually, unzipped them, and ran installation scripts by hand.
 
-As we moved toward microservices and containers, it became obvious that this wouldn’t scale. So we started using Git the right way: every change lived in a branch, every update had a pull request, and every merge had a peer review.
+That worked until the environment started changing faster. As we moved toward microservices and containers, the number of manual steps became harder to justify and harder to reproduce consistently.
 
-GitHub Actions connected the rest of the dots. Now when we merge a PR, GitHub Actions runs a pipeline that builds, tests, and deploys our changes. It’s consistent. It’s fast. And if something goes wrong? We revert the PR and everything is back to the previous working state. No guesswork, no SSHing into servers.
+We moved toward a Git-centered workflow: changes lived in branches, pull requests created a review point, and merges became a natural automation trigger.
 
-This wasn’t just for apps either. Our infrastructure runs through GitHub Actions too. Terraform format, validate, plan, and apply are all part of our CI/CD flow. Our secrets live safely in a provider like Terraform Cloud, and GitHub Actions references those securely without ever exposing credentials.
+GitHub Actions connected those pieces. Builds, tests, deployment steps, and infrastructure checks could run from a workflow instead of depending on someone remembering the procedure. Terraform validation and planning could live in the same delivery system as application automation.
 
-By the time we finished implementing it across teams, we had eliminated at least 25% of our [TOIL](https://sre.google/sre-book/eliminating-toil/). No more babysitting deployments or fixing broken scripts in the middle of the night.
+By the time we had implemented that model across teams, we had eliminated at least 25 percent of our toil. The biggest improvement was not simply speed. The process became visible and repeatable. If something failed, we had workflow history and Git history instead of trying to reconstruct which manual step someone ran.
+
+---
+
+## Security is part of the workflow
+
+Automation can move mistakes faster too, so permissions deserve the same attention as the build steps.
+
+A few habits matter:
+
+- Give `GITHUB_TOKEN` only the permissions a job actually needs.
+- Be cautious with workflows triggered from untrusted forked pull requests.
+- Prefer short-lived cloud authentication such as OIDC where the provider and use case support it.
+- Protect production deployments with environments, branch rules, reviews, or manual gates when appropriate.
+- Treat third-party actions as dependencies. Review their source/reputation and keep them current; higher-risk environments may pin actions to full commit SHAs.
+- Never print secrets or sensitive configuration into workflow logs.
+
+A green workflow is useful. A green workflow with unnecessary administrative permissions is still a bad workflow.
 
 ---
 
 ## Common Use Cases
 
-- **CI/CD Pipelines**  
-  Build → Test → Deploy across different branches or environments.
+GitHub Actions works well for much more than “deploy on push”:
 
-- **Terraform Deployments**  
-  Automate `terraform fmt`, `validate`, `plan`, and `apply`.
+- application tests and builds;
+- Terraform formatting, validation, and planning;
+- container builds and security scans;
+- static-site builds and GitHub Pages packaging;
+- scheduled maintenance and link checks;
+- release automation;
+- browser and accessibility testing;
+- notifications and workflow coordination.
 
-- **Jekyll/GitHub Pages**  
-  Push to `main`, and your static blog publishes itself.
-
-- **Chat Notifications**  
-  Post to Slack, Discord, or Teams when pipelines complete.
-
-- **Security Scans**  
-  Run Snyk, Trivy, or any scanner with PR context.
-
-- **Custom Actions**  
-  Write your own using JavaScript, Docker, or bash.
+One lesson I have learned is not to automate everything into one enormous workflow. Small jobs with clear responsibilities are easier to understand, retry, and troubleshoot.
 
 ---
 
-## Drawbacks
+## Where GitHub Actions can hurt
 
-- **Resource Limits**  
-  GitHub-hosted runners have fixed CPU/memory. Use self-hosted for big builds.
-
-- **Debugging Can Be Tricky**  
-  Logging is minimal, and trial-and-error is common when starting out.
-
-- **YAML Is Sensitive**  
-  One wrong indent and your whole job fails. Seriously.
-
-- **Vendor Lock-In**  
-  Deeply integrated into GitHub, which can be limiting if you ever move off-platform.
-
-- **Forked PRs Can’t Access Secrets**  
-  A security feature that can block automation in open source workflows.
+- **Debugging remote runners takes practice.** A failed job can require more context than a local command.
+- **Permissions can be too broad.** Convenience defaults are not a substitute for least privilege.
+- **Third-party actions add supply-chain dependencies.** Know what you are executing.
+- **Hosted-runner limits matter for large workloads.** Self-hosting can add capacity, but it also adds security and maintenance responsibilities.
+- **Deep platform coupling is real.** A workflow designed around GitHub events and environments takes work to move elsewhere.
+- **YAML can become a programming language by accident.** When a workflow becomes unreadable, extract reusable scripts or workflows instead of adding another hundred lines of conditionals.
 
 ---
 
 ## Cost
 
-GitHub Actions is **free** for public repositories and comes with generous minutes for private repos too. GitHub Pro and org accounts get even more.
+GitHub's billing model depends on repository visibility, runner type, account plan, and usage. Public repositories can use standard GitHub-hosted runners without the same metered-minute model applied to private repositories, while private-repository allowances and paid usage vary by plan.
 
-Need more power? You can always run your own **self-hosted runners** on-prem or in the cloud.
+Because pricing and included usage can change, check GitHub's current Actions billing documentation before designing a workload around a particular allowance.
+
+Self-hosted runners shift compute onto infrastructure you operate, but “self-hosted” does not mean free. You own the machine, patching, isolation, capacity, and security boundary.
 
 ---
 
 ## Bottom Line
 
-GitHub Actions brings real automation to your development workflow. From app builds to infrastructure as code, you can trigger anything securely, automatically, and repeatably. It’s fast to learn, easy to scale, and powerful enough for teams of any size.
+GitHub Actions is useful because it turns delivery knowledge into something executable and reviewable.
 
-It’s not just “nice to have.” It’s your next step toward reducing [TOIL](https://sre.google/sre-book/eliminating-toil/) and making your work smoother, faster, and more fun.
+Start with validation. Make a pull request run a test you would otherwise run manually. Then add artifact creation, security checks, or deployment gates as the workflow matures.
 
-Start with one workflow file and watch your entire release process transform.
+The goal is not to make every change happen automatically. The goal is to automate the repeatable parts while keeping human judgment at the points where judgment actually matters.
 
-Stay tuned for the next post in the **Git to Know You** series.
+That is a much healthier definition of CI/CD than “push to `main` and hope.”

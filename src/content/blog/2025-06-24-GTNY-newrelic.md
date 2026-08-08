@@ -2,130 +2,149 @@
 layout: post
 title: "#2. Git to Know You: New Relic"
 date: 2025-06-24
+updated: 2026-08-08
 thumbnail: /assets/images/blog2025/0622/newRelicThumb.png
 categories: [sre, observability, monitoring]
-tags: [new relic, monitoring, apm, logs]
+tags: [new relic, observability, monitoring, apm, logs]
+series: "Git to Know You"
+seriesOrder: 2
+seriesStatus: "ongoing"
 ---
 
-**Alright, so if you're following in order...** we have completely gone out of order now. There is a good reason for that. The original list focused more on what shows up in job postings or what tools people tend to mention first.
+**Alright, now that we have started reducing TOIL, we need visibility.**
 
-Here is the real progression for most SREs:
+You can automate all day, but when a customer says, “the application is slow,” you still need to answer a much harder question:
 
-1. We do everything we can to eliminate [TOIL](https://sre.google/sre-book/eliminating-toil/).
-2. We hate incidents.
-3. We cannot focus on reducing incidents if we are buried in [TOIL](https://sre.google/sre-book/eliminating-toil/).
+**What is actually happening?**
 
-First, admit the problem. Then focus on what matters. Then engineer and automate everything once you have the time to do it. We work across multiple teams and often sit in the middle of them. We just enabled our support team with Rundeck. Now it is time to get visibility into what is happening in our own systems.
+That is why New Relic is still one of my favorite tools in the reliability toolbox.
 
-**I am biased here. This is my favorite tool out of the entire incident response toolbox.**
+Observability is the difference between guessing and investigating. New Relic brings application performance, infrastructure signals, logs, traces, browser/user experience, synthetics, dashboards, and alerting into one platform so you can start connecting symptoms to causes.
 
-This is where **New Relic** comes in. Observability is the difference between guessing and knowing. When systems start acting strange, you want data, not assumptions. New Relic gives you visibility into your apps, infrastructure, users, and overall stack. Even if you are just getting started in SRE or trying to understand why your app behaves unpredictably, New Relic provides the clarity you did not know you were missing. From performance metrics to traces and logs, it helps you understand what is actually happening.
-
-Think of it like a mission control panel. One screen with full context. It does not need to be complicated. A ping failure lasting more than two minutes can trigger an alert, which we will cover later. SREs respond to that alert and immediately review their incident dashboard to identify what is causing the issue.
-
-You do not have to be a senior engineer to get value from it. Beginners can learn a lot just by observing live data, performance graphs, and real traffic patterns. It closes the gap between gut instinct and measurable facts.
+You do not need to be a senior engineer to get value from that. A beginner can learn a lot by watching what normal traffic looks like, what changes during a failure, and how several signals line up around the same incident.
 
 ---
 
->
-> **Disclaimer:  
-> Everything in this blog is written with beginners in mind. If you're curious about Site Reliability Engineering and do not know where to start, you are exactly who this is for. I am not here to throw a bunch of jargon at you or assume you already know everything. The goal is to keep it clear, practical, and beginner friendly. Whether you are switching roles, just getting started in tech, or exploring SRE for the first time, welcome. This is the material I wish I had been introduced to earlier.**
->
+## Monitoring vs. observability
+
+Monitoring asks whether the things you already know to watch are healthy.
+
+Observability helps you investigate questions you did not know you would need to ask.
+
+A ping check telling you a site is unavailable is monitoring. Looking at application transactions, infrastructure metrics, logs, distributed traces, and recent changes to understand *why* it is unavailable is closer to observability.
+
+New Relic supports both.
 
 ---
 
 ## Why New Relic?
 
-New Relic allows you to monitor application performance, system health, and user behavior in one place. It combines logs, metrics, and traces to provide a complete view of your environment.
+New Relic can ingest and connect telemetry from applications, infrastructure, cloud services, logs, browser sessions, synthetic checks, Kubernetes, and a large integration ecosystem.
 
-When something breaks, you are not guessing. You are identifying the root cause quickly. Whether it is a slow database, a memory leak, or a traffic spike, New Relic directs you to the source.
+For an SRE or operations team, the real value is context.
 
-You can think of it as a GPS for your infrastructure. It tracks where requests travel, how long they take, and where delays occur. The visualizations make it easier to interpret what is happening. You do not need to wait for a crisis to use it either. New Relic supports continuous improvement by helping you set baselines, measure deployment impact, and observe how performance evolves over time.
+A useful dashboard might tell you:
+
+- which customers or services are affected;
+- when the behavior began;
+- whether CPU, memory, storage, or network conditions changed;
+- whether a deployment happened nearby;
+- which transaction or dependency is slow;
+- whether the problem is global or isolated;
+- whether the user experience matches what the infrastructure metrics suggest.
+
+That is much more useful than a red light that only says “bad.”
 
 ---
 
-## A Real Story: How New Relic Helped My Team
+## A Real Story: Turning Customer Complaints Into Evidence
 
-We used to receive constant customer reports claiming their applications were slow or unavailable. It was difficult to determine what was actually happening. After implementing monitors in New Relic, we identified a pattern. Multiple applications were using a single **FSx drive** for storage. That drive ran **Windows Updates and scheduled maintenance** regularly. During those windows, it would disconnect briefly, which triggered widespread issues.
+We used to receive customer reports that their applications were slow or unavailable, but the reports alone did not give us enough information to understand the pattern.
+
+After adding monitors and dashboards in New Relic, we started correlating the failures. Multiple applications were using a shared FSx storage layer. Scheduled Windows maintenance on that storage could cause brief disconnects, and those windows lined up with the customer-facing problems we were seeing.
 
 ![New Relic APM Example](/assets/images/blog2025/0622/newRelicAPM.png)
 
-New Relic helped us connect the evidence. We adjusted maintenance schedules, refined alerts, and built custom dashboards so the support team could monitor issues in real time. The outcome was fewer tickets, faster resolution, and a more confident team. We even configured alerts on FSx performance directly. That allowed us to notify teams before customers experienced noticeable problems. That level of visibility builds trust with customers and internally across teams.
+Once we had evidence instead of anecdotes, we could change the operating response. We adjusted maintenance schedules, improved alerts, and built dashboards that support teams could use in real time.
+
+The result was fewer avoidable escalations and faster troubleshooting. More importantly, support and engineering were looking at the same evidence instead of arguing from different guesses.
+
+That is the part of observability I care about most: **shared facts change the quality of the conversation.**
 
 ---
 
-## Benefits
-
-- **One View for Everything**  
-  Logs, metrics, traces, and dashboards in a single place.
+## Dashboards should answer a question
 
 ![New Relic Dashboard Example](/assets/images/blog2025/0622/newRelicDash.png)
 
-- **Faster Troubleshooting**  
-  Move from identifying a symptom to pinpointing the cause within minutes.
+It is easy to build a beautiful dashboard with forty charts that nobody actually uses.
 
-- **Custom Dashboards**  
-  Build views tailored to your team. Monitor APIs, track KPIs, or observe deployments live.
+I would rather have a smaller dashboard that answers questions such as:
 
-- **Plays Well With Other Tools**  
-  Integrates with AWS, Kubernetes, Jenkins, GitHub, and more.
+- Are customers impacted right now?
+- Which service is unhealthy?
+- Is this behavior outside the normal baseline?
+- What changed around the time the incident started?
+- Which dependency should I inspect next?
 
-- **Smart Alerts**  
-  Configure thresholds, detect anomalies, and respond before minor issues escalate.
-
-- **Great for Cross-Team Visibility**  
-  Developers, support teams, and SREs can all rely on the same shared insights.
-
-- **Baseline Monitoring**  
-  Define what normal looks like and detect drift early.
-
-- **Filter and Tag Data**  
-  Organize information by team, environment, application, or customer group.
-
-- **Understand the User Experience**  
-  RUM, or Real User Monitoring, shows what users actually experience.
-
-- **Synthetic Checks**  
-  Simulate user interactions from multiple locations to detect regional problems.
+A dashboard is useful when it helps someone make a decision.
 
 ---
 
-## Drawbacks
+## Useful New Relic capabilities for beginners
 
-- **It Can Feel Overwhelming Initially**  
-  The volume of dashboards and metrics may be intimidating for new users.
+### Application Performance Monitoring
 
-- **Costs Can Increase Quickly**  
-  The free tier is strong, but heavy log usage in particular can become expensive.
+APM helps you understand application transactions, response times, errors, and dependencies rather than looking only at host health.
 
-- **Requires Proper Setup**  
-  Default configurations are useful, but meaningful value comes from customization.
+### Logs, metrics, and traces
 
-- **Alert Noise Is Possible**  
-  Without tuning, alerts may be too frequent or not actionable.
+These signals are much more powerful when you can correlate them instead of treating each tool as a separate island.
 
-- **Limited Retention on Free Plans**  
-  Monitor how long your data remains accessible.
+### Infrastructure monitoring
 
-- **Enterprise Features Increase Cost**  
-  Longer retention, SSO, and advanced analytics come at a higher price.
+Hosts, containers, Kubernetes, and cloud integrations give application behavior the infrastructure context around it.
+
+### Synthetics
+
+Synthetic checks let you test availability or user flows from outside the application instead of waiting for a real user to discover the failure first.
+
+### Browser and digital experience monitoring
+
+Infrastructure can look healthy while the user experience is terrible. Front-end telemetry helps close that gap.
+
+### Alerts
+
+Good alerting should identify conditions that require action. Bad alerting simply converts every interesting metric into another notification.
 
 ---
 
-## Cost
+## Where New Relic can get difficult
 
-New Relic offers a generous free tier that works well for individuals and small teams testing the platform.
+- **The platform is broad.** Beginners can get lost if they try to learn every capability at once.
+- **Telemetry volume matters.** Sending everything forever is not a strategy; instrument intentionally and understand what you ingest.
+- **Dashboards require design.** Default views help, but the best operational dashboards usually reflect your own services and failure modes.
+- **Alert noise is still your responsibility.** A powerful alerting system can create powerful alert fatigue.
+- **Pricing depends on usage and access.** Observability costs deserve active ownership as environments grow.
 
-Beyond that, pricing depends on how much data you send, including logs, metrics, and traces, and how many users require access. With careful alerting and retention strategies, costs can remain manageable. If you scale aggressively, you will need to actively monitor usage and spending.
+---
 
-For growing teams, business and enterprise plans provide extended data retention, enhanced integrations, and priority support.
+## Current free tier
+
+As of this 2026 refresh, New Relic's official free offering includes **100 GB of data ingest per month, unlimited basic users, and one full-platform user**, along with default retention and access to the broader platform.
+
+Those details can change, so check New Relic's current pricing page before designing an environment around a specific limit.
+
+For learning, though, the free tier is substantial enough to instrument a small application and start seeing how logs, metrics, traces, dashboards, and alerts connect.
 
 ---
 
 ## Bottom Line
 
-If you have ever said, “I have no idea why this app is slow,” New Relic can help you move from uncertainty to clarity. It provides visibility, accelerates troubleshooting, and supports prevention before issues turn into outages. For new SREs, developers, or anyone supporting production systems, it is one of the most practical tools you can learn.
+New Relic is valuable because it teaches you to replace “I think” with “the telemetry shows.”
 
-Give it a try. Connect your systems. Then watch how much more confident you feel when the data is right in front of you.
+Start with one application. Add a simple availability check. Learn its normal response time. Build one dashboard around a real operational question. Then create one alert you would genuinely want someone to wake you up for.
 
----
+You do not need hundreds of charts to practice observability.
+
+You need enough evidence to make the next decision with confidence.

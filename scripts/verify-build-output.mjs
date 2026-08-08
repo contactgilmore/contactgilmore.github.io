@@ -22,7 +22,6 @@ const requiredOutputs = [
   'robots.txt',
   'sitemap-index.xml',
   'sitemap-0.xml',
-  'assets/images/blog2025/vaultBoy.png',
   'assets/images/blog2025/0622/sre_logos_thumbnail.png',
   'assets/images/blog2026/022026/cursorlogo2.png',
 ];

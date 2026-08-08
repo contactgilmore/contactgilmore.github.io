@@ -21,6 +21,7 @@ The following are no longer open brand questions:
 
 Potential improvements should be evaluated against actual content need rather than added as decoration:
 
+- **Desktop/laptop homepage hero typography calibration:** owner review on macOS Chrome found the current 14ch / `clamp(3rem, 7.4vw, 6.6rem)` hero visually aggressive at a common laptop/desktop viewport. Oversized editorial display type is a legitimate contemporary pattern, but the current combination creates many short lines and pushes the value proposition/CTA below the first viewport. Before changing it, compare a modestly wider measure and/or lower desktop maximum against the current design using Playwright screenshots at MacBook-class widths. Preserve the confident editorial hierarchy; optimize recruiter scanability rather than reverting to generic small corporate typography.
 - stronger individual case-study detail pages when enough public-safe material exists;
 - selective project imagery/diagrams where they provide evidence;
 - social/Open Graph preview artwork;
@@ -28,14 +29,14 @@ Potential improvements should be evaluated against actual content need rather th
 - optional horizontal proof/writing rail if content volume makes it useful;
 - richer article topic/category discovery as the archive grows;
 - accessibility audit expansion beyond current structural/browser smoke tests;
-- performance/Lighthouse budget before production cutover.
+- periodic performance/Lighthouse review.
 
 ## Risks to guard against
 
 - diluting the clear professional identity by reintroducing competing job-title lists;
 - letting technical tags/logos outrank professional evidence;
 - excessive empty space that stops feeling editorial and starts feeling unfinished;
-- oversized display typography without responsive validation;
+- oversized display typography that is technically responsive but visually slows scanning at intermediate desktop/laptop widths;
 - adding animation simply to make the site look modern;
 - inconsistent one-off component styles that erode the established system;
 - turning Work into confidential employer/customer disclosure;

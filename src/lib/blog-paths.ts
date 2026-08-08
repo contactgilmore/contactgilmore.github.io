@@ -10,14 +10,22 @@ const legacyBlogPaths: Record<string, string> = {
   '2026-02-25-gtny-cursor': '/GTNY-cursor/',
 };
 
+export function getBlogPath(id: string, slug?: string): string {
+  const legacyPath = legacyBlogPaths[id];
+  if (legacyPath) return legacyPath;
+
+  if (slug) return `/${slug}/`;
+
+  throw new Error(`Blog entry ${id} needs an explicit slug because it has no legacy path mapping.`);
+}
+
+// Temporary compatibility for the existing homepage. New editorial code should use getBlogPath.
 export function getLegacyBlogPath(id: string): string {
-  const path = legacyBlogPaths[id];
+  const legacyPath = legacyBlogPaths[id];
+  if (legacyPath) return legacyPath;
 
-  if (!path) {
-    throw new Error(`Missing legacy path mapping for blog entry: ${id}`);
-  }
-
-  return path;
+  const derivedSlug = id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
+  return `/${derivedSlug}/`;
 }
 
 export { legacyBlogPaths };
