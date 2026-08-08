@@ -5,7 +5,7 @@ Status: ACTIVE
 Opened: 2026-08-08  
 Branch: `portfolio-blog-editorial`
 
-Current work package: **P7-WP1 — editorial strategy, topic relevance, and AI publishing contract**
+Current work package: **P7-WP4 — priority article refresh batch**
 
 Sprint note: `docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
@@ -17,29 +17,50 @@ GitHub Pages build type: workflow
 production deployment: manual-only
 ```
 
-P7 goals:
+Completed P7 scope:
 
-- audit all existing articles for technical accuracy, links, examples, screenshots, voice, and continued relevance;
-- do not change publication dates merely to create artificial freshness;
-- add `dateModified` / visible Updated metadata only when an article is materially refreshed;
-- review whether the remaining original Git to Know You topics are still the best topics rather than mechanically finishing the 2025 list;
-- allow replacement/reordering of future series topics when current market/tool relevance supports a better editorial choice;
-- preserve the current clean Writing archive unless evidence justifies a presentation change;
-- add lightweight series metadata/navigation that can support Git to Know You and future series;
-- establish an AI-assisted editorial workflow where GPT can research and draft future posts from the established templates and Mike's demonstrated tone, with factual/source verification and owner approval before publication;
-- keep all drafts and documentation safe for unrestricted public disclosure.
+```text
+P7-WP1 editorial strategy / topic relevance / AI authoring contract: COMPLETE
+P7-WP2 existing nine-post editorial audit: COMPLETE
+P7-WP3 content schema and series/update metadata foundation: COMPLETE
+P7-WP4 priority article refresh batch: ACTIVE
+P7-WP5 Git to Know You continuation decision: PENDING
+P7-WP6 reusable AI publication workflow: PENDING
+P7-WP7 browser/editorial regression and owner gate: PENDING
+```
 
-## AI-assisted publishing principle
+## Editorial decisions
 
-AI may do the repetitive editorial work: topic research, current-source verification, outline, first draft, link checking, metadata, series placement, and revision suggestions. Mike remains the named author/owner and approves publication. GPT must preserve Mike's established beginner-friendly, practical, opinionated-but-grounded voice rather than producing generic AI prose.
+- Original publication dates remain historical facts.
+- Materially revised articles may receive a separate `updated` date and `dateModified` structured data.
+- The clean Writing list remains the default archive presentation.
+- Series metadata is typed in the Astro content schema rather than inferred permanently from title strings.
+- AWS, Argo CD, and FireHydrant are candidates, not obligations; future topics require current relevance research.
+- GPT is the default research/drafting engine but must not invent personal experience, employer/customer stories, metrics, or first-person claims.
 
-AI-generated or AI-assisted text must not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims. When a post would benefit from a personal anecdote not already supported by repository authority, GPT asks Mike for the missing facts or writes the section without pretending the experience occurred.
+## Existing-post audit result
+
+```text
+We have a blog!        REFRAME / retire from feature prominence
+SRE Tools overview     REFRAME as living series introduction
+Rundeck                 REFRESH
+New Relic               REFRESH
+PagerDuty               REFRESH
+Git                     KEEP / light refresh
+Terraform               REFRESH — high priority
+GitHub Actions          REFRESH — high priority
+Cursor                  KEEP / targeted refresh
+```
+
+## P7-WP4 priority
+
+Refresh Terraform and GitHub Actions first because both contain materially stale technical guidance/examples. Preserve the real professional stories while correcting current product/runtime guidance and overly absolute claims. Add an honest updated date only after substantive revision.
 
 ## Portfolio planning model
 
-The portfolio is not treated like a continuously expanding software product. Maintain a lightweight directional roadmap for durable themes and known future work, but execute changes through bounded one-off/maintenance sprints when there is a concrete outcome.
+Maintain a lightweight directional roadmap for durable themes and known future work, but execute changes through bounded one-off/maintenance sprints when there is a concrete outcome.
 
-Roadmap answers **where the portfolio is heading**. Sprints answer **what we are changing now**. Avoid manufacturing product-style phases or backlog volume merely to make the project look managed.
+Roadmap answers **where the portfolio is heading**. Sprints answer **what we are changing now**.
 
 ## Public-repository rule
 
