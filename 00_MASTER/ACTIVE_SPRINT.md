@@ -46,7 +46,21 @@ blog source-integrity protection: SUCCESS
 public asset audit: SUCCESS
 Astro build: SUCCESS
 internal-link verification: SUCCESS
+Playwright evidence artifact: 9026379657
 ```
+
+Visual review:
+
+- 27 Playwright full-page screenshots were manually reviewed across desktop, tablet, and phone viewport classes.
+- Home, Work, About, Resume, all three case studies, Writing, and a representative long-form article were reviewed for hierarchy, spacing, wrapping, card reflow, section rhythm, and narrow-screen presentation.
+- Human visual assessment: PASS; no design change is required before owner proofread.
+
+Continuity / public-repository doctrine hardening completed after visual review:
+
+- `00_MASTER/00_MASTER_DOCTRINE.md` is now the single fresh-chat entry point and deterministically routes startup reads.
+- routine ZIP/package/local-script/upload handoff is explicitly retired; connected GitHub is the normal recovery/execution surface.
+- tracked doctrines/sprint notes/decision records are explicitly treated as recruiter-readable public engineering artifacts, never private project memory.
+- every tracked sentence must pass both public-safety and professional-read gates.
 
 PR:
 
@@ -63,6 +77,14 @@ Current polish themes:
 - governance-sounding public disclaimers were replaced with normal confidentiality language;
 - wording that understated engineering depth was corrected.
 
-Public-disclosure rule remains absolute. No customer identities, proprietary scripts/configuration, private employer artifacts, internal host names, ticket IDs, private RCA documents, or private correspondence are included in the polished public copy.
+Planned follow-up after P6:
+
+- blog/editorial audit;
+- preserve the current clean Writing list unless evidence justifies a layout change;
+- review technical accuracy, links, screenshots/examples, and writing quality;
+- add honest `dateModified` / updated-date support only for materially refreshed articles;
+- design series metadata/navigation for finishing the current series and starting future series.
+
+Public-disclosure rule remains absolute. No customer identities, proprietary scripts/configuration, private employer artifacts, internal host names, ticket IDs, private RCA documents, private correspondence, or private project-memory details belong in tracked documentation or public copy.
 
 Production remains unchanged until Mike proofreads the candidate and explicitly approves merge/deployment.
