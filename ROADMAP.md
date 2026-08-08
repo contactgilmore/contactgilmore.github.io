@@ -5,11 +5,11 @@ Updated: 2026-08-08
 
 ## North star
 
-Transform `contactgilmore.github.io` from a basic hand-built portfolio/resume page into a polished professional portfolio and technical writing platform that communicates Mike Gilmore's value quickly, demonstrates credible professional proof, and remains straightforward for GPT-assisted maintenance over the long term.
+Maintain `contactgilmore.github.io` as a polished professional portfolio and technical writing platform that communicates Mike Gilmore's value quickly, demonstrates credible professional proof, and serves as a public example of disciplined AI-assisted software delivery.
 
-## Technology decision
+## Technology authority
 
-Target:
+Current production stack:
 
 ```text
 Astro 7+
@@ -20,21 +20,22 @@ minimal client JavaScript
 GitHub-hosted Actions for this public repository
 GitHub Pages
 Playwright browser smoke testing
+axe accessibility checks
 ```
 
-Why:
+Why this stack remains appropriate:
 
-- preserve Markdown blog content;
+- preserves Markdown blog content;
 - modern, actively maintained static-site ecosystem;
 - strong component/layout model without requiring a client framework;
 - typed content metadata;
 - clean source structure for GPT-assisted changes;
 - static output with low operational complexity;
 - compatible with GitHub Pages;
-- public-repository GitHub-hosted Actions avoid exposing Node3 to untrusted public workflow code;
+- GitHub-hosted Actions avoid exposing private self-hosted infrastructure to public workflow code;
 - browser testing protects the responsive visual system rather than relying only on successful compilation.
 
-Jekyll remains production authority until the final launch cutover. React is not part of the default architecture.
+React, a CMS, database, or alternate hosting provider is not part of the default architecture unless a later requirement justifies the change.
 
 ## Design/product direction
 
@@ -46,147 +47,78 @@ Technical Delivery & Customer Solutions
 
 The site treats implementation, integrations/troubleshooting, customer/stakeholder leadership, systems/program delivery, and operational/reliability depth as connected proof rather than competing identities.
 
-Current homepage hierarchy:
+Current top-level structure:
 
 ```text
-navigation
-hero: identity + value proposition + CTA
-three concise capability/proof pillars
-selected professional evidence
-technical-depth section
-featured writing
-compact experience continuity
-about/contact
+Home / Work / Writing / About / Resume
 ```
 
-The full blog is a dedicated archive rather than every post being rendered onto the homepage.
+Primary professional proof is carried by three curated case studies rather than a chronological project dump.
 
-## Proof strategy
+## Completed delivery phases
 
-Primary evidence is sanitized professional case-study material, not only lab-style projects.
+### P1 — Foundation and Astro migration — COMPLETE
 
-Initial lanes:
+Delivered governance, Jekyll/content/URL audit, Astro scaffold, typed blog schema, byte-preserved migration of nine published Markdown articles, legacy route/asset regression, and Pages candidate packaging.
 
-1. enterprise implementation / migration / delivery;
-2. reliability / cross-functional remediation / customer impact;
-3. program delivery / operating-model improvement.
+### P2 — Positioning and information architecture — COMPLETE
 
-Existing Terraform, New Relic, GitHub Actions, automation, cloud, API, SQL, and reliability experience remain supporting technical proof where useful.
+Delivered the professional umbrella, audience journeys, homepage hierarchy, Work/case-study architecture, About/Resume strategy, and Writing/archive rules.
 
-## Phase P1 — Foundation and Astro migration
+### P3 — Visual design system — COMPLETE
 
-Status: **COMPLETE**
+Delivered the responsive Portfolio 2.0 design system, accessibility defaults, long-form article styling, Playwright desktop/tablet/phone smoke coverage, screenshot evidence, and brand doctrine based on the tested implementation.
 
-Goal: modernize the engine with zero intentional content loss and no production disruption.
+### P4 — Professional case studies and content refresh — COMPLETE
 
-Delivered:
+Delivered three sanitized professional case studies, truth-mapped evidence, Home/Work/About/Resume integration, recruiter-scan hierarchy, and full browser/accessibility regression.
 
-- governance/doctrine system;
-- Jekyll dependency/content/URL audit;
-- public-repo runner + Pages contract verification;
-- Astro scaffold and typed blog schema;
-- nine Markdown/article migrations byte-for-byte;
-- dedicated blog archive foundation;
-- exact legacy URL/link/asset regression checks;
-- non-deploying Pages candidate workflow.
+### P5 — Quality, discoverability, and launch — COMPLETE
 
-Exit achieved: Astro can build/package the existing content without unexplained loss or broken compatibility paths. Production cutover remains explicit.
+Delivered public-asset minimization, sitemap/robots/canonical/social metadata, structured data, accessibility hardening, link/route regression, Pages deployment/rollback controls, owner cutover, and successful Portfolio 2.0 production launch.
 
-## Phase P2 — Positioning and information architecture
+### P6 — Recruiter proofread, voice, and case-study polish — ACTIVE
 
-Status: **COMPLETE**
+Branch: `portfolio-2.0-polish`  
+PR: `#15`
 
-Goal: make the site communicate the right professional story in seconds.
+Goals:
 
-Delivered:
+- strengthen first-person ownership and specificity in case studies;
+- reduce repeated metrics and governance-sounding public copy;
+- improve the career-foundation narrative around influence without authority and complementary strengths;
+- verify the complete candidate visually at desktop/tablet/phone sizes;
+- harden public-repository documentation so it is safe and professional if read or copied;
+- retire legacy ZIP/script/upload handoff in favor of repository-native single-entry startup.
 
-- professional umbrella and message hierarchy;
-- audience journeys;
-- homepage content hierarchy;
-- Work/case-study architecture;
-- technical-project demotion to supporting evidence;
-- experience/about/resume strategy;
-- featured-writing/archive rules.
+Production remains unchanged until the P6 owner proofread/merge/deploy gate is explicitly completed.
 
-Exit achieved: positioning and page map accepted before detailed implementation.
+## Planned next phase — Writing and editorial system
 
-## Phase P3 — Visual design system
+After P6, open a bounded blog/editorial sprint rather than mixing article maintenance into portfolio proofread work.
 
-Status: **COMPLETE**
+Planned scope:
 
-Goal: create a restrained modern professional look informed by high-quality B2B SaaS/editorial patterns without becoming a flashy developer template.
+- preserve the current clean Writing list unless evidence justifies a visual change;
+- review all published technical articles for 2026 technical accuracy, stale links, screenshots, commands, terminology, and writing quality;
+- retain original publication dates;
+- add `updated` / `dateModified` support only when an article is materially refreshed;
+- add typed series metadata such as series name/order/status;
+- support future series grouping and optional previous/next-series navigation without turning the archive into a heavy UI;
+- decide whether the introductory blog post remains an article or becomes a writing/series introduction;
+- continue public-disclosure and compatibility protections for historical content.
 
-Delivered:
+## Continuous portfolio operations
 
-- editorial/system typography system;
-- light neutral + restrained blue accent palette;
-- spacing/layout tokens and 1180px responsive shell;
-- sticky navigation/footer;
-- evidence cards and metric treatments;
-- responsive Home, Work, Writing, About, Resume, and article surfaces;
-- focus/reduced-motion/accessibility defaults;
-- long-form article/archive design;
-- durable Playwright smoke suite across desktop/tablet/phone;
-- full-page screenshot evidence and visual inspection;
-- active brand doctrine based on the tested implementation.
+Ongoing work should include:
 
-P3 smoke evidence:
-
-```text
-commit: 3372e074745d4a22d1ee18f6f525063414756700
-Playwright run: 31251097496
-21 / 21 tests passed
-```
-
-Exit achieved: responsive design language is browser-proven and doctrine-backed.
-
-## Phase P4 — Professional case studies and content refresh
-
-Status: **ACTIVE**
-
-Goal: replace broad skill-list claims with stronger evidence while preserving recruiter scanability.
-
-Deliverables:
-
-- truth-mapped public-safe evidence inventory;
-- three sanitized professional case studies;
-- homepage/Work/About copy refinement aligned to current career targets;
-- technical project descriptions reframed around problem/approach/result where supported;
-- selected featured articles;
-- public Resume/contact integration review;
-- confidentiality/public-disclosure review;
-- full Playwright regression after content integration.
-
-Exit: portfolio tells a coherent senior technical-delivery story with deeper proof paths.
-
-## Phase P5 — Quality, discoverability, and launch
-
-Deliverables:
-
-- semantic HTML/accessibility hardening beyond current smoke coverage;
-- metadata/canonical audit;
-- Open Graph/social preview image;
-- sitemap/robots checks;
-- structured Person/profile data where appropriate;
-- image optimization;
-- performance/Lighthouse budget and review;
-- broken-link/URL regression expansion;
-- final mobile/desktop browser acceptance;
-- production GitHub Actions Pages cutover and rollback checkpoint.
-
-Exit: Portfolio 2.0 is live, verifiably healthy, and maintainable.
-
-## Phase P6 — Continuous portfolio operations
-
-Ongoing:
-
-- new blog posts use typed content schema;
-- quarterly featured-content review;
-- update case studies when professional experience changes;
-- dependency maintenance;
-- CI/browser quality gates;
+- publish new writing through the typed content schema;
+- periodically review featured content and professional positioning;
+- update case studies when professional experience materially changes;
+- maintain dependencies and CI/browser quality gates;
 - remove stale claims and technologies;
-- retain sprint notes for major redesign/migration arcs rather than every minor edit.
+- keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
+- use sprint notes for material redesign, migration, content-system, or launch arcs rather than every minor edit.
 
 ## Explicit non-goals
 
@@ -195,6 +127,7 @@ Ongoing:
 - no React merely for prestige;
 - no animation-heavy portfolio aesthetic;
 - no giant skill icon wall or proficiency bars;
-- no destructive rewrite of historical blog content during framework migration;
+- no artificial publication-date refreshing merely to make older articles look newer;
 - no production cutover based only on a successful build;
-- no public-repo self-hosted runner exposure without a future security justification.
+- no public-repository self-hosted runner exposure without a future security justification;
+- no tracked private personal/job-search memory in the public repository.

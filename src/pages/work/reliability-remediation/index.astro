@@ -11,46 +11,45 @@ const outcomes = [
 const remediationLoop = [
   {
     number: '01',
-    title: 'See the customer signal',
-    body: 'Treat recurring escalations and service-impact patterns as evidence of a systemic problem, not just isolated operational events.',
+    title: 'Start with the customer signal',
+    body: 'Treat repeated outage complaints as a pattern worth proving rather than dismissing them as unrelated incidents.',
   },
   {
     number: '02',
-    title: 'Find the pattern',
-    body: 'Use production behavior, repeat-incident history, and root-cause work to separate one-off noise from issues worth sustained remediation.',
+    title: 'Build the visibility that is missing',
+    body: 'Correlate affected customers, timing, duration, resource behavior, and workload patterns so anecdotal complaints become measurable evidence.',
   },
   {
     number: '03',
-    title: 'Create ownership',
-    body: 'Coordinate across Product, Engineering, and customer-facing teams so recurring issues have clear priority, ownership, and follow-through.',
+    title: 'Translate evidence into ownership',
+    body: 'Document the root cause clearly, communicate the customer impact, and give Product, Engineering, project teams, and leadership enough evidence to prioritize the right corrective action.',
   },
   {
     number: '04',
-    title: 'Protect the next release',
-    body: 'Carry lessons into release readiness, operating controls, and response expectations so fixes reduce recurrence rather than end with one incident.',
+    title: 'Fix recurrence, not just the incident',
+    body: 'Carry the finding into software remediation, release readiness, alerting, and operational expectations so the next similar workload does not create the same customer impact.',
   },
 ];
 ---
 
 <BaseLayout
   title="Reliability & Cross-Functional Remediation | Mike Gilmore"
-  description="A public-safe case study of recurring SaaS issue remediation, customer escalation reduction, production readiness, and cross-functional reliability work."
+  description="A case study of turning recurring SaaS outage reports into observability, root-cause evidence, cross-functional remediation, and fewer repeat customer escalations."
 >
   <header class="case-hero shell">
     <div class="case-hero__copy">
       <p class="eyebrow">Case study · Reliability & customer impact</p>
-      <h1>Turning recurring SaaS issues into owned, cross-functional remediation.</h1>
+      <h1>Turning customer outage complaints into a measurable pattern and permanent remediation.</h1>
       <p>
-        Reliability work created the most value when production patterns could be connected to customer impact, assigned
-        clear ownership, and carried through remediation and release readiness instead of being treated as isolated incidents.
+        Several major customers were reporting intermittent outages, but the existing visibility was not detailed enough to explain why they were happening or whether the reports were connected. I built the observability needed to turn those complaints into evidence.
       </p>
-      <p class="case-note">Public-safe summary based on substantiated professional experience. Incident details, customer identities, and internal production artifacts are intentionally excluded.</p>
+      <p class="case-note">Customer names, internal host details, and proprietary RCA artifacts are intentionally omitted.</p>
     </div>
     <aside class="case-hero__role" aria-label="Role and focus">
-      <p class="signal-label">Role pattern</p>
+      <p class="signal-label">My role</p>
       <p>Site reliability with customer-impact and delivery context</p>
-      <p class="signal-label">Focus</p>
-      <p>Pattern analysis · prioritization · remediation · release readiness</p>
+      <p class="signal-label">Worked across</p>
+      <p>Customer-facing teams · project/program leadership · development · Product · Engineering · directors</p>
     </aside>
   </header>
 
@@ -58,7 +57,7 @@ const remediationLoop = [
     <div class="shell">
       <div class="case-section-heading">
         <p class="eyebrow eyebrow--light">Evidence</p>
-        <h2 id="reliability-outcomes-heading">The goal was fewer repeat problems, not faster ticket closure.</h2>
+        <h2 id="reliability-outcomes-heading">The goal was fewer repeat failures, not faster ticket closure.</h2>
       </div>
       <div class="case-metric-grid">
         {outcomes.map((outcome) => (
@@ -75,19 +74,16 @@ const remediationLoop = [
     <aside class="case-story__rail">
       <p class="eyebrow">Context</p>
       <p>Customer-facing SaaS</p>
-      <p>Product + Engineering + service teams</p>
+      <p>Shared hosted environments</p>
       <p>2022–2026 experience</p>
     </aside>
     <div class="case-story__body">
-      <h2 id="reliability-context-heading">A production incident can end while the customer problem remains.</h2>
+      <h2 id="reliability-context-heading">The first problem was not the bug. It was that we could not yet see the pattern clearly.</h2>
       <p>
-        Customer-facing SaaS reliability created two kinds of work at once: restoring service when something went wrong,
-        and identifying which recurring patterns needed deeper corrective action so they did not keep returning as escalations.
+        I expanded the observability around the reported outages so I could compare which customers were affected, when the failures happened, how long they lasted, and what the application and infrastructure were doing at the same time.
       </p>
       <p>
-        That required working across team boundaries. Product and Engineering needed enough context to prioritize systemic
-        fixes, customer-facing teams needed clearer expectations, and operational practices needed to carry lessons into
-        future releases and response behavior.
+        The pattern eventually pointed to unusually large reporting workloads. Those requests caused severe memory spikes that could crash shared application capacity and affect multiple customers hosted on the same environment. Once the behavior was measurable, the outage reports stopped being anecdotal and became a concrete software and reliability problem.
       </p>
     </div>
   </section>
@@ -96,7 +92,7 @@ const remediationLoop = [
     <div class="shell">
       <div class="case-section-heading case-section-heading--dark">
         <p class="eyebrow">Remediation loop</p>
-        <h2 id="remediation-loop-heading">Move from production signal to durable corrective action.</h2>
+        <h2 id="remediation-loop-heading">Move from customer complaint to durable corrective action.</h2>
       </div>
       <ol class="case-flow">
         {remediationLoop.map((step) => (
@@ -112,22 +108,20 @@ const remediationLoop = [
 
   <section class="shell case-story" aria-labelledby="reliability-judgment-heading">
     <aside class="case-story__rail">
-      <p class="eyebrow">What this demonstrates</p>
+      <p class="eyebrow">What I contributed</p>
+      <p>Observability design</p>
+      <p>Pattern correlation</p>
       <p>Root-cause analysis</p>
+      <p>Executive RCA communication</p>
       <p>Cross-functional prioritization</p>
-      <p>Production governance</p>
-      <p>Customer-impact analysis</p>
     </aside>
     <div class="case-story__body">
-      <h2 id="reliability-judgment-heading">The important boundary was between technical evidence and organizational action.</h2>
+      <h2 id="reliability-judgment-heading">Technical evidence only mattered if it led to organizational action.</h2>
       <p>
-        Observability and production context helped identify what was happening, but the harder part was often translating
-        that evidence into an owned decision: which pattern mattered, who needed to act, how readiness should change, and
-        how customer-facing teams should understand the risk.
+        I documented detailed RCAs and presented the pattern and customer impact to director-level leadership, then worked with project/program and development teams to move the issue toward a software fix. The important step was translating a production symptom into evidence that another team could confidently prioritize and act on.
       </p>
       <p>
-        That operating model helped reduce repeat customer escalations by 55%, repeat incidents by 40%, and improve release
-        reliability by 30% while protecting 99.9% service availability / SLA performance.
+        That broader reliability approach helped reduce repeat customer escalations by 55%, repeat incidents by 40%, and improve release reliability by 30% while protecting 99.9% service availability / SLA performance.
       </p>
     </div>
   </section>
@@ -135,10 +129,9 @@ const remediationLoop = [
   <section class="section section--dark" aria-labelledby="reliability-takeaway-heading">
     <div class="shell case-takeaway">
       <p class="eyebrow eyebrow--light">Takeaway</p>
-      <h2 id="reliability-takeaway-heading">Reliability becomes customer value when recurring technical signals become clear ownership and fewer repeat failures.</h2>
+      <h2 id="reliability-takeaway-heading">Reliability becomes customer value when complaints become evidence, evidence becomes ownership, and ownership produces fewer repeat failures.</h2>
       <p>
-        The pattern I carry forward is to connect technical evidence to customer impact, prioritize recurrence rather than
-        noise, and make sure remediation changes the next operating or release decision instead of ending with the incident.
+        The pattern I carry forward is to listen to the customer signal, build enough visibility to prove the behavior, communicate the impact clearly, and stay with the problem until the technical and organizational fix changes what happens next time.
       </p>
       <a class="button button--secondary case-button-light" href="/work/">Back to selected work</a>
     </div>
