@@ -5,10 +5,13 @@ import '../styles/blog.css';
 interface Props {
   title: string;
   date: Date;
+  updated?: Date;
   thumbnail: string;
+  series?: string;
+  seriesOrder?: number;
 }
 
-const { title, date, thumbnail } = Astro.props;
+const { title, date, updated, thumbnail, series, seriesOrder } = Astro.props;
 const siteUrl = 'https://contactgilmore.github.io';
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const structuredData = {
@@ -17,6 +20,7 @@ const structuredData = {
   mainEntityOfPage: canonical,
   headline: title,
   datePublished: date.toISOString(),
+  ...(updated ? { dateModified: updated.toISOString() } : {}),
   author: {
     '@id': `${siteUrl}/#person`,
   },
@@ -35,9 +39,12 @@ const structuredData = {
   <article class="blog-post shell">
     <a class="text-link blog-back" href="/blog/">← All writing</a>
     <header class="blog-post__header">
-      <p class="eyebrow">Technical writing</p>
+      <p class="eyebrow">{series ? `${series}${seriesOrder ? ` · Part ${seriesOrder}` : ''}` : 'Technical writing'}</p>
       <h1>{title}</h1>
-      <p class="post-date">{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      <p class="post-date">
+        Published {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        {updated && <> · Updated {updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</>}
+      </p>
     </header>
     <img src={thumbnail} alt="" class="blog-thumbnail" />
     <div class="prose">
