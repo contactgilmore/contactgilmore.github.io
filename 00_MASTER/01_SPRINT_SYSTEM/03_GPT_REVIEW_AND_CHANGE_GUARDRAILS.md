@@ -24,6 +24,7 @@ The repository is also a professional artifact. Architecture, SDLC discipline, s
 - Sanitize screenshots, logs, exports, metadata, local paths, machine details, and workflow artifacts when they could reveal sensitive information or materially increase attack surface.
 - If content is not clearly safe and professionally appropriate for public disclosure, exclude it and stop for owner review when needed.
 - Preserve historical blog bodies, dates, tags, thumbnails, and public slugs unless a content change is separately approved.
+- Treat date-only editorial metadata as calendar dates, not local instants. Human-facing publication/update formatting must be timezone-stable across local and CI builds; do not compensate for a rendering timezone shift by altering a historical source date.
 - Do not add React, a CMS, database, analytics platform, or hosting vendor without a requirement and owner-approved architecture decision.
 - Use GitHub-hosted standard runners for ordinary public-repository CI and deployment; do not expose private self-hosted infrastructure to untrusted fork or pull-request code.
 - Review the complete changed-file list before PR/merge.
