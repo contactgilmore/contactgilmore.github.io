@@ -7,9 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:smoke": "playwright test"
   },
   "dependencies": {
     "astro": "^7.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
   }
 }
