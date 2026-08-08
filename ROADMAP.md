@@ -77,6 +77,26 @@ P7 source merge: `5af373ab34a2ea1fd4692dc271fc1063b99f11f8`.
 
 Release policy was then simplified so approved merges to `main` automatically deploy GitHub Pages. Policy merge: `88d4a34d63234416f73ba4771cc9839359d5196a`. First automatic deployment run `31280952066` succeeded.
 
+## Post-P7 publication milestones
+
+### Git to Know You #8 — Kubernetes — PUBLISHED
+
+Kubernetes was delivered as a bounded editorial work package rather than a manufactured implementation sprint.
+
+Release record:
+
+```text
+PR: #19
+production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
+automatic Pages deployment run: 31284483589
+result: SUCCESS
+owner local Playwright smoke: 90 / 90 passed
+```
+
+The owner smoke test caught a timezone-dependent rendering defect that UTC CI did not expose. Date-only editorial metadata now renders as the stored calendar date on article pages, the Writing archive, and homepage featured writing without changing historical source dates.
+
+The owner-side shared Playwright environment and `cd` + pull smoke-test expectations are documented as durable operating guidance for future publication work.
+
 ## Current planning state
 
 There is **no active implementation sprint**.
@@ -85,9 +105,8 @@ The portfolio uses a lightweight directional roadmap plus bounded sprints rather
 
 ## Directional future work
 
-Likely future themes:
+Likely future themes, in current order:
 
-- **Git to Know You #8 — Kubernetes**;
 - **Git to Know You #9 — OpenTelemetry**;
 - **Git to Know You #10 — Argo CD / GitOps**;
 - establish a second AI/engineering-workflow writing series when there is enough material;
@@ -107,7 +126,8 @@ Ongoing work should include:
 - remove stale assets/claims/technologies;
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
 - use sprint notes for material redesign, migration, content-system, or publication arcs rather than every minor edit;
-- treat merge to `main` as the human production authorization and verify the automatic Pages deployment afterward.
+- treat merge to `main` as the human production authorization and verify the automatic Pages deployment afterward;
+- keep living state current after bounded publications so the next deterministic startup begins from production truth.
 
 ## Explicit non-goals
 
