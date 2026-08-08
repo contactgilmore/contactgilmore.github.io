@@ -1,0 +1,21 @@
+{
+  "name": "contactgilmore-portfolio",
+  "version": "2.0.0-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test:smoke": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.1.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.54.2"
+  }
+}

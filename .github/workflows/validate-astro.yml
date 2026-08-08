@@ -1,0 +1,61 @@
+name: Validate Astro migration
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-astro.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-astro.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Verify migrated blog source integrity
+        run: node scripts/verify-blog-integrity.mjs
+
+      - name: Audit public asset references
+        run: node scripts/audit-public-assets.mjs
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Verify legacy routes and required assets
+        run: node scripts/verify-build-output.mjs
+
+      - name: Verify generated internal links
+        run: node scripts/verify-internal-links.mjs

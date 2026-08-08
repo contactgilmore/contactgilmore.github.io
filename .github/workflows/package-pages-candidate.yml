@@ -1,0 +1,55 @@
+name: Package Astro Pages candidate
+
+on:
+  push:
+    branches:
+      - portfolio-2.0-foundation
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - '.github/workflows/package-pages-candidate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Verify migrated blog source integrity
+        run: node scripts/verify-blog-integrity.mjs
+
+      - name: Audit public asset references
+        run: node scripts/audit-public-assets.mjs
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Verify routes, discovery files, and required assets
+        run: node scripts/verify-build-output.mjs
+
+      - name: Verify generated internal links
+        run: node scripts/verify-internal-links.mjs
+
+      - name: Upload non-deploying Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist

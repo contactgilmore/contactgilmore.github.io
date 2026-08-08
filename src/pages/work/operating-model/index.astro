@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const outcomes = [
+  { metric: '60%', label: 'improvement in response and recovery metrics through clearer operating practices' },
+  { metric: '3', label: 'combined businesses aligned to shared operating practices' },
+  { metric: '1', label: 'India-based team onboarded into the shared operating model' },
+];
+
+const operatingModel = [
+  {
+    number: '01',
+    title: 'Clarify the signal',
+    body: 'Improve alerting and escalation inputs so teams can distinguish actionable customer-impacting work from noise and know when ownership should change.'
+  },
+  {
+    number: '02',
+    title: 'Define ownership',
+    body: 'Create clearer response paths, responsibilities, documentation, and governance so work does not stall between technical and customer-facing teams.'
+  },
+  {
+    number: '03',
+    title: 'Standardize the practice',
+    body: 'Turn effective response and readiness behaviors into repeatable operating practices that can be used consistently across combined organizations.'
+  },
+  {
+    number: '04',
+    title: 'Enable the team',
+    body: 'Support adoption through documentation, shared expectations, onboarding, and cross-team coordination so the operating model works beyond the people who created it.'
+  },
+];
+---
+
+<BaseLayout
+  title="Program Delivery & Operating Model | Mike Gilmore"
+  description="A public-safe case study of program delivery, response ownership, operating-model standardization, governance, and team enablement."
+>
+  <header class="case-hero shell">
+    <div class="case-hero__copy">
+      <p class="eyebrow">Case study · Program delivery & operating model</p>
+      <h1>Making response ownership and operating practices easier to follow across teams.</h1>
+      <p>
+        Some reliability and delivery problems are not caused by a missing tool. They come from unclear ownership,
+        inconsistent escalation paths, fragmented documentation, or teams using different operating expectations.
+      </p>
+      <p class="case-note">Public-safe summary based on substantiated professional experience. Internal procedures, organization details, and private operational artifacts are intentionally excluded.</p>
+    </div>
+    <aside class="case-hero__role" aria-label="Role and focus">
+      <p class="signal-label">Role pattern</p>
+      <p>Program delivery with technical operations context</p>
+      <p class="signal-label">Focus</p>
+      <p>Ownership · governance · standardization · team enablement</p>
+    </aside>
+  </header>
+
+  <section class="case-outcomes" aria-labelledby="operating-outcomes-heading">
+    <div class="shell">
+      <div class="case-section-heading">
+        <p class="eyebrow eyebrow--light">Evidence</p>
+        <h2 id="operating-outcomes-heading">The operating system around the work became part of the solution.</h2>
+      </div>
+      <div class="case-metric-grid">
+        {outcomes.map((outcome) => (
+          <div class="case-metric">
+            <strong>{outcome.metric}</strong>
+            <span>{outcome.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="shell case-story" aria-labelledby="operating-context-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">Context</p>
+      <p>Combined technical organizations</p>
+      <p>Customer-facing operations</p>
+      <p>Cross-team adoption and onboarding</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="operating-context-heading">When ownership is ambiguous, technical problems become coordination problems.</h2>
+      <p>
+        Response quality depends on more than technical skill. Teams also need clear escalation paths, useful alerts,
+        documented expectations, and a common understanding of who owns the next decision.
+      </p>
+      <p>
+        As organizations and teams were brought together, the work included standardizing those practices so response,
+        readiness, and follow-through did not depend on tribal knowledge or a single group’s habits.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="operating-model-heading">
+    <div class="shell">
+      <div class="case-section-heading case-section-heading--dark">
+        <p class="eyebrow">Operating model</p>
+        <h2 id="operating-model-heading">Turn good response behavior into a repeatable system.</h2>
+      </div>
+      <ol class="case-flow">
+        {operatingModel.map((step) => (
+          <li>
+            <span class="case-flow__number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="shell case-story" aria-labelledby="operating-analysis-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">What this demonstrates</p>
+      <p>Program delivery</p>
+      <p>Process improvement</p>
+      <p>Change management</p>
+      <p>Documentation & governance</p>
+      <p>Operational analysis</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="operating-analysis-heading">The work sits between systems analysis, change management, and technical operations.</h2>
+      <p>
+        The technical environment supplied the constraints, but the improvement work depended on understanding handoffs,
+        identifying where process and ownership broke down, documenting the target behavior, and helping teams adopt a shared model.
+      </p>
+      <p>
+        Those practices contributed to a 60% improvement in response and recovery metrics while supporting standardization
+        across three combined businesses and onboarding an India-based team into the shared operating approach.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-labelledby="operating-takeaway-heading">
+    <div class="shell case-takeaway">
+      <p class="eyebrow eyebrow--light">Takeaway</p>
+      <h2 id="operating-takeaway-heading">Better delivery often comes from making ownership, expectations, and handoffs explicit.</h2>
+      <p>
+        The pattern I carry forward is to treat operating practices as part of the product experience: make the signal clearer,
+        define who owns the next action, document the shared process, and build adoption into the change itself.
+      </p>
+      <a class="button button--secondary case-button-light" href="/work/">Back to selected work</a>
+    </div>
+  </section>
+</BaseLayout>

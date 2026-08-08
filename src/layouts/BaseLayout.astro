@@ -1,0 +1,79 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+import '../styles/mobile.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  pageType?: 'website' | 'article';
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  image,
+  pageType = 'website',
+  structuredData,
+} = Astro.props;
+
+const siteUrl = 'https://contactgilmore.github.io';
+const canonical = new URL(Astro.url.pathname, siteUrl);
+const socialImage = image ? new URL(image, siteUrl) : undefined;
+const personId = `${siteUrl}/#person`;
+const person = {
+  '@type': 'Person',
+  '@id': personId,
+  name: 'Mike Gilmore',
+  url: siteUrl,
+  description: 'Technical delivery, implementation, systems analysis, customer solutions, cloud, and SaaS reliability professional.',
+  sameAs: [
+    'https://github.com/contactgilmore',
+    'https://www.linkedin.com/in/contactgilmore/',
+  ],
+};
+
+const jsonLd = structuredData
+  ? {
+      '@context': 'https://schema.org',
+      '@graph': [person, structuredData],
+    }
+  : {
+      '@context': 'https://schema.org',
+      ...person,
+    };
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content="" />}
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <SiteHeader />
+    <main id="main-content">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

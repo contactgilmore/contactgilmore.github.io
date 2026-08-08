@@ -1,0 +1,73 @@
+name: Playwright portfolio smoke
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'playwright.config.ts'
+      - 'tests/**'
+      - 'src/**'
+      - 'public/**'
+      - '.github/workflows/playwright-smoke.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'playwright.config.ts'
+      - 'tests/**'
+      - 'src/**'
+      - 'public/**'
+      - '.github/workflows/playwright-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify migrated blog source integrity
+        run: node scripts/verify-blog-integrity.mjs
+
+      - name: Audit public asset references
+        run: node scripts/audit-public-assets.mjs
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Run browser smoke tests
+        run: npm run test:smoke
+
+      - name: Upload Playwright evidence
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: playwright-smoke-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+          if-no-files-found: warn

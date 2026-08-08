@@ -1,0 +1,7 @@
+PROFILE=lean
+PROJECT=contactgilmore-portfolio
+STARTUP_AUTHORITY=00_MASTER
+SPRINT_NOTES=referenced-only
+DOMAIN_DOCS=pointer-first
+PRODUCTION_BRANCH=main
+WORKING_BRANCH=portfolio-2.0-foundation
