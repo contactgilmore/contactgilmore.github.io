@@ -2,13 +2,13 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry, GetStaticPaths } from 'astro';
 import BlogPostLayout from '../layouts/BlogPostLayout.astro';
-import { getLegacyBlogPath } from '../lib/blog-paths';
+import { getBlogPath } from '../lib/blog-paths';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('blog');
 
   return posts.map((post) => ({
-    params: { slug: getLegacyBlogPath(post.id).replace(/^\//, '').replace(/\/$/, '') },
+    params: { slug: getBlogPath(post.id, post.data.slug).replace(/^\//, '').replace(/\/$/, '') },
     props: { post },
   }));
 }) satisfies GetStaticPaths;
@@ -33,11 +33,11 @@ if (post.data.series && post.data.seriesOrder !== undefined) {
   const next = currentIndex >= 0 && currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : undefined;
 
   if (previous) {
-    previousInSeries = { title: previous.data.title, href: getLegacyBlogPath(previous.id) };
+    previousInSeries = { title: previous.data.title, href: getBlogPath(previous.id, previous.data.slug) };
   }
 
   if (next) {
-    nextInSeries = { title: next.data.title, href: getLegacyBlogPath(next.id) };
+    nextInSeries = { title: next.data.title, href: getBlogPath(next.id, next.data.slug) };
   }
 }
 ---
