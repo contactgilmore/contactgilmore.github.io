@@ -96,7 +96,7 @@ The blog voice is:
 
 Avoid generic AI habits such as repetitive rhetorical questions, forced three-item lists, excessive headings, breathless hype, and identical article structures.
 
-## 7. Metadata and series rules
+## 7. Metadata, URL, and series rules
 
 Every article uses the typed Astro content schema.
 
@@ -106,6 +106,14 @@ Original publication dates are immutable historical facts. A materially revised 
 updated: YYYY-MM-DD
 ```
 
+Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
+
+```yaml
+slug: gtny-kubernetes
+```
+
+Use a source filename that corresponds clearly to the article, preferably `YYYY-MM-DD-<slug>.md`. The frontmatter `slug` is the URL authority for new posts.
+
 Series articles should use explicit metadata when applicable:
 
 ```yaml
@@ -114,7 +122,7 @@ seriesOrder: 8
 seriesStatus: "ongoing"
 ```
 
-Do not change the original publication date to make an article look newer.
+The series overview uses `seriesOrder: 0`. Do not change the original publication date to make an article look newer.
 
 ## 8. Images and thumbnails
 
