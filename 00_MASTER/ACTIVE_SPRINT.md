@@ -1,63 +1,59 @@
 # Active Sprint
 
-Sprint: **None**  
-Status: CLOSED  
-Updated: 2026-08-08
+Sprint: **P6 — Recruiter Proofread, Voice, and Case-Study Polish**  
+Status: OPEN  
+Opened: 2026-08-08  
+Branch: `portfolio-2.0-polish`
 
-## Most recently completed sprint
+Current work package: **P6-WP1 — Recruiter/hiring-manager copy audit and continuity capture**
 
-**P5 — Quality, Discoverability, and Launch Hardening**
+Sprint note: `docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
 
-Completion state:
-
-```text
-P5-WP1 public asset minimization: COMPLETE
-P5-WP2 metadata / sitemap / robots / social discovery: COMPLETE
-P5-WP3 structured data: COMPLETE
-P5-WP4 accessibility / hardening: COMPLETE
-P5-WP5 link / URL / browser / Pages artifact regression: COMPLETE
-P5-WP6 deployment workflow / rollback contract: COMPLETE
-P5-WP7 owner cutover gate: APPROVED AND EXECUTED
-```
-
-Production cutover:
+Production baseline:
 
 ```text
-PR #14: squash-merged
-production site-source commit: bb2968e523bd7af87e3cd31a3a7e045ecb44947b
-Deploy Portfolio to GitHub Pages run: 31253088467 — SUCCESS
+Portfolio 2.0 production site-source commit: bb2968e523bd7af87e3cd31a3a7e045ecb44947b
+current production branch: main
 GitHub Pages build type: workflow
-GitHub Pages status: built
-HTTPS: enforced
+production deployment: manual-only
 ```
 
-Production URL:
+Sprint goal:
 
-`https://contactgilmore.github.io/`
+Polish Portfolio 2.0 as a recruiter and hiring manager would read it. Improve voice, ownership, specificity, hierarchy, and case-study authenticity without changing the proven visual system or rewriting protected historical blog content.
 
-Rollback authority:
-
-`docs/DEPLOYMENT_AND_ROLLBACK.md`
-
-Pre-cutover Jekyll rollback target:
-
-`2637f64cce154ded6086df2220e5889bdd6aa007`
-
-## Operating posture
-
-There is no open implementation sprint. Future changes should be handled as ongoing portfolio operations or opened as a new bounded sprint when the work materially changes product structure, branding, technology, or public professional positioning.
-
-Production deployment remains manual-only through `.github/workflows/deploy-pages.yml` unless a later owner-approved decision changes that policy.
-
-Public-disclosure rule remains absolute: retain or publish only information and assets appropriate for unrestricted public access.
-
-CI posture:
+Work packages:
 
 ```text
-feature validation: pull_request -> main
-production deployment: manual dispatch from main
-runner: GitHub-hosted ubuntu-latest
-Node3: not exposed to public repo workflows
+P6-WP1 recruiter/hiring-manager audit + continuity capture
+P6-WP2 implementation case-study specificity and first-person ownership
+P6-WP3 reliability case-study specificity and first-person ownership
+P6-WP4 operating-model case-study specificity and leadership evidence
+P6-WP5 About/career-foundation narrative and people-powered leadership philosophy
+P6-WP6 Home/Work/Resume de-duplication and recruiter scan polish
+P6-WP7 public-disclosure review + Playwright/axe/build regression
+P6-WP8 owner proofread gate and production merge/deploy decision
 ```
 
-Design authority: the smoke-tested Portfolio 2.0 brand doctrine remains active.
+Public-disclosure rule remains absolute. The public repository must not contain customer identities, proprietary scripts/configuration, private employer artifacts, internal topology, private correspondence, or other information that is not appropriate for unrestricted disclosure.
+
+Case-study strategy:
+
+- Keep three deep professional case studies concentrated on the most relevant 2018–2026 enterprise/technical work.
+- Use earlier leadership experience as career-foundation narrative rather than forcing an additional retail case study.
+- Prefer concrete first-person contribution over passive phrases such as “the work centered on.”
+- Preserve verified metrics; do not invent customer, revenue, technical, or timeline claims.
+- Remove governance-sounding public copy where a normal confidentiality statement is sufficient.
+
+Verification gates:
+
+```text
+Astro validation
+blog source-integrity protection
+public asset audit
+internal-link verification
+Playwright desktop/tablet/phone smoke
+axe accessibility checks
+public-disclosure review
+owner proofread before production merge
+```
