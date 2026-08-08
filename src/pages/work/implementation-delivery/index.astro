@@ -4,53 +4,52 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 const outcomes = [
   { metric: '100+', label: 'enterprise migrations, implementations, and deployments supported' },
   { metric: '40%', label: 'faster deployments through repeatable workflows' },
-  { metric: '50%', label: 'lower onboarding effort through repeatable workflows and runbooks' },
+  { metric: '50%', label: 'lower onboarding effort through reusable workflows and runbooks' },
   { metric: '30%', label: 'lower onboarding escalations through stronger discovery and readiness' },
 ];
 
 const deliveryFlow = [
   {
     number: '01',
-    title: 'Discovery & requirements',
-    body: 'Clarify the customer need, implementation context, and decisions that have to be resolved before execution begins.',
+    title: 'Discover the real dependency',
+    body: 'Work directly with customers, project managers, implementation partners, Product, Customer Success, Sales Engineering, and licensing stakeholders to turn the request into concrete technical and delivery decisions.',
   },
   {
     number: '02',
-    title: 'Readiness',
-    body: 'Turn requirements into practical readiness checks, dependencies, and handoffs so delivery starts with fewer avoidable gaps.',
+    title: 'Protect the data and configuration',
+    body: 'Map legacy customer data, configuration, integrations, authentication, licensing, and environment dependencies before changing the platform underneath them.',
   },
   {
     number: '03',
-    title: 'Implementation planning',
-    body: 'Translate the work into repeatable migration, integration, deployment, and onboarding steps that teams can execute consistently.',
+    title: 'Prove the migration',
+    body: 'Use scripts, validation checks, customer/partner review, and controlled iteration to move the first complex customer safely while verifying data integrity at each step.',
   },
   {
     number: '04',
-    title: 'Delivery & handoff',
-    body: 'Coordinate the path through deployment and customer handoff while keeping documentation and operating expectations clear.',
+    title: 'Turn the lesson into a system',
+    body: 'Convert the proven steps into reusable scripts, runbooks, readiness checks, and orchestrated workflows so later migrations can be executed consistently instead of rediscovered customer by customer.',
   },
 ];
 ---
 
 <BaseLayout
   title="Enterprise Implementation & Migration Delivery | Mike Gilmore"
-  description="A public-safe case study of enterprise implementation, migration, onboarding, readiness, and delivery practices across 100+ customer engagements."
+  description="A case study of enterprise implementation, migration, integration, onboarding, readiness, and repeatable delivery across 100+ customer engagements."
 >
   <header class="case-hero shell">
     <div class="case-hero__copy">
       <p class="eyebrow">Case study · Enterprise implementation</p>
-      <h1>Turning customer requirements into repeatable implementation and migration delivery.</h1>
+      <h1>Turning a difficult first migration into a repeatable delivery system.</h1>
       <p>
-        Across more than 100 enterprise migrations, implementations, and deployments, the work centered on moving from
-        discovery and requirements into practical readiness, execution, and customer handoff.
+        I supported more than 100 enterprise migrations, implementations, and deployments, but the most useful lesson came from one of the first major platform migrations: the process itself still had to be proven.
       </p>
-      <p class="case-note">Public-safe summary based on substantiated professional experience. Customer identities and proprietary implementation details are intentionally excluded.</p>
+      <p class="case-note">Customer names and proprietary implementation details are intentionally omitted.</p>
     </div>
     <aside class="case-hero__role" aria-label="Role and focus">
-      <p class="signal-label">Role pattern</p>
+      <p class="signal-label">My role</p>
       <p>Customer-facing cloud and implementation delivery</p>
-      <p class="signal-label">Focus</p>
-      <p>Discovery · onboarding · migration · integration · deployment planning</p>
+      <p class="signal-label">Worked across</p>
+      <p>Customers · project teams · implementation partners · Product · Customer Success · Sales Engineering · licensing</p>
     </aside>
   </header>
 
@@ -79,15 +78,12 @@ const deliveryFlow = [
       <p>2018–2022 experience</p>
     </aside>
     <div class="case-story__body">
-      <h2 id="context-heading">The delivery problem was larger than the deployment itself.</h2>
+      <h2 id="context-heading">The first migration was also an engineering and delivery discovery process.</h2>
       <p>
-        The work spanned discovery, onboarding, migration, integration, and deployment planning. At that scale, successful
-        delivery depended on translating requirements into clear implementation plans and practical customer decisions,
-        then carrying those decisions through readiness and handoff.
+        One major customer was moving from a legacy Windows-based storage and application model to a newer Linux/containerized cloud platform. The migration involved customer data, configuration, integrations, licensing, and environment-specific dependencies that could not simply be copied and assumed to work.
       </p>
       <p>
-        The strongest improvement came from making the process more repeatable: stronger discovery, clearer readiness
-        checks, standardized workflows, reusable runbooks, and more deliberate stakeholder handoffs.
+        I worked with the customer and implementation partner over several weeks, writing custom scripts, testing migration steps, and repeatedly validating data and configuration integrity. The trial-and-error was controlled and deliberate: learn what the platform and customer data actually required, protect the source, verify the result, and document the repeatable path.
       </p>
     </div>
   </section>
@@ -96,7 +92,7 @@ const deliveryFlow = [
     <div class="shell">
       <div class="case-section-heading case-section-heading--dark">
         <p class="eyebrow">Delivery pattern</p>
-        <h2 id="flow-heading">A simple flow for reducing ambiguity before it becomes delivery friction.</h2>
+        <h2 id="flow-heading">Turn one difficult migration into a process the next customer does not have to rediscover.</h2>
       </div>
       <ol class="case-flow">
         {deliveryFlow.map((step) => (
@@ -112,23 +108,20 @@ const deliveryFlow = [
 
   <section class="shell case-story case-story--reverse" aria-labelledby="judgment-heading">
     <aside class="case-story__rail">
-      <p class="eyebrow">What this demonstrates</p>
-      <p>Requirements discovery</p>
-      <p>Implementation planning</p>
-      <p>Stakeholder coordination</p>
-      <p>Process improvement</p>
+      <p class="eyebrow">Technical context</p>
+      <p>REST APIs & integrations</p>
+      <p>OAuth / token authentication</p>
+      <p>GIS / ArcGIS workflows</p>
+      <p>Inventory & asset workflows</p>
+      <p>Data validation & licensing</p>
     </aside>
     <div class="case-story__body">
-      <h2 id="judgment-heading">Technical depth mattered most when it supported a delivery decision.</h2>
+      <h2 id="judgment-heading">The technical work mattered because it made delivery decisions safer and more repeatable.</h2>
       <p>
-        The role sat between customer needs and technical execution. Cloud infrastructure and integration context helped
-        clarify what was practical, but the value was not a list of tools. It was the ability to connect requirements,
-        readiness, implementation choices, and operating expectations into a delivery path customers and internal teams
-        could act on.
+        Customer implementations regularly crossed API configuration, authentication, GIS services, inventory or barcode workflows, external applications, licensing, and customer-specific data. I participated directly in discovery so those dependencies could be understood before they became late-stage deployment blockers.
       </p>
       <p>
-        Standardizing customer environments and operating practices also reduced cloud costs by 20%, while governance,
-        controls, and documentation supported 99.9% uptime and SOC 2 readiness.
+        After the first migration was proven, I turned the manual lessons into scripts, validation steps, runbooks, and an orchestrated workflow. That shift from individual heroics to repeatable execution helped accelerate deployments, reduce onboarding effort, and lower avoidable escalations.
       </p>
     </div>
   </section>
@@ -136,10 +129,9 @@ const deliveryFlow = [
   <section class="section section--dark" aria-labelledby="takeaway-heading">
     <div class="shell case-takeaway">
       <p class="eyebrow eyebrow--light">Takeaway</p>
-      <h2 id="takeaway-heading">Implementation gets easier when discovery, readiness, and technical execution are treated as one delivery system.</h2>
+      <h2 id="takeaway-heading">A successful implementation is not just a deployment. It is a delivery system that gets clearer every time it is used.</h2>
       <p>
-        That pattern is the part of the work I carry forward: make the requirements concrete, surface readiness gaps early,
-        standardize what can be repeated, and keep customer and technical teams aligned through handoff.
+        The pattern I carry forward is to make requirements concrete, surface integration and readiness risks early, protect customer data, prove the difficult path carefully, and then standardize what should never need to be rediscovered.
       </p>
       <a class="button button--secondary case-button-light" href="/work/">Back to selected work</a>
     </div>
