@@ -21,29 +21,45 @@ Implement the accepted Portfolio 2.0 positioning and information architecture as
 ## Work packages
 
 ### P3-WP1 — Shared visual system and primary page shell
-Status: IN PROGRESS
+Status: COMPLETE
 
-Implement BaseLayout, semantic navigation/footer, global design tokens, responsive layout primitives, accessibility defaults, and homepage shell.
+Implemented shared BaseLayout, semantic sticky navigation/footer, skip link, metadata/canonical support, global design tokens, responsive layout primitives, focus states, reduced-motion behavior, and the accepted homepage content sequence.
 
 ### P3-WP2 — Work, About, and public Resume pages
-Status: QUEUED
+Status: COMPLETE
 
-Implement public-safe detail pages using only substantiated professional claims. Do not publish unnecessary private contact information.
+Implemented public-safe Work, About, and Resume routes. Resume content deliberately excludes unnecessary private contact details and uses only substantiated professional claims from the current resumes.
 
 ### P3-WP3 — Writing/archive and article reading experience
-Status: QUEUED
+Status: COMPLETE
 
-Apply the shared shell to Writing and article pages while preserving all historical article bodies and compatibility URLs.
+Applied the shared shell to the writing archive and article layout, added long-form reading styles, and preserved the existing Markdown bodies and compatibility routes.
 
 ### P3-WP4 — Visual and content regression
-Status: QUEUED
+Status: IN PROGRESS
 
-Run Astro build, source-integrity checks, legacy URL/asset checks, responsive/accessibility review, and inspect rendered candidate evidence.
+Automated gates on branch head `2603d6799811456c402f73e6bc5179da100c40c5` passed:
+
+```text
+GitHub-hosted validation workflow: success
+migrated blog source-integrity gate: success
+Astro build: success
+legacy route and required-asset gate: success
+non-deploying Pages artifact package: success
+```
+
+Remaining: inspect visual hierarchy, responsive behavior, wording density, and obvious accessibility/layout regressions before the owner review checkpoint.
 
 ### P3-WP5 — Owner review checkpoint
 Status: QUEUED
 
 Present the implemented visual direction and copy for owner review. Production remains untouched until explicitly approved.
+
+## Implementation direction
+
+The initial visual system uses a light neutral foundation, dark ink, restrained blue accent, large typography, spacious sections, evidence-focused cards, and a dark technical-depth band. It intentionally avoids skill meters, icon/logo walls, decorative gradients, cyberpunk styling, and unnecessary client JavaScript.
+
+Homepage evidence currently uses resume-supported public metrics including 100+ enterprise implementations/deployments, 40% faster deployments, 50% lower onboarding effort, 55% fewer repeat escalations, 99.9% service availability/SLA, and 60% response/recovery improvement.
 
 ## Public-disclosure rules
 
