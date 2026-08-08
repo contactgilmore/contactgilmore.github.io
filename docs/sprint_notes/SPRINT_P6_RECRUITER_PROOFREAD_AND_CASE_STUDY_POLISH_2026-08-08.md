@@ -76,77 +76,76 @@ Public-facing phrasing should emphasize complementary strengths, fit, energy, ow
 
 ## Work packages
 
-### P6-WP1 — audit and continuity capture
+### P6-WP1 — audit and continuity capture — COMPLETE
 
-Acceptance:
-- current findings and approved facts captured in repository authority;
-- no sensitive/proprietary detail exposed;
-- branch is isolated from production.
+Acceptance met:
+- findings and approved facts captured in repository authority;
+- sensitive/proprietary details generalized or excluded;
+- branch isolated from production.
 
-### P6-WP2 — implementation case study
+### P6-WP2 — implementation case study — COMPLETE
 
-Target story: **from difficult first migration to repeatable migration system**.
+Implemented story: **from difficult first migration to repeatable migration system**.
 
-Must show:
-- direct discovery/customer/partner involvement;
-- integration/authentication/data/licensing context;
-- migration trial-and-error without implying recklessness;
-- custom scripting + validation + repeatability + orchestration;
-- data-integrity/customer handoff judgment;
-- first-person ownership where supported.
+The page now shows direct discovery/customer/partner involvement, integration/authentication/data/licensing context, controlled migration iteration, scripting/validation, repeatability, orchestration, and data-integrity judgment.
 
-### P6-WP3 — reliability case study
+### P6-WP3 — reliability case study — COMPLETE
 
-Target story: **from customer outage complaints to observable pattern and permanent remediation**.
+Implemented story: **from customer outage complaints to observable pattern and permanent remediation**.
 
-Must show:
-- customer signal;
-- missing observability;
-- correlation by customer/time/duration;
-- workload/memory failure pattern;
-- RCA and director-level communication;
-- Product/Engineering/development coordination;
-- permanent corrective action rather than ticket closure.
+The page now shows the customer signal, missing observability, correlation by customer/time/duration, workload/memory failure pattern, RCA, director-level communication, and cross-functional software remediation.
 
-### P6-WP4 — operating-model case study
+### P6-WP4 — operating-model case study — COMPLETE
 
-Target story: **build a repeatable operating system for reliability work**.
+Implemented story: **build a repeatable operating system for reliability work**.
 
-Must show:
-- meaningful dashboards/alerts;
-- shared runbook templates;
-- RCA + real-time incident documentation structure;
-- Jira automation/workflow support;
-- onboarding/adoption by another team;
-- leadership through standards, enablement, and cross-team adoption.
+The page now shows meaningful dashboards/alerts, shared runbook templates, RCA/real-time incident documentation, Jira automation, and cross-team onboarding/adoption.
 
-### P6-WP5 — About / career foundation
+### P6-WP5 — About / career foundation — COMPLETE
 
-Build a concise progression:
+About now connects multi-unit leadership and influence without authority to enterprise SaaS implementation, cloud/SRE, and the current Technical Delivery & Customer Solutions positioning. It also introduces the complementary-strengths / people-powered leadership philosophy.
 
-```text
-customer operations & leadership
--> enterprise SaaS implementation & cloud delivery
--> site reliability & cross-functional remediation
--> Technical Delivery & Customer Solutions
-```
+### P6-WP6 — Home / Work / Resume de-duplication — COMPLETE
 
-Use Best Buy as a short influence-without-authority lesson, not a full case study.
-
-Introduce the people-powered leadership philosophy in natural language.
-
-### P6-WP6 — Home / Work / Resume de-duplication
-
-Hierarchy:
+Hierarchy implemented:
 - Home: strongest signals and reasons to continue;
 - Work: enough proof/context to choose a case study;
 - Case studies: full narrative/evidence;
 - Resume: concise chronology and selected outcomes.
 
-### P6-WP7 — regression
+### P6-WP7 — regression — ACTIVE
 
-Run all existing CI/browser/accessibility/disclosure gates.
+PR: **#15 — Portfolio 2.0: Recruiter proofread and case-study polish**  
+PR status: draft  
+Exact PR head at regression start: `83961de7f671112f050130e84089a87b5ffe261b`
 
-### P6-WP8 — owner proofread gate
+Changed-file scope at regression start:
 
-Do not merge/deploy until Mike has read the polished candidate and approves production change.
+```text
+00_MASTER/ACTIVE_SPRINT.md
+00_MASTER/WHERE_WE_ARE.md
+docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md
+src/pages/index.astro
+src/pages/work/index.astro
+src/pages/work/implementation-delivery/index.astro
+src/pages/work/reliability-remediation/index.astro
+src/pages/work/operating-model/index.astro
+src/pages/about/index.astro
+src/pages/resume/index.astro
+```
+
+No historical Markdown post, asset, workflow, or design-system file changed in this copy pass.
+
+Regression evidence so far:
+
+```text
+Validate Astro migration run 31273655569: SUCCESS
+Playwright portfolio smoke run 31273655669: IN PROGRESS at checkpoint
+```
+
+### P6-WP8 — owner proofread gate — PENDING
+
+Do not merge/deploy until:
+- Playwright/axe regression is green on the exact candidate;
+- public-disclosure review is complete;
+- Mike has read the polished candidate and approves production change.
