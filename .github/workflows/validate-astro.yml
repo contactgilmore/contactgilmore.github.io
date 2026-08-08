@@ -47,6 +47,9 @@ jobs:
       - name: Verify migrated blog source integrity
         run: node scripts/verify-blog-integrity.mjs
 
+      - name: Audit public asset references
+        run: node scripts/audit-public-assets.mjs
+
       - name: Build Astro site
         run: npm run build
 
