@@ -29,7 +29,7 @@ The original nine-post migration set has become eight active articles plus one e
 
 ```text
 We have a blog!        RETIRED from active article collection
-SRE Tools overview     REFRAME as living series introduction
+SRE Tools overview     REFRAMED as living series introduction
 Rundeck                 REFRESH
 New Relic               REFRESH
 PagerDuty               REFRESH
@@ -67,7 +67,7 @@ Blog layout supports separate Published / Updated presentation and `dateModified
 
 The original migration integrity gate was intentionally evolved. During the Jekyll-to-Astro migration, byte-for-byte equality was the correct invariant. P7 makes editorial revision an explicit requirement, so the gate now preserves active legacy article identities and original publication dates, permits reviewed content revisions/new posts, and verifies explicit compatibility handling for retired legacy articles.
 
-## P7-WP4 priority refresh — ACTIVE
+## P7-WP4 article refresh and series cleanup — ACTIVE
 
 ### Terraform
 
@@ -77,21 +77,39 @@ Materially refreshed on the P7 branch. Original date remains 2025-07-13; updated
 
 Materially refreshed on the P7 branch. Original date remains 2025-07-20; updated date is 2026-08-08. Example now demonstrates current action generations, Node 24, `npm ci`, explicit read permissions, least privilege, fork/secret boundaries, OIDC, deployment environments, and modern static-site workflow framing. The TeamCity-to-Actions story and existing toil metric remain source-derived.
 
-## P7-WP5 continuation research — IN PROGRESS
+### SRE Tools series introduction
 
-Current evidence materially changes the likely remaining series:
+Materially reframed from a fixed ten-tool ranking into a living learning path. Original publication date remains 2025-06-10; updated date is 2026-08-08. It now explains the published #1–#7 progression, the reasoning behind evolving the list, and the future series direction without treating an old ranking as a contract.
 
-1. **Kubernetes** — current leading candidate for #8; teaches the orchestration layer connecting containers, reliability, deployment, and modern cloud operations.
-2. **OpenTelemetry** — current leading candidate for #9; teaches vendor-neutral observability concepts and complements New Relic rather than duplicating it.
-3. **Argo CD / GitOps** — current leading candidate for #10; makes the most educational sense after Kubernetes and connects Git + Actions + Kubernetes.
-4. **AWS** — foundational and professionally relevant, but likely better as a focused cloud-foundations series than one enormous generic tool article.
-5. **FireHydrant** — active and useful, but lower incremental educational value because PagerDuty/Rundeck already cover much of the incident/runbook capability space.
+Remaining WP4 work includes targeted refreshes for Rundeck, New Relic, PagerDuty, Git, and Cursor; series metadata normalization; and a stronger series-overview thumbnail.
 
-Final sequencing remains subject to current first-party source review and owner gate.
+## P7-WP5 Git to Know You continuation decision — COMPLETE
 
-## AI-assisted publishing workflow direction
+Final sequence:
 
-Reusable workflow:
+```text
+#8 Kubernetes
+#9 OpenTelemetry
+#10 Argo CD / GitOps
+```
+
+Rationale:
+
+- Kubernetes supplies the container-orchestration foundation required to make later cloud-native topics understandable.
+- OpenTelemetry teaches vendor-neutral instrumentation/telemetry concepts and complements rather than duplicates the New Relic vendor article.
+- Argo CD then teaches GitOps desired-state/reconciliation on top of Kubernetes and naturally connects Git + GitHub Actions + Kubernetes.
+- AWS remains foundational but is too broad for a single tool-style beginner article; move it to a possible future cloud-foundations series.
+- FireHydrant remains a valid incident-management product but no longer adds enough distinct educational ground to justify displacing the three selected topics.
+
+This sequence was owner-approved after current first-party Kubernetes/OpenTelemetry/Argo review.
+
+## P7-WP6 reusable AI publication workflow — COMPLETE
+
+Authority:
+
+`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
+
+Reusable flow:
 
 ```text
 topic signal
@@ -116,9 +134,9 @@ A new post should not require Mike to perform routine research or first-draft wo
 P7-WP1 editorial strategy / topic relevance / AI contract: COMPLETE
 P7-WP2 existing-content audit: COMPLETE
 P7-WP3 content schema and series/update metadata: COMPLETE
-P7-WP4 priority article refresh batch: ACTIVE
-P7-WP5 Git to Know You continuation decision: IN PROGRESS
-P7-WP6 reusable AI publication workflow: IN PROGRESS
+P7-WP4 article refresh and series cleanup: ACTIVE
+P7-WP5 Git to Know You continuation decision: COMPLETE
+P7-WP6 reusable AI publication workflow: COMPLETE
 P7-WP7 browser/editorial regression and owner gate: PENDING
 ```
 
