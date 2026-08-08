@@ -17,8 +17,9 @@ TypeScript
 Markdown content collections
 custom HTML/CSS
 minimal client JavaScript
-GitHub Actions
+GitHub-hosted Actions for this public repository
 GitHub Pages
+Playwright browser smoke testing
 ```
 
 Why:
@@ -29,120 +30,149 @@ Why:
 - typed content metadata;
 - clean source structure for GPT-assisted changes;
 - static output with low operational complexity;
-- compatible with GitHub Pages and the dedicated self-hosted Actions runner.
+- compatible with GitHub Pages;
+- public-repository GitHub-hosted Actions avoid exposing Node3 to untrusted public workflow code;
+- browser testing protects the responsive visual system rather than relying only on successful compilation.
 
-Jekyll remains production authority until the migration candidate is verified. React is not part of the default architecture.
+Jekyll remains production authority until the final launch cutover. React is not part of the default architecture.
 
 ## Design/product direction
 
-The current homepage is too close to an extended resume and mixes several identities: cloud architect/SRE, sales engineer, and customer support leader. Portfolio 2.0 should lead with a coherent customer-facing technical delivery identity and use cloud/SRE depth as supporting evidence.
+Portfolio 2.0 leads with one coherent professional identity:
 
-Target homepage hierarchy:
+```text
+Technical Delivery & Customer Solutions
+```
+
+The site treats implementation, integrations/troubleshooting, customer/stakeholder leadership, systems/program delivery, and operational/reliability depth as connected proof rather than competing identities.
+
+Current homepage hierarchy:
 
 ```text
 navigation
-hero: identity + value proposition + key CTA
+hero: identity + value proposition + CTA
 three concise capability/proof pillars
-selected professional case studies
-secondary technical projects
-featured writing (approximately three posts)
-compact experience/credentials
-short about/contact
+selected professional evidence
+technical-depth section
+featured writing
+compact experience continuity
+about/contact
 ```
 
-The full blog becomes a dedicated archive rather than every post being rendered onto the homepage.
+The full blog is a dedicated archive rather than every post being rendered onto the homepage.
 
 ## Proof strategy
 
-Primary evidence should become sanitized professional case studies, not only lab-style projects.
+Primary evidence is sanitized professional case-study material, not only lab-style projects.
 
 Initial lanes:
 
-1. enterprise SaaS integrations / APIs / authentication / troubleshooting;
-2. customer implementation / technical delivery / partner coordination;
-3. reliability / observability / operational improvement.
+1. enterprise implementation / migration / delivery;
+2. reliability / cross-functional remediation / customer impact;
+3. program delivery / operating-model improvement.
 
-Existing Terraform, New Relic, GitHub Actions, automation, and cloud projects remain as secondary technical proof.
+Existing Terraform, New Relic, GitHub Actions, automation, cloud, API, SQL, and reliability experience remain supporting technical proof where useful.
 
 ## Phase P1 — Foundation and Astro migration
 
+Status: **COMPLETE**
+
 Goal: modernize the engine with zero intentional content loss and no production disruption.
 
-Deliverables:
+Delivered:
 
 - governance/doctrine system;
 - Jekyll dependency/content/URL audit;
-- self-hosted runner + Pages contract verification;
+- public-repo runner + Pages contract verification;
 - Astro scaffold and typed blog schema;
-- Markdown/article migration;
+- nine Markdown/article migrations byte-for-byte;
 - dedicated blog archive foundation;
-- URL/link/asset regression checks;
-- candidate CI/deploy workflow;
-- rendered acceptance evidence.
+- exact legacy URL/link/asset regression checks;
+- non-deploying Pages candidate workflow.
 
-Exit: Astro candidate can replace Jekyll without unexplained loss or broken links. Production cutover remains an explicit owner decision.
+Exit achieved: Astro can build/package the existing content without unexplained loss or broken compatibility paths. Production cutover remains explicit.
 
 ## Phase P2 — Positioning and information architecture
 
+Status: **COMPLETE**
+
 Goal: make the site communicate the right professional story in seconds.
 
-Deliverables:
+Delivered:
 
-- finalized hero/value proposition;
+- professional umbrella and message hierarchy;
 - audience journeys;
-- homepage wireframe/content hierarchy;
-- work/case-study architecture;
-- technical project hierarchy;
+- homepage content hierarchy;
+- Work/case-study architecture;
+- technical-project demotion to supporting evidence;
 - experience/about/resume strategy;
-- blog categorization and featured-writing rules.
+- featured-writing/archive rules.
 
-Exit: approved page map and copy system before detailed visual polish.
+Exit achieved: positioning and page map accepted before detailed implementation.
 
 ## Phase P3 — Visual design system
 
-Goal: create a restrained modern professional look inspired by high-quality B2B SaaS/editorial design without becoming a flashy developer template.
+Status: **COMPLETE**
 
-Deliverables:
+Goal: create a restrained modern professional look informed by high-quality B2B SaaS/editorial patterns without becoming a flashy developer template.
 
-- typography system;
-- neutral/accent palette;
-- spacing/layout tokens;
-- navigation/footer;
-- cards and case-study components;
-- responsive states;
-- accessible focus/contrast behavior;
-- article/archive design.
+Delivered:
 
-Exit: approved responsive design language.
+- editorial/system typography system;
+- light neutral + restrained blue accent palette;
+- spacing/layout tokens and 1180px responsive shell;
+- sticky navigation/footer;
+- evidence cards and metric treatments;
+- responsive Home, Work, Writing, About, Resume, and article surfaces;
+- focus/reduced-motion/accessibility defaults;
+- long-form article/archive design;
+- durable Playwright smoke suite across desktop/tablet/phone;
+- full-page screenshot evidence and visual inspection;
+- active brand doctrine based on the tested implementation.
+
+P3 smoke evidence:
+
+```text
+commit: 3372e074745d4a22d1ee18f6f525063414756700
+Playwright run: 31251097496
+21 / 21 tests passed
+```
+
+Exit achieved: responsive design language is browser-proven and doctrine-backed.
 
 ## Phase P4 — Professional case studies and content refresh
 
-Goal: replace skill-list claims with evidence.
+Status: **ACTIVE**
+
+Goal: replace broad skill-list claims with stronger evidence while preserving recruiter scanability.
 
 Deliverables:
 
+- truth-mapped public-safe evidence inventory;
 - three sanitized professional case studies;
-- rewritten homepage/about copy aligned to current career targets;
-- project descriptions reframed around problem/approach/result;
+- homepage/Work/About copy refinement aligned to current career targets;
+- technical project descriptions reframed around problem/approach/result where supported;
 - selected featured articles;
-- resume/contact integrations;
-- confidentiality review.
+- public Resume/contact integration review;
+- confidentiality/public-disclosure review;
+- full Playwright regression after content integration.
 
-Exit: portfolio tells a coherent senior technical-delivery story.
+Exit: portfolio tells a coherent senior technical-delivery story with deeper proof paths.
 
 ## Phase P5 — Quality, discoverability, and launch
 
 Deliverables:
 
-- semantic HTML/accessibility pass;
-- metadata, canonical URLs, Open Graph/social image;
+- semantic HTML/accessibility hardening beyond current smoke coverage;
+- metadata/canonical audit;
+- Open Graph/social preview image;
 - sitemap/robots checks;
 - structured Person/profile data where appropriate;
 - image optimization;
-- performance/Lighthouse review;
-- broken-link and URL regression suite;
+- performance/Lighthouse budget and review;
+- broken-link/URL regression expansion;
 - final mobile/desktop browser acceptance;
-- production Pages cutover and rollback checkpoint.
+- production GitHub Actions Pages cutover and rollback checkpoint.
 
 Exit: Portfolio 2.0 is live, verifiably healthy, and maintainable.
 
@@ -154,7 +184,7 @@ Ongoing:
 - quarterly featured-content review;
 - update case studies when professional experience changes;
 - dependency maintenance;
-- CI quality gates;
+- CI/browser quality gates;
 - remove stale claims and technologies;
 - retain sprint notes for major redesign/migration arcs rather than every minor edit.
 
@@ -166,4 +196,5 @@ Ongoing:
 - no animation-heavy portfolio aesthetic;
 - no giant skill icon wall or proficiency bars;
 - no destructive rewrite of historical blog content during framework migration;
-- no production cutover based only on a successful build.
+- no production cutover based only on a successful build;
+- no public-repo self-hosted runner exposure without a future security justification.
