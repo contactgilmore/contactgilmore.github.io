@@ -1,4 +1,4 @@
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -40,17 +40,20 @@ console.log(`Public asset audit: ${referenced.size} referenced, ${publicFiles.le
 if (missing.length) {
   console.error('\nReferenced assets missing from public/:');
   for (const file of missing) console.error(`  - ${file}`);
-  process.exitCode = 1;
-}
-
-if (archives.length) {
-  console.log('\nArchive files still present in public/:');
-  for (const file of archives) console.log(`  - ${file}`);
 }
 
 if (unused.length) {
-  console.log('\nUnreferenced public assets (review candidates, not automatically safe to delete):');
-  for (const file of unused) console.log(`  - ${file}`);
+  console.error('\nUnreferenced public assets are not allowed:');
+  for (const file of unused) console.error(`  - ${file}`);
 }
 
-if (!missing.length) console.log('\nAll source-referenced assets exist.');
+if (archives.length) {
+  console.error('\nArchive files are not allowed in public/assets without an explicit source reference:');
+  for (const file of archives) console.error(`  - ${file}`);
+}
+
+if (missing.length || unused.length || archives.length) {
+  process.exitCode = 1;
+} else {
+  console.log('\nAll source-referenced assets exist and no orphan public assets remain.');
+}
