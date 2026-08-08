@@ -6,136 +6,121 @@ Production baseline: `21031c0a18ae1c10ab9bafcbd0922c4b620c5383`
 
 ## Objective
 
-Turn the Writing area into a sustainable technical publishing system that can remain active with limited owner time. Preserve the established voice and professional value while moving research, drafting, maintenance, and series administration into a disciplined GPT-assisted workflow.
+Turn Writing into a sustainable technical publishing system with GPT handling repeatable research/drafting/maintenance while preserving Mike's established voice, factual integrity, public safety, and owner publication control.
 
-## Editorial operating decision
+## Durable editorial decisions
 
-The existing Writing list is accepted as the default archive presentation. Original publication dates remain historical facts. A materially revised article may add an `updated` / `dateModified` value while retaining `datePublished`.
+- Keep the current clean Writing list unless archive growth creates a real navigation problem.
+- Preserve original publication dates as historical facts.
+- Use a separate `updated` value and `dateModified` only after material revision.
+- Do not mechanically finish the original ten-tool list.
+- GPT is the default editorial drafter/researcher but may not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims.
+- Prefer current first-party technical documentation for version/product/capability claims.
+- Treat every committed draft, research note, PR, workflow artifact, and screenshot as public.
 
-## Git to Know You decision
+## Voice contract
 
-Do **not** mechanically complete the original ten-tool list. The original overview named AWS, Argo CD, Terraform, Cursor, PagerDuty, New Relic, FireHydrant, Git, GitHub Actions, and Rundeck. Seven dedicated tool articles currently exist: Rundeck, New Relic, PagerDuty, Git, Terraform, GitHub Actions, and Cursor.
+Beginner-friendly without talking down; practical explanation before jargon; conversational openings and occasional dry humor; grounded opinions; explain how tools fit into real operating workflows; connect technology to reliability, delivery, customer impact, toil reduction, or team effectiveness. Preserve real stories when safe. Avoid generic AI listicle cadence.
 
-AWS, Argo CD, and FireHydrant are **candidates, not obligations**. Before another installment, GPT researches current relevance against professional positioning, contemporary cloud/platform/AI/observability/automation practice, distinct educational value, and current tool health. A stronger current topic may replace or reorder an original candidate.
-
-## AI-assisted authoring contract
-
-GPT is the default editorial drafter going forward. GPT may research, recommend topics, outline, draft, verify technical/time-sensitive claims, prepare metadata, recommend/create public-safe visuals, run quality gates, revise from feedback, and prepare PRs. Mike remains final editorial/publication authority and supplies personal experience only when needed.
-
-### Voice contract
-
-Preserve the qualities already present in the blog:
-
-- beginner-friendly without talking down to the reader;
-- practical explanations before jargon;
-- conversational openings and occasional dry humor;
-- clear opinions when supported by experience/evidence;
-- explain how a tool fits into an operating workflow, not only what buttons it has;
-- connect tooling to reliability, delivery, customer impact, toil reduction, or team effectiveness;
-- use personal stories when they are real and approved;
-- keep paragraphs readable and avoid generic AI listicle cadence.
-
-Do not manufacture personal anecdotes, employer/customer events, metrics, tool usage, or first-person claims. If a personal story would materially improve the article and repository authority does not support one, ask Mike a small number of targeted questions.
-
-## P7-WP2 — existing nine-post audit
-
-Status: **ANALYSIS COMPLETE; IMPLEMENTATION PENDING**
-
-Classification model:
+## Existing nine-post audit
 
 ```text
-KEEP — accurate and useful; only minor copy/link cleanup if needed
-REFRESH — materially update technical content and add honest dateModified
-REFRAME — underlying topic remains useful but article purpose/voice needs substantial revision
-RETIRE_FROM_FEATURE — preserve URL/history but stop promoting it
+We have a blog!        REFRAME / retire from feature prominence
+SRE Tools overview     REFRAME as living series introduction
+Rundeck                 REFRESH
+New Relic               REFRESH
+PagerDuty               REFRESH
+Git                     KEEP / light refresh
+Terraform               REFRESH — high priority
+GitHub Actions          REFRESH — high priority
+Cursor                  KEEP / targeted refresh
 ```
 
-### We have a blog! — REFRAME / RETIRE FROM FEATURE
+Cross-series findings:
 
-Historical launch note that still describes the site as brand new and under layout experimentation. Preserve URL/history, but stop treating it as current featured writing. Either rewrite as a short retrospective/archive introduction or retain as a clearly historical note.
+- shorten/remove the repeated long beginner disclaimer through series-level presentation rather than repeating boilerplate forever;
+- Benefits / Drawbacks / Cost / Bottom Line remains an available beginner template, not a mandatory structure;
+- real professional stories are the strongest differentiator;
+- avoid absolute claims that one commercial vendor is universally mandatory;
+- verify time-sensitive pricing, limits, versions, product names, and commands at publication time;
+- use typed metadata for series ordering rather than title parsing.
 
-### Git to Know You: SRE Tools — REFRAME
+## P7-WP3 implementation — COMPLETE
 
-Useful as series context, but its promise that every original tool will receive a dedicated article is now an unnecessary constraint. Refresh into a living series index/introduction. Preserve the publication date and explain that the series evolves with the tooling landscape.
-
-### #1 Rundeck — REFRESH
-
-The self-service/runbook story remains strong and supports the portfolio's automation/customer-enablement narrative. Current PagerDuty material still recognizes Rundeck Community while paid branding has evolved toward PagerDuty Runbook Automation / Process Automation. Refresh product naming, current capabilities, and cost/support wording. Keep the real team story.
-
-### #2 New Relic — REFRESH
-
-The observability story remains one of the strongest articles. Current first-party pricing/product terminology is more specific than the 2025 article: the current free tier includes 100 GB monthly ingest, unlimited basic users, and one full-platform user. Refresh pricing, retention/edition wording, and current observability terminology without turning the article into marketing copy. Preserve the real monitoring story subject to public-disclosure review.
-
-### #3 PagerDuty — REFRESH
-
-The personal on-call story remains valuable. Pricing language is stale/over-specific and should be replaced with current verified plan language or a durable official link. Modern PagerDuty also emphasizes event orchestration and automation beyond basic paging. Soften the absolute closing claim that PagerDuty itself is “not optional”; incident-management discipline is foundational, but a specific vendor is not universally mandatory.
-
-### #4 Git — KEEP / LIGHT REFRESH
-
-Core technical explanation remains durable and the version-control adoption story is useful. Main work is editorial: review absolutes, verify any time-sensitive hosting/free-tier wording, and add series metadata. No reason for a large rewrite merely to create freshness.
-
-### #5 Terraform — HIGH-PRIORITY REFRESH
-
-Material technical change confirmed in current HashiCorp documentation: the S3 backend supports native lockfiles via `use_lockfile = true`, while DynamoDB-based locking is deprecated. The article currently recommends S3 + DynamoDB. Refresh remote-state guidance, verify current Terraform edition/licensing terminology, update stale module/example versions where useful, and review the comparison table for oversimplification. Preserve the real infrastructure-as-code adoption story.
-
-### #6 GitHub Actions — HIGH-PRIORITY REFRESH
-
-The example uses `actions/checkout@v3`, `actions/setup-node@v4`, and Node 18. Current official Actions repositories use newer action/runtime generations and test modern Node releases. Refresh the workflow example to a current supported baseline, use `npm ci` where a lockfile exists, improve least-privilege/security explanation, update the Pages example from Jekyll-era assumptions to modern workflow-based static deployment, and verify current billing/free-use wording. Preserve the real TeamCity-to-Actions delivery story.
-
-### #7 Cursor — KEEP / TARGETED REFRESH
-
-Newest post; its core message has aged well: AI as an accelerator with human verification. Refresh current product terminology/capabilities only where first-party documentation supports it. The judgment/verification emphasis is strategically useful because the portfolio itself demonstrates structured AI-assisted engineering. Avoid rewriting it into a product-feature catalog.
-
-## Cross-series editorial findings
-
-- The repeated beginner disclaimer is part of the original voice but is long and repetitive. Consider moving a shorter audience statement into series metadata/layout.
-- “Benefits / Drawbacks / Cost / Bottom Line” is a useful beginner template, but future articles should use it when it fits rather than force every topic into identical listicle structure.
-- Existing real stories are the strongest differentiator. Preserve and public-safety review them rather than replacing them with generic examples.
-- Avoid absolute vendor claims that imply one commercial product is universally mandatory. Explain the underlying engineering capability and why the tool is one implementation of it.
-- Time-sensitive pricing, plan limits, versions, and product naming must be verified at publication/update time or written durably with a link to current official details.
-- Series numbering should be metadata-driven; title text should not be the only ordering mechanism.
-
-## Series model direction
-
-Candidate typed metadata:
+Astro content schema supports:
 
 ```yaml
-series: "Git to Know You"
-seriesOrder: 7
-seriesStatus: "ongoing"
-updated: 2026-08-08 # only when materially revised
+updated:
+series:
+seriesOrder:
+seriesStatus:
 ```
 
-Exact schema is an implementation decision after the audit. Prefer metadata over hard-coded title parsing. Avoid filters/carousels/category UI until archive size demonstrates a real need.
+Blog layout supports separate Published / Updated presentation and `dateModified` structured data. Writing archive intro is reader-facing rather than internal design rationale.
 
-## Planning model for the portfolio
+The original migration integrity gate was intentionally evolved. During the Jekyll-to-Astro migration, byte-for-byte equality was the correct invariant. P7 makes editorial revision an explicit product requirement, so the gate now preserves the legacy article set, original publication dates, titles, and route identities while allowing reviewed content revisions and future new posts.
 
-The portfolio keeps a **lightweight roadmap plus bounded sprints**. The roadmap contains durable direction and meaningful future capabilities. Concrete changes open a bounded sprint, receive evidence/owner gates, and close. Avoid manufacturing product-style phases or backlog volume.
+## P7-WP4 priority refresh — ACTIVE
+
+### Terraform
+
+Materially refreshed on the P7 branch. Original date remains 2025-07-13; updated date is 2026-08-08. Current HashiCorp guidance replaces the article's old S3 + DynamoDB locking recommendation with S3 native lockfiles (`use_lockfile = true`); DynamoDB locking is deprecated. The old simplistic Terraform/CloudFormation/Bicep scorecard was replaced with a durable tradeoff discussion. The real IaC adoption story remains.
+
+### GitHub Actions
+
+Materially refreshed on the P7 branch. Original date remains 2025-07-20; updated date is 2026-08-08. Example now demonstrates current action generations, Node 24, `npm ci`, explicit read permissions, least privilege, fork/secret boundaries, OIDC, deployment environments, and modern static-site workflow framing. The TeamCity-to-Actions story and existing toil metric remain source-derived.
+
+## P7-WP5 continuation research — IN PROGRESS
+
+Initial current-market evidence materially changes the likely remaining series:
+
+- CNCF's 2025 Annual Cloud Native Survey, published in 2026, reports Kubernetes in production for 82% of container users. GitOps is used extensively by 58% of cloud-native innovators versus 23% of adopters. OpenTelemetry is the second-highest-velocity CNCF project. This strongly supports Kubernetes and OpenTelemetry as high-value modern teaching topics.
+- The same CNCF survey says organizational communication/team dynamics/leadership alignment have overtaken technical complexity as the leading cloud-native adoption challenge. That reinforces the portfolio's technical-delivery/customer-solutions positioning and argues for explaining operating context, not merely tools.
+- Stack Overflow's 2025 Developer Survey reports 84% of respondents using or planning to use AI tools and 51% of professional developers using them daily, while trust remains limited. This supports retaining Cursor/AI-assisted engineering as a strategic topic and potentially creating a future separate AI-assisted engineering series rather than overloading Git to Know You.
+
+Working continuation hypothesis, pending deeper first-party/tool-specific research:
+
+1. **Kubernetes** — stronger candidate than a broad generic AWS article because it teaches the orchestration layer connecting containers, reliability, deployment, and modern cloud operations.
+2. **OpenTelemetry** — strong candidate because it teaches vendor-neutral observability concepts and complements the New Relic article rather than duplicating it.
+3. **Argo CD / GitOps** — remains a strong candidate, especially after Kubernetes, because GitOps adoption is a maturity signal and it connects Git + Actions + Kubernetes.
+4. **AWS** — still foundational and professionally relevant, but likely better handled as a focused cloud-foundations article or future cloud series than a single enormous “AWS” tool article.
+5. **FireHydrant** — useful incident-management product but currently lower editorial priority because PagerDuty already covers the capability category; only keep if research identifies a distinct lesson that avoids vendor duplication.
+
+Do not finalize the sequence until current official Kubernetes/OpenTelemetry/Argo/AWS/FireHydrant sources are compared.
+
+## AI-assisted publishing workflow direction
+
+Reusable workflow remains:
+
+```text
+topic signal
+-> relevance research
+-> source pack (first-party preferred)
+-> outline in established voice
+-> draft
+-> factual/version/link verification
+-> public-disclosure review
+-> metadata / series placement / visuals
+-> Astro + link + Playwright + axe validation
+-> owner editorial review
+-> PR approval
+-> manual production deployment
+```
+
+A new post should not require Mike to perform routine research or first-draft work. Ask targeted questions only when a real personal anecdote or unsupported first-person claim would materially improve the article.
 
 ## Work packages
 
-### P7-WP1 — editorial strategy / topic relevance / AI contract — COMPLETE
-
-### P7-WP2 — existing nine-post audit — ANALYSIS COMPLETE
-
-### P7-WP3 — content schema and series/update metadata — NEXT
-
-### P7-WP4 — priority article refresh batch
-
-Refresh Terraform, GitHub Actions, and other high-value stale posts using current first-party sources and honest modified dates.
-
-### P7-WP5 — Git to Know You continuation decision
-
-Deep-research candidate remaining/replacement topics and select the next article sequence.
-
-### P7-WP6 — AI drafting template and publication workflow
-
-Codify a reusable research -> draft -> verify -> owner review -> PR -> deploy flow.
-
-### P7-WP7 — browser/editorial regression and owner gate
-
-Validate archive/articles across viewports and obtain owner approval before publication/deployment.
+```text
+P7-WP1 editorial strategy / topic relevance / AI contract: COMPLETE
+P7-WP2 existing nine-post audit: COMPLETE
+P7-WP3 content schema and series/update metadata: COMPLETE
+P7-WP4 priority article refresh batch: ACTIVE
+P7-WP5 Git to Know You continuation decision: IN PROGRESS
+P7-WP6 reusable AI publication workflow: IN PROGRESS
+P7-WP7 browser/editorial regression and owner gate: PENDING
+```
 
 ## Public-repository boundary
 
-Repository documentation may demonstrate the editorial/AI workflow, but must not contain private job-search strategy, personal scheduling pressure, unpublished employer information, private source material, or conversational scratchpad. Keep only sanitized decisions needed to reproduce the public engineering/editorial process.
+Repository documentation demonstrates the editorial/AI workflow but is not private project memory. Keep only sanitized decisions needed to reproduce the public engineering/editorial process. Do not commit private job-search strategy, personal scheduling constraints, unpublished employer information, private source material, credentials, internal infrastructure identifiers, or conversational scratchpad.
