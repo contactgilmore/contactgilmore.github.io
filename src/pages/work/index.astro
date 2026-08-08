@@ -8,6 +8,7 @@ const work = [
     summary: 'Guided municipal and enterprise customers through discovery, onboarding, migration, integration, and deployment planning, translating requirements into practical execution and readiness decisions.',
     evidence: ['100+ enterprise migrations, implementations, and deployments supported', '40% faster deployments through repeatable workflows', '50% reduction in onboarding effort', '30% reduction in onboarding escalations'],
     skills: ['Requirements discovery', 'Implementation planning', 'Customer onboarding', 'Readiness assessment', 'Stakeholder coordination'],
+    href: '/work/implementation-delivery/',
   },
   {
     label: 'Reliability and customer impact',
@@ -51,6 +52,7 @@ const work = [
         <ul class="tag-list" aria-label="Capabilities demonstrated">
           {item.skills.map((skill) => <li>{skill}</li>)}
         </ul>
+        {item.href && <a class="text-link detail-card__link" href={item.href}>View case study →</a>}
       </article>
     ))}
   </section>
