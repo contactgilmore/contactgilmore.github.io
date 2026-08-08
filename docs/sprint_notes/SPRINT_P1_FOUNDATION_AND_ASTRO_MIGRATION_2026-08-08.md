@@ -1,157 +1,120 @@
 # Sprint P1 — Portfolio 2.0 Foundation and Astro Migration
 
 Opened: 2026-08-08  
-Status: OPEN  
+Closed: 2026-08-08  
+Status: COMPLETE  
 Owner: Mike Gilmore  
 Project manager/executor: GPT  
 Working branch: `portfolio-2.0-foundation`
 
 ## Thesis
 
-Establish durable project governance and migrate the portfolio's technical foundation from Jekyll to Astro without changing production or losing blog content, assets, metadata, or public URLs. End the sprint with a validated Astro foundation ready for the visual/content redesign sprint.
+Establish durable project governance and migrate the portfolio's technical foundation from Jekyll to Astro without changing production or losing blog content, assets, metadata, or public URLs. End with a validated Astro foundation ready for professional positioning and visual redesign.
 
-## Current authority
+## Result
 
-Production start point:
+Thesis satisfied without production cutover.
 
-```text
-repo: contactgilmore/contactgilmore.github.io
-branch: main
-head at sprint opening: 2637f64cce154ded6086df2220e5889bdd6aa007
-framework: Jekyll 4.4 line + custom HTML/CSS
-Pages mode: legacy branch build from main:/
-```
+Production remains the legacy Jekyll GitHub Pages site on `main`. The Astro migration exists only on the working branch and as a non-deploying Pages artifact.
 
-## Scope
-
-- establish Job Search Studio-style `00_MASTER` governance adapted to this site;
-- establish product, architecture, brand, and versioning domain docs;
-- create Portfolio 2.0 roadmap;
-- audit existing Jekyll/Liquid dependencies and all blog posts/assets;
-- establish safe CI/deployment runner contract for the public repository;
-- scaffold Astro 7+ + TypeScript on the working branch;
-- define typed Markdown/content schema;
-- migrate blog content without intentional body rewrites;
-- preserve or explicitly map existing public blog URLs;
-- create dedicated blog archive and compatible article rendering foundation;
-- add repository-portable validation and Pages deployment candidate workflow;
-- produce rendered evidence before any cutover discussion.
-
-## Non-goals
-
-- final homepage visual redesign;
-- final professional copy/positioning wording;
-- rewriting historical blog articles;
-- adding a CMS/database;
-- adding React by default;
-- production cutover before acceptance.
-
-## Protected boundaries
-
-```text
-main
-nine published _posts/ article bodies
-existing published blog URLs including source case
-assets/images used by posts
-production GitHub Pages availability
-public-disclosure safety
-```
-
-## Work-package queue
+## Completed work packages
 
 ### P1-WP1 — Governance and migration foundation
 Status: COMPLETE
 
-Delivered: branch, six-file startup doctrine, living state, product/architecture/brand/versioning domains, roadmap, sprint note, public-disclosure guardrails, and migration contracts.
-
-Acceptance: repository doctrine and living state provide fresh-session authority.
+Established the six-file startup doctrine, living state, product/architecture/brand/versioning domains, roadmap, public-disclosure guardrails, branch workflow, and draft PR.
 
 ### P1-WP2 — Jekyll and content dependency audit
 Status: COMPLETE
 
-Findings:
-
-- nine published dated Markdown posts use `layout: post`;
-- all nine define `title`, `date`, and `thumbnail`;
-- seven of nine define `categories` and `tags`, so these fields are optional in Astro;
-- no Liquid constructs occur inside published Markdown article bodies;
-- Liquid/Jekyll dependencies are concentrated in `index.html`, `_layouts/default.html`, `_layouts/post.html`, and `_config.yml`;
-- current permalink rule is `/:title/`, whose filename-derived title preserves case;
-- exact compatibility URL manifest is recorded in `docs/architecture/contactgilmore-portfolio/03_CONTENT_AND_URL_CONTRACT.md`;
-- `_posts/--2024-06-22-project-template.html` and `_posts/sre-tool-template.md` are not articles and must not enter the Astro content collection;
-- existing article image paths should remain under `/assets/...` during the initial migration;
-- homepage JavaScript is only smooth-scroll behavior and creates no framework dependency;
-- legacy `project-pages/` templates are not linked from the homepage and must not be deleted incidentally.
-
-Acceptance: published post set, migration-sensitive constructs, URL behavior, and exclusions are accounted for.
+Established nine published Markdown posts, exact Jekyll URL semantics, metadata shapes, Liquid boundaries, static asset behavior, and the two non-article files that must remain outside the Astro blog collection.
 
 ### P1-WP3 — CI runner and Pages deployment contract
 Status: COMPLETE
 
-Decision/evidence:
-
-- repository is public;
-- default workflows use GitHub-hosted `ubuntu-latest`;
-- Node3-MINI-S is not exposed to ordinary public-repository workflow execution;
-- current GitHub Pages reports `build_type: legacy`, `source: main:/`, `public: true`, and HTTPS enforced;
-- Astro production deployment will eventually require an intentional GitHub Actions Pages cutover.
-
-Acceptance: runner and deployment assumptions are evidenced and recorded in architecture doctrine.
+Established GitHub-hosted `ubuntu-latest` as the safe default for this public repository and verified current production Pages as legacy `main:/` with HTTPS enforced. Node3 is not exposed to ordinary public-repo workflow execution.
 
 ### P1-WP4 — Astro scaffold and content schema
-Status: IN PROGRESS
+Status: COMPLETE
 
-Add Astro 7+, TypeScript, clean project structure, global CSS foundation, content collection/schema, static build configuration, and safe GitHub-hosted validation.
-
-Acceptance: clean install/build succeeds on branch without touching production; schema accepts all nine source post metadata shapes and rejects the two non-article files.
+Created Astro 7+ static configuration, TypeScript, typed content collection schema, migration workbench, minimal styling foundation, and GitHub-hosted validation workflow. Clean Astro builds passed.
 
 ### P1-WP5 — Blog migration
-Status: QUEUED
+Status: COMPLETE
 
-Migrate all nine Markdown posts/assets, preserve metadata/body, implement article layout/archive, and resolve any Jekyll-specific presentation behavior.
+Migrated all nine article files by reusing their original Git blob SHAs, making migrated Markdown byte-for-byte identical to source. Reused the existing assets tree under `public/assets`. Added a dedicated blog archive, article layout, and explicit exact-case legacy route mapping.
 
-Acceptance: migrated post count is exactly nine and representative articles render correctly.
+Migration source commit:
+
+```text
+6e8743ec81dc4e141aea40f5c6d394a133bb5f96
+```
 
 ### P1-WP6 — URL and quality regression
-Status: QUEUED
+Status: COMPLETE
 
-Validate old URL compatibility/redirects, internal links, assets, responsive rendering, accessibility basics, and build output.
+Added automated gates that:
 
-Acceptance: no unexplained URL/content loss and quality gates are documented.
+- require exactly nine published source posts and nine migrated posts;
+- compare each migrated file byte-for-byte with its Jekyll source;
+- build the Astro static site;
+- require the blog index plus all nine legacy URL outputs;
+- require representative published image assets.
+
+Exact regression-gate commit:
+
+```text
+09231b8746935449c871a2772a40499e520922eb
+```
+
+GitHub-hosted validation run `31249422982` completed successfully, including source integrity, Astro build, and legacy route/asset verification.
 
 ### P1-WP7 — Deployment candidate and closeout
-Status: QUEUED
+Status: COMPLETE
 
-Create candidate Pages workflow, gather deployment evidence without replacing production prematurely, close migration risks, and prepare P2 visual/content redesign sprint.
+Added a build/package-only Pages candidate workflow. It deliberately contains no `deploy-pages` step.
 
-Acceptance: Mike has a reviewed migration candidate and explicit cutover decision point.
+Candidate head:
 
-## Owner gates
+```text
+8590942ee8d560fdfaddf8372ca567085c7072cd
+```
 
-Mike approval is required for:
+Workflow run `31249469185` completed successfully. Source integrity, build, route/asset regression, and `actions/upload-pages-artifact` all passed.
 
-1. changing the final public professional identity/value proposition;
-2. deleting or materially rewriting historical blog content;
-3. changing hosting away from GitHub Pages;
-4. introducing a major UI framework/CMS/database;
-5. production cutover/merge.
+Produced artifact:
 
-## Verification gates
+```text
+name: github-pages
+artifact id: 9019541687
+size: 39174007 bytes
+digest: sha256:7e3364af7c68ffbc15ac3b5d76298d10d018d16736d8a9a7781dd516c7fc6cd6
+```
 
-- exact changed-file review;
-- no direct `main` mutation;
-- public-disclosure safety check before commits/artifacts;
-- post/asset inventory match;
-- Astro clean build;
-- URL regression evidence;
-- representative visual/browser proof;
-- GitHub-hosted public-repo runner contract maintained;
-- owner approval before cutover.
+No production deployment occurred.
 
-## Checkpoint 2026-08-08 — Sprint opened
+## Protected boundaries preserved
 
-Decision: Portfolio 2.0 will use Job Search Studio-style governance. Astro is the preferred migration target. Production Jekyll remains intact while migration is developed and proven on a branch.
+```text
+main production branch
+historical blog article bodies
+legacy article URLs including case
+published assets
+production Pages availability
+public-disclosure safety
+```
 
-## Checkpoint 2026-08-08 — Audit and CI contract complete
+## Deferred intentionally
 
-WP2 and WP3 accepted. Nine published posts are directly portable Markdown with no embedded Liquid. Exact legacy URL compatibility and static asset preservation are documented. Public-repository CI will use GitHub-hosted runners, and current Pages production remains the legacy `main:/` branch build. P1-WP4 is now active.
+- final professional positioning;
+- final homepage information architecture;
+- visual design system;
+- final blog presentation polish;
+- production Pages cutover;
+- Jekyll retirement from `main`.
+
+These belong to subsequent Portfolio 2.0 sprints.
+
+## Closeout decision
+
+P1 is complete. The Astro foundation is accepted as the redesign development base, not as production. Production cutover remains an explicit later owner gate after the professional content and visual redesign are accepted.

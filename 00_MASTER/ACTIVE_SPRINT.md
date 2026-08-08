@@ -1,34 +1,32 @@
 # Active Sprint
 
-Sprint: **P1 — Portfolio 2.0 Foundation and Astro Migration**  
+Sprint: **P2 — Professional Positioning and Information Architecture**  
 Status: OPEN  
 Opened: 2026-08-08  
 Branch: `portfolio-2.0-foundation`
 
-Current work package: **P1-WP4 — Astro scaffold and content schema**
+Current work package: **P2-WP1 — Professional portfolio benchmark and visitor decision model**
 
-Sprint note: `docs/sprint_notes/SPRINT_P1_FOUNDATION_AND_ASTRO_MIGRATION_2026-08-08.md`
+Sprint note: `docs/sprint_notes/SPRINT_P2_POSITIONING_AND_INFORMATION_ARCHITECTURE_2026-08-08.md`
 
-Completed work packages:
+Completed predecessor sprint:
 
 ```text
-P1-WP1 — Governance and migration foundation
-P1-WP2 — Jekyll and content dependency audit
-P1-WP3 — CI runner and Pages deployment contract
+P1 — Portfolio 2.0 Foundation and Astro Migration
 ```
 
 Protected boundaries:
 
 ```text
 main production branch
-nine published _posts/ article bodies
-existing article URLs, including case
-assets used by published posts
-current GitHub Pages availability
-public-disclosure safety of every committed artifact
+nine historical blog article bodies
+legacy article URLs including case
+published blog assets
+public-disclosure safety
+no production Pages cutover during P2
 ```
 
-Current architecture decisions:
+Current technical authority:
 
 ```text
 Astro 7+ + TypeScript
@@ -36,8 +34,8 @@ Markdown/content collections
 custom HTML/CSS
 minimal client JavaScript
 GitHub-hosted ubuntu-latest Actions
-GitHub Pages
-preserve existing /assets/... paths during initial migration
+GitHub Pages target
+validated non-deploying Pages artifact from P1
 ```
 
-Owner gate: Mike approval required before production cutover or material career-positioning copy is finalized.
+Owner gate: Mike approval is required before final public positioning language is treated as accepted copy or before production cutover.
