@@ -5,46 +5,35 @@ Updated: 2026-08-08
 
 ## Production authority
 
-Portfolio 2.0 is live at `https://contactgilmore.github.io/` from GitHub Pages workflow publishing.
+Portfolio 2.0 is live at `https://contactgilmore.github.io/` using Astro and GitHub Pages workflow publishing.
 
-Production site deployment:
+P6 recruiter/case-study polish and public-repository hardening were accepted and squash-merged to `main`:
 
 ```text
-site source commit: bb2968e523bd7af87e3cd31a3a7e045ecb44947b
-deployment workflow: Deploy Portfolio to GitHub Pages
-deployment run: 31253088467
-build job: SUCCESS
-deploy job: SUCCESS
-GitHub Pages status: built
+P6 merge commit: 21031c0a18ae1c10ab9bafcbd0922c4b620c5383
+production branch: main
 GitHub Pages build type: workflow
-HTTPS: enforced
+production deployment policy: manual-only
 ```
 
-The pre-cutover Jekyll rollback target remains:
-
-`2637f64cce154ded6086df2220e5889bdd6aa007`
-
-Documentation-only commits may advance `main` after the deployed site-source commit. Do not confuse repository head with the exact deployed site commit when performing rollback or deployment forensics.
+The original pre-Astro Jekyll rollback target remains historical release evidence at `2637f64cce154ded6086df2220e5889bdd6aa007`. Current rollback decisions should use Git/deployment history appropriate to the release being changed rather than assuming that historical target is always the preferred rollback point.
 
 ## Durable decisions
 
 - Astro 7+ with TypeScript/content collections is the production static-site foundation.
-- Preserve the technical blog, historical article bodies, compatibility URLs, and required published assets.
-- Use GitHub-hosted `ubuntu-latest` for this public repository; do not expose Node3 to ordinary public-repo workflows.
+- Preserve technical-writing URLs/history unless an explicit editorial decision changes content or metadata.
+- Use GitHub-hosted `ubuntu-latest` for this public repository; do not expose private self-hosted infrastructure to ordinary public-repo workflows.
 - Treat all repository content, branches, PRs, logs, artifacts, screenshots, metadata, and evidence as public disclosure surfaces.
+- Public repository documentation is allowed to demonstrate SDLC, sprint execution, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery, but must never become private project memory.
 - Retain only public assets that have a content, brand, or compatibility reason.
 - Avoid React/CMS/database additions unless a later requirement justifies them.
-- The smoke-tested Portfolio 2.0 brand system is active visual authority.
-- Mike delegates routine design/UX/navigation/color/layout decisions to GPT; the site must accurately represent Mike.
+- The smoke-tested Portfolio 2.0 brand system remains active visual authority.
+- Routine design/UX/navigation/color/layout decisions are delegated to GPT, with owner review for material representation/production decisions.
 - Production deployment is intentionally manual-only through `.github/workflows/deploy-pages.yml` unless a later owner-approved operating decision changes that policy.
-- Three deep professional case studies remain the right portfolio shape; they focus on the most relevant 2018–2026 enterprise/technical experience rather than trying to make the portfolio chronological.
-- Earlier customer operations and leadership experience should explain the career foundation, especially influence without authority and people leadership, rather than become a fourth retail case study by default.
+- Three deep professional case studies remain the right portfolio shape; earlier leadership experience supports the career foundation rather than becoming a fourth retail case study by default.
+- Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work. Do not manufacture product-style phases/backlog volume when no real outcome requires them.
 
-## P1–P5
-
-P1 through P5 are complete. Portfolio 2.0 was migrated from Jekyll to Astro, redesigned, hardened, tested, and deployed successfully on 2026-08-08.
-
-Current production structure:
+## Current production structure
 
 ```text
 Home / Work / Writing / About / Resume
@@ -67,49 +56,57 @@ Current case studies:
 /work/operating-model/
 ```
 
-Historical blog prose remains protected and unchanged.
+## P6 — complete
 
-## P6 — open
+P6 improved recruiter scanability, first-person ownership, case-study specificity, career narrative, and public-repository governance. Full Astro/Playwright/axe regression and manual screenshot review passed before owner acceptance.
 
-Sprint: **Recruiter Proofread, Voice, and Case-Study Polish**  
-Branch: `portfolio-2.0-polish`
-
-Purpose: perform the deep recruiter/hiring-manager proofread after launch and convert the initial evidence-first copy into a more authentic, first-person, specific professional narrative without changing the proven visual system.
-
-The detailed continuity record, including public-safe experience facts supplied by Mike, is:
+Historical sprint record:
 
 `docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
 
-Key P6 narrative decisions:
+## P7 — active
 
-- Implementation case study: evolve from generic delivery language into the story of converting a difficult early legacy migration into scripts, validation checks, runbooks, and repeatable orchestration.
-- Reliability case study: evolve into the story of turning major-customer outage complaints into observability, pattern isolation, RCA, leadership communication, and cross-functional software remediation.
-- Operating-model case study: show how meaningful dashboards/alerts, standardized runbooks/RCA practices, incident documentation, Jira automation, and team onboarding became a shared reliability operating system.
-- About page: connect earlier multi-unit leadership to influence without authority, then show the progression through SaaS implementation, cloud delivery, SRE, and Technical Delivery & Customer Solutions.
-- Leadership philosophy: emphasize complementary strengths, energy, fit, ownership, and team balance rather than trying to make every person equally strong at everything.
-- Home/Work/Resume: reduce repeated metrics and let each page do a different job in the recruiter scan path.
+Sprint: **Blog Editorial System and AI-Assisted Publishing**  
+Branch: `portfolio-blog-editorial`
 
-Current work package: **P6-WP1 — Recruiter/hiring-manager copy audit and continuity capture**.
+Sprint authority:
 
-## Public-writing boundaries for P6
+`docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
-Do not publish customer identities, private employer/customer artifacts, proprietary scripts/configuration, exact privileged topology, internal host names, ticket IDs, private RCA documents, private correspondence, or unsupported metrics.
+Current work package: **P7-WP1 — editorial strategy, topic relevance, and AI publishing contract**.
 
-Generalized descriptions of professional methods, technologies, migration patterns, integration domains, incident patterns, and leadership practices may be used when they are accurate and safe for unrestricted public disclosure.
+P7 decisions already accepted:
+
+- keep the clean Writing list unless evidence justifies a visual change;
+- audit every existing post for current technical accuracy, links, examples, screenshots, voice, and relevance;
+- retain original publication dates; add `dateModified`/Updated only after substantive refresh;
+- do not mechanically finish the original ten-tool Git to Know You list;
+- research AWS, Argo CD, FireHydrant, and stronger replacement topics before selecting the next installments;
+- GPT becomes the default research/drafting engine for future blog posts using the established templates and voice;
+- GPT may research, outline, draft, verify, prepare metadata/graphics, and run quality gates, but may not invent Mike's personal experience, employer/customer stories, metrics, or first-person claims;
+- Mike remains final editorial/publication authority.
+
+## Brand backlog note
+
+A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This is **backlogged**, not an active P7 redesign. Oversized editorial typography is a legitimate modern pattern, but the current narrow measure can create many short lines and push supporting value/CTA content below the first viewport. A future visual-maintenance pass should compare a modestly wider hero measure and/or lower desktop maximum using Playwright screenshots while preserving the confident editorial hierarchy.
+
+## Public-writing boundaries
+
+Do not publish customer identities, private employer/customer artifacts, proprietary scripts/configuration, privileged topology, internal host names, ticket IDs, private RCA documents, private correspondence, unsupported metrics, or private job-search/personal context.
+
+For AI-assisted articles, do not fabricate personal anecdotes or tool usage. Use sourced technical examples or ask Mike for a small amount of factual input when a genuine first-person story materially improves the article.
 
 ## Verification posture
 
-Every P6 production candidate must pass:
+Any P7 publication candidate must pass the checks appropriate to its scope, including:
 
 ```text
+technical/source verification
 Astro validation
-historical blog source-integrity protection
 public asset audit
 internal-link verification
-Playwright desktop/tablet/phone smoke
-axe accessibility checks
+Playwright responsive smoke for affected surfaces
+axe accessibility checks where presentation changes
 public-disclosure review
-owner proofread before merge/deploy
+owner editorial approval before merge/deploy
 ```
-
-Production remains unchanged while P6 work is developed on the polish branch.
