@@ -11,14 +11,20 @@ Current production truth:
 
 ```text
 production branch: main
-site generator: Astro
-GitHub Pages build type: workflow
-P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
-release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
-automatic deployment run: 31280952066
+current production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
+current release: Git to Know You #8 — Kubernetes
+automatic deployment run: 31284483589
 result: SUCCESS
 production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
+```
+
+Historical release anchors:
+
+```text
+P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
+release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
+first automatic deployment run: 31280952066
 ```
 
 There is no active implementation sprint.
@@ -35,6 +41,8 @@ There is no active implementation sprint.
 - Merge to `main` is the human production authorization; GitHub Pages deploys automatically from pushes to `main` after the workflow's build/integrity gates pass.
 - `workflow_dispatch` remains an operational fallback, not the normal release path.
 - Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work.
+- Date-only editorial metadata must render as the stored calendar date regardless of build-machine timezone.
+- Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
 
 ## Current production structure
 
@@ -93,10 +101,27 @@ P7 outcomes:
 
 P7 final candidate passed exact-head Astro validation, historical identity/date/compatibility checks, zero-orphan asset audit, internal-link verification, expanded desktop/tablet/phone Playwright, representative axe scans, rendered screenshot review, public-disclosure review, and owner local smoke testing before merge.
 
-Approved Git to Know You continuation:
+## Git to Know You continuation
+
+### #8 Kubernetes — published and deployed
+
+Kubernetes was published as the first post-P7 bounded editorial work package.
+
+Release evidence:
 
 ```text
-#8 Kubernetes
+PR: #19
+production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
+automatic Pages deployment run: 31284483589
+result: SUCCESS
+owner local smoke: 90 / 90 Playwright tests passed
+```
+
+The owner smoke test exposed a timezone-dependent date-rendering defect that UTC CI did not reveal. The fix preserved source publication dates and made article, Writing archive, and homepage date rendering explicitly timezone-stable before publication.
+
+Directional continuation is now:
+
+```text
 #9 OpenTelemetry
 #10 Argo CD / GitOps
 ```
