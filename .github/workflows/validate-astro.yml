@@ -56,3 +56,6 @@ jobs:
 
       - name: Verify legacy routes and required assets
         run: node scripts/verify-build-output.mjs
+
+      - name: Verify generated internal links
+        run: node scripts/verify-internal-links.mjs
