@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry, GetStaticPaths } from 'astro';
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { getLegacyBlogPath } from '../lib/blog-paths';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: getLegacyBlogPath(post.id).replace(/^\//, '').replace(/\/$/, '') },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout title={post.data.title} date={post.data.date} thumbnail={post.data.thumbnail}>
+  <Content />
+</BlogPostLayout>
