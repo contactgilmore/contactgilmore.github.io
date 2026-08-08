@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 const pages = [
@@ -117,3 +118,17 @@ test('structured data stays public-safe and article metadata is complete', async
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /cursorlogo2\.png$/);
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });
+
+for (const target of ['/', '/work/', '/GTNY-cursor/']) {
+  test(`axe accessibility scan passes for ${target}`, async ({ page }) => {
+    await page.goto(target, { waitUntil: 'networkidle' });
+    const results = await new AxeBuilder({ page }).analyze();
+    const violations = results.violations.map(({ id, impact, help, nodes }) => ({
+      id,
+      impact,
+      help,
+      nodes: nodes.length,
+    }));
+    expect(violations, `Accessibility violations on ${target}: ${JSON.stringify(violations)}`).toEqual([]);
+  });
+}
