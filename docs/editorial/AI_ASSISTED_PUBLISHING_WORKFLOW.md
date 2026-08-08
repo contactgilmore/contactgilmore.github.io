@@ -171,16 +171,16 @@ The owner may request copy/technical changes or approve the candidate.
 
 Use a bounded branch and draft PR for material article batches, series changes, or editorial-system changes.
 
-Production deployment remains manual-only unless the operating doctrine changes.
+Merge to `main` is the current human production authorization. GitHub Pages deploys automatically from pushes to `main`; `workflow_dispatch` is an operational fallback, not the normal release path.
 
 After approval:
 
 1. confirm exact-head CI is green;
-2. update repository living state/sprint authority;
+2. update repository living state/sprint authority when the work package requires a state change;
 3. merge using the repository's current release contract;
-4. deploy through the approved Pages workflow;
+4. verify the automatic Pages deployment succeeds;
 5. perform a live-site spot check;
-6. record the release/closeout state.
+6. record release/closeout state when required by repository authority.
 
 ## 12. Maintenance cadence
 
