@@ -30,6 +30,7 @@ const selectedWork = [
     metric: '100+',
     metricLabel: 'enterprise migrations, implementations, and deployments supported',
     body: 'Built repeatable discovery, readiness, and execution practices that accelerated deployments 40% and reduced onboarding effort 50%.',
+    href: '/work/implementation-delivery/',
   },
   {
     eyebrow: 'SaaS reliability',
@@ -37,13 +38,15 @@ const selectedWork = [
     metric: '55%',
     metricLabel: 'reduction in repeat customer escalations',
     body: 'Partnered across Product, Engineering, and customer-facing teams to prioritize systemic fixes while protecting 99.9% service availability.',
+    href: '/work/reliability-remediation/',
   },
   {
     eyebrow: 'Operational improvement',
     title: 'Clarified response ownership and production readiness',
     metric: '60%',
     metricLabel: 'improvement in response and recovery metrics',
-    body: 'Improved alerting, escalation paths, root-cause follow-through, and release readiness while standardizing operating practices across combined teams.',
+    body: 'Improved alerting, escalation paths, governance, and shared operating practices across combined teams.',
+    href: '/work/operating-model/',
   },
 ];
 
@@ -112,6 +115,7 @@ const technicalDepth = ['APIs & integrations', 'SQL', 'Authentication', 'AWS', '
             <p class="eyebrow">{item.eyebrow}</p>
             <h3>{item.title}</h3>
             <p>{item.body}</p>
+            <a class="text-link" href={item.href}>Read case study →</a>
           </div>
           <div class="metric-block">
             <strong>{item.metric}</strong>
