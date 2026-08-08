@@ -3,7 +3,7 @@ name: Playwright portfolio smoke
 on:
   push:
     branches:
-      - portfolio-2.0-foundation
+      - main
     paths:
       - 'package.json'
       - 'astro.config.mjs'
