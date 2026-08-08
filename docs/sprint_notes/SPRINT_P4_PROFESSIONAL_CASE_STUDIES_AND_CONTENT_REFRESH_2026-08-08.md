@@ -49,18 +49,39 @@ If useful detail cannot be stated safely, generalize the pattern rather than gue
 ## Work packages
 
 ### P4-WP1 — Evidence inventory and case-study truth map
-Status: IN PROGRESS
+Status: COMPLETE
 
-Map approved resume evidence and current Work-page claims into reusable public-safe problem / role / approach / outcome / lesson structures. Identify which technical details are evidence-supported and which must stay generalized.
+Created `docs/product/contactgilmore-portfolio/05_CASE_STUDY_TRUTH_MAP.md`.
 
-Acceptance: each planned case study has a truth map and confidentiality boundary before detailed page copy is written.
+The truth map separates DIRECT evidence, SAFE GENERALIZATION, SUPPORTING SKILL context, and DO NOT CLAIM boundaries for all three planned case-study lanes. It specifically blocks fabricated customer identities, proprietary architecture, tool-to-metric attribution without evidence, financial impact, internal artifacts, and causality stronger than the resumes support.
+
+Acceptance: met.
 
 ### P4-WP2 — Enterprise implementation and migration case study
-Status: QUEUED
+Status: IN PROGRESS
 
-Develop the implementation/delivery lane around discovery, requirements, onboarding, readiness, migration/integration/deployment planning, repeatable workflows, and stakeholder handoffs.
+Implemented the first deeper case-study route at:
 
-Acceptance: page communicates senior delivery ownership and systems thinking without exposing customer identities or proprietary implementation details.
+```text
+/work/implementation-delivery/
+```
+
+Current structure:
+
+```text
+case-study hero and role context
+-> four resume-supported outcome metrics
+-> context/problem narrative
+-> four-stage delivery flow
+-> technical/delivery judgment section
+-> closing professional takeaway
+```
+
+The page uses the P3 design system with a sticky context rail on wider screens and a normal stacked reading order on narrow screens. It uses no client JavaScript and contains an explicit public-safe summary note.
+
+The Work overview now links into the case study. Playwright coverage was extended to include the new route across desktop, tablet, and phone.
+
+Remaining: browser smoke and screenshot review before WP2 acceptance.
 
 ### P4-WP3 — Reliability and cross-functional remediation case study
 Status: QUEUED
@@ -99,7 +120,7 @@ Acceptance: portfolio tells one coherent senior technical-delivery story and is 
 
 ## Design authority
 
-The P3 smoke-tested brand system is now active doctrine. P4 should extend it rather than redesign it casually. New case-study patterns may use asymmetric, sticky, horizontal, or scroll-supported composition when evidence benefits, but they must remain within the brand system and pass responsive browser review.
+The P3 smoke-tested brand system is active doctrine. P4 extends it rather than redesigning it casually. New case-study patterns may use asymmetric, sticky, horizontal, or scroll-supported composition when evidence benefits, but they must remain within the brand system and pass responsive browser review.
 
 ## Production boundary
 
