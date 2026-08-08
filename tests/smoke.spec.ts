@@ -23,13 +23,34 @@ for (const pageTarget of pages) {
     await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('main')).toBeVisible();
 
-    const overflow = await page.evaluate(() => ({
-      scrollWidth: document.documentElement.scrollWidth,
-      clientWidth: document.documentElement.clientWidth,
-    }));
+    const overflow = await page.evaluate(() => {
+      const clientWidth = document.documentElement.clientWidth;
+      const offenders = [...document.querySelectorAll<HTMLElement>('body *')]
+        .map((element) => {
+          const rect = element.getBoundingClientRect();
+          return {
+            tag: element.tagName.toLowerCase(),
+            className: typeof element.className === 'string' ? element.className : '',
+            text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90),
+            left: Math.round(rect.left),
+            right: Math.round(rect.right),
+            width: Math.round(rect.width),
+          };
+        })
+        .filter((item) => item.right > clientWidth + 1 || item.left < -1)
+        .sort((a, b) => b.right - a.right)
+        .slice(0, 8);
+
+      return {
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth,
+        offenders,
+      };
+    });
+
     expect(
       overflow.scrollWidth,
-      `${pageTarget.path} should not overflow horizontally (${overflow.scrollWidth}px > ${overflow.clientWidth}px)`,
+      `${pageTarget.path} should not overflow horizontally (${overflow.scrollWidth}px > ${overflow.clientWidth}px). Offenders: ${JSON.stringify(overflow.offenders)}`,
     ).toBeLessThanOrEqual(overflow.clientWidth + 1);
 
     expect(consoleErrors, `browser errors on ${pageTarget.path}`).toEqual([]);
