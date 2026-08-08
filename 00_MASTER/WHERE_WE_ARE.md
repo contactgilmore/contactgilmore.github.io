@@ -16,7 +16,7 @@ GitHub Pages build type: workflow
 production deployment policy: manual-only
 ```
 
-The original pre-Astro Jekyll rollback target remains historical release evidence at `2637f64cce154ded6086df2220e5889bdd6aa007`. Current rollback decisions should use Git/deployment history appropriate to the release being changed rather than assuming that historical target is always the preferred rollback point.
+Production remains unchanged while P7 is developed on `portfolio-blog-editorial` / draft PR #16.
 
 ## Durable decisions
 
@@ -24,14 +24,13 @@ The original pre-Astro Jekyll rollback target remains historical release evidenc
 - Preserve technical-writing URLs/history unless an explicit editorial decision changes content or metadata.
 - Use GitHub-hosted `ubuntu-latest` for this public repository; do not expose private self-hosted infrastructure to ordinary public-repo workflows.
 - Treat all repository content, branches, PRs, logs, artifacts, screenshots, metadata, and evidence as public disclosure surfaces.
-- Public repository documentation is allowed to demonstrate SDLC, sprint execution, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery, but must never become private project memory.
+- Public repository documentation may demonstrate SDLC, sprint execution, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery, but must never become private project memory.
 - Retain only public assets that have a content, brand, or compatibility reason.
 - Avoid React/CMS/database additions unless a later requirement justifies them.
 - The smoke-tested Portfolio 2.0 brand system remains active visual authority.
 - Routine design/UX/navigation/color/layout decisions are delegated to GPT, with owner review for material representation/production decisions.
-- Production deployment is intentionally manual-only through `.github/workflows/deploy-pages.yml` unless a later owner-approved operating decision changes that policy.
-- Three deep professional case studies remain the right portfolio shape; earlier leadership experience supports the career foundation rather than becoming a fourth retail case study by default.
-- Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work. Do not manufacture product-style phases/backlog volume when no real outcome requires them.
+- Production deployment is intentionally manual-only unless a later owner-approved operating decision changes that policy.
+- Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work.
 
 ## Current production structure
 
@@ -67,34 +66,48 @@ Historical sprint record:
 ## P7 — active
 
 Sprint: **Blog Editorial System and AI-Assisted Publishing**  
-Branch: `portfolio-blog-editorial`
+Branch: `portfolio-blog-editorial`  
+Draft PR: `#16`
 
 Sprint authority:
 
 `docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
-Current work package: **P7-WP1 — editorial strategy, topic relevance, and AI publishing contract**.
+Current work package: **P7-WP4 — priority article refresh batch**.
 
-P7 decisions already accepted:
+Completed:
+
+```text
+P7-WP1 editorial strategy / topic relevance / AI authoring contract
+P7-WP2 nine-post audit
+P7-WP3 typed series + updated-date metadata foundation
+```
+
+Active/current decisions:
 
 - keep the clean Writing list unless evidence justifies a visual change;
-- audit every existing post for current technical accuracy, links, examples, screenshots, voice, and relevance;
-- retain original publication dates; add `dateModified`/Updated only after substantive refresh;
-- do not mechanically finish the original ten-tool Git to Know You list;
-- research AWS, Argo CD, FireHydrant, and stronger replacement topics before selecting the next installments;
-- GPT becomes the default research/drafting engine for future blog posts using the established templates and voice;
-- GPT may research, outline, draft, verify, prepare metadata/graphics, and run quality gates, but may not invent Mike's personal experience, employer/customer stories, metrics, or first-person claims;
-- Mike remains final editorial/publication authority.
+- retain original publication dates and add separate Updated/dateModified values only after substantive refresh;
+- Terraform and GitHub Actions are the first high-priority technical refreshes;
+- the old byte-for-byte migration guard has been evolved to protect article identity, original publication dates, and legacy routes while allowing reviewed editorial maintenance;
+- `We have a blog!` is retired from the active article collection; `/we-have-a-blog/` remains as a lightweight compatibility page pointing readers to Writing;
+- its old Vault Boy thumbnail is removed because it no longer serves active content;
+- product-logo thumbnails remain the default Git to Know You pattern unless a specific image is obsolete, low-quality, or visually unsuitable;
+- the SRE Tools overview should become a living series introduction rather than a promise to complete an outdated ten-tool list;
+- current working direction for Git to Know You #8–#10 is Kubernetes -> OpenTelemetry -> Argo CD / GitOps, pending final editorial research/owner gate;
+- AWS is better treated as a possible future cloud-foundations series than one oversized tool article;
+- FireHydrant is no longer an obligation;
+- GPT is the default research/drafting engine but may not invent personal experience, employer/customer stories, metrics, or first-person claims;
+- owner approval remains required before merge/deploy.
 
 ## Brand backlog note
 
-A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This is **backlogged**, not an active P7 redesign. Oversized editorial typography is a legitimate modern pattern, but the current narrow measure can create many short lines and push supporting value/CTA content below the first viewport. A future visual-maintenance pass should compare a modestly wider hero measure and/or lower desktop maximum using Playwright screenshots while preserving the confident editorial hierarchy.
+A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This is backlogged, not an active P7 redesign. A future visual-maintenance pass should compare a modestly wider hero measure and/or lower desktop maximum using Playwright screenshots while preserving the confident editorial hierarchy.
 
 ## Public-writing boundaries
 
 Do not publish customer identities, private employer/customer artifacts, proprietary scripts/configuration, privileged topology, internal host names, ticket IDs, private RCA documents, private correspondence, unsupported metrics, or private job-search/personal context.
 
-For AI-assisted articles, do not fabricate personal anecdotes or tool usage. Use sourced technical examples or ask Mike for a small amount of factual input when a genuine first-person story materially improves the article.
+For AI-assisted articles, do not fabricate personal anecdotes or tool usage. Use sourced technical examples or ask for a small amount of factual input when a genuine first-person story materially improves the article.
 
 ## Verification posture
 
@@ -103,6 +116,7 @@ Any P7 publication candidate must pass the checks appropriate to its scope, incl
 ```text
 technical/source verification
 Astro validation
+legacy identity/date/compatibility checks
 public asset audit
 internal-link verification
 Playwright responsive smoke for affected surfaces
