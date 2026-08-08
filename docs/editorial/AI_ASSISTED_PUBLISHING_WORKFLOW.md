@@ -155,7 +155,7 @@ Before owner review:
 
 Do not weaken a quality gate merely to make a draft pass.
 
-When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root; never assume the shell is already in the correct directory. Use the exact local path when it is available from current private context. If the current local checkout path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Never commit that personal filesystem path into the public repository.
+When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root; never assume the shell is already in the correct directory. Use the exact current local checkout path when it is available from private conversation context. If the current path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Never commit that personal filesystem path into the public repository.
 
 ## 10. Owner editorial gate
 
