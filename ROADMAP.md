@@ -23,18 +23,6 @@ Playwright browser smoke testing
 axe accessibility checks
 ```
 
-Why this stack remains appropriate:
-
-- preserves Markdown blog content;
-- modern, actively maintained static-site ecosystem;
-- strong component/layout model without requiring a client framework;
-- typed content metadata;
-- clean source structure for GPT-assisted changes;
-- static output with low operational complexity;
-- compatible with GitHub Pages;
-- GitHub-hosted Actions avoid exposing private self-hosted infrastructure to public workflow code;
-- browser testing protects the responsive visual system rather than relying only on successful compilation.
-
 React, a CMS, database, or alternate hosting provider is not part of the default architecture unless a later requirement justifies the change.
 
 ## Design/product direction
@@ -44,8 +32,6 @@ Portfolio 2.0 leads with one coherent professional identity:
 ```text
 Technical Delivery & Customer Solutions
 ```
-
-The site treats implementation, integrations/troubleshooting, customer/stakeholder leadership, systems/program delivery, and operational/reliability depth as connected proof rather than competing identities.
 
 Current top-level structure:
 
@@ -59,54 +45,69 @@ Primary professional proof is carried by three curated case studies rather than 
 
 ### P1 — Foundation and Astro migration — COMPLETE
 
-Delivered governance, Jekyll/content/URL audit, Astro scaffold, typed blog schema, byte-preserved migration of nine published Markdown articles, legacy route/asset regression, and Pages candidate packaging.
+Governance, Jekyll/content/URL audit, Astro scaffold, typed blog schema, migration of the original published Markdown set, legacy route/asset regression, and Pages candidate packaging.
 
 ### P2 — Positioning and information architecture — COMPLETE
 
-Delivered the professional umbrella, audience journeys, homepage hierarchy, Work/case-study architecture, About/Resume strategy, and Writing/archive rules.
+Professional umbrella, audience journeys, homepage hierarchy, Work/case-study architecture, About/Resume strategy, and Writing/archive rules.
 
 ### P3 — Visual design system — COMPLETE
 
-Delivered the responsive Portfolio 2.0 design system, accessibility defaults, long-form article styling, Playwright desktop/tablet/phone smoke coverage, screenshot evidence, and brand doctrine based on the tested implementation.
+Responsive design system, accessibility defaults, long-form article styling, Playwright desktop/tablet/phone coverage, screenshot evidence, and proven brand doctrine.
 
 ### P4 — Professional case studies and content refresh — COMPLETE
 
-Delivered three sanitized professional case studies, truth-mapped evidence, Home/Work/About/Resume integration, recruiter-scan hierarchy, and full browser/accessibility regression.
+Three sanitized professional case studies, truth-mapped evidence, Home/Work/About/Resume integration, recruiter-scan hierarchy, and browser/accessibility regression.
 
 ### P5 — Quality, discoverability, and launch — COMPLETE
 
-Delivered public-asset minimization, sitemap/robots/canonical/social metadata, structured data, accessibility hardening, link/route regression, Pages deployment/rollback controls, owner cutover, and successful Portfolio 2.0 production launch.
+Public-asset minimization, sitemap/robots/canonical/social metadata, structured data, accessibility hardening, link/route regression, Pages deployment/rollback controls, and production launch.
 
-### P6 — Recruiter proofread, voice, and case-study polish — ACTIVE
+### P6 — Recruiter proofread, voice, and case-study polish — COMPLETE
 
-Branch: `portfolio-2.0-polish`  
-PR: `#15`
+Recruiter-facing copy polish, stronger first-person ownership, deeper case-study specificity, career-foundation narrative, responsive visual review, public-repository hardening, and GitHub-first continuation doctrine. Accepted and squash-merged to `main` as `21031c0a18ae1c10ab9bafcbd0922c4b620c5383`.
+
+## Active phase — P7 Writing editorial system and AI-assisted publishing
+
+Branch: `portfolio-blog-editorial`  
+Draft PR: `#16`
 
 Goals:
 
-- strengthen first-person ownership and specificity in case studies;
-- reduce repeated metrics and governance-sounding public copy;
-- improve the career-foundation narrative around influence without authority and complementary strengths;
-- verify the complete candidate visually at desktop/tablet/phone sizes;
-- harden public-repository documentation so it is safe and professional if read or copied;
-- retire legacy ZIP/script/upload handoff in favor of repository-native single-entry startup.
+- keep the clean Writing archive unless content growth creates a real navigation problem;
+- audit and refresh existing technical articles using current first-party sources;
+- retain original publication dates and use a separate Updated/dateModified field only after substantive revisions;
+- add typed series metadata and lightweight series continuity;
+- use GPT as the default research/drafting engine while preserving Mike's established voice and requiring owner approval;
+- never invent personal experience, employer/customer details, metrics, or first-person claims;
+- reconsider the original Git to Know You topic list based on current relevance instead of mechanically finishing it;
+- preserve product-logo thumbnails as the default visual pattern for tool articles unless a logo is obsolete, low-quality, or visually unsuitable;
+- keep the public repository documentation concise, sanitized, and professionally readable.
 
-Production remains unchanged until the P6 owner proofread/merge/deploy gate is explicitly completed.
+Current editorial decisions:
 
-## Planned next phase — Writing and editorial system
+```text
+“We have a blog!”: retired from the active article set; legacy URL retained as a compatibility page
+SRE Tools overview: evolve into a living series introduction
+Terraform: substantive 2026 refresh in progress
+GitHub Actions: substantive 2026 refresh in progress
+Git to Know You #8–#10 working direction: Kubernetes -> OpenTelemetry -> Argo CD / GitOps
+AWS: better candidate for a future cloud-foundations series than one oversized tool article
+FireHydrant: no longer an obligation; lower incremental educational value than current candidates
+```
 
-After P6, open a bounded blog/editorial sprint rather than mixing article maintenance into portfolio proofread work.
+## Directional future work
 
-Planned scope:
+The portfolio uses a lightweight roadmap plus bounded sprints rather than a permanent product backlog.
 
-- preserve the current clean Writing list unless evidence justifies a visual change;
-- review all published technical articles for 2026 technical accuracy, stale links, screenshots, commands, terminology, and writing quality;
-- retain original publication dates;
-- add `updated` / `dateModified` support only when an article is materially refreshed;
-- add typed series metadata such as series name/order/status;
-- support future series grouping and optional previous/next-series navigation without turning the archive into a heavy UI;
-- decide whether the introductory blog post remains an article or becomes a writing/series introduction;
-- continue public-disclosure and compatibility protections for historical content.
+Likely future themes:
+
+- complete and maintain the Git to Know You series;
+- establish a second AI/engineering-workflow writing series when there is enough material;
+- consider a focused cloud-foundations series rather than a single broad AWS article;
+- periodically refresh professional case studies after meaningful career changes;
+- revisit the homepage hero typography backlog using MacBook-class Playwright screenshots;
+- consider a custom domain when it improves professional presentation enough to justify the change.
 
 ## Continuous portfolio operations
 
@@ -114,11 +115,11 @@ Ongoing work should include:
 
 - publish new writing through the typed content schema;
 - periodically review featured content and professional positioning;
-- update case studies when professional experience materially changes;
 - maintain dependencies and CI/browser quality gates;
-- remove stale claims and technologies;
+- review external links and time-sensitive technical claims;
+- remove stale assets/claims/technologies;
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
-- use sprint notes for material redesign, migration, content-system, or launch arcs rather than every minor edit.
+- use sprint notes for material redesign, migration, content-system, or publication arcs rather than every minor edit.
 
 ## Explicit non-goals
 
