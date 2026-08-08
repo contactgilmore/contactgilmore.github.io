@@ -9,9 +9,29 @@ interface Props {
 }
 
 const { title, date, thumbnail } = Astro.props;
+const siteUrl = 'https://contactgilmore.github.io';
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const structuredData = {
+  '@type': 'BlogPosting',
+  '@id': `${canonical}#article`,
+  mainEntityOfPage: canonical,
+  headline: title,
+  datePublished: date.toISOString(),
+  author: {
+    '@id': `${siteUrl}/#person`,
+  },
+  image: new URL(thumbnail, siteUrl).href,
+  inLanguage: 'en-US',
+};
 ---
 
-<BaseLayout title={`${title} | Mike Gilmore`} description={`Technical article by Mike Gilmore: ${title}`}>
+<BaseLayout
+  title={`${title} | Mike Gilmore`}
+  description={`Technical article by Mike Gilmore: ${title}`}
+  image={thumbnail}
+  pageType="article"
+  structuredData={structuredData}
+>
   <article class="blog-post shell">
     <a class="text-link blog-back" href="/blog/">← All writing</a>
     <header class="blog-post__header">
