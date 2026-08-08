@@ -73,30 +73,38 @@ Sprint authority:
 
 `docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
-Current work package: **P7-WP4 — priority article refresh batch**.
+Editorial workflow:
 
-Completed:
+`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
+
+Current work package: **P7-WP4 — article refresh and series cleanup**.
+
+Status:
 
 ```text
-P7-WP1 editorial strategy / topic relevance / AI authoring contract
-P7-WP2 nine-post audit
-P7-WP3 typed series + updated-date metadata foundation
+P7-WP1 editorial strategy / topic relevance / AI authoring contract: COMPLETE
+P7-WP2 existing-content editorial audit: COMPLETE
+P7-WP3 typed series + updated-date metadata foundation: COMPLETE
+P7-WP4 article refresh and series cleanup: ACTIVE
+P7-WP5 Git to Know You continuation decision: COMPLETE
+P7-WP6 reusable AI publication workflow: COMPLETE
+P7-WP7 browser/editorial regression and owner gate: PENDING
 ```
 
-Active/current decisions:
+Accepted P7 decisions:
 
 - keep the clean Writing list unless evidence justifies a visual change;
 - retain original publication dates and add separate Updated/dateModified values only after substantive refresh;
 - Terraform and GitHub Actions are the first high-priority technical refreshes;
-- the old byte-for-byte migration guard has been evolved to protect article identity, original publication dates, and legacy routes while allowing reviewed editorial maintenance;
+- the old byte-for-byte migration guard has been evolved to protect active legacy article identity, original publication dates, and compatibility handling while allowing reviewed editorial maintenance;
 - `We have a blog!` is retired from the active article collection; `/we-have-a-blog/` remains as a lightweight compatibility page pointing readers to Writing;
 - its old Vault Boy thumbnail is removed because it no longer serves active content;
-- product-logo thumbnails remain the default Git to Know You pattern unless a specific image is obsolete, low-quality, or visually unsuitable;
-- the SRE Tools overview should become a living series introduction rather than a promise to complete an outdated ten-tool list;
-- current working direction for Git to Know You #8–#10 is Kubernetes -> OpenTelemetry -> Argo CD / GitOps, pending final editorial research/owner gate;
-- AWS is better treated as a possible future cloud-foundations series than one oversized tool article;
-- FireHydrant is no longer an obligation;
-- GPT is the default research/drafting engine but may not invent personal experience, employer/customer stories, metrics, or first-person claims;
+- product-logo thumbnails remain the default Git to Know You pattern unless a specific image is obsolete, low-quality, misleading, or visually unsuitable;
+- `Git to Know You: SRE Tools` is now a living series introduction rather than a promise to complete an outdated ten-tool list;
+- final continuation sequence is **#8 Kubernetes -> #9 OpenTelemetry -> #10 Argo CD / GitOps**;
+- AWS moves to a possible future cloud-foundations series rather than one oversized generic tool article;
+- FireHydrant is no longer required to complete Git to Know You;
+- GPT is the default research/drafting engine but may not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims;
 - owner approval remains required before merge/deploy.
 
 ## Brand backlog note
