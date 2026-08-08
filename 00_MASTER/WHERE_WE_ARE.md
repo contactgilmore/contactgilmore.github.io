@@ -5,7 +5,7 @@ Updated: 2026-08-08
 
 ## Production authority
 
-Portfolio 2.0 is now production at `https://contactgilmore.github.io/`.
+Portfolio 2.0 is live at `https://contactgilmore.github.io/` from GitHub Pages workflow publishing.
 
 Production site deployment:
 
@@ -22,9 +22,7 @@ HTTPS: enforced
 
 The pre-cutover Jekyll rollback target remains:
 
-```text
-2637f64cce154ded6086df2220e5889bdd6aa007
-```
+`2637f64cce154ded6086df2220e5889bdd6aa007`
 
 Documentation-only commits may advance `main` after the deployed site-source commit. Do not confuse repository head with the exact deployed site commit when performing rollback or deployment forensics.
 
@@ -34,21 +32,25 @@ Documentation-only commits may advance `main` after the deployed site-source com
 - Preserve the technical blog, historical article bodies, compatibility URLs, and required published assets.
 - Use GitHub-hosted `ubuntu-latest` for this public repository; do not expose Node3 to ordinary public-repo workflows.
 - Treat all repository content, branches, PRs, logs, artifacts, screenshots, metadata, and evidence as public disclosure surfaces.
-- Retain only public assets that have a content, brand, or compatibility reason; legacy carryovers are not automatically authoritative.
+- Retain only public assets that have a content, brand, or compatibility reason.
 - Avoid React/CMS/database additions unless a later requirement justifies them.
-- The P3 smoke-tested Portfolio 2.0 brand system is active visual authority.
-- Mike delegates routine design/UX/navigation/color/layout decisions to GPT; the site must continue to accurately represent Mike.
+- The smoke-tested Portfolio 2.0 brand system is active visual authority.
+- Mike delegates routine design/UX/navigation/color/layout decisions to GPT; the site must accurately represent Mike.
 - Production deployment is intentionally manual-only through `.github/workflows/deploy-pages.yml` unless a later owner-approved operating decision changes that policy.
+- Three deep professional case studies remain the right portfolio shape; they focus on the most relevant 2018–2026 enterprise/technical experience rather than trying to make the portfolio chronological.
+- Earlier customer operations and leadership experience should explain the career foundation, especially influence without authority and people leadership, rather than become a fourth retail case study by default.
 
-## P1 — complete
+## P1–P5
 
-Foundation and Astro migration complete. Nine real Markdown posts were migrated byte-for-byte and legacy routes/assets were regression-tested.
+P1 through P5 are complete. Portfolio 2.0 was migrated from Jekyll to Astro, redesigned, hardened, tested, and deployed successfully on 2026-08-08.
 
-## P2 — complete
+Current production structure:
 
-Professional positioning and information architecture accepted on 2026-08-08.
+```text
+Home / Work / Writing / About / Resume
+```
 
-Accepted direction:
+Current professional positioning:
 
 ```text
 Technical Delivery & Customer Solutions
@@ -57,23 +59,7 @@ Integrations & Troubleshooting
 Customer & Stakeholder Leadership
 ```
 
-Business systems analysis, program delivery, and operational/reliability leadership remain explicit supporting dimensions.
-
-Accepted top-level structure:
-
-```text
-Home / Work / Writing / About / Resume
-```
-
-## P3 — complete
-
-Astro visual system and primary portfolio shell implemented and browser-tested across desktop, tablet, and phone. Brand doctrine records the proven palette, typography, spacing, navigation, responsive behavior, component language, motion posture, and allowed modern flow patterns.
-
-## P4 — complete
-
-Professional evidence and content refresh completed.
-
-Case studies:
+Current case studies:
 
 ```text
 /work/implementation-delivery/
@@ -81,68 +67,49 @@ Case studies:
 /work/operating-model/
 ```
 
-Home, Work, Resume, and About are integrated around these evidence lanes without turning the site into a duplicated resume. Historical blog prose remains unchanged.
+Historical blog prose remains protected and unchanged.
 
-## P5 — complete and deployed
+## P6 — open
 
-Quality, discoverability, accessibility, disclosure minimization, regression hardening, deployment preparation, owner approval, merge, and production deployment are complete.
+Sprint: **Recruiter Proofread, Voice, and Case-Study Polish**  
+Branch: `portfolio-2.0-polish`
 
-Final pre-cutover hardened evidence included:
+Purpose: perform the deep recruiter/hiring-manager proofread after launch and convert the initial evidence-first copy into a more authentic, first-person, specific professional narrative without changing the proven visual system.
 
-```text
-site-source candidate: 5d6d7b52291507725e6ee0373d192075c3dd2e07
-Validate Astro migration run 31252636550: SUCCESS
-Playwright portfolio smoke run 31252636547: SUCCESS
-Package Astro Pages candidate run 31252635171: SUCCESS
-Pages artifact: 9020471211
-Playwright evidence artifact: 9020486613
-```
+The detailed continuity record, including public-safe experience facts supplied by Mike, is:
 
-Final PR head after release-control documentation:
+`docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
 
-```text
-c1211564f2086280d3a09fe992e1dc378aa960dd
-```
+Key P6 narrative decisions:
 
-PR #14 was squash-merged into production as:
+- Implementation case study: evolve from generic delivery language into the story of converting a difficult early legacy migration into scripts, validation checks, runbooks, and repeatable orchestration.
+- Reliability case study: evolve into the story of turning major-customer outage complaints into observability, pattern isolation, RCA, leadership communication, and cross-functional software remediation.
+- Operating-model case study: show how meaningful dashboards/alerts, standardized runbooks/RCA practices, incident documentation, Jira automation, and team onboarding became a shared reliability operating system.
+- About page: connect earlier multi-unit leadership to influence without authority, then show the progression through SaaS implementation, cloud delivery, SRE, and Technical Delivery & Customer Solutions.
+- Leadership philosophy: emphasize complementary strengths, energy, fit, ownership, and team balance rather than trying to make every person equally strong at everything.
+- Home/Work/Resume: reduce repeated metrics and let each page do a different job in the recruiter scan path.
 
-```text
-bb2968e523bd7af87e3cd31a3a7e045ecb44947b
-```
+Current work package: **P6-WP1 — Recruiter/hiring-manager copy audit and continuity capture**.
 
-Production deployment run:
+## Public-writing boundaries for P6
 
-```text
-31253088467: SUCCESS
-```
+Do not publish customer identities, private employer/customer artifacts, proprietary scripts/configuration, exact privileged topology, internal host names, ticket IDs, private RCA documents, private correspondence, or unsupported metrics.
 
-The deployment build reran blog source integrity, public-asset audit, Astro build, route/discovery verification, and internal-link verification before uploading the Pages artifact. The deploy job then completed successfully.
+Generalized descriptions of professional methods, technologies, migration patterns, integration domains, incident patterns, and leadership practices may be used when they are accurate and safe for unrestricted public disclosure.
 
-P5 hardening results:
+## Verification posture
+
+Every P6 production candidate must pass:
 
 ```text
-blog source integrity: 9 / 9 byte-identical
-public assets: 29 referenced / 29 present / 0 orphan / 0 ZIP archives
-sitemap-index.xml: generated
-robots.txt: verified in build output
-canonical metadata: verified
-Open Graph / Twitter article metadata: verified
-public-safe Person + BlogPosting structured data: verified
-internal generated links: verified
-responsive browser checks: passed
-axe accessibility gate: passed after correcting homepage contrast findings
+Astro validation
+historical blog source-integrity protection
+public asset audit
+internal-link verification
+Playwright desktop/tablet/phone smoke
+axe accessibility checks
+public-disclosure review
+owner proofread before merge/deploy
 ```
 
-## Current operating state
-
-Portfolio 2.0 is live from GitHub Pages workflow publishing.
-
-The deployment and rollback authority remains:
-
-`docs/DEPLOYMENT_AND_ROLLBACK.md`
-
-No active implementation sprint is open. Future work belongs to ongoing portfolio operations / maintenance unless a new bounded redesign or content sprint is explicitly opened.
-
-## Verification note
-
-GitHub's deployment records confirm the Pages deployment succeeded and Pages reports the site as built in workflow mode. The current execution environment could not independently resolve the public `contactgilmore.github.io` hostname for an external HTTP/browser spot check after deployment, so that specific external verification remains a manual browser check rather than a claimed automated result.
+Production remains unchanged while P6 work is developed on the polish branch.
