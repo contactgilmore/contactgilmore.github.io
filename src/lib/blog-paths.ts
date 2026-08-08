@@ -19,4 +19,13 @@ export function getBlogPath(id: string, slug?: string): string {
   throw new Error(`Blog entry ${id} needs an explicit slug because it has no legacy path mapping.`);
 }
 
+// Temporary compatibility for the existing homepage. New editorial code should use getBlogPath.
+export function getLegacyBlogPath(id: string): string {
+  const legacyPath = legacyBlogPaths[id];
+  if (legacyPath) return legacyPath;
+
+  const derivedSlug = id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase();
+  return `/${derivedSlug}/`;
+}
+
 export { legacyBlogPaths };
