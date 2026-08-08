@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const outcomes = [
+  { metric: '100+', label: 'enterprise migrations, implementations, and deployments supported' },
+  { metric: '40%', label: 'faster deployments through repeatable workflows' },
+  { metric: '50%', label: 'lower onboarding effort through repeatable workflows and runbooks' },
+  { metric: '30%', label: 'lower onboarding escalations through stronger discovery and readiness' },
+];
+
+const deliveryFlow = [
+  {
+    number: '01',
+    title: 'Discovery & requirements',
+    body: 'Clarify the customer need, implementation context, and decisions that have to be resolved before execution begins.',
+  },
+  {
+    number: '02',
+    title: 'Readiness',
+    body: 'Turn requirements into practical readiness checks, dependencies, and handoffs so delivery starts with fewer avoidable gaps.',
+  },
+  {
+    number: '03',
+    title: 'Implementation planning',
+    body: 'Translate the work into repeatable migration, integration, deployment, and onboarding steps that teams can execute consistently.',
+  },
+  {
+    number: '04',
+    title: 'Delivery & handoff',
+    body: 'Coordinate the path through deployment and customer handoff while keeping documentation and operating expectations clear.',
+  },
+];
+---
+
+<BaseLayout
+  title="Enterprise Implementation & Migration Delivery | Mike Gilmore"
+  description="A public-safe case study of enterprise implementation, migration, onboarding, readiness, and delivery practices across 100+ customer engagements."
+>
+  <header class="case-hero shell">
+    <div class="case-hero__copy">
+      <p class="eyebrow">Case study · Enterprise implementation</p>
+      <h1>Turning customer requirements into repeatable implementation and migration delivery.</h1>
+      <p>
+        Across more than 100 enterprise migrations, implementations, and deployments, the work centered on moving from
+        discovery and requirements into practical readiness, execution, and customer handoff.
+      </p>
+      <p class="case-note">Public-safe summary based on substantiated professional experience. Customer identities and proprietary implementation details are intentionally excluded.</p>
+    </div>
+    <aside class="case-hero__role" aria-label="Role and focus">
+      <p class="signal-label">Role pattern</p>
+      <p>Customer-facing cloud and implementation delivery</p>
+      <p class="signal-label">Focus</p>
+      <p>Discovery · onboarding · migration · integration · deployment planning</p>
+    </aside>
+  </header>
+
+  <section class="case-outcomes" aria-labelledby="outcomes-heading">
+    <div class="shell">
+      <div class="case-section-heading">
+        <p class="eyebrow eyebrow--light">Evidence</p>
+        <h2 id="outcomes-heading">Repeatability improved both speed and readiness.</h2>
+      </div>
+      <div class="case-metric-grid">
+        {outcomes.map((outcome) => (
+          <div class="case-metric">
+            <strong>{outcome.metric}</strong>
+            <span>{outcome.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="shell case-story" aria-labelledby="context-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">Context</p>
+      <p>Enterprise SaaS delivery</p>
+      <p>Municipal and enterprise customers</p>
+      <p>2018–2022 experience</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="context-heading">The delivery problem was larger than the deployment itself.</h2>
+      <p>
+        The work spanned discovery, onboarding, migration, integration, and deployment planning. At that scale, successful
+        delivery depended on translating requirements into clear implementation plans and practical customer decisions,
+        then carrying those decisions through readiness and handoff.
+      </p>
+      <p>
+        The strongest improvement came from making the process more repeatable: stronger discovery, clearer readiness
+        checks, standardized workflows, reusable runbooks, and more deliberate stakeholder handoffs.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="flow-heading">
+    <div class="shell">
+      <div class="case-section-heading case-section-heading--dark">
+        <p class="eyebrow">Delivery pattern</p>
+        <h2 id="flow-heading">A simple flow for reducing ambiguity before it becomes delivery friction.</h2>
+      </div>
+      <ol class="case-flow">
+        {deliveryFlow.map((step) => (
+          <li>
+            <span class="case-flow__number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="shell case-story case-story--reverse" aria-labelledby="judgment-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">What this demonstrates</p>
+      <p>Requirements discovery</p>
+      <p>Implementation planning</p>
+      <p>Stakeholder coordination</p>
+      <p>Process improvement</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="judgment-heading">Technical depth mattered most when it supported a delivery decision.</h2>
+      <p>
+        The role sat between customer needs and technical execution. Cloud infrastructure and integration context helped
+        clarify what was practical, but the value was not a list of tools. It was the ability to connect requirements,
+        readiness, implementation choices, and operating expectations into a delivery path customers and internal teams
+        could act on.
+      </p>
+      <p>
+        Standardizing customer environments and operating practices also reduced cloud costs by 20%, while governance,
+        controls, and documentation supported 99.9% uptime and SOC 2 readiness.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-labelledby="takeaway-heading">
+    <div class="shell case-takeaway">
+      <p class="eyebrow eyebrow--light">Takeaway</p>
+      <h2 id="takeaway-heading">Implementation gets easier when discovery, readiness, and technical execution are treated as one delivery system.</h2>
+      <p>
+        That pattern is the part of the work I carry forward: make the requirements concrete, surface readiness gaps early,
+        standardize what can be repeated, and keep customer and technical teams aligned through handoff.
+      </p>
+      <a class="button button--secondary case-button-light" href="/work/">Back to selected work</a>
+    </div>
+  </section>
+</BaseLayout>
