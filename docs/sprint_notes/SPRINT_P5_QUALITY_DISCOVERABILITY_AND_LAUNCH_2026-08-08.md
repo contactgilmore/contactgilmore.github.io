@@ -1,7 +1,7 @@
 # Sprint P5 — Quality, Discoverability, and Launch Hardening
 
 Opened: 2026-08-08  
-Status: OPEN  
+Status: OWNER CUTOVER GATE  
 Owner: Mike Gilmore  
 Project manager/executor: GPT  
 Working branch: `portfolio-2.0-foundation`
@@ -18,59 +18,130 @@ Turn the content-complete Portfolio 2.0 candidate into a production-ready public
 - Do not expose Node3 to public repository workflows.
 - Do not add tracking/analytics, third-party scripts, CMS, React, or services unless a product need is separately justified.
 
+## Final hardened site candidate
+
+```text
+site-source commit: 5d6d7b52291507725e6ee0373d192075c3dd2e07
+Validate Astro migration: run 31252636550 — SUCCESS
+Playwright portfolio smoke: run 31252636547 — SUCCESS
+Package Astro Pages candidate: run 31252635171 — SUCCESS
+Pages artifact: github-pages / artifact 9020471211
+Playwright evidence: artifact 9020486613
+```
+
+Release-control documentation and the manual deployment workflow were added after the site-source candidate without changing site source/content.
+
 ## Work packages
 
 ### P5-WP1 — Public asset minimization and disclosure audit
-Status: IN PROGRESS
+Status: COMPLETE
 
-Build an evidence-based inventory of assets referenced by Astro source and the nine historical Markdown articles. Preserve required assets and intentional site identity assets; remove unnecessary legacy archives/gallery carryovers rather than publishing the entire old asset tree by default.
+A deterministic source-reference audit now compares `/assets/...` references in Astro source and all nine protected Markdown posts with the public asset tree.
 
-Acceptance: every retained public asset has a content/brand/compatibility reason; no referenced historical article asset is broken.
+Result on the hardened candidate:
+
+```text
+29 referenced
+29 present
+0 unreferenced
+0 public ZIP archives
+```
+
+Forty-two unnecessary legacy carryovers were removed, including duplicate logo sets, dormant gallery/profile images, old project images, unused icons, and the remaining ZIP archive. Missing, orphan, or archive public assets now fail validation.
 
 ### P5-WP2 — Metadata, sitemap, robots, and social discovery
-Status: QUEUED
+Status: COMPLETE
 
-Add production-grade sitemap/robots behavior, improve Open Graph/Twitter metadata and social-preview handling, and preserve canonical URL correctness.
+Implemented:
 
-Acceptance: built output exposes canonical metadata, sitemap discovery, robots policy, and stable social-preview metadata without leaking private information.
+- official Astro sitemap integration;
+- generated `sitemap-index.xml`;
+- `robots.txt` with sitemap discovery;
+- canonical URL verification;
+- Open Graph and Twitter metadata;
+- article thumbnail social-preview metadata.
+
+Build and Playwright gates verify the discovery outputs.
 
 ### P5-WP3 — Structured data and semantic discovery
-Status: QUEUED
+Status: COMPLETE
 
-Add conservative schema.org structured data for the public professional profile and, where appropriate, article metadata. Use only public-safe facts already supported by the portfolio.
+Added conservative public-safe schema.org structured data:
 
-Acceptance: structured data is valid, minimal, and does not claim unsupported roles, organizations, credentials, or personal details.
+- site-wide `Person` identity graph for Mike Gilmore;
+- `BlogPosting` data for technical articles;
+- public GitHub and LinkedIn identity links only;
+- no telephone, street address, birth date, unsupported employer claim, or inferred credential data.
+
+Playwright verifies both presence and disclosure boundaries.
 
 ### P5-WP4 — Accessibility, performance, and image hardening
-Status: QUEUED
+Status: COMPLETE
 
-Review semantic structure, focus behavior, contrast, responsive rendering, image dimensions/loading, asset weight, and Lighthouse-class performance/accessibility concerns. Fix issues rather than merely recording scores.
+Added `@axe-core/playwright` accessibility scans on representative Home, Work, and article surfaces across desktop, tablet, and phone projects.
 
-Acceptance: no material accessibility or performance blockers and no regression in the proven brand system.
+The first axe run found six serious homepage color-contrast violations in pale micro-label/date text. The design was corrected using the existing muted text token rather than suppressing the rule. The final Playwright run passed.
+
+Existing browser gates continue to verify one H1, main content, responsive rendering, horizontal overflow, browser console/page errors, navigation, and skip-link focus. Reduced-motion behavior remains part of the brand CSS.
 
 ### P5-WP5 — Link, URL, browser, and Pages artifact regression
-Status: QUEUED
+Status: COMPLETE
 
-Expand automated checks for internal links, compatibility URLs, required assets, and production-build browser behavior. Package a non-deploying Pages candidate from the final hardened commit.
+Added deterministic generated-output internal-link verification and expanded static output checks for discovery files. Both the validation and non-deploying Pages package workflows run the hardened source/asset/route/link gates.
 
-Acceptance: link/route/browser gates are green and the exact candidate produces a valid GitHub Pages artifact.
+Final non-deploying Pages artifact:
+
+```text
+workflow run: 31252635171
+artifact id: 9020471211
+artifact name: github-pages
+head SHA: 5d6d7b52291507725e6ee0373d192075c3dd2e07
+result: SUCCESS
+```
 
 ### P5-WP6 — Deployment workflow and rollback contract
-Status: QUEUED
+Status: COMPLETE / NOT EXECUTED
 
-Prepare the trusted GitHub Pages deployment workflow and document the rollback path from Astro back to the pre-cutover Jekyll production commit. Do not execute deployment during this work package.
+Prepared `.github/workflows/deploy-pages.yml` using the current GitHub Pages custom-workflow contract:
 
-Acceptance: cutover and rollback are deterministic and documented, with production deployment still gated by owner approval.
+- manual `workflow_dispatch` only;
+- GitHub-hosted `ubuntu-latest`;
+- `contents: read`, `pages: write`, `id-token: write` permissions;
+- `actions/configure-pages@v5`;
+- `actions/upload-pages-artifact@v4`;
+- `github-pages` deployment environment;
+- `actions/deploy-pages@v4`;
+- deployment only after all build/source/asset/route/link gates pass.
+
+The deployment workflow has not run because it is intentionally not on production `main` yet and production approval has not been granted.
+
+Rollback/cutover authority: `docs/DEPLOYMENT_AND_ROLLBACK.md`.
+
+Current Pages configuration remains:
+
+```text
+build type: legacy
+source: main /
+production commit: 2637f64cce154ded6086df2220e5889bdd6aa007
+```
 
 ### P5-WP7 — Owner cutover gate
-Status: QUEUED
+Status: READY / WAITING FOR OWNER APPROVAL
 
-Present the final production candidate and evidence. Merge/deploy only after explicit Mike approval.
+No merge, Pages publishing-source change, or production deployment has occurred.
+
+Owner gate sequence after explicit approval:
+
+1. Reconfirm PR #14 head and final checks.
+2. Change Pages source from legacy branch publishing to GitHub Actions.
+3. Squash-merge PR #14 into `main`.
+4. Manually dispatch **Deploy Portfolio to GitHub Pages** from `main`.
+5. Verify the live public site and record deployment evidence.
 
 ## Validation posture
 
-Use GitHub-hosted `ubuntu-latest`. The existing migration validator and Playwright suite remain mandatory. Add quality gates only when they provide actionable protection rather than CI theater.
+GitHub-hosted `ubuntu-latest` remains mandatory. Node3 is not exposed. Site validation and browser validation run on PRs; the final production deployment workflow is manual-only to prevent an accidental cutover.
 
 ## Production boundary
 
-P5 may prepare and package production artifacts, but no `main` merge, Pages source change, or deployment occurs without explicit owner approval.
+P5 engineering work is complete. Production remains unchanged until Mike explicitly authorizes WP7 cutover.
