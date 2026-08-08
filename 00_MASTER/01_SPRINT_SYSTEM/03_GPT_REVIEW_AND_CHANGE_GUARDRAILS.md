@@ -29,6 +29,7 @@ The repository is also a professional artifact. Architecture, SDLC discipline, s
 - Review the complete changed-file list before PR/merge.
 - Visual quality claims require rendered evidence, not source inspection alone.
 - Build success does not prove navigation, responsive behavior, accessibility, URL continuity, or visual quality.
+- When Mike needs to perform a local smoke test, GPT must provide the exact copy-paste shell command block needed to run it and the block must begin by changing into the local repository root with `cd`. Never assume the shell is already in the repository. Use the exact local checkout path when it is known from current private context; if it is not known, obtain it rather than inventing one. Do not commit Mike's personal local filesystem path into this public repository.
 - Other repositories are read-only unless separately authorized.
 
 ## GitHub-first continuity
