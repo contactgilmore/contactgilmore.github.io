@@ -6,7 +6,7 @@ Production baseline: `bb2968e523bd7af87e3cd31a3a7e045ecb44947b`
 
 ## Objective
 
-Read Portfolio 2.0 as a recruiter and hiring manager would. Improve authenticity, first-person ownership, case-study specificity, scanability, and career narrative while preserving the current visual system, protected blog content, verified metrics, and public-disclosure rules.
+Read Portfolio 2.0 as a recruiter and hiring manager would. Improve authenticity, first-person ownership, case-study specificity, scanability, career narrative, and public-repository professionalism while preserving the current visual system, protected blog content, verified metrics, and disclosure rules.
 
 ## Portfolio strategy
 
@@ -49,7 +49,7 @@ Public-writing boundary: do not publish customer names, internal host/server ide
 - Standardized runbooks through shared templates.
 - Standardized RCA structure and introduced more consistent in-incident documentation flow.
 - Added Jira automation to support ticket/incident workflow management.
-- Helped onboard an India-based team into shared tooling, alerting, runbook, incident, RCA, handoff, and operating practices.
+- Helped onboard an offshore team into shared tooling, alerting, runbook, incident, RCA, handoff, and operating practices.
 - Leadership outcome: adoption of a shared operating model across teams, not documentation alone.
 
 ### Earlier leadership / Best Buy foundation
@@ -101,7 +101,7 @@ Hierarchy implemented:
 - Case studies: full narrative/evidence;
 - Resume: concise chronology and selected outcomes.
 
-### P6-WP7 — regression and visual review — COMPLETE
+### P6-WP7 — regression, visual review, and public-doc hardening — COMPLETE
 
 PR: **#15 — Portfolio 2.0: Recruiter proofread and case-study polish**  
 PR status: draft / unmerged
@@ -140,6 +140,16 @@ Representative long-form article
 
 Visual judgment: ACCEPT. The editorial headline scale, section rhythm, card reflow, dark/light contrast, case-study hierarchy, and mobile reading order remain cohesive. No visual change is justified solely for aesthetic churn before owner proofread.
 
+Public-repository hardening completed after the visual review:
+
+- `00_MASTER/00_MASTER_DOCTRINE.md` is the single fresh-chat entry point and deterministically routes startup reads.
+- routine ZIP/package/local-script/upload handoff is retired; connected GitHub is the normal continuation/recovery surface.
+- tracked doctrine, sprint notes, architecture records, and decision evidence are explicitly treated as recruiter-readable public engineering artifacts, never private project memory.
+- tracked content must pass both public-safety and professional-read tests.
+- current runtime, deployment/rollback, and roadmap docs were updated from pre-launch migration language to current Astro production truth.
+- unnecessary private self-hosted machine naming was generalized to the architectural concept that matters: public workflows do not execute on private self-hosted infrastructure.
+- historical P1/P5 notes were normalized so they read as completed history rather than stale current authority.
+
 Changed source-page scope at regression:
 
 ```text
@@ -152,7 +162,7 @@ src/pages/about/index.astro
 src/pages/resume/index.astro
 ```
 
-No historical Markdown post, asset, workflow, or design-system file changed in this copy pass.
+No historical Markdown post, asset, workflow, or design-system file changed in the recruiter-copy pass.
 
 ## Next editorial work after P6
 
