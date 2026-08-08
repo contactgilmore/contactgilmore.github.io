@@ -1,11 +1,11 @@
 # Visual System Hard Standards
 
-Status: active brand support document  
-Benchmark checkpoint: 2026-08-08
+Status: **ACTIVE — smoke-tested visual system**  
+Validated: 2026-08-08
 
 ## Design posture
 
-The visual system should feel like a restrained modern B2B/technical product site rather than a themed developer portfolio.
+The Portfolio 2.0 design is a restrained modern B2B/technical product system with editorial scale. It uses large, decisive typography, quiet neutral surfaces, one restrained blue accent family, strong evidence hierarchy, and minimal decorative UI.
 
 Desired qualities:
 
@@ -19,83 +19,137 @@ readable
 confident without being flashy
 ```
 
-Avoid copying any specific company's visual identity. Linear, Stripe, Vercel, and similar sites are references for hierarchy, restraint, and evidence presentation only.
+Do not copy another company's identity. External product sites may inform hierarchy and flow, but ContactGilmore must remain visually independent.
 
 ## Layout
 
-- Use a centered responsive content container rather than giant fixed desktop margins.
-- General marketing/profile content should use a comfortable max-width roughly in the 1120–1200px range, adjusted by content need rather than device-name breakpoints.
-- Long-form article copy should generally remain under roughly 75–80 characters per line.
-- Use fluid layout primitives (`grid`, `flex`, `min()`, `max()`, `clamp()`) rather than a pile of fixed breakpoint overrides.
-- At narrow widths, content must collapse into one clear semantic reading order.
-- Do not create horizontal scrolling for ordinary portfolio content.
+- Main content uses a centered responsive shell with a maximum width of approximately 1180px.
+- Page composition should favor content-led grids and surface bands rather than giant fixed margins.
+- Long-form article copy uses a substantially narrower reading measure than marketing/profile pages.
+- Use `grid`, `flex`, `min()`, `max()`, and `clamp()` to preserve fluid behavior.
+- Desktop layouts may use asymmetric columns when hierarchy benefits.
+- Narrow layouts collapse into one intentional semantic reading order.
+- Ordinary content must not create horizontal viewport scrolling.
+- Horizontal rails or left-to-right storytelling are permitted only when they add real value; mobile must receive a clean stacked or intentionally scrollable equivalent.
 
 ## Typography
 
-- Establish a visibly distinct display/title scale, section-heading scale, card-title scale, body scale, and metadata scale.
-- Body copy must remain comfortably readable and should not rely on very light font weights.
-- Use real text rather than images of text except where an actual logo requires it.
-- Break dense material into headings, short paragraphs, lists, callouts, and grouped evidence.
-- Preserve generous line height and paragraph spacing.
+Primary type stack:
 
-## Color and contrast
+```text
+Inter
+ui-sans-serif
+system-ui
+-apple-system
+BlinkMacSystemFont
+Segoe UI
+sans-serif
+```
 
-- Favor a neutral/light foundation with restrained accent use unless a later accepted brand direction provides a stronger reason.
-- Ordinary text should meet WCAG 2.2 AA contrast minimums (4.5:1 for normal text, 3:1 for qualifying large text).
-- Required UI boundaries/states should meet applicable non-text contrast requirements.
-- Never use low-contrast gray solely because it looks minimalist.
+The design intentionally uses oversized editorial display headlines. Large typography is a brand element, not decoration.
 
-## Interaction
+Rules:
 
-- All interactive elements must have clear hover and visible keyboard-focus states.
-- Pointer targets must satisfy WCAG 2.2 minimum target-size rules; primary navigation/CTA targets should generally be comfortably larger than the minimum.
-- Interaction must not depend on hover alone.
-- Avoid gratuitous scroll-jacking, parallax, cursor effects, autoplay motion, or animations that delay access to content.
-- Respect `prefers-reduced-motion` for nonessential animation.
-- Native HTML behavior is preferred over custom interaction when native behavior solves the need.
+- Homepage display headlines may reach roughly 6–6.6rem on wide screens and scale fluidly.
+- Interior page heroes use a slightly smaller fluid display scale with a mobile minimum around 2.5rem so long professional terms fit without viewport overflow.
+- Section headings should remain clearly subordinate to page/hero headlines but visibly stronger than cards.
+- Card titles use compact high-weight typography and restrained negative tracking.
+- Body copy stays comfortably readable with generous line-height and muted rather than low-contrast color.
+- Metadata/eyebrows use small uppercase text with increased tracking and the blue accent family.
+- Never shrink text merely to force complex material into a desktop composition.
+
+## Color
+
+The active visual system is light-first with one dark technical-depth band available for contrast.
+
+Core palette authority is recorded in `03_TOKENS_AND_CODE_REFERENCES.md` and implemented in `src/styles/global.css`.
+
+Behavioral rules:
+
+- `#f7f8fa` is the primary page background.
+- White is the primary elevated/card surface.
+- `#eef2f6` is the soft alternate section surface.
+- Near-black/navy values carry primary typography and dark-band backgrounds.
+- Blue is a signal/accent, not a page-filling brand color.
+- Blue is appropriate for eyebrows, metrics, links, and selected emphasis.
+- Do not introduce multiple competing brand accents without a redesign reason.
+- Maintain WCAG 2.2 AA contrast for ordinary text and applicable controls.
+
+## Surfaces and cards
+
+- Primary evidence cards use white surfaces, quiet gray borders, approximately 20px corner radii, and restrained shadows.
+- Cards should group evidence, not fragment every sentence into a UI box.
+- Professional case studies/evidence receive more visual weight than technology lists or lab projects.
+- Metric treatments may use oversized blue numerals paired with restrained explanatory text.
+- Dark sections should be used sparingly for meaningful tonal transitions, such as technical-depth content.
+
+## Spacing
+
+- Use generous section spacing, generally fluid in the ~72–132px range.
+- Whitespace must communicate grouping and hierarchy; empty space that does not improve scanning should be reduced.
+- Card padding is generous on desktop and deliberately reduced on small screens.
+- Section gaps should feel consistent even where composition changes.
+
+## Navigation
+
+- Header is sticky, light, and visually quiet.
+- `MG` monogram plus Mike Gilmore name is the desktop brand treatment.
+- Primary navigation is Home / Work / Writing / About / Resume.
+- Narrow layouts may hide the full name and use a compact two-row header/navigation arrangement rather than squeezing links below usable size.
+- Active-page state must be visible without relying on color alone where practical.
+- Focus states must remain clearly visible.
+
+## Interaction and motion
+
+- Native HTML behavior is preferred when it solves the interaction cleanly.
+- Hover states should be restrained and immediate.
+- Motion should support hierarchy or orientation, not simulate technical sophistication.
+- Respect `prefers-reduced-motion`.
+- Avoid scroll-jacking, autoplay spectacle, cursor effects, parallax-for-decoration, terminal gimmicks, or animation that delays content.
+- Sticky storytelling, scroll-supported progression, or horizontal proof rails may be introduced when content materially benefits and mobile degradation is designed explicitly.
 
 ## Structural accessibility
 
-- Use semantic landmarks and a logical heading hierarchy.
-- Include a functional skip-to-content path.
-- Navigation order and keyboard order must preserve meaning across responsive layouts.
-- Page titles must describe page purpose.
-- Link text should be meaningful in context; repeated generic `Read More` controls should be avoided where a descriptive destination is practical.
+- Use semantic landmarks and logical heading hierarchy.
+- Preserve a functional skip-to-content link.
+- Keyboard order must match visual/semantic order.
+- Page titles and link text must describe destination/purpose.
+- Primary controls should provide comfortable pointer targets beyond bare minimums.
+- Browser console errors and horizontal overflow are release failures, not cosmetic issues.
 
 ## Evidence hierarchy
 
-Visual weight must follow professional importance:
+Visual weight follows professional importance:
 
 ```text
 professional identity/value proposition
-professional case studies / proof
+professional evidence / case studies
 technical depth
 writing
 experience/about
 supporting credentials
 ```
 
-Case studies visually outrank lab projects on the homepage. Technology badges and logos must never dominate the story.
+Case studies and outcomes outrank lab projects. Tools support the story rather than become the story.
+
+## Blog/article rule
+
+Article pages prioritize reading. Preserve the narrow editorial column, strong heading rhythm, responsive images, usable code blocks, and quiet navigation. The blog should feel like the same brand as the portfolio without reproducing homepage marketing density.
 
 ## Prohibited portfolio clichés
 
 ```text
-skill bars/meters
-percentage proficiency claims
-giant logo/icon walls
-glowing cyberpunk UI
-gratuitous gradients
+skill bars or percentage proficiency
+logo walls
+cyberpunk/glowing UI
 terminal-animation hero gimmicks
-excessive card nesting
 fake dashboards
-unnecessary carousel controls
-motion used only to make the site feel technical
+gratuitous gradients
+excessive nested cards
+carousel controls without a content reason
+motion added only to look technical
 ```
 
-## Blog/article rule
+## Validation baseline
 
-Article pages prioritize reading. Use a restrained reading measure, strong heading rhythm, responsive images, usable code blocks, descriptive alt text where images convey content, and navigation that does not distract from the article.
-
-## Research basis
-
-Standards are informed by WCAG 2.2, web.dev accessibility/typography/responsive-design guidance, and a 2026-08-08 structural benchmark of current technical/SaaS sites. Accessibility rules are constraints, not optional polish.
+This system became doctrine only after the 2026-08-08 Playwright smoke pass covered Home, Work, Writing, About, Resume, and a representative historical article across desktop, tablet, and phone widths, including navigation/focus, console-error, response, heading, and horizontal-overflow checks.
