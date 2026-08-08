@@ -1,0 +1,35 @@
+@media (max-width: 560px) {
+  .site-header__inner {
+    min-height: 0;
+    padding-block: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .brand {
+    width: fit-content;
+  }
+
+  .brand__mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .site-header nav {
+    width: 100%;
+  }
+
+  .nav-list {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .nav-list a {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+}
