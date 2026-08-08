@@ -17,15 +17,18 @@ Turn Writing into a sustainable technical publishing system with GPT handling re
 - GPT is the default editorial drafter/researcher but may not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims.
 - Prefer current first-party technical documentation for version/product/capability claims.
 - Treat every committed draft, research note, PR, workflow artifact, and screenshot as public.
+- Product-logo thumbnails remain the default visual treatment for tool articles. Replace one only when obsolete, low-quality, misleading, or visually unsuitable; do not manufacture decorative art merely for novelty.
 
 ## Voice contract
 
 Beginner-friendly without talking down; practical explanation before jargon; conversational openings and occasional dry humor; grounded opinions; explain how tools fit into real operating workflows; connect technology to reliability, delivery, customer impact, toil reduction, or team effectiveness. Preserve real stories when safe. Avoid generic AI listicle cadence.
 
-## Existing nine-post audit
+## Existing-content audit
+
+The original nine-post migration set has become eight active articles plus one explicitly retired launch note.
 
 ```text
-We have a blog!        REFRAME / retire from feature prominence
+We have a blog!        RETIRED from active article collection
 SRE Tools overview     REFRAME as living series introduction
 Rundeck                 REFRESH
 New Relic               REFRESH
@@ -35,6 +38,10 @@ Terraform               REFRESH — high priority
 GitHub Actions          REFRESH — high priority
 Cursor                  KEEP / targeted refresh
 ```
+
+### Retired launch post
+
+`We have a blog!` served the first site draft but no longer describes the portfolio accurately. Owner decision: remove it from the active Astro article collection rather than rewrite it. Preserve `/we-have-a-blog/` as a lightweight compatibility page that directs readers to Writing so historical external links do not become unexplained 404s. Remove the old Vault Boy thumbnail because it has no remaining active-content purpose.
 
 Cross-series findings:
 
@@ -58,7 +65,7 @@ seriesStatus:
 
 Blog layout supports separate Published / Updated presentation and `dateModified` structured data. Writing archive intro is reader-facing rather than internal design rationale.
 
-The original migration integrity gate was intentionally evolved. During the Jekyll-to-Astro migration, byte-for-byte equality was the correct invariant. P7 makes editorial revision an explicit product requirement, so the gate now preserves the legacy article set, original publication dates, titles, and route identities while allowing reviewed content revisions and future new posts.
+The original migration integrity gate was intentionally evolved. During the Jekyll-to-Astro migration, byte-for-byte equality was the correct invariant. P7 makes editorial revision an explicit requirement, so the gate now preserves active legacy article identities and original publication dates, permits reviewed content revisions/new posts, and verifies explicit compatibility handling for retired legacy articles.
 
 ## P7-WP4 priority refresh — ACTIVE
 
@@ -72,25 +79,19 @@ Materially refreshed on the P7 branch. Original date remains 2025-07-20; updated
 
 ## P7-WP5 continuation research — IN PROGRESS
 
-Initial current-market evidence materially changes the likely remaining series:
+Current evidence materially changes the likely remaining series:
 
-- CNCF's 2025 Annual Cloud Native Survey, published in 2026, reports Kubernetes in production for 82% of container users. GitOps is used extensively by 58% of cloud-native innovators versus 23% of adopters. OpenTelemetry is the second-highest-velocity CNCF project. This strongly supports Kubernetes and OpenTelemetry as high-value modern teaching topics.
-- The same CNCF survey says organizational communication/team dynamics/leadership alignment have overtaken technical complexity as the leading cloud-native adoption challenge. That reinforces the portfolio's technical-delivery/customer-solutions positioning and argues for explaining operating context, not merely tools.
-- Stack Overflow's 2025 Developer Survey reports 84% of respondents using or planning to use AI tools and 51% of professional developers using them daily, while trust remains limited. This supports retaining Cursor/AI-assisted engineering as a strategic topic and potentially creating a future separate AI-assisted engineering series rather than overloading Git to Know You.
+1. **Kubernetes** — current leading candidate for #8; teaches the orchestration layer connecting containers, reliability, deployment, and modern cloud operations.
+2. **OpenTelemetry** — current leading candidate for #9; teaches vendor-neutral observability concepts and complements New Relic rather than duplicating it.
+3. **Argo CD / GitOps** — current leading candidate for #10; makes the most educational sense after Kubernetes and connects Git + Actions + Kubernetes.
+4. **AWS** — foundational and professionally relevant, but likely better as a focused cloud-foundations series than one enormous generic tool article.
+5. **FireHydrant** — active and useful, but lower incremental educational value because PagerDuty/Rundeck already cover much of the incident/runbook capability space.
 
-Working continuation hypothesis, pending deeper first-party/tool-specific research:
-
-1. **Kubernetes** — stronger candidate than a broad generic AWS article because it teaches the orchestration layer connecting containers, reliability, deployment, and modern cloud operations.
-2. **OpenTelemetry** — strong candidate because it teaches vendor-neutral observability concepts and complements the New Relic article rather than duplicating it.
-3. **Argo CD / GitOps** — remains a strong candidate, especially after Kubernetes, because GitOps adoption is a maturity signal and it connects Git + Actions + Kubernetes.
-4. **AWS** — still foundational and professionally relevant, but likely better handled as a focused cloud-foundations article or future cloud series than a single enormous “AWS” tool article.
-5. **FireHydrant** — useful incident-management product but currently lower editorial priority because PagerDuty already covers the capability category; only keep if research identifies a distinct lesson that avoids vendor duplication.
-
-Do not finalize the sequence until current official Kubernetes/OpenTelemetry/Argo/AWS/FireHydrant sources are compared.
+Final sequencing remains subject to current first-party source review and owner gate.
 
 ## AI-assisted publishing workflow direction
 
-Reusable workflow remains:
+Reusable workflow:
 
 ```text
 topic signal
@@ -113,7 +114,7 @@ A new post should not require Mike to perform routine research or first-draft wo
 
 ```text
 P7-WP1 editorial strategy / topic relevance / AI contract: COMPLETE
-P7-WP2 existing nine-post audit: COMPLETE
+P7-WP2 existing-content audit: COMPLETE
 P7-WP3 content schema and series/update metadata: COMPLETE
 P7-WP4 priority article refresh batch: ACTIVE
 P7-WP5 Git to Know You continuation decision: IN PROGRESS
