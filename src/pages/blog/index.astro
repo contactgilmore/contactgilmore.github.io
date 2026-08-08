@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import { getLegacyBlogPath } from '../../lib/blog-paths';
+import '../../styles/global.css';
+
+const posts = (await getCollection('blog'))
+  .filter(({ data }) => data.draft !== true)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Writing | ContactGilmore</title>
+  </head>
+  <body>
+    <main>
+      <h1>Writing</h1>
+      <p>Technical writing on reliability, infrastructure, automation, observability, and the tools behind the work.</p>
+      <div class="post-list">
+        {posts.map((post) => (
+          <article>
+            <p>{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <h2><a href={getLegacyBlogPath(post.id)}>{post.data.title}</a></h2>
+          </article>
+        ))}
+      </div>
+    </main>
+  </body>
+</html>
