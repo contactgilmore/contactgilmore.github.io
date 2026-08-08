@@ -1,1 +1,0 @@
-Astro migration implementation files are non-production until P1 acceptance and explicit cutover approval.

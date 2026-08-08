@@ -28,5 +28,11 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Verify migrated blog source integrity
+        run: node scripts/verify-blog-integrity.mjs
+
       - name: Build Astro site
         run: npm run build
+
+      - name: Verify legacy routes and required assets
+        run: node scripts/verify-build-output.mjs
