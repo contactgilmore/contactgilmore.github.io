@@ -23,12 +23,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
@@ -36,11 +37,17 @@ jobs:
       - name: Verify migrated blog source integrity
         run: node scripts/verify-blog-integrity.mjs
 
+      - name: Audit public asset references
+        run: node scripts/audit-public-assets.mjs
+
       - name: Build Astro site
         run: npm run build
 
-      - name: Verify legacy routes and required assets
+      - name: Verify routes, discovery files, and required assets
         run: node scripts/verify-build-output.mjs
+
+      - name: Verify generated internal links
+        run: node scripts/verify-internal-links.mjs
 
       - name: Upload non-deploying Pages artifact
         uses: actions/upload-pages-artifact@v4
