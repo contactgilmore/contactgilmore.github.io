@@ -7,9 +7,13 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
     thumbnail: z.string(),
     categories: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
+    series: z.string().optional(),
+    seriesOrder: z.number().int().positive().optional(),
+    seriesStatus: z.enum(['ongoing', 'complete']).optional(),
     layout: z.string().optional(),
     legacyPath: z.string().startsWith('/').optional(),
     featured: z.boolean().optional(),
