@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const outcomes = [
+  { metric: '55%', label: 'reduction in repeat customer escalations through prioritized remediation' },
+  { metric: '99.9%', label: 'service availability / SLA protection across customer-facing SaaS environments' },
+  { metric: '40%', label: 'reduction in repeat incidents through root-cause and readiness work' },
+  { metric: '30%', label: 'improvement in release reliability through stronger readiness practices' },
+];
+
+const remediationLoop = [
+  {
+    number: '01',
+    title: 'See the customer signal',
+    body: 'Treat recurring escalations and service-impact patterns as evidence of a systemic problem, not just isolated operational events.',
+  },
+  {
+    number: '02',
+    title: 'Find the pattern',
+    body: 'Use production behavior, repeat-incident history, and root-cause work to separate one-off noise from issues worth sustained remediation.',
+  },
+  {
+    number: '03',
+    title: 'Create ownership',
+    body: 'Coordinate across Product, Engineering, and customer-facing teams so recurring issues have clear priority, ownership, and follow-through.',
+  },
+  {
+    number: '04',
+    title: 'Protect the next release',
+    body: 'Carry lessons into release readiness, operating controls, and response expectations so fixes reduce recurrence rather than end with one incident.',
+  },
+];
+---
+
+<BaseLayout
+  title="Reliability & Cross-Functional Remediation | Mike Gilmore"
+  description="A public-safe case study of recurring SaaS issue remediation, customer escalation reduction, production readiness, and cross-functional reliability work."
+>
+  <header class="case-hero shell">
+    <div class="case-hero__copy">
+      <p class="eyebrow">Case study · Reliability & customer impact</p>
+      <h1>Turning recurring SaaS issues into owned, cross-functional remediation.</h1>
+      <p>
+        Reliability work created the most value when production patterns could be connected to customer impact, assigned
+        clear ownership, and carried through remediation and release readiness instead of being treated as isolated incidents.
+      </p>
+      <p class="case-note">Public-safe summary based on substantiated professional experience. Incident details, customer identities, and internal production artifacts are intentionally excluded.</p>
+    </div>
+    <aside class="case-hero__role" aria-label="Role and focus">
+      <p class="signal-label">Role pattern</p>
+      <p>Site reliability with customer-impact and delivery context</p>
+      <p class="signal-label">Focus</p>
+      <p>Pattern analysis · prioritization · remediation · release readiness</p>
+    </aside>
+  </header>
+
+  <section class="case-outcomes" aria-labelledby="reliability-outcomes-heading">
+    <div class="shell">
+      <div class="case-section-heading">
+        <p class="eyebrow eyebrow--light">Evidence</p>
+        <h2 id="reliability-outcomes-heading">The goal was fewer repeat problems, not faster ticket closure.</h2>
+      </div>
+      <div class="case-metric-grid">
+        {outcomes.map((outcome) => (
+          <div class="case-metric">
+            <strong>{outcome.metric}</strong>
+            <span>{outcome.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="shell case-story" aria-labelledby="reliability-context-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">Context</p>
+      <p>Customer-facing SaaS</p>
+      <p>Product + Engineering + service teams</p>
+      <p>2022–2026 experience</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="reliability-context-heading">A production incident can end while the customer problem remains.</h2>
+      <p>
+        Customer-facing SaaS reliability created two kinds of work at once: restoring service when something went wrong,
+        and identifying which recurring patterns needed deeper corrective action so they did not keep returning as escalations.
+      </p>
+      <p>
+        That required working across team boundaries. Product and Engineering needed enough context to prioritize systemic
+        fixes, customer-facing teams needed clearer expectations, and operational practices needed to carry lessons into
+        future releases and response behavior.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="remediation-loop-heading">
+    <div class="shell">
+      <div class="case-section-heading case-section-heading--dark">
+        <p class="eyebrow">Remediation loop</p>
+        <h2 id="remediation-loop-heading">Move from production signal to durable corrective action.</h2>
+      </div>
+      <ol class="case-flow">
+        {remediationLoop.map((step) => (
+          <li>
+            <span class="case-flow__number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="shell case-story" aria-labelledby="reliability-judgment-heading">
+    <aside class="case-story__rail">
+      <p class="eyebrow">What this demonstrates</p>
+      <p>Root-cause analysis</p>
+      <p>Cross-functional prioritization</p>
+      <p>Production governance</p>
+      <p>Customer-impact analysis</p>
+    </aside>
+    <div class="case-story__body">
+      <h2 id="reliability-judgment-heading">The important boundary was between technical evidence and organizational action.</h2>
+      <p>
+        Observability and production context helped identify what was happening, but the harder part was often translating
+        that evidence into an owned decision: which pattern mattered, who needed to act, how readiness should change, and
+        how customer-facing teams should understand the risk.
+      </p>
+      <p>
+        That operating model helped reduce repeat customer escalations by 55%, repeat incidents by 40%, and improve release
+        reliability by 30% while protecting 99.9% service availability / SLA performance.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-labelledby="reliability-takeaway-heading">
+    <div class="shell case-takeaway">
+      <p class="eyebrow eyebrow--light">Takeaway</p>
+      <h2 id="reliability-takeaway-heading">Reliability becomes customer value when recurring technical signals become clear ownership and fewer repeat failures.</h2>
+      <p>
+        The pattern I carry forward is to connect technical evidence to customer impact, prioritize recurrence rather than
+        noise, and make sure remediation changes the next operating or release decision instead of ending with the incident.
+      </p>
+      <a class="button button--secondary case-button-light" href="/work/">Back to selected work</a>
+    </div>
+  </section>
+</BaseLayout>
