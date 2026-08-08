@@ -1,7 +1,12 @@
-PROFILE=lean
+PROFILE=github-first
 PROJECT=contactgilmore-portfolio
-STARTUP_AUTHORITY=00_MASTER
+SINGLE_STARTUP_ENTRY=00_MASTER/00_MASTER_DOCTRINE.md
+REPOSITORY_AUTHORITY=contactgilmore/contactgilmore.github.io
+PRODUCTION_BRANCH=main
+CURRENT_WORKING_BRANCH=portfolio-2.0-polish
+HANDOFF_MODE=repository-native
+ZIP_HANDOFF=legacy-fallback-only
 SPRINT_NOTES=referenced-only
 DOMAIN_DOCS=pointer-first
-PRODUCTION_BRANCH=main
-WORKING_BRANCH=portfolio-2.0-foundation
+PUBLIC_DOCS=professional-artifact
+PRIVATE_PROJECT_MEMORY=prohibited
