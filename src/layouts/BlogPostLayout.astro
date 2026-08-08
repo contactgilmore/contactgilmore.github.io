@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  date: Date;
+  thumbnail: string;
+}
+
+const { title, date, thumbnail } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} | ContactGilmore</title>
+  </head>
+  <body>
+    <main class="blog-post">
+      <p><a href="/blog/">← All writing</a></p>
+      <img src={thumbnail} alt="" class="blog-thumbnail" />
+      <h1>{title}</h1>
+      <p class="post-date">{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      <article>
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>
