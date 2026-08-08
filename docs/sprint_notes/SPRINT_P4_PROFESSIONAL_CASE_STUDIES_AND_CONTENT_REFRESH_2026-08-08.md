@@ -58,58 +58,65 @@ The truth map separates DIRECT evidence, SAFE GENERALIZATION, SUPPORTING SKILL c
 Acceptance: met.
 
 ### P4-WP2 — Enterprise implementation and migration case study
-Status: IN PROGRESS
+Status: COMPLETE
 
-Implemented the first deeper case-study route at:
+Implemented:
 
 ```text
 /work/implementation-delivery/
 ```
 
-Current structure:
+The page uses a public-safe case-study hero, substantiated outcome metrics, context/problem narrative, four-stage delivery flow, technical/delivery judgment section, and professional takeaway. Playwright coverage passed across desktop, tablet, and phone.
 
-```text
-case-study hero and role context
--> four resume-supported outcome metrics
--> context/problem narrative
--> four-stage delivery flow
--> technical/delivery judgment section
--> closing professional takeaway
-```
-
-The page uses the P3 design system with a sticky context rail on wider screens and a normal stacked reading order on narrow screens. It uses no client JavaScript and contains an explicit public-safe summary note.
-
-The Work overview now links into the case study. Playwright coverage was extended to include the new route across desktop, tablet, and phone.
-
-Remaining: browser smoke and screenshot review before WP2 acceptance.
+Acceptance: met.
 
 ### P4-WP3 — Reliability and cross-functional remediation case study
-Status: QUEUED
+Status: COMPLETE
 
-Develop the production/reliability lane around recurring customer-impact patterns, cross-functional prioritization, root-cause/remediation, release readiness, and measurable service outcomes.
+Implemented:
 
-Acceptance: page demonstrates operational judgment and customer impact rather than reading like an SRE tool inventory.
+```text
+/work/reliability-remediation/
+```
+
+The story centers recurring customer-impact signals, root-cause/pattern analysis, cross-functional prioritization, remediation ownership, and release readiness rather than an SRE tool inventory. The Work overview links into the page and Playwright coverage includes the route.
+
+Acceptance: met.
 
 ### P4-WP4 — Program delivery and operating-model case study
-Status: QUEUED
+Status: COMPLETE PENDING FINAL INTEGRATED REGRESSION
 
-Develop the operations/program lane around response ownership, alert/escalation clarity, governance, documentation, standardization across combined organizations, and team onboarding.
+Implemented:
 
-Acceptance: page makes business/systems analysis and program-delivery capability visible alongside technical credibility.
+```text
+/work/operating-model/
+```
+
+The story centers response ownership, alert/escalation clarity, governance, documentation, operating-practice standardization across three combined businesses, and team onboarding. It explicitly presents the work as a blend of systems analysis, change management, program delivery, and technical operations.
+
+Acceptance: content and structure implemented; final integrated browser regression remains under WP6.
 
 ### P4-WP5 — Homepage, Work, About, and project copy refinement
-Status: QUEUED
+Status: COMPLETE
 
-Connect deeper case studies into the homepage and Work page, tighten repeated language, ensure About supports rather than duplicates Resume, and reframe technical projects around problem / approach / result where source evidence exists.
+Changes:
 
-Acceptance: visitor can scan the homepage quickly and choose deeper evidence paths without reading duplicated copy.
+- Homepage selected-work cards now link directly to all three case studies.
+- Work is the evidence hub and links all three evidence lanes.
+- Resume remains the chronology but now connects major roles to the relevant deeper case studies.
+- About was rewritten to explain working style and professional perspective rather than duplicating career chronology and credentials.
+- Repeated homepage language was tightened around the operating-model lane.
+
+Technical project evidence remains secondary and is not allowed to displace the senior professional case-study hierarchy.
+
+Acceptance: met pending final integrated browser review.
 
 ### P4-WP6 — Content safety and Playwright regression
-Status: QUEUED
+Status: IN PROGRESS
 
 Run public-disclosure review, build/integrity/legacy URL gates, and the full Playwright browser smoke suite after case-study integration.
 
-Acceptance: no private/confidential additions, no regression in historical blog content/URLs, and all browser smoke gates green.
+Acceptance: no private/confidential additions, no regression in historical blog content/URLs, all three case-study routes render cleanly, and all browser smoke gates are green.
 
 ### P4-WP7 — Content closeout and P5 handoff
 Status: QUEUED
@@ -117,6 +124,10 @@ Status: QUEUED
 Review the final professional story, record remaining evidence limitations honestly, and prepare quality/discoverability/launch work for P5.
 
 Acceptance: portfolio tells one coherent senior technical-delivery story and is ready for launch hardening.
+
+## CI posture
+
+Feature-branch site validation now runs through the open pull request rather than duplicate push + pull-request executions. Direct pushes to `main` will still run the same validation after eventual cutover.
 
 ## Design authority
 
