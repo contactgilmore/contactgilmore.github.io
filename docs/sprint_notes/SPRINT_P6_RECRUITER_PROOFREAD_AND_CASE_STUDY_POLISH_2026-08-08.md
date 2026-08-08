@@ -8,11 +8,11 @@ Production baseline: `bb2968e523bd7af87e3cd31a3a7e045ecb44947b`
 
 Read Portfolio 2.0 as a recruiter and hiring manager would. Improve authenticity, first-person ownership, case-study specificity, scanability, and career narrative while preserving the current visual system, protected blog content, verified metrics, and public-disclosure rules.
 
-## External review findings already incorporated
+## Portfolio strategy
 
-Current university/career-center portfolio guidance supports a small curated set of relevant work rather than a career chronology. Strong project pages should explain context, role, approach, outcome, and reflection. Recruiter/hiring-manager discussion also reinforces that portfolio evidence must be fast to scan and should add proof/context rather than repeat the resume.
+Current university/career-center guidance supports a small curated set of relevant work rather than a career chronology. Strong project pages should explain context, role, approach, outcome, and reflection. Recruiter/hiring-manager discussion also reinforces that portfolio evidence must be fast to scan and should add proof/context rather than repeat the resume.
 
-Portfolio decision:
+Decision:
 
 - retain three deep case studies focused on the most relevant 2018–2026 enterprise/technical period;
 - use earlier customer-operations and leadership experience as the foundation of the career narrative, especially influence without authority and people leadership;
@@ -20,7 +20,7 @@ Portfolio decision:
 
 ## Public-safe experience facts approved for writing
 
-The following facts were supplied by Mike for portfolio polishing. They are recorded here in intentionally generalized form because this repository is public.
+The following facts were supplied by Mike for portfolio polishing and are recorded in intentionally generalized form because this repository is public.
 
 ### Enterprise implementation / Cityworks era
 
@@ -39,7 +39,7 @@ Public-writing boundary: do not publish customer identity, proprietary scripts, 
 - Mike created/improved observability to correlate affected customers, outage timing, duration, and recurring patterns.
 - Investigation isolated a software defect triggered by unusually heavy reporting workloads that caused severe memory spikes and application/server crashes affecting hosted customers.
 - Mike documented detailed RCAs, presented evidence to director-level leadership, and worked with project/program and development teams toward corrective action.
-- The professional story is customer complaint -> telemetry -> pattern recognition -> diagnosis -> customer impact -> executive communication -> cross-functional fix.
+- Professional story: customer complaint -> telemetry -> pattern recognition -> diagnosis -> customer impact -> executive communication -> cross-functional fix.
 
 Public-writing boundary: do not publish customer names, internal host/server identifiers, proprietary architecture diagrams, ticket IDs, confidential RCA artifacts, or internal code/configuration.
 
@@ -50,14 +50,14 @@ Public-writing boundary: do not publish customer names, internal host/server ide
 - Standardized RCA structure and introduced more consistent in-incident documentation flow.
 - Added Jira automation to support ticket/incident workflow management.
 - Helped onboard an India-based team into shared tooling, alerting, runbook, incident, RCA, handoff, and operating practices.
-- The leadership outcome was not merely documentation; it was adoption of a shared operating model across teams.
+- Leadership outcome: adoption of a shared operating model across teams, not documentation alone.
 
 ### Earlier leadership / Best Buy foundation
 
 - Multi-unit leadership required shifting from direct authority to influence without title.
 - Learned to support store leaders rather than report their business back to them: understand their perspective, bring expertise, coach behaviors and planning, and use relationships to mobilize outside support.
 - Helped leaders build plans around business/P&L results while preserving their ownership of the operation.
-- This experience is relevant to current customer-facing technical work because implementation, success, solutions, and systems roles depend heavily on influence across people the role does not directly manage.
+- This foundation is relevant to current customer-facing technical work because implementation, success, solutions, and systems roles depend heavily on influence across people the role does not directly manage.
 
 ### Leadership philosophy
 
@@ -65,23 +65,11 @@ Mike's natural strength is identifying what people are good at, where those stre
 
 Public-facing phrasing should emphasize complementary strengths, fit, energy, ownership, and team balance rather than labeling people by weaknesses.
 
-## Copy problems to remove
-
-- governance language such as “substantiated professional experience” on public pages;
-- repeated “public-safe summary” disclaimers where one simple confidentiality sentence is enough;
-- passive ownership phrases such as “the work centered on,” “the role sat between,” and “the work included” when Mike can truthfully own the action;
-- wording that understates eight years of engineering experience, such as “enough engineering context”;
-- repeated use of the same metrics on Home, Work, Resume, and case-study pages where hierarchy can carry the proof more naturally;
-- security/process explanations on the public Resume page that do not help a hiring decision.
-
-## Work packages
+## Implemented polish
 
 ### P6-WP1 — audit and continuity capture — COMPLETE
 
-Acceptance met:
-- findings and approved facts captured in repository authority;
-- sensitive/proprietary details generalized or excluded;
-- branch isolated from production.
+Findings and approved facts captured in repository authority; sensitive/proprietary details generalized or excluded; branch isolated from production.
 
 ### P6-WP2 — implementation case study — COMPLETE
 
@@ -113,18 +101,31 @@ Hierarchy implemented:
 - Case studies: full narrative/evidence;
 - Resume: concise chronology and selected outcomes.
 
-### P6-WP7 — regression — ACTIVE
+### P6-WP7 — regression — COMPLETE
 
 PR: **#15 — Portfolio 2.0: Recruiter proofread and case-study polish**  
-PR status: draft  
-Exact PR head at regression start: `83961de7f671112f050130e84089a87b5ffe261b`
+PR status: draft / unmerged
 
-Changed-file scope at regression start:
+Polished site-source regression commit:
+
+`83961de7f671112f050130e84089a87b5ffe261b`
+
+Regression evidence:
 
 ```text
-00_MASTER/ACTIVE_SPRINT.md
-00_MASTER/WHERE_WE_ARE.md
-docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md
+Validate Astro migration run 31273655569: SUCCESS
+Playwright portfolio smoke run 31273655669: SUCCESS
+browser smoke tests: SUCCESS
+axe accessibility checks: SUCCESS
+blog source-integrity protection: SUCCESS
+public asset audit: SUCCESS
+Astro build: SUCCESS
+internal-link verification: SUCCESS
+```
+
+Changed source-page scope at regression:
+
+```text
 src/pages/index.astro
 src/pages/work/index.astro
 src/pages/work/implementation-delivery/index.astro
@@ -136,16 +137,8 @@ src/pages/resume/index.astro
 
 No historical Markdown post, asset, workflow, or design-system file changed in this copy pass.
 
-Regression evidence so far:
+### P6-WP8 — owner proofread gate — READY
 
-```text
-Validate Astro migration run 31273655569: SUCCESS
-Playwright portfolio smoke run 31273655669: IN PROGRESS at checkpoint
-```
+Do not merge/deploy until Mike has read the polished candidate and explicitly approves production change.
 
-### P6-WP8 — owner proofread gate — PENDING
-
-Do not merge/deploy until:
-- Playwright/axe regression is green on the exact candidate;
-- public-disclosure review is complete;
-- Mike has read the polished candidate and approves production change.
+Production remains the P5 deployment until that approval.
