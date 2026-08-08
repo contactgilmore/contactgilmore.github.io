@@ -25,6 +25,9 @@ for (const pageTarget of pages) {
 
     await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://contactgilmore.github.io${pageTarget.path}`);
+    await expect(page.locator('link[rel="sitemap"]')).toHaveAttribute('href', '/sitemap-index.xml');
+    await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
 
     const overflow = await page.evaluate(() => {
       const clientWidth = document.documentElement.clientWidth;
@@ -92,4 +95,25 @@ test('primary navigation and skip link work', async ({ page }) => {
 
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
+});
+
+test('structured data stays public-safe and article metadata is complete', async ({ page }) => {
+  await page.goto('/GTNY-cursor/', { waitUntil: 'networkidle' });
+
+  const jsonLdText = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(jsonLdText).toBeTruthy();
+  const jsonLd = JSON.parse(jsonLdText || '{}');
+  const serialized = JSON.stringify(jsonLd);
+
+  expect(serialized).toContain('Mike Gilmore');
+  expect(serialized).toContain('BlogPosting');
+  expect(serialized).toContain('https://github.com/contactgilmore');
+  expect(serialized).toContain('https://www.linkedin.com/in/contactgilmore/');
+  expect(serialized).not.toContain('telephone');
+  expect(serialized).not.toContain('streetAddress');
+  expect(serialized).not.toContain('birthDate');
+
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /cursorlogo2\.png$/);
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });
