@@ -157,6 +157,8 @@ Do not weaken a quality gate merely to make a draft pass.
 
 When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root; never assume the shell is already in the correct directory. Use the exact current local checkout path when it is available from private conversation context. If the current path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Never commit that personal filesystem path into the public repository.
 
+For local Playwright smoke tests, prefer the existing shared/local Playwright environment and matching browser binaries when that environment is known from current private context. A project-local browser-executable miss does not by itself mean Playwright is absent from the machine. Check/reuse the shared environment before installing another browser copy; only install or repair dependencies when the existing shared environment is incompatible with the project version. Keep the exact local dependency path private.
+
 ## 10. Owner editorial gate
 
 Present the owner with:
