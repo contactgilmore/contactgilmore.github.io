@@ -1,0 +1,28 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/work/', label: 'Work' },
+  { href: '/blog/', label: 'Writing' },
+  { href: '/about/', label: 'About' },
+  { href: '/resume/', label: 'Resume' },
+];
+---
+
+<header class="site-header">
+  <div class="site-header__inner shell">
+    <a class="brand" href="/" aria-label="Mike Gilmore home">
+      <span class="brand__mark" aria-hidden="true">MG</span>
+      <span class="brand__name">Mike Gilmore</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-list">
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

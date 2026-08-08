@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const core = ['Enterprise Implementation', 'Professional Services', 'Business Systems Analysis', 'Program Delivery', 'Project Management', 'Customer Onboarding', 'Requirements', 'Stakeholder Management', 'Process Improvement', 'APIs & Integrations', 'SQL', 'Cloud Infrastructure'];
+---
+
+<BaseLayout
+  title="Resume | Mike Gilmore"
+  description="Public professional resume summary for Mike Gilmore, focused on implementation, program delivery, systems analysis, SaaS reliability, and customer solutions."
+>
+  <header class="page-hero shell">
+    <p class="eyebrow">Resume</p>
+    <h1>Technical delivery, implementation, and systems experience.</h1>
+    <p>
+      A public web version of my current experience. Personal contact details are intentionally limited; email and LinkedIn are available through this site.
+    </p>
+  </header>
+
+  <section class="shell page-grid">
+    <article class="detail-card">
+      <p class="eyebrow">Profile</p>
+      <h2>Technical Delivery & Customer Solutions</h2>
+      <p>
+        Experience across B2B operations, enterprise implementation, business systems and program delivery, and SaaS reliability.
+        Strengths include discovery, requirements, technical delivery, process improvement, integrations, and stakeholder coordination.
+      </p>
+      <ul class="tag-list" aria-label="Core capabilities">
+        {core.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </article>
+
+    <article class="detail-card">
+      <p class="eyebrow">2022–2026</p>
+      <h2>Trimble · Site Reliability Engineer</h2>
+      <ul>
+        <li>Reduced repeat customer escalations 55% through coordinated Product and Engineering remediation.</li>
+        <li>Protected 99.9% availability across customer-facing SaaS services and production environments.</li>
+        <li>Improved response and recovery metrics 60% through clearer alerts, escalation paths, and ownership.</li>
+        <li>Cut repeat incidents 40% and improved release reliability 30% through root-cause analysis and readiness practices.</li>
+        <li>Standardized operating practices across three combined businesses and onboarded an India-based team.</li>
+      </ul>
+    </article>
+
+    <article class="detail-card">
+      <p class="eyebrow">2018–2022</p>
+      <h2>Cityworks · Cloud Engineer</h2>
+      <ul>
+        <li>Supported 100+ enterprise migrations, implementations, and deployments through discovery and execution planning.</li>
+        <li>Accelerated deployments 40% and reduced onboarding effort 50% through repeatable workflows and runbooks.</li>
+        <li>Reduced onboarding escalations 30% through stronger readiness checks and customer handoffs.</li>
+        <li>Lowered cloud costs 20% by standardizing customer environments and operating practices.</li>
+        <li>Supported 99.9% uptime and SOC 2 readiness through documentation, controls, and operational validation.</li>
+      </ul>
+    </article>
+
+    <article class="detail-card">
+      <p class="eyebrow">Earlier experience</p>
+      <h2>Customer-facing operations and leadership</h2>
+      <p>
+        Earlier roles include Store Manager at Sears, Senior Advisor in Technical Support Operations at Apple, and Market Manager at Best Buy,
+        with responsibility for customer operations, technical issue resolution, B2B service delivery, training, and multi-site leadership.
+      </p>
+    </article>
+  </section>
+</BaseLayout>

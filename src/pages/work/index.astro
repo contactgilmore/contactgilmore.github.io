@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const work = [
+  {
+    label: 'Enterprise implementation',
+    title: 'Implementation and migration delivery at scale',
+    summary: 'Guided municipal and enterprise customers through discovery, onboarding, migration, integration, and deployment planning, translating requirements into practical execution and readiness decisions.',
+    evidence: ['100+ enterprise migrations, implementations, and deployments supported', '40% faster deployments through repeatable workflows', '50% reduction in onboarding effort', '30% reduction in onboarding escalations'],
+    skills: ['Requirements discovery', 'Implementation planning', 'Customer onboarding', 'Readiness assessment', 'Stakeholder coordination'],
+  },
+  {
+    label: 'Reliability and customer impact',
+    title: 'Cross-functional remediation for recurring SaaS issues',
+    summary: 'Worked across Product, Engineering, and customer-facing teams to turn production patterns into prioritized corrective action while maintaining operational readiness for customer-facing SaaS services.',
+    evidence: ['55% reduction in repeat customer escalations', '99.9% service availability / SLA protection', '40% reduction in repeat incidents', '30% improvement in release reliability'],
+    skills: ['Root-cause analysis', 'Production governance', 'Prioritization', 'Cross-functional remediation', 'Customer-impact analysis'],
+  },
+  {
+    label: 'Operations and program delivery',
+    title: 'Standardized response, ownership, and operating practices',
+    summary: 'Improved the systems around delivery and operations: alert clarity, escalation paths, documentation, governance, readiness, and shared operating practices across combined teams.',
+    evidence: ['60% improvement in response and recovery metrics', 'Operating practices standardized across three combined businesses', 'India-based team onboarded into shared practices'],
+    skills: ['Program delivery', 'Process improvement', 'Change management', 'Documentation & governance', 'Operational analysis'],
+  },
+];
+---
+
+<BaseLayout
+  title="Work | Mike Gilmore"
+  description="Selected professional work spanning enterprise implementation, SaaS reliability, systems analysis, customer delivery, and operational improvement."
+>
+  <header class="page-hero shell">
+    <p class="eyebrow">Work</p>
+    <h1>Selected evidence from delivery, systems, and reliability work.</h1>
+    <p>
+      These are public-safe summaries of the work patterns behind my experience. They focus on the problem, delivery approach,
+      and outcomes without exposing customer identities or proprietary implementation details.
+    </p>
+  </header>
+
+  <section class="shell page-grid" aria-label="Selected professional work">
+    {work.map((item) => (
+      <article class="detail-card">
+        <p class="eyebrow">{item.label}</p>
+        <h2>{item.title}</h2>
+        <p>{item.summary}</p>
+        <ul>
+          {item.evidence.map((point) => <li>{point}</li>)}
+        </ul>
+        <ul class="tag-list" aria-label="Capabilities demonstrated">
+          {item.skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

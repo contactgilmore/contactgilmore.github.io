@@ -1,32 +1,36 @@
 ---
 import { getCollection } from 'astro:content';
 import { getLegacyBlogPath } from '../../lib/blog-paths';
-import '../../styles/global.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/blog.css';
 
 const posts = (await getCollection('blog'))
   .filter(({ data }) => data.draft !== true)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Writing | ContactGilmore</title>
-  </head>
-  <body>
-    <main>
-      <h1>Writing</h1>
-      <p>Technical writing on reliability, infrastructure, automation, observability, and the tools behind the work.</p>
-      <div class="post-list">
-        {posts.map((post) => (
-          <article>
-            <p>{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-            <h2><a href={getLegacyBlogPath(post.id)}>{post.data.title}</a></h2>
-          </article>
-        ))}
-      </div>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Writing | Mike Gilmore"
+  description="Technical writing by Mike Gilmore on reliability, infrastructure, automation, observability, AI-assisted engineering, and the tools behind the work."
+>
+  <header class="page-hero shell">
+    <p class="eyebrow">Writing</p>
+    <h1>Technical ideas, made practical.</h1>
+    <p>
+      Notes and explainers on reliability, infrastructure, automation, observability, and the tools behind modern technical work.
+      The archive stays intentionally separate from the portfolio homepage so the writing can grow without overwhelming the professional story.
+    </p>
+  </header>
+
+  <section class="shell writing-list" aria-label="Article archive">
+    {posts.map((post) => (
+      <article class="writing-row">
+        <div>
+          <p class="writing-row__date">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+          <h2><a href={getLegacyBlogPath(post.id)}>{post.data.title}</a></h2>
+        </div>
+        <p>{post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

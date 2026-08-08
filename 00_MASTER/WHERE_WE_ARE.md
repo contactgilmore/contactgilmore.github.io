@@ -5,51 +5,47 @@ Updated: 2026-08-08
 
 ## Production authority
 
-Production remains the existing Jekyll site on `main`. No production Pages setting, content, or URL has been changed by Portfolio 2.0 work.
-
-Working branch: `portfolio-2.0-foundation`.
+Production remains the existing Jekyll site on `main`. Portfolio 2.0 work is isolated to `portfolio-2.0-foundation`; no Pages cutover has occurred.
 
 ## Durable decisions
 
-- Preserve the technical blog and its Markdown content.
-- Replace the homepage information architecture and visual presentation rather than merely rewriting copy.
 - Astro 7+ with TypeScript/content collections is the replacement static-site foundation.
-- Do not default to React, a CMS, a database, or another hosting platform.
-- Treat the entire repository, branches, PRs, Actions logs/artifacts, screenshots, metadata, and generated evidence as public disclosure surfaces.
-- Use GitHub-hosted `ubuntu-latest` for this public repository; Node3 is not an ordinary runner for this repo.
-- Preserve existing article URLs and `/assets/...` paths through migration.
+- Preserve the technical blog, article bodies, compatibility URLs, and published assets.
+- Use GitHub-hosted `ubuntu-latest` for this public repository.
+- Treat all repository content, branches, PRs, logs, artifacts, and evidence as public disclosure surfaces.
+- Avoid React/CMS/database additions unless a later requirement justifies them.
 
-## P1 closeout
+## P1
 
-Sprint P1 — Portfolio 2.0 Foundation and Astro Migration is complete.
+Foundation and Astro migration complete. Nine real Markdown posts are migrated byte-for-byte, legacy routes/assets are regression-tested, and a non-deploying GitHub Pages artifact has been successfully packaged.
 
-Proven on the working branch:
+## P2
 
-- nine real Markdown articles migrated byte-for-byte from their original Git blobs;
-- two non-article `_posts` files excluded from the Astro collection;
-- typed Astro content schema accepts the current metadata shapes;
-- exact mixed-case legacy article routes are generated;
-- public blog assets are present in Astro build output;
-- automated source-integrity and build-output regression gates pass;
-- GitHub-hosted validation succeeds;
-- a non-deploying `github-pages` artifact was packaged successfully;
-- production remains the legacy Jekyll `main:/` Pages source.
+Professional positioning and information architecture accepted by Mike on 2026-08-08.
 
-P1 candidate evidence:
+Accepted direction:
 
 ```text
-candidate head: 8590942ee8d560fdfaddf8372ca567085c7072cd
-Pages artifact workflow run: 31249469185
-artifact name: github-pages
-artifact digest: sha256:7e3364af7c68ffbc15ac3b5d76298d10d018d16736d8a9a7781dd516c7fc6cd6
+Technical Delivery & Customer Solutions
+Implementation & Technical Delivery
+Integrations & Troubleshooting
+Customer & Stakeholder Leadership
+```
+
+Resume review confirmed the site must also keep business systems analysis and program delivery visible, alongside implementation, technical integration depth, and operational/reliability leadership.
+
+Accepted top-level structure:
+
+```text
+Home / Work / Writing / About / Resume
 ```
 
 ## Current sprint
 
-Sprint P2 — Professional Positioning and Information Architecture.
+Sprint P3 — Astro Visual System and Portfolio Shell.
 
-Detailed note: `docs/sprint_notes/SPRINT_P2_POSITIONING_AND_INFORMATION_ARCHITECTURE_2026-08-08.md`.
+Detailed note: `docs/sprint_notes/SPRINT_P3_ASTRO_VISUAL_SYSTEM_AND_PORTFOLIO_SHELL_2026-08-08.md`.
 
-## Next action
+## Current action
 
-P2-WP1: benchmark current professional/technical portfolio patterns and define the visitor decision model before writing final homepage copy or implementing the redesign.
+Implement the shared visual system and primary Astro page shell on the working branch, then run existing migration regression gates before owner review.
