@@ -102,7 +102,7 @@ The blog voice is:
 
 Avoid generic AI habits such as repetitive rhetorical questions, forced three-item lists, excessive headings, breathless hype, and identical article structures.
 
-## 7. Metadata, URL, and series rules
+## 7. Metadata, URL, ordering, and series rules
 
 Every article uses the typed Astro content schema.
 
@@ -113,6 +113,25 @@ updated: YYYY-MM-DD
 ```
 
 Date-only frontmatter values represent calendar dates, not local instants. Render human-facing publication/update dates with an explicit UTC timezone so a local build in a negative UTC offset does not shift the displayed calendar date backward. Do not "fix" a rendering shift by changing the source publication date.
+
+When more than one post shares the same visible publication date, or exact intraday publication order matters, add the real publication instant separately:
+
+```yaml
+publishedAt: 2026-08-09T02:27:13Z
+```
+
+`publishedAt` is ordering metadata only. It does **not** replace or alter the human-facing `date`. Use an actual known publication/merge instant when available; do not fabricate a timestamp merely to force a preferred position.
+
+Writing and featured-content ordering is deterministic:
+
+```text
+publishedAt when present
+-> visible publication date
+-> seriesOrder for same-date series ties
+-> stable content ID
+```
+
+This allows several posts to retain the same truthful calendar date while preserving the order in which they actually shipped. New same-day publication batches should record `publishedAt` when the real instant is known.
 
 Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
 
@@ -130,7 +149,9 @@ seriesOrder: 8
 seriesStatus: "ongoing"
 ```
 
-The series overview uses `seriesOrder: 0`. When the owner declares a series complete, reconcile the series overview and series-status metadata deliberately rather than leaving the archive to imply that more numbered entries are expected. Completion does not require changing original article dates, URLs, or bodies.
+The series overview/introduction uses `seriesOrder: 0`. Writing should present a `seriesOrder: 0` entry as a subtle **series-introduction divider card**: normal text colors, a light neutral surface, and restrained structure rather than a decorative banner. The treatment should make the transition between series obvious without making the archive look like a marketing carousel.
+
+When the owner declares a series complete, reconcile the series overview and series-status metadata deliberately rather than leaving the archive to imply that more numbered entries are expected. Completion does not require changing original article dates, URLs, or bodies.
 
 Do not create the next series or a new number merely because a prior list once implied it.
 
