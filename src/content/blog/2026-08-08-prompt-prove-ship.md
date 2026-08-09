@@ -2,6 +2,7 @@
 layout: post
 title: "Prompt. Prove. Ship.: From Chat to Change"
 date: 2026-08-08
+publishedAt: 2026-08-09T02:27:13Z
 thumbnail: /assets/images/blog2026/082026/prompt-prove-ship.svg
 slug: prompt-prove-ship
 categories: [ai, engineering, delivery]

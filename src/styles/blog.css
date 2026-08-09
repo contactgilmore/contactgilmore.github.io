@@ -6,6 +6,16 @@
 .writing-row h2 a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .writing-row p { margin: 0; color: var(--muted); line-height: 1.6; }
 .writing-row__date { font-size: .84rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.writing-row__meta { display: flex; flex-direction: column; gap: 3px; }
+.writing-row__intro-label { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.writing-row--series-intro {
+  margin: 16px 0;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-soft);
+  align-items: center;
+}
 
 .blog-post { max-width: 920px; padding-top: clamp(72px, 9vw, 120px); padding-bottom: clamp(90px, 12vw, 150px); }
 .blog-back { display: inline-block; margin-bottom: 52px; }
@@ -44,6 +54,7 @@
 
 @media (max-width: 720px) {
   .writing-row { grid-template-columns: 1fr; gap: 10px; }
+  .writing-row--series-intro { margin: 12px 0; padding: 22px 20px; }
   .blog-thumbnail { margin: 34px 0 46px; }
   .blog-thumbnail[src$=".svg"] { padding: 28px 34px; }
   .series-nav { margin-top: 56px; }

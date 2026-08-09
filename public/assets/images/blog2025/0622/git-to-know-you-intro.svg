@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Connected learning path illustration</title>
+  <desc id="desc">A branching sequence of connected nodes suggests a practical learning path through technical tools and ideas.</desc>
+
+  <rect width="1600" height="900" fill="#f7f8fa"/>
+  <rect x="150" y="145" width="1300" height="610" rx="40" fill="#ffffff" stroke="#dce1e7" stroke-width="3"/>
+
+  <path d="M310 480H560C650 480 650 340 740 340H930C1020 340 1020 480 1110 480H1290" fill="none" stroke="#b9c3d0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M560 480C650 480 650 620 740 620H930C1020 620 1020 480 1110 480" fill="none" stroke="#dce1e7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="310" cy="480" r="42" fill="#18202a"/>
+  <circle cx="560" cy="480" r="34" fill="#1f5eff"/>
+  <circle cx="740" cy="340" r="34" fill="#ffffff" stroke="#1f5eff" stroke-width="12"/>
+  <circle cx="740" cy="620" r="34" fill="#ffffff" stroke="#b9c3d0" stroke-width="12"/>
+  <circle cx="930" cy="340" r="34" fill="#1f5eff"/>
+  <circle cx="930" cy="620" r="34" fill="#18202a"/>
+  <circle cx="1110" cy="480" r="38" fill="#ffffff" stroke="#18202a" stroke-width="12"/>
+  <circle cx="1290" cy="480" r="48" fill="#1f5eff"/>
+
+  <path d="M128 260H320" stroke="#dce1e7" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="350" cy="260" r="12" fill="#1f5eff"/>
+  <path d="M1250 640H1442" stroke="#dce1e7" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="1220" cy="640" r="12" fill="#18202a"/>
+
+  <path d="M286 456L334 504M334 456L286 504" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1270 480L1287 497L1318 463" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

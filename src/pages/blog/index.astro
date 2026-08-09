@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import { getBlogPath } from '../../lib/blog-paths';
+import { compareBlogPosts } from '../../lib/blog-sort';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/blog.css';
 
 const posts = (await getCollection('blog'))
   .filter(({ data }) => data.draft !== true)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort(compareBlogPosts);
 
 const formatShortDate = (value: Date) => value.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -30,17 +31,23 @@ const formatShortDate = (value: Date) => value.toLocaleDateString('en-US', {
   </header>
 
   <section class="shell writing-list" aria-label="Article archive">
-    {posts.map((post) => (
-      <article class="writing-row">
-        <div>
-          <p class="writing-row__date">
-            {formatShortDate(post.data.date)}
-            {post.data.updated && <> · Updated {formatShortDate(post.data.updated)}</>}
+    {posts.map((post) => {
+      const isSeriesIntro = post.data.seriesOrder === 0;
+      return (
+        <article class:list={['writing-row', { 'writing-row--series-intro': isSeriesIntro }]}>
+          <div>
+            <p class="writing-row__date">
+              {formatShortDate(post.data.date)}
+              {post.data.updated && <> · Updated {formatShortDate(post.data.updated)}</>}
+            </p>
+            <h2><a href={getBlogPath(post.id, post.data.slug)}>{post.data.title}</a></h2>
+          </div>
+          <p class="writing-row__meta">
+            {isSeriesIntro && <span class="writing-row__intro-label">Series introduction</span>}
+            <span>{post.data.series || post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</span>
           </p>
-          <h2><a href={getBlogPath(post.id, post.data.slug)}>{post.data.title}</a></h2>
-        </div>
-        <p>{post.data.series || post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</p>
-      </article>
-    ))}
+        </article>
+      );
+    })}
   </section>
 </BaseLayout>

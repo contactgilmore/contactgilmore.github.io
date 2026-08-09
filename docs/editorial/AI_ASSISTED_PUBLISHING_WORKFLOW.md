@@ -102,7 +102,7 @@ The blog voice is:
 
 Avoid generic AI habits such as repetitive rhetorical questions, forced three-item lists, excessive headings, breathless hype, and identical article structures.
 
-## 7. Metadata, URL, and series rules
+## 7. Metadata, URL, ordering, and series rules
 
 Every article uses the typed Astro content schema.
 
@@ -113,6 +113,27 @@ updated: YYYY-MM-DD
 ```
 
 Date-only frontmatter values represent calendar dates, not local instants. Render human-facing publication/update dates with an explicit UTC timezone so a local build in a negative UTC offset does not shift the displayed calendar date backward. Do not "fix" a rendering shift by changing the source publication date.
+
+When more than one post shares the same visible publication date, or exact intraday publication order matters, add the real publication instant separately:
+
+```yaml
+publishedAt: 2026-08-09T02:27:13Z
+```
+
+`publishedAt` is ordering metadata only. It does **not** replace or alter the human-facing `date`. Use an actual known first-publication/production-authorization instant when available; do not fabricate a timestamp merely to force a preferred position.
+
+**Once the post is published, `publishedAt` is immutable.** A later content correction, thumbnail refresh, factual update, or new merge must not rewrite the original publication instant. Later revisions use the existing `updated: YYYY-MM-DD` field for visible revision history. The site does not query GitHub for the current merge timestamp at render time, and revision metadata must never be used to promote an older article in publication order.
+
+Writing and featured-content ordering is deterministic:
+
+```text
+publishedAt when present
+-> visible publication date
+-> seriesOrder for same-date series ties
+-> stable content ID
+```
+
+This allows several posts to retain the same truthful calendar date while preserving the order in which they actually shipped. New same-day publication batches should record `publishedAt` when the real first-publication instant is known. Older posts without `publishedAt` keep the deterministic fallback above; do not retroactively invent timestamps solely for sorting.
 
 Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
 
@@ -130,13 +151,17 @@ seriesOrder: 8
 seriesStatus: "ongoing"
 ```
 
-The series overview uses `seriesOrder: 0`. When the owner declares a series complete, reconcile the series overview and series-status metadata deliberately rather than leaving the archive to imply that more numbered entries are expected. Completion does not require changing original article dates, URLs, or bodies.
+The series overview/introduction uses `seriesOrder: 0`. Writing should present a `seriesOrder: 0` entry as a subtle **series-introduction divider card**: normal text colors, a light neutral surface, and restrained structure rather than a decorative banner. The treatment should make the transition between series obvious without making the archive look like a marketing carousel.
+
+When the owner declares a series complete, reconcile the series overview and series-status metadata deliberately rather than leaving the archive to imply that more numbered entries are expected. Completion does not require changing original article dates, URLs, or bodies.
 
 Do not create the next series or a new number merely because a prior list once implied it.
 
 ## 8. Images and thumbnails
 
 For tool/product articles, a clean official/project-authoritative logo thumbnail is the default because it makes the archive easy to scan and avoids decorative visual noise.
+
+**Thumbnails should be wordless by default.** Do not repeat the article title, series name, category label, slogan, or explanatory copy inside the thumbnail when the surrounding page already provides that information. Series overviews and introductions should use abstract/conceptual artwork that adds visual meaning rather than functioning as a second title card. Accessible SVG `<title>` and `<desc>` metadata are allowed because they are not rendered as visible thumbnail copy. Visible text inside thumbnail artwork requires a specific editorial reason and owner approval; it is not the default.
 
 For logo-based article thumbnails, prefer an official or project-authoritative **SVG** whenever one is available. Vector logos should render as contained artwork inside the article's wide thumbnail frame with deliberate whitespace; do not use `object-fit: cover` for a logo because that crops/zooms the mark to fill the frame. If Mike supplies raster logo artwork, request a **16:9 canvas at 1600×900 or larger** with generous whitespace around the mark; 1920×1080 is also ideal. Do not upscale a small navigation/favicon asset into a full-width article hero when a better source exists.
 
@@ -145,6 +170,7 @@ Replace or redesign a thumbnail when:
 - the logo is obsolete;
 - the source image is low quality;
 - the composition is inconsistent with the current site;
+- visible words merely duplicate title/series information already present on the page;
 - the article is a series overview/concept piece rather than one identifiable product;
 - a diagram materially improves the reader's understanding.
 

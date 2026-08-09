@@ -2,17 +2,14 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getBlogPath } from '../lib/blog-paths';
+import { compareBlogPosts } from '../lib/blog-sort';
 
 const featuredPosts = (await getCollection('blog'))
   .filter(({ data }) => data.draft !== true)
   .sort((a, b) => {
     const featuredDelta = Number(b.data.featured === true) - Number(a.data.featured === true);
     if (featuredDelta !== 0) return featuredDelta;
-
-    const dateDelta = b.data.date.valueOf() - a.data.date.valueOf();
-    if (dateDelta !== 0) return dateDelta;
-
-    return b.id.localeCompare(a.id);
+    return compareBlogPosts(a, b);
   })
   .slice(0, 3);
 
