@@ -17,6 +17,13 @@ test('Writing orders same-day publications deterministically and distinguishes s
   await expect(rows.nth(3).getByRole('link', { name: '#8. Git to Know You: Kubernetes' }))
     .toHaveAttribute('href', '/gtny-kubernetes/');
 
+  // Cursor was materially updated on Aug 8, 2026, but its original publication
+  // date remains Feb 25, 2026. Updates must not promote an older post above new publications.
+  await expect(rows.nth(4).getByRole('link', { name: '#7. Git to Know You: Cursor' }))
+    .toHaveAttribute('href', '/GTNY-cursor/');
+  await expect(rows.nth(4).locator('.writing-row__date')).toContainText('Feb 25, 2026');
+  await expect(rows.nth(4).locator('.writing-row__date')).toContainText('Updated Aug 8, 2026');
+
   const introStyle = await rows.nth(0).evaluate((element) => {
     const style = getComputedStyle(element);
     return {
