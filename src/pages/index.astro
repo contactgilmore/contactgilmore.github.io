@@ -1,11 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLegacyBlogPath } from '../lib/blog-paths';
+import { getBlogPath } from '../lib/blog-paths';
 
 const featuredPosts = (await getCollection('blog'))
   .filter(({ data }) => data.draft !== true)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort((a, b) => {
+    const featuredDelta = Number(b.data.featured === true) - Number(a.data.featured === true);
+    if (featuredDelta !== 0) return featuredDelta;
+
+    const dateDelta = b.data.date.valueOf() - a.data.date.valueOf();
+    if (dateDelta !== 0) return dateDelta;
+
+    return b.id.localeCompare(a.id);
+  })
   .slice(0, 3);
 
 const formatShortDate = (value: Date) => value.toLocaleDateString('en-US', {
@@ -161,7 +169,7 @@ const technicalDepth = ['APIs & integrations', 'SQL', 'Authentication', 'AWS', '
       {featuredPosts.map((post) => (
         <article class="article-card">
           <p class="article-card__date">{formatShortDate(post.data.date)}</p>
-          <h3><a href={getLegacyBlogPath(post.id)}>{post.data.title}</a></h3>
+          <h3><a href={getBlogPath(post.id, post.data.slug)}>{post.data.title}</a></h3>
           <p>{post.data.categories?.slice(0, 3).join(' · ') || 'Technical writing'}</p>
         </article>
       ))}
