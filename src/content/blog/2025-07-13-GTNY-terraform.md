@@ -8,7 +8,7 @@ categories: [sre, infrastructure, devops]
 tags: [terraform, infrastructure-as-code, iac, cloud]
 series: "Git to Know You"
 seriesOrder: 5
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **This one’s a big deal. No exaggeration.**
