@@ -115,7 +115,7 @@ The release completed the cloud-native learning arc, refreshed the living series
 
 Sprint authority:
 
-`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
 P8 exists to consolidate quality rather than increase publishing volume.
 
@@ -125,23 +125,74 @@ Work packages:
 2. harden deterministic startup/execution/publishing guidance so GPT continues routine bounded work autonomously until a genuine owner decision/local-only proof/production gate;
 3. preserve exact-head CI/browser/accessibility quality while minimizing owner manual effort and presenting concise mobile-friendly gates;
 4. resolve the known MacBook-class homepage hero typography backlog with browser evidence;
-5. define the next writing-series foundation and optionally one intro/sneak-peek only, without publishing follow-on articles in P8;
-6. complete full responsive/accessibility/public-disclosure closeout.
+5. standardize sprint execution records under `docs/sprints/` with a 30-day recent-record window and historical-only archive;
+6. establish the next writing-series foundation and publish one owner-approved intro/sneak-peek only;
+7. complete full responsive/accessibility/public-disclosure closeout.
 
-## Direction after P8
+Owner decisions now resolved:
 
-Do not pre-commit to a numbered publishing schedule.
+- MacBook homepage hero calibration: **APPROVED**;
+- next series: **Prompt. Prove. Ship.**;
+- series direction: **AI-assisted engineering without outsourcing judgment**;
+- publish one series introduction/sneak-peek in P8;
+- do not publish numbered follow-on Prompt. Prove. Ship. articles until P8 is closed and the next focused content sprint is opened deliberately.
 
-Potential next writing-series directions remain:
+## Next writing arc — Prompt. Prove. Ship.
 
-- **AI-assisted engineering workflow** — practical use of AI across discovery, implementation, troubleshooting, automation, review, and operational judgment;
-- **Cloud Foundations** — focused beginner-friendly cloud concepts instead of one shallow generic AWS article.
+**Prompt. Prove. Ship.** moves the Writing section from introductory tool education into the engineering operating model around increasingly capable AI agents.
 
-P8 will compare these against the portfolio north star, current archive, professional positioning, and available first-party source depth before recommending a public series name/intro.
+Series promise:
 
-Other directional work after P8 may include:
+> How do you use AI agents to move technical work faster without giving up context, verification, security boundaries, review, or human ownership?
+
+Durable topic themes, not yet fixed article numbers or dates:
+
+- repository instructions and context engineering;
+- planning, allowed/no-touch scope, and stop conditions;
+- tools, connectors, MCP, and controlled access to outside systems;
+- tests, browser evidence, evaluation, and claim-matching proof;
+- safe autonomy, permissions, credentials, and destructive operations;
+- AI-assisted troubleshooting and evidence gathering;
+- branch/PR/review/release controls;
+- background and multi-agent workflows after the fundamentals are established.
+
+Cloud Foundations remains a later candidate. Do not run both series simultaneously merely to increase publication volume.
+
+## Employer-readiness finish line
+
+After the next focused Prompt. Prove. Ship. update arc:
+
+1. pause new content;
+2. perform one deliberate employer-facing final pass across Home / Work / Writing / About / Resume;
+3. evaluate recruiter scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, broken links, public safety, visual consistency, and unnecessary documentation/assets;
+4. resolve only material issues found by that review;
+5. publish the accepted final polish;
+6. enter a stability period and avoid cosmetic churn until new career evidence, a real defect, or a meaningful content need justifies another change.
+
+The portfolio should be credible when inspected as both a professional profile and a working example of web administration, content governance, accessibility, CI/CD, and AI-assisted delivery discipline.
+
+## Sprint-record lifecycle
+
+Canonical sprint execution history is:
+
+```text
+docs/sprints/
+```
+
+Active and recently completed records remain there. A completed sprint becomes archive-eligible 30 calendar days after its recorded close date and moves to:
+
+```text
+docs/sprints/archive/
+```
+
+Routine startup does not read archived records. Archive lookup is only for historical recovery, regression, audit, or decision provenance. Do not create duplicate sprint summaries or placeholder archive files.
+
+## Other directional work
+
+Potential later work, only when evidence justifies it:
 
 - periodically refresh professional case studies after meaningful career changes;
+- Cloud Foundations writing series;
 - social/Open Graph preview artwork if it materially improves sharing;
 - richer topic/category discovery when archive volume justifies it;
 - periodic Lighthouse/performance review;
@@ -157,7 +208,8 @@ Ongoing work should include:
 - review external links and time-sensitive technical claims;
 - remove stale assets/claims/technologies;
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
-- use sprint notes for material redesign, migration, content-system, or publication arcs rather than every minor edit;
+- use sprint records for material redesign, migration, content-system, or publication arcs rather than every minor edit;
+- archive closed sprint records after the 30-day recent-history window so execution history does not crowd current authority;
 - treat merge to `main` as the human production authorization and verify the automatic Pages deployment afterward;
 - keep living state current so fresh chats recover production truth deterministically;
 - minimize owner manual work without replacing human public-representation judgment or claim-matching evidence.
