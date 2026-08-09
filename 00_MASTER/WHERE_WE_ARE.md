@@ -11,25 +11,27 @@ Current production truth:
 
 ```text
 production branch: main
-current production merge: fad90493ab0cad61fee834cdace94256e97e8557
-current release: P8 quality ratchet + Prompt. Prove. Ship. introduction
-automatic deployment run: 31290363581
+current production merge: e4f368365a36923295d0c4272a2caeb0ea67f05f
+current release: post-P8 employer-facing polish — Writing order/series intros + Work spacing
+automatic deployment run: 31293406396
 result: SUCCESS
+production Validate Astro migration: 31293406399 — SUCCESS
+production Playwright portfolio smoke: 31293406404 — SUCCESS
 production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
 ```
 
-Final P8 candidate evidence:
+Final approved candidate evidence:
 
 ```text
-candidate head: 151c32f6a012fba970c3d678c5a566062b47f5ec
-Validate Astro migration: 31290157900 — SUCCESS
-Playwright portfolio smoke: 31290157896 — SUCCESS
-Playwright result: 116 passed / 4 intentional skips
+candidate head: 09b5e21e7ba8fe98aaced5a84a6a72bac0e2c423
+Validate Astro migration: 31293235502 — SUCCESS
+Playwright portfolio smoke: 31293235506 — SUCCESS
+Playwright result: 125 passed / 4 intentional skips
 asset audit: 22 referenced / 22 present / 0 orphan
 Astro output: 21 pages
-Playwright artifact: 9031135480
-artifact digest: sha256:e0cc0cefefa63525965fb15683f8b9c7e3b0096d73c2c23c01c66471627fbd0c
+Playwright artifact: 9032136163
+artifact digest: sha256:99330d1e6d60a9486376767e13801744fe085aea0ada35778d0ece694f381bcb
 ```
 
 There is **no active implementation sprint**.
@@ -47,8 +49,12 @@ There is **no active implementation sprint**.
 - `workflow_dispatch` remains an operational fallback, not the normal release path.
 - Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work.
 - Date-only editorial metadata must render as the stored calendar date regardless of build-machine timezone.
-- Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
+- `publishedAt`, when present, is immutable first-publication/production-authorization metadata used for deterministic ordering. It is never replaced by a later merge timestamp. Later revisions use `updated`, and revision metadata never promotes an older article in publication order.
+- Same-day Writing order resolves deterministically by `publishedAt` when present, then visible publication date, series order, and stable content ID.
+- Series introductions use a restrained light-neutral divider-card treatment in Writing.
+- Thumbnails are wordless by default. Series overviews/intros use conceptual artwork rather than repeating article title, series name, slogan, or explanatory copy inside the image.
 - Product/tool logo thumbnails should prefer authoritative SVG artwork and use a contained logo-card treatment rather than crop-to-fill behavior. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace.
+- Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
 - GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, scope expansion, safety uncertainty, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
 - Canonical sprint execution records live under `docs/sprints/`. Closed records remain there for 30 calendar days after their recorded close date, then become eligible for Git move to `docs/sprints/archive/`; routine startup does not read the archive.
 - Avoid documentation duplication. Living state points to one authoritative sprint record rather than creating parallel summaries.
@@ -88,13 +94,24 @@ P8 outcomes:
 
 - Git to Know You is durably closed as the first complete #1–#10 series; no #11 is implied.
 - Stale pre-launch/product/architecture/versioning backlog language was reconciled with current production truth.
-- Fresh-chat governance now explicitly favors autonomous bounded execution, exact-head proof, concise owner gates, and low owner friction without weakening quality.
+- Fresh-chat governance explicitly favors autonomous bounded execution, exact-head proof, concise owner gates, and low owner friction without weakening quality.
 - Sprint execution records were standardized under `docs/sprints/` with a 30-day recent-history window and historical-only archive.
 - The homepage hero was structurally recalibrated for laptop-class viewports; a focused test caught an initial first-viewport failure, the implementation was corrected without weakening the test, and the owner approved the final MacBook presentation.
-- Standard desktop regression now exercises 1440×900, with focused 1440×900 and 1280×800 hero checks.
+- Standard desktop regression exercises 1440×900, with focused 1440×900 and 1280×800 hero checks.
 - **Prompt. Prove. Ship.** is the approved next series direction.
-- **Prompt. Prove. Ship.: From Chat to Change** is published at `/prompt-prove-ship/` with a purpose-built vector thumbnail and intentional homepage feature placement.
-- The new intro and existing portfolio surfaces passed responsive/browser/accessibility regression before merge.
+- **Prompt. Prove. Ship.: From Chat to Change** is published at `/prompt-prove-ship/` and intentionally featured on the homepage.
+
+## Post-P8 employer-facing polish — deployed
+
+The approved bounded polish package refined presentation and editorial behavior without opening another sprint:
+
+- Work cards now keep a deliberate gap between capability pills and `View case study` actions.
+- Writing uses real/immutable publication ordering metadata when available, so same-day posts do not depend on arbitrary filename ordering.
+- The Prompt. Prove. Ship. introduction leads the Aug 8 release batch while the visible publication date remains truthful.
+- `updated` metadata is explicitly excluded from publication ordering; the Cursor regression protects this behavior.
+- Series introductions stand out as subtle divider cards rather than ordinary rows.
+- Git to Know You and Prompt. Prove. Ship. overview/introduction thumbnails use wordless conceptual SVG artwork.
+- The owner questioned whether the homepage right-side rail had been rolled back. Verification confirmed `src/styles/home.css` was unchanged between the P8 production baseline and the polish candidate, and its later import continues to override older shared hero defaults. No homepage rollback occurred.
 
 ## Writing state
 
