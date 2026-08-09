@@ -97,6 +97,22 @@ The owner smoke test caught a timezone-dependent rendering defect that UTC CI di
 
 The owner-side shared Playwright environment and `cd` + pull smoke-test expectations are documented as durable operating guidance for future publication work.
 
+### Git to Know You #9 — OpenTelemetry — PUBLISHED
+
+OpenTelemetry was delivered as the next bounded editorial work package.
+
+Release record:
+
+```text
+PR: #21
+production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
+automatic Pages deployment run: 31286854414
+result: SUCCESS
+owner local Playwright smoke: 99 / 99 passed
+```
+
+The first owner visual review caught a logo-thumbnail presentation problem even though automated smoke testing was green. The corrective release kept Kubernetes on its authoritative SVG, replaced the low-resolution OpenTelemetry navigation image with an authoritative vector asset, and changed SVG/product-logo thumbnails from crop-to-fill to a contained 16:9 logo-card treatment. The publishing workflow now prefers authoritative SVG artwork; raster fallback should be 16:9 at 1600×900 or larger with generous whitespace.
+
 ## Current planning state
 
 There is **no active implementation sprint**.
@@ -107,7 +123,6 @@ The portfolio uses a lightweight directional roadmap plus bounded sprints rather
 
 Likely future themes, in current order:
 
-- **Git to Know You #9 — OpenTelemetry**;
 - **Git to Know You #10 — Argo CD / GitOps**;
 - establish a second AI/engineering-workflow writing series when there is enough material;
 - consider a focused Cloud Foundations series rather than a single broad AWS article;

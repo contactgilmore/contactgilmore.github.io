@@ -11,9 +11,9 @@ Current production truth:
 
 ```text
 production branch: main
-current production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
-current release: Git to Know You #8 — Kubernetes
-automatic deployment run: 31284483589
+current production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
+current release: Git to Know You #9 — OpenTelemetry
+automatic deployment run: 31286854414
 result: SUCCESS
 production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
@@ -25,6 +25,8 @@ Historical release anchors:
 P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
 release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
 first automatic deployment run: 31280952066
+Kubernetes merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
+Kubernetes deployment run: 31284483589
 ```
 
 There is no active implementation sprint.
@@ -43,6 +45,7 @@ There is no active implementation sprint.
 - Portfolio planning uses a lightweight directional roadmap plus bounded sprints for concrete work.
 - Date-only editorial metadata must render as the stored calendar date regardless of build-machine timezone.
 - Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
+- Product/tool logo thumbnails should prefer authoritative SVG artwork and use a contained logo-card treatment rather than crop-to-fill behavior. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace.
 
 ## Current production structure
 
@@ -119,10 +122,25 @@ owner local smoke: 90 / 90 Playwright tests passed
 
 The owner smoke test exposed a timezone-dependent date-rendering defect that UTC CI did not reveal. The fix preserved source publication dates and made article, Writing archive, and homepage date rendering explicitly timezone-stable before publication.
 
+### #9 OpenTelemetry — published and deployed
+
+OpenTelemetry was published as the next bounded editorial work package.
+
+Release evidence:
+
+```text
+PR: #21
+production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
+automatic Pages deployment run: 31286854414
+result: SUCCESS
+owner local smoke: 99 / 99 Playwright tests passed
+```
+
+The first owner visual review identified overly cropped/zoomed Kubernetes and OpenTelemetry logo thumbnails. Before publication, the presentation was corrected so authoritative SVG logos render as contained 16:9 logo cards with deliberate whitespace; OpenTelemetry moved from a low-resolution navigation image to a local authoritative vector asset. The corrected candidate passed fresh Astro, browser, accessibility, asset, route, link, and owner visual gates before merge.
+
 Directional continuation is now:
 
 ```text
-#9 OpenTelemetry
 #10 Argo CD / GitOps
 ```
 
