@@ -9,25 +9,36 @@ Historical sprint record:
 
 `docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
+A bounded post-P8 employer-facing polish package has also been completed and deployed; it did not open another sprint.
+
 Current production authority:
 
 ```text
 production branch: main
-current production merge: fad90493ab0cad61fee834cdace94256e97e8557
-current release: P8 quality ratchet + Prompt. Prove. Ship. introduction
-automatic Pages deployment run: 31290363581
+current production merge: e4f368365a36923295d0c4272a2caeb0ea67f05f
+current release: post-P8 employer-facing polish — Writing order/series intros + Work spacing
+automatic Pages deployment run: 31293406396
 result: SUCCESS
-final candidate validation: 31290157900 — SUCCESS
-final candidate Playwright: 31290157896 — 116 passed / 4 intentional skips
+production Validate Astro migration: 31293406399 — SUCCESS
+production Playwright portfolio smoke: 31293406404 — SUCCESS
+final candidate head: 09b5e21e7ba8fe98aaced5a84a6a72bac0e2c423
+final candidate validation: 31293235502 — SUCCESS
+final candidate Playwright: 31293235506 — 125 passed / 4 intentional skips
+Playwright artifact: 9032136163
+artifact digest: sha256:99330d1e6d60a9486376767e13801744fe085aea0ada35778d0ece694f381bcb
 ```
 
 ## Current production state
 
 - Git to Know You is complete at #1–#10; no #11 is implied.
-- The MacBook-class homepage hero calibration is owner-approved and deployed.
+- The owner-approved MacBook homepage hero calibration remains deployed. The post-P8 polish did not roll it back; `src/styles/home.css` remained unchanged through the release.
 - **Prompt. Prove. Ship.: From Chat to Change** is published and intentionally featured on the homepage.
 - **Prompt. Prove. Ship.** is the approved next writing-series direction: AI-assisted engineering without outsourcing judgment.
-- No numbered Prompt. Prove. Ship. follow-on article is authorized by P8.
+- No numbered Prompt. Prove. Ship. follow-on article is currently committed.
+- Writing uses deterministic publication ordering. `publishedAt`, when present, is the immutable first-publication/production-authorization instant; later revisions use `updated` and do not affect publication order.
+- Series introductions use a subtle light-neutral divider-card treatment in Writing.
+- Series-introduction thumbnails are wordless conceptual SVGs by default; thumbnail art should add meaning rather than repeat visible title/series copy.
+- Work case-study actions have deliberate separation from capability pills.
 - Canonical sprint execution records live under `docs/sprints/`; closed records become archive-eligible 30 calendar days after their recorded close date and move to `docs/sprints/archive/` when eligible.
 - Routine startup does not read the sprint archive.
 
