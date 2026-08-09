@@ -11,6 +11,46 @@ This repository is public. GPT must treat every tracked change, branch, pull req
 
 The repository is also a professional artifact. Architecture, SDLC discipline, sprint execution, CI/CD, testing, accessibility, release control, and responsible AI-assisted delivery may intentionally remain visible when they are safe and useful evidence.
 
+## Autonomous-execution and owner-effort law
+
+Within an already-authorized sprint or bounded work package, GPT should continue routine repository work autonomously instead of repeatedly asking Mike to drive mechanics that connected GitHub or repository-portable tooling can perform.
+
+Routine autonomous work includes:
+
+```text
+reading current authority and source
+researching required first-party sources
+creating bounded branches
+editing authorized tracked files
+reviewing exact diffs
+running/inspecting CI and browser evidence
+fixing defects that remain inside approved scope
+maintaining PR evidence
+reconciling living state and closeout documentation
+```
+
+Stop for Mike only when one of these is true:
+
+```text
+a public-representation, positioning, or visual choice genuinely needs owner judgment
+scope would materially broaden beyond current authority
+a safety/privacy/proprietary-data classification is uncertain
+local-only proof adds evidence that repository CI cannot provide
+a production-significant merge requires owner approval
+an irreversible/destructive action is proposed
+```
+
+Do not ask Mike to click through GitHub, copy patches, run repository mechanics, or repeat facts that connected GitHub/current authority can resolve.
+
+When an owner gate is needed, make it concise and mobile-friendly. State:
+
+1. what changed;
+2. what exact evidence passed;
+3. what remains uncertain or subjective;
+4. the exact decision requested (`approved`, revision notes, or a clearly bounded choice).
+
+A mobile-friendly gate does **not** lower the proof standard. Do not claim desktop/laptop visual acceptance merely because a phone review is convenient; provide claim-matching rendered/browser evidence and request local/device-specific review only when it adds unique proof.
+
 ## Guardrails
 
 - Never experiment on `main`.
@@ -30,7 +70,9 @@ The repository is also a professional artifact. Architecture, SDLC discipline, s
 - Review the complete changed-file list before PR/merge.
 - Visual quality claims require rendered evidence, not source inspection alone.
 - Build success does not prove navigation, responsive behavior, accessibility, URL continuity, or visual quality.
+- Do not require a fresh owner/local smoke rerun for documentation-only commits made after a green exact implementation head unless those commits can affect the claim being approved. Record the distinction explicitly in the PR.
 - When Mike needs to perform a local smoke test, GPT must provide the exact copy-paste shell command block needed to run it. The block must begin by changing into the local repository root with `cd`, then synchronize the intended candidate with GitHub by fetching, switching to the correct candidate branch when needed, and running `git pull --ff-only` before the smoke-test/build commands. Never assume the shell is already in the repository or that the local checkout is current. Before switching or pulling, protect tracked local edits; generated/untracked build artifacts alone should not be treated as source edits unless they would conflict with the candidate. Use the exact local checkout path when it is available from current private context. If the current path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Do not commit Mike's expanded personal home path into this public repository when a home-relative path is sufficient.
+- A local smoke command should be one coherent block whenever practical: synchronize candidate -> establish shared browser environment -> stop stale project preview if needed -> build -> run smoke -> report pass/fail without terminating the interactive shell -> start/open owner review surfaces only after success. Avoid `set -e` in interactive owner commands because a nonzero command should report the failure rather than terminate the terminal session.
 - For local browser smoke tests, first reuse the established shared Playwright environment. Its home-relative root is `~/Dev/dependencies/playwright`, its shared Node module path is `~/Dev/dependencies/playwright/node_modules`, and its shared browser cache is `~/Dev/dependencies/playwright/ms-playwright`. Prefer setting `NODE_PATH="$HOME/Dev/dependencies/playwright/node_modules"` and `PLAYWRIGHT_BROWSERS_PATH="$HOME/Dev/dependencies/playwright/ms-playwright"` before browser smoke commands. Do not assume Playwright or Chromium needs to be installed again merely because a project-local lookup cannot find the expected executable. If the shared environment cannot satisfy the current project version, explain the mismatch and use the least-destructive corrective step, preferably adding only the required browser revision to the shared browser cache.
 - Other repositories are read-only unless separately authorized.
 
