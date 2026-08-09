@@ -8,7 +8,7 @@ categories: [sre, observability, devops]
 tags: [opentelemetry, observability, tracing, metrics, logs, otlp]
 series: "Git to Know You"
 seriesOrder: 9
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **Distributed systems are very good at turning one user request into six unrelated-looking problems.**

@@ -107,7 +107,9 @@ docs/brand/00_BRAND_DOCTRINE.md
 docs/versioning/00_VERSIONING_DOCTRINE.md
 ```
 
-Each domain has one portfolio subject folder with exactly five Markdown documents. Sprint notes are the exception and live under `docs/sprint_notes/`.
+Each domain has one portfolio subject folder with exactly five Markdown documents. Sprint records are the execution-history exception and live under `docs/sprints/`.
+
+`docs/sprints/` contains the active sprint record plus recently completed sprint records. Completed records become archive-eligible 30 calendar days after their recorded close date and then move to `docs/sprints/archive/`. The archive is historical evidence, not startup authority, and must not be read during routine startup unless a specific historical/audit/regression need requires it.
 
 ## Deterministic startup read order
 
@@ -126,11 +128,12 @@ After the new chat is pointed to this master doctrine, GPT must read, without re
 
 Then:
 
-1. read the active sprint note named by `ACTIVE_SPRINT.md`, if a sprint is open;
-2. read only the domain documents referenced by the active work package or needed for the task;
-3. inspect the relevant current source files and current PR/branch state through connected GitHub;
-4. reconcile documentation claims against repository truth before writing;
-5. apply the public-disclosure/professional-read gate before any tracked update.
+1. perform the lightweight `docs/sprints/` hygiene check defined by sprint-system doctrine; do not read `docs/sprints/archive/` by default;
+2. read the active sprint record named by `ACTIVE_SPRINT.md`, if a sprint is open;
+3. read only the domain documents referenced by the active work package or needed for the task;
+4. inspect the relevant current source files and current PR/branch state through connected GitHub;
+5. reconcile documentation claims against repository truth before writing;
+6. apply the public-disclosure/professional-read gate before any tracked update.
 
 Do not require Mike to upload repository snapshots when connected GitHub access can recover current state.
 
@@ -202,7 +205,7 @@ Current authority order is:
 Git repository truth
 -> master/startup doctrine
 -> living state
--> active sprint note
+-> active sprint record
 -> domain docs
 -> CI/PR/deployment evidence
 -> chat context
@@ -318,6 +321,7 @@ If a gate fails, stop and state what is missing.
 
 ## Change history
 
+- **2026-08-08:** Standardized execution records under `docs/sprints/`, established a 30-day recent-record window, and made `docs/sprints/archive/` historical-only so routine startup does not accumulate document creep.
 - **2026-08-08:** Made approved merge to `main` the human production authorization and changed GitHub Pages to automatic deployment on `main` pushes; retained manual workflow dispatch as an operational fallback.
 - **2026-08-08:** Established the master doctrine as the single fresh-chat entry point; retired ZIP/script/upload handoff as the normal workflow; made repository documentation itself a recruiter-readable public engineering artifact subject to safety and professional-read gates.
 - **2026-08-08:** Made public-disclosure safety a hard repository law and established GitHub-hosted runners as the default for the public portfolio; prohibited exposing dedicated self-hosted infrastructure to untrusted public-repository workflow code.

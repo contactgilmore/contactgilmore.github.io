@@ -8,7 +8,7 @@ categories: [sre, devops, ai]
 tags: [cursor, ai, productivity, infrastructure-as-code]
 series: "Git to Know You"
 seriesOrder: 7
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **AI in your editor is not a gimmick. It’s a force multiplier.**

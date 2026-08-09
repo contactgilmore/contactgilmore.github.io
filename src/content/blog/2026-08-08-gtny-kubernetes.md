@@ -8,7 +8,7 @@ categories: [sre, devops, containers]
 tags: [kubernetes, containers, orchestration, reliability, devops]
 series: "Git to Know You"
 seriesOrder: 8
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **Containers are easy right up until you have a lot of them.**

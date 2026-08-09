@@ -8,7 +8,7 @@ categories: [sre, devops, kubernetes]
 tags: [argocd, gitops, kubernetes, continuous-delivery, reconciliation]
 series: "Git to Know You"
 seriesOrder: 10
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **A deployment gets much easier to reason about when “what should be running?” has one reviewable answer.**

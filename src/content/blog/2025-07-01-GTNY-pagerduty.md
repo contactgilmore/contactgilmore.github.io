@@ -8,7 +8,7 @@ categories: [sre, incident-response, on-call]
 tags: [pagerduty, on-call, incident-management, reliability]
 series: "Git to Know You"
 seriesOrder: 3
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **No way this is #3.** We have reduced some TOIL. We have better visibility. Now something is broken and somebody actually has to respond.

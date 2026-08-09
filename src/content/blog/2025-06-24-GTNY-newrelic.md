@@ -8,7 +8,7 @@ categories: [sre, observability, monitoring]
 tags: [new relic, observability, monitoring, apm, logs]
 series: "Git to Know You"
 seriesOrder: 2
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **Alright, now that we have started reducing TOIL, we need visibility.**
