@@ -138,6 +138,7 @@ test('series continuation reaches Kubernetes', async ({ page }) => {
   await expect(seriesNav.getByRole('link', { name: /Previous.*Cursor/i })).toHaveAttribute('href', '/GTNY-cursor/');
   await expect(seriesNav.getByRole('link', { name: /Next.*OpenTelemetry/i })).toHaveAttribute('href', '/gtny-opentelemetry/');
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /kubernetes-icon-color\.svg$/);
+  await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
 
   await page.goto('/blog/', { waitUntil: 'networkidle' });
   const archiveRow = page.locator('.writing-row').filter({
@@ -165,7 +166,9 @@ test('series continuation reaches OpenTelemetry', async ({ page }) => {
 
   seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
   await expect(seriesNav.getByRole('link', { name: /Previous.*Kubernetes/i })).toHaveAttribute('href', '/gtny-kubernetes/');
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /open-telemetry\.svg$/);
+  await expect(page.locator('.blog-thumbnail')).toHaveAttribute('src', '/assets/images/blog2026/082026/open-telemetry.svg');
+  await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
 
   await page.goto('/blog/', { waitUntil: 'networkidle' });
   const archiveRow = page.locator('.writing-row').filter({
