@@ -45,3 +45,26 @@ test('Work case-study actions have clear separation from capability pills', asyn
   const gap = (linkBox?.y ?? 0) - ((tagsBox?.y ?? 0) + (tagsBox?.height ?? 0));
   expect(gap).toBeGreaterThanOrEqual(20);
 });
+
+test('series introduction thumbnails use wordless vector artwork', async ({ page, request }) => {
+  const introductions = [
+    {
+      path: '/SRE-tools/',
+      asset: '/assets/images/blog2025/0622/git-to-know-you-intro.svg',
+    },
+    {
+      path: '/prompt-prove-ship/',
+      asset: '/assets/images/blog2026/082026/prompt-prove-ship.svg',
+    },
+  ];
+
+  for (const introduction of introductions) {
+    await page.goto(introduction.path, { waitUntil: 'networkidle' });
+    await expect(page.locator('.blog-thumbnail')).toHaveAttribute('src', introduction.asset);
+    await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
+
+    const response = await request.get(introduction.asset);
+    expect(response.ok()).toBeTruthy();
+    expect(await response.text()).not.toMatch(/<text\b/i);
+  }
+});
