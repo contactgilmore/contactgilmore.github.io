@@ -1,6 +1,6 @@
 # P8 — Portfolio Quality Ratchet and Series Transition
 
-Status: ACTIVE  
+Status: ACTIVE — OWNER GATES PENDING  
 Opened: 2026-08-08  
 Owner: Mike Gilmore
 
@@ -19,6 +19,8 @@ production merge: 6668237614720202adec43cd0feadd6dc36ce2af
 automatic Pages deployment run: 31287772916
 result: SUCCESS
 owner local smoke: 108 / 108 Playwright tests passed
+P8 authority merge: a19e196660777259fe18bcad2bc556c000011eab
+implementation PR: #25
 ```
 
 Repository startup, public-disclosure, release, and owner-gate authority remain in `00_MASTER/00_MASTER_DOCTRINE.md` and `00_MASTER/01_SPRINT_SYSTEM/`.
@@ -61,103 +63,116 @@ public safety/secret rules
 existing professional positioning
 ```
 
-## Work-package queue
+## Work-package queue and status
 
 ### WP1 — Series closeout and roadmap/backlog reconciliation
 
-Classification: documentation/content maintenance.
+Status: IMPLEMENTED / VERIFIED, OWNER PRODUCTION GATE PENDING.
 
-Expected result:
+Delivered:
 
-- Git to Know You is clearly represented as a completed #1–#10 series;
-- Argo #10 production/deployment/owner-smoke evidence is recorded;
-- roadmap and domain backlogs no longer present completed work as future work;
-- next-series work remains directional, not a publication commitment.
+- Git to Know You overview and #1–#10 now consistently use `seriesStatus: complete`;
+- the overview presents a complete ten-article learning path and no longer implies a required #11;
+- historical publication dates, slugs/URLs, thumbnails, and article bodies remain protected except the explicitly approved series-closeout overview wording;
+- product, architecture, and versioning backlogs were reconciled with current Astro/GitHub Pages production truth instead of retaining completed migration work as future tasks;
+- architecture maintenance now explicitly warns that `draft: true` must not be treated as private until route generation is verified to exclude drafts.
 
 Verification:
 
-- exact diff/public-read review;
-- article/series navigation and historical dates remain unchanged except explicitly approved series-status/overview wording;
-- no stale #10-as-future references remain in living authority.
+- exact diff/public-read review completed;
+- no site routes or historical publication dates were changed;
+- dedicated browser contract verifies the overview is complete, #10 links correctly, #10 points back to OpenTelemetry, and #10 has no Next link.
 
 ### WP2 — Deterministic quality and low-owner-effort workflow audit
 
-Classification: governance/documentation update.
+Status: IMPLEMENTED / PUBLIC-SAFE.
 
-Expected result:
+Delivered:
 
-A fresh chat following master doctrine should autonomously:
-
-1. recover authority from GitHub;
-2. declare bounded scope/no-touch paths;
-3. continue implementation and verification without repeatedly asking Mike to drive routine steps;
-4. use exact-head CI and browser/accessibility evidence;
-5. request owner input only at genuine public-representation, local-only, or production gates;
-6. when local smoke is needed, issue one complete `cd` + sync + shared-Playwright command block;
-7. present owner gates in concise, mobile-friendly language with the exact decision needed;
-8. close out living state so the next chat reaches the same conclusion without chat memory.
+- GPT guardrails now make autonomous bounded continuation a hard operating rule;
+- sprint rhythm distinguishes routine checkpoints from genuine owner gates;
+- future sessions should not ask Mike to click GitHub, copy patches, repeat recoverable repository state, or drive routine branch/PR/CI mechanics;
+- owner gates must state what changed, exact evidence, remaining subjective/uncertain items, and the exact decision requested in mobile-friendly form;
+- low owner effort may not weaken claim-matching visual/browser/accessibility evidence;
+- local smoke remains one coherent `cd` -> sync/pull -> shared Playwright -> build/test -> review command block;
+- interactive owner commands must not use `set -e` merely to simplify failure handling;
+- documentation-only commits after a green implementation head do not force redundant owner smoke when they cannot affect the approved claim;
+- publishing workflow explicitly allows a pause after a completed series rather than manufacturing content momentum.
 
 Verification:
 
-- startup doctrine remains deterministic and non-duplicative;
-- rules do not expose personal local paths unnecessarily;
-- public-repository safety remains stronger than convenience;
-- no rule implies that CI alone proves visual quality when a visual claim changed.
+- deterministic startup still reads these support documents every session;
+- no expanded personal local path was committed;
+- public-repository safety remains a hard gate;
+- workflow still requires rendered/browser proof for visual claims.
 
 ### WP3 — MacBook-class homepage hero typography calibration
 
-Classification: visual implementation/browser validation.
+Status: IMPLEMENTED / AUTOMATED EVIDENCE GREEN / OWNER VISUAL GATE PENDING.
 
-Required source:
+Delivered:
 
-- current homepage source/styles;
-- brand doctrine/backlog;
-- existing Playwright viewport evidence.
+- homepage desktop hero gives more width to the primary value proposition and a narrower signal rail;
+- desktop headline maximum/measure and short-viewport top spacing were calibrated without changing the homepage copy or professional positioning;
+- standard desktop Playwright viewport changed from 1440×1000 to **1440×900** so routine regression reflects a common laptop-class screen;
+- dedicated desktop evidence checks both **1440×900** and **1280×800** and requires `View selected work` to remain in the initial viewport.
 
-Expected result:
+Quality-ratchet evidence:
 
-The homepage hero remains confident/editorial but improves first-viewport recruiter scanability at common laptop widths by testing a modestly wider measure and/or lower desktop maximum rather than reverting to generic small typography.
+1. First focused test correctly failed at implementation head `c147aa8932dd3eab4a0818e4a612e92e208d3eca`: at 1440×900 the primary CTA bottom was approximately **1217px**, outside the 900px initial viewport. The gate was not weakened.
+2. The hero composition was corrected structurally rather than merely shrinking text.
+3. Focused laptop evidence then passed on implementation head `b1424ce0c04cb8dcdb7c8ddb05dcf3617602947d` at both target viewports, with the full existing responsive/accessibility suite green.
+4. Final exact implementation head `13799698d53350058d8949df72f2f43922abcd78` passed the focused laptop contract again as part of the final Playwright suite.
 
-Verification:
-
-- desktop MacBook-class evidence plus existing desktop/tablet/phone regression;
-- no horizontal overflow;
-- CTA/value proposition remain clear;
-- axe accessibility remains clean;
-- owner visual approval before production merge.
+Owner visual approval on the actual MacBook remains required because automated geometry does not prove subjective visual quality.
 
 ### WP4 — Next-series foundation / sneak-peek
 
-Classification: product/editorial strategy with optional bounded content implementation.
+Status: STRATEGY/DRAFT READY / NOT PUBLISHED / OWNER DIRECTION GATE PENDING.
 
-Expected result:
+Delivered:
 
-- choose the next series only after comparing the strongest directions against the portfolio north star;
-- likely candidates include AI-assisted engineering workflow and Cloud Foundations, but repository evidence and usefulness control the decision;
-- define audience, promise, scope boundaries, likely topic arc, and naming;
-- if a public intro/sneak-peek is useful, prepare only that intro for owner review;
-- do not publish numbered follow-on articles in P8.
+- AI-assisted engineering workflow is the recommended next **direction** because it connects technical delivery, repository context, agentic implementation, verification, troubleshooting, review, and release control in a way this public repository can transparently demonstrate;
+- Cloud Foundations remains a future series candidate rather than being rejected;
+- `docs/editorial/NEXT_SERIES_FOUNDATION.md` defines audience, promise, non-goals, durable themes, potential topic arc, and naming alternatives without assigning article numbers/dates;
+- `docs/editorial/NEXT_SERIES_INTRO_DRAFT.md` contains a concept-first **NOT PUBLISHED** intro draft so owner review can happen before any route/content entry is created;
+- working concept/name `Prompt to Proof` remains provisional because a current naming scan found the exact phrase in use elsewhere; `Prompt. Prove. Ship.` is staged as the more distinctive delivery-oriented alternative.
 
-Verification:
-
-- no fabricated first-person experience;
-- no forced publishing calendar;
-- concept is distinct from Git to Know You and supports Mike's technical-delivery positioning;
-- owner approval required before any new public series representation merges.
+No next-series site-visible content is authorized or published by P8 until the owner approves the name/promise/timing.
 
 ### WP5 — Full sprint verification and closeout
 
-Classification: browser validation/closeout.
+Status: AUTOMATED IMPLEMENTATION EVIDENCE GREEN; OWNER GATES / PRODUCTION MERGE / CLOSEOUT PENDING.
 
-Expected result:
+Final exact implementation head:
 
-- exact changed-file review;
-- public-disclosure and professional-read pass;
-- applicable Astro/asset/link/route validation;
-- Playwright desktop/tablet/phone and axe evidence for affected surfaces;
-- owner smoke/visual gate only where it adds unique proof;
-- accepted changes merged/deployed under current release contract;
-- living state, roadmap, sprint note, relevant domain docs, and closeout prompt updated.
+```text
+13799698d53350058d8949df72f2f43922abcd78
+```
+
+Exact-head evidence:
+
+```text
+Validate Astro migration: run 31288824838 — SUCCESS
+Playwright portfolio smoke: run 31288824836 — SUCCESS
+Playwright result: 110 passed / 4 expected desktop-only skips
+Playwright evidence artifact: 9030756177
+artifact digest: sha256:d0e6a753e7a65b21deae01ca812a65b7259a1a903517e7cd9804f44e809befce
+```
+
+The final browser run includes:
+
+- desktop 1440×900 responsive regression;
+- tablet and phone regression;
+- 1440×900 and 1280×800 focused hero first-viewport proof;
+- Git to Know You completion contract;
+- all existing route/series/navigation/browser checks;
+- representative axe accessibility scans;
+- zero-orphan public asset audit and successful Astro build.
+
+One intermediate series-completion test failed because the test incorrectly expected `#10` inside the link's accessible name even though the rendered semantic structure was correct (`#10.` in the heading and `Argo CD and GitOps` as the link). The selector was corrected to match the actual markup; the presentation requirement was not weakened.
+
+Subsequent changes after the green implementation head are documentation-only strategy/evidence updates and do not affect runtime, visual, route, or browser claims. Per the hardened workflow, they do not require a redundant full owner smoke rerun.
 
 ## Acceptance condition
 
@@ -185,12 +200,12 @@ CHANGELOG.md when accepted material site behavior changed
 
 A fresh session following `00_MASTER/00_MASTER_DOCTRINE.md` must reach the same state conclusion without relying on the prior chat.
 
-## Owner gates
+## Remaining owner gates
 
-Owner approval is required for:
+Owner approval is now required only for:
 
-- final homepage hero visual disposition;
-- any public next-series name/intro/sneak-peek;
-- production merge of public-representation changes.
+1. **Homepage hero visual disposition** on the actual MacBook after the automated laptop geometry/responsive evidence passed.
+2. **Next-series public direction**: final name/promise and whether an intro/sneak-peek should publish now or wait for a deliberate pause.
+3. **Production merge of PR #25** after those public-representation decisions are resolved.
 
-Routine documentation reconciliation, research, branch work, CI investigation, exact-diff review, and non-production preparation should proceed autonomously within this sprint's boundaries.
+Routine documentation reconciliation, research, CI investigation, exact-diff review, and non-production preparation should continue autonomously within this sprint's boundaries.
