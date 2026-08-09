@@ -1,35 +1,46 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
+Status: **ACTIVE IMPLEMENTATION SPRINT**  
 Updated: 2026-08-08
 
-Most recently completed sprint: **P7 — Blog Editorial System and AI-Assisted Publishing**
+Current sprint: **P8 — Portfolio Quality Ratchet and Series Transition**
 
-Historical sprint note:
+Sprint authority:
 
-`docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
+`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
-Current production authority:
+Current production authority entering P8:
 
 ```text
 production branch: main
-current production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
-current release: Git to Know You #9 — OpenTelemetry
-automatic Pages deployment run: 31286854414
+current production merge: 6668237614720202adec43cd0feadd6dc36ce2af
+current release: Git to Know You #10 — Argo CD / GitOps
+automatic Pages deployment run: 31287772916
 result: SUCCESS
+owner local smoke: 108 / 108 Playwright tests passed
 ```
 
-Historical release anchors:
+Most recently completed formal sprint before P8: **P7 — Blog Editorial System and AI-Assisted Publishing**.
 
-```text
-P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
-release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
-first automatic Pages deployment run: 31280952066
-Kubernetes merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
-Kubernetes deployment run: 31284483589
-```
+Historical P7 note:
 
-Current release model:
+`docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
+
+## P8 thesis
+
+Consolidate the quality gains proven during the final Git to Know You releases, reduce owner effort without weakening evidence, resolve the MacBook-class homepage typography issue, and prepare the next writing-series direction without immediately publishing another run of articles.
+
+## Current work-package queue
+
+1. **WP1 — Series closeout and roadmap/backlog reconciliation**
+2. **WP2 — Deterministic quality and low-owner-effort workflow audit**
+3. **WP3 — MacBook-class homepage hero typography calibration**
+4. **WP4 — Next-series foundation / sneak-peek**
+5. **WP5 — Full sprint verification and closeout**
+
+Do not begin a new batch of blog articles in P8. Git to Know You #10 closes the first complete #1–#10 series. The next series may receive only a concept/foundation and, if useful, one owner-approved intro/sneak-peek.
+
+## Release model
 
 ```text
 bounded branch
@@ -42,26 +53,15 @@ bounded branch
 -> living-state closeout
 ```
 
-`workflow_dispatch` remains available only as an operational fallback; it is no longer the normal release step.
+`workflow_dispatch` remains fallback only.
 
-## Next-work posture
+## Owner-effort posture
 
-Do not manufacture a sprint merely because the repository is active. Open a bounded sprint only when there is a concrete multi-file outcome, publication batch, redesign, migration, or other material change.
+GPT should continue autonomously through routine GitHub reads/writes, bounded implementation, exact-diff review, research, and CI/browser investigation until a genuine owner decision or local-only proof gate is reached.
 
-Git to Know You #9 — OpenTelemetry is published and deployed. Directional backlog now begins with:
+When owner/local smoke is needed, provide one complete copy-paste block that begins with `cd`, synchronizes the candidate with fetch/switch/`git pull --ff-only`, protects tracked local edits, reuses the shared Playwright environment, and runs the required build/test/review steps.
 
-- Git to Know You #10 — Argo CD / GitOps;
-- homepage hero typography review at MacBook-class viewports;
-- possible future Cloud Foundations and AI/engineering-workflow writing series;
-- periodic portfolio/content maintenance as evidence warrants.
-
-## Owner/local smoke posture
-
-Owner smoke-test command blocks must begin with `cd`, synchronize the candidate with fetch/switch/`git pull --ff-only`, protect tracked local edits, and reuse the established shared Playwright environment documented in the GPT guardrails/editorial workflow.
-
-Date-only editorial metadata must render consistently across machine timezones; do not change source publication dates to compensate for local rendering behavior.
-
-For product/tool article thumbnails, prefer authoritative SVG artwork and the contained logo-card treatment. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace around the logo.
+Owner gates should be concise and mobile-friendly: state what changed, what evidence passed, what remains uncertain, and the exact approval/notes decision required.
 
 ## Public-repository rule
 

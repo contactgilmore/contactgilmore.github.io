@@ -11,10 +11,11 @@ Current production truth:
 
 ```text
 production branch: main
-current production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
-current release: Git to Know You #9 — OpenTelemetry
-automatic deployment run: 31286854414
+current production merge: 6668237614720202adec43cd0feadd6dc36ce2af
+current release: Git to Know You #10 — Argo CD / GitOps
+automatic deployment run: 31287772916
 result: SUCCESS
+owner local smoke: 108 / 108 Playwright tests passed
 production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
 ```
@@ -27,9 +28,21 @@ release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
 first automatic deployment run: 31280952066
 Kubernetes merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
 Kubernetes deployment run: 31284483589
+OpenTelemetry merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
+OpenTelemetry deployment run: 31286854414
+Argo CD / GitOps merge: 6668237614720202adec43cd0feadd6dc36ce2af
+Argo CD / GitOps deployment run: 31287772916
 ```
 
-There is no active implementation sprint.
+## Active sprint
+
+P8 — **Portfolio Quality Ratchet and Series Transition** is active.
+
+Authority:
+
+`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+
+P8 is not another article batch. It closes Git to Know You as the first complete #1–#10 series, hardens the proven low-owner-effort quality workflow, resolves the existing MacBook-class homepage hero typography backlog, and prepares only the foundation/sneak-peek for the next writing series.
 
 ## Durable decisions
 
@@ -46,6 +59,7 @@ There is no active implementation sprint.
 - Date-only editorial metadata must render as the stored calendar date regardless of build-machine timezone.
 - Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
 - Product/tool logo thumbnails should prefer authoritative SVG artwork and use a contained logo-card treatment rather than crop-to-fill behavior. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace.
+- GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
 
 ## Current production structure
 
@@ -89,66 +103,63 @@ docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_202
 docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
 ```
 
-P7 outcomes:
+P7 established the typed Astro blog, preserved historical dates/URLs, refreshed the original series content, added explicit series metadata/navigation, retired the obsolete launch article safely, and established the public-safe AI-assisted publishing workflow with responsive Playwright/axe gates and owner smoke review.
 
-- eight active articles remain; the obsolete `We have a blog!` launch article is retired from the active collection;
-- `/we-have-a-blog/` remains as a compatibility page to Writing and its weak Vault Boy thumbnail is removed;
-- `Git to Know You: SRE Tools` is a living series introduction rather than a fixed 2025 top-ten promise;
-- Rundeck, New Relic, PagerDuty, Terraform, GitHub Actions, and Cursor received substantive 2026 refreshes with separate Updated metadata;
-- Git remains largely unchanged because its core content is durable; it received series metadata without an artificial Updated date;
-- migrated posts retain exact legacy URLs; future posts declare a typed lowercase/hyphenated `slug` so new publishing does not require route-map edits;
-- the overview and #1–#7 use explicit series metadata and articles provide previous/next series navigation;
-- orphan logo assets created by the overview reframe were pruned rather than exempted from the asset policy;
-- product-logo thumbnails remain the default for individual tool articles unless a specific asset is obsolete, low-quality, misleading, or visually unsuitable;
-- GPT is the default research/drafting engine for future posts under the public-safe editorial workflow and may not invent personal experience, employer/customer stories, metrics, screenshots, or first-person claims.
+## Git to Know You — complete #1–#10 series
 
-P7 final candidate passed exact-head Astro validation, historical identity/date/compatibility checks, zero-orphan asset audit, internal-link verification, expanded desktop/tablet/phone Playwright, representative axe scans, rendered screenshot review, public-disclosure review, and owner local smoke testing before merge.
-
-## Git to Know You continuation
+The first complete Git to Know You series now runs from Rundeck through Argo CD / GitOps. The series remains public as a coherent beginner-friendly learning path, but P8 must not manufacture #11 merely to continue numbering.
 
 ### #8 Kubernetes — published and deployed
-
-Kubernetes was published as the first post-P7 bounded editorial work package.
-
-Release evidence:
 
 ```text
 PR: #19
 production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
 automatic Pages deployment run: 31284483589
 result: SUCCESS
-owner local smoke: 90 / 90 Playwright tests passed
+owner local smoke: 90 / 90
 ```
 
-The owner smoke test exposed a timezone-dependent date-rendering defect that UTC CI did not reveal. The fix preserved source publication dates and made article, Writing archive, and homepage date rendering explicitly timezone-stable before publication.
+The owner smoke exposed a timezone-dependent date-rendering defect that UTC CI did not reveal; source dates were preserved and rendering became timezone-stable.
 
 ### #9 OpenTelemetry — published and deployed
-
-OpenTelemetry was published as the next bounded editorial work package.
-
-Release evidence:
 
 ```text
 PR: #21
 production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
 automatic Pages deployment run: 31286854414
 result: SUCCESS
-owner local smoke: 99 / 99 Playwright tests passed
+owner local smoke: 99 / 99
 ```
 
-The first owner visual review identified overly cropped/zoomed Kubernetes and OpenTelemetry logo thumbnails. Before publication, the presentation was corrected so authoritative SVG logos render as contained 16:9 logo cards with deliberate whitespace; OpenTelemetry moved from a low-resolution navigation image to a local authoritative vector asset. The corrected candidate passed fresh Astro, browser, accessibility, asset, route, link, and owner visual gates before merge.
+Owner visual review caught overly cropped logo thumbnails. The final release established authoritative SVG artwork plus a contained 16:9 logo-card treatment.
 
-Directional continuation is now:
+### #10 Argo CD / GitOps — published and deployed
 
 ```text
-#10 Argo CD / GitOps
+PR: #23
+production merge: 6668237614720202adec43cd0feadd6dc36ce2af
+automatic Pages deployment run: 31287772916
+result: SUCCESS
+owner local smoke: 108 / 108
 ```
 
-AWS moves to a possible future Cloud Foundations series because it is too broad for one generic tool article. FireHydrant is no longer required to complete Git to Know You.
+The release refreshed the living series overview through #10, used authoritative CNCF Argo vector artwork, and extended responsive/accessibility/series-navigation coverage through the completed learning arc.
+
+## Current P8 direction
+
+```text
+WP1 series closeout + roadmap/backlog reconciliation
+WP2 deterministic quality + low-owner-effort workflow audit
+WP3 MacBook-class homepage hero typography calibration
+WP4 next-series foundation / optional intro sneak-peek only
+WP5 full verification + closeout
+```
+
+The next writing-series direction is intentionally undecided entering P8. AI-assisted engineering workflow and Cloud Foundations are candidates, but usefulness, distinctiveness, and portfolio positioning must decide the direction. Do not begin numbered follow-on articles in P8.
 
 ## Brand backlog note
 
-A macOS Chrome owner review identified the homepage display headline as potentially too aggressive at a common laptop/desktop viewport. This remains a future visual-maintenance item. Compare a modestly wider hero measure and/or lower desktop maximum with Playwright evidence while preserving the confident editorial hierarchy.
+A macOS Chrome owner review identified the homepage display headline as visually aggressive at a common laptop/desktop viewport. P8 owns this item: compare a modestly wider hero measure and/or lower desktop maximum with browser evidence while preserving confident editorial hierarchy and recruiter scanability.
 
 ## Public-writing boundaries
 
@@ -156,7 +167,7 @@ Do not publish customer identities, private employer/customer artifacts, proprie
 
 For AI-assisted articles, do not fabricate anecdotes or tool usage. Use sourced generic examples or ask for small factual input when a genuine first-person story materially improves an article.
 
-## Verification posture for future releases
+## Verification posture
 
 Material changes should follow:
 
@@ -171,3 +182,5 @@ automatic GitHub Pages deployment
 post-deploy verification
 living-state closeout
 ```
+
+A fresh chat must recover this same conclusion from repository authority without depending on conversation memory.
