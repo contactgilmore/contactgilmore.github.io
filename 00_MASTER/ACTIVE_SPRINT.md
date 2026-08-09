@@ -7,7 +7,7 @@ Current sprint: **P8 — Portfolio Quality Ratchet and Series Transition**
 
 Sprint authority:
 
-`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
 Current production authority entering P8:
 
@@ -22,9 +22,9 @@ owner local smoke: 108 / 108 Playwright tests passed
 
 Most recently completed formal sprint before P8: **P7 — Blog Editorial System and AI-Assisted Publishing**.
 
-Historical P7 note:
+Historical P7 record:
 
-`docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
+`docs/sprints/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md`
 
 ## P8 thesis
 
@@ -32,13 +32,35 @@ Consolidate the quality gains proven during the final Git to Know You releases, 
 
 ## Current work-package queue
 
-1. **WP1 — Series closeout and roadmap/backlog reconciliation**
-2. **WP2 — Deterministic quality and low-owner-effort workflow audit**
-3. **WP3 — MacBook-class homepage hero typography calibration**
-4. **WP4 — Next-series foundation / sneak-peek**
-5. **WP5 — Full sprint verification and closeout**
+1. **WP1 — Series closeout and roadmap/backlog reconciliation** — implementation complete; final release bookkeeping pending
+2. **WP2 — Deterministic quality and low-owner-effort workflow audit** — implementation complete; sprint-record lifecycle added
+3. **WP3 — MacBook-class homepage hero typography calibration** — owner approved after MacBook review
+4. **WP4 — Next-series foundation / sneak-peek** — **Prompt. Prove. Ship.** approved; public introduction candidate now in branch
+5. **WP5 — Full sprint verification and closeout** — next
 
-Do not begin a new batch of blog articles in P8. Git to Know You #10 closes the first complete #1–#10 series. The next series may receive only a concept/foundation and, if useful, one owner-approved intro/sneak-peek.
+Git to Know You #10 closes the first complete #1–#10 series. P8 is authorized to publish one **Prompt. Prove. Ship.** series introduction/sneak-peek; no numbered follow-on Prompt. Prove. Ship. articles belong in P8.
+
+## Current owner decisions
+
+Approved 2026-08-08:
+
+- calibrated homepage hero is accepted on the owner's MacBook;
+- **Prompt. Prove. Ship.** is the approved next-series name;
+- descriptor/direction: AI-assisted engineering without outsourcing judgment;
+- publish the series sneak-peek now;
+- after the next focused series arc, perform a final employer-readiness pass and then favor portfolio stability over constant churn.
+
+Final-polish observation, not a current defect: the top-right homepage focus rail may feel slightly open above its rule. Do not add decoration merely to fill space; revisit only during the final employer-readiness pass if the composition still feels unfinished.
+
+## Sprint-record hygiene
+
+Canonical execution-history path is now:
+
+```text
+docs/sprints/
+```
+
+Completed sprint records remain operationally nearby for 30 calendar days after close, then become eligible for Git move to `docs/sprints/archive/`. Routine startup does not read the archive. P1–P8 are all dated 2026-08-08 and therefore none are archive-eligible yet.
 
 ## Release model
 
