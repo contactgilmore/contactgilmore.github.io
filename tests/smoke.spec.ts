@@ -19,6 +19,7 @@ const pages = [
   { path: '/GTNY-github-actions/', name: 'actions-article' },
   { path: '/GTNY-cursor/', name: 'cursor-article' },
   { path: '/gtny-kubernetes/', name: 'kubernetes-article' },
+  { path: '/gtny-opentelemetry/', name: 'opentelemetry-article' },
   { path: '/we-have-a-blog/', name: 'retired-launch-note' },
 ];
 
@@ -135,7 +136,9 @@ test('series continuation reaches Kubernetes', async ({ page }) => {
 
   seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
   await expect(seriesNav.getByRole('link', { name: /Previous.*Cursor/i })).toHaveAttribute('href', '/GTNY-cursor/');
+  await expect(seriesNav.getByRole('link', { name: /Next.*OpenTelemetry/i })).toHaveAttribute('href', '/gtny-opentelemetry/');
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /kubernetes-icon-color\.svg$/);
+  await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
 
   await page.goto('/blog/', { waitUntil: 'networkidle' });
   const archiveRow = page.locator('.writing-row').filter({
@@ -149,6 +152,37 @@ test('series continuation reaches Kubernetes', async ({ page }) => {
   });
   await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
   await expect(featuredCard.getByRole('link', { name: '#8. Git to Know You: Kubernetes' })).toHaveAttribute('href', '/gtny-kubernetes/');
+});
+
+test('series continuation reaches OpenTelemetry', async ({ page }) => {
+  await page.goto('/gtny-kubernetes/', { waitUntil: 'networkidle' });
+
+  let seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
+  await expect(seriesNav.getByRole('link', { name: /Next.*OpenTelemetry/i })).toHaveAttribute('href', '/gtny-opentelemetry/');
+
+  await page.goto('/gtny-opentelemetry/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Git to Know You: OpenTelemetry');
+  await expect(page.locator('.post-date')).toContainText('Published August 8, 2026');
+
+  seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
+  await expect(seriesNav.getByRole('link', { name: /Previous.*Kubernetes/i })).toHaveAttribute('href', '/gtny-kubernetes/');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /open-telemetry\.svg$/);
+  await expect(page.locator('.blog-thumbnail')).toHaveAttribute('src', '/assets/images/blog2026/082026/open-telemetry.svg');
+  await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
+
+  await page.goto('/blog/', { waitUntil: 'networkidle' });
+  const archiveRow = page.locator('.writing-row').filter({
+    has: page.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' }),
+  });
+  await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
+  await expect(archiveRow.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' })).toHaveAttribute('href', '/gtny-opentelemetry/');
+
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const featuredCard = page.locator('.article-card').filter({
+    has: page.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' }),
+  });
+  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
+  await expect(featuredCard.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' })).toHaveAttribute('href', '/gtny-opentelemetry/');
 });
 
 test('retired launch note points readers to current Writing', async ({ page }) => {
@@ -178,7 +212,7 @@ test('structured data stays public-safe and article metadata is complete', async
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });
 
-for (const target of ['/', '/work/', '/blog/', '/SRE-tools/', '/GTNY-terraform/', '/GTNY-cursor/', '/gtny-kubernetes/']) {
+for (const target of ['/', '/work/', '/blog/', '/SRE-tools/', '/GTNY-terraform/', '/GTNY-cursor/', '/gtny-kubernetes/', '/gtny-opentelemetry/']) {
   test(`axe accessibility scan passes for ${target}`, async ({ page }) => {
     await page.goto(target, { waitUntil: 'networkidle' });
     const results = await new AxeBuilder({ page }).analyze();
