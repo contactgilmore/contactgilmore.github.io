@@ -58,84 +58,51 @@ Public-asset minimization, sitemap/robots/canonical/social metadata, structured 
 Recruiter-facing copy polish, stronger first-person ownership, deeper case-study specificity, career-foundation narrative, responsive visual review, public-repository hardening, and GitHub-first continuation doctrine. Squash-merged as `21031c0a18ae1c10ab9bafcbd0922c4b620c5383`.
 
 ### P7 — Blog editorial system and AI-assisted publishing — COMPLETE
-
-Delivered:
-
-- typed Astro content schema and historical URL/date preservation;
-- living Git to Know You series overview;
-- refreshed original series articles;
-- explicit `updated`, `slug`, `series`, `seriesOrder`, and `seriesStatus` metadata;
-- previous/next series navigation;
-- public-safe AI-assisted publishing workflow;
-- expanded article/archive responsive Playwright and accessibility coverage;
-- owner local smoke testing before merge.
+Established the typed Astro blog, protected historical dates/URLs, refreshed the original series, added series metadata/navigation, established public-safe AI-assisted publishing, and expanded responsive/accessibility regression.
 
 P7 source merge: `5af373ab34a2ea1fd4692dc271fc1063b99f11f8`.
 
-Release policy was then simplified so approved merges to `main` automatically deploy GitHub Pages. Policy merge: `88d4a34d63234416f73ba4771cc9839359d5196a`. First automatic deployment run `31280952066` succeeded.
+### P8 — Portfolio Quality Ratchet and Series Transition — COMPLETE
+
+Delivered:
+
+- closed Git to Know You as a deliberate #1–#10 series;
+- reconciled stale product/architecture/versioning backlog language;
+- made autonomous bounded execution, exact-head proof, low owner friction, and concise owner gates durable startup rules;
+- standardized sprint execution records under `docs/sprints/` with a 30-day recent-history window and historical-only archive;
+- corrected the MacBook-class homepage hero composition and expanded laptop-specific proof;
+- introduced **Prompt. Prove. Ship.** as the next writing series;
+- published **Prompt. Prove. Ship.: From Chat to Change** with a purpose-built vector thumbnail and homepage feature placement;
+- preserved responsive, route, asset, link, and accessibility quality gates.
+
+Release record:
+
+```text
+PR: #25
+production merge: fad90493ab0cad61fee834cdace94256e97e8557
+automatic Pages deployment run: 31290363581
+result: SUCCESS
+final Validate run: 31290157900 — SUCCESS
+final Playwright run: 31290157896 — 116 passed / 4 intentional skips
+```
 
 ## Completed first writing series — Git to Know You #1–#10
 
-Git to Know You is now the first complete portfolio writing series. It remains a public beginner-friendly learning path, but the roadmap does not manufacture #11 simply to continue numbering.
+Git to Know You remains a public beginner-friendly learning path from Rundeck through Argo CD / GitOps. The roadmap does not manufacture #11 simply to continue numbering.
 
-### #8 Kubernetes — PUBLISHED
-
-```text
-PR: #19
-production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
-automatic Pages deployment run: 31284483589
-owner local Playwright smoke: 90 / 90 passed
-```
-
-The owner smoke caught timezone-dependent date rendering that UTC CI did not expose; the fix preserved historical source dates and made calendar-date rendering deterministic.
-
-### #9 OpenTelemetry — PUBLISHED
+Post-P7 release anchors:
 
 ```text
-PR: #21
-production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
-automatic Pages deployment run: 31286854414
-owner local Playwright smoke: 99 / 99 passed
+Kubernetes: PR #19 / merge 3986eab790441506eb8e34d31a7d51bbab4bcea3 / deploy 31284483589 / owner smoke 90/90
+OpenTelemetry: PR #21 / merge 40d171466381516c6dd57da3ff5964ad0f2300a0 / deploy 31286854414 / owner smoke 99/99
+Argo CD / GitOps: PR #23 / merge 6668237614720202adec43cd0feadd6dc36ce2af / deploy 31287772916 / owner smoke 108/108
 ```
 
-Owner visual review caught a logo-thumbnail presentation issue despite green automated tests. The final release established authoritative SVG artwork and a contained 16:9 logo-card treatment; raster fallback should be 1600×900 or larger with generous whitespace.
+## Current planning state
 
-### #10 Argo CD / GitOps — PUBLISHED
+There is **no active implementation sprint**.
 
-```text
-PR: #23
-production merge: 6668237614720202adec43cd0feadd6dc36ce2af
-automatic Pages deployment run: 31287772916
-owner local Playwright smoke: 108 / 108 passed
-```
-
-The release completed the cloud-native learning arc, refreshed the living series overview through #10, used authoritative CNCF Argo vector artwork, and extended series/browser/accessibility regression coverage.
-
-## P8 — Portfolio Quality Ratchet and Series Transition — ACTIVE
-
-Sprint authority:
-
-`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
-
-P8 exists to consolidate quality rather than increase publishing volume.
-
-Work packages:
-
-1. close Git to Know You cleanly and reconcile stale roadmap/domain backlog items;
-2. harden deterministic startup/execution/publishing guidance so GPT continues routine bounded work autonomously until a genuine owner decision/local-only proof/production gate;
-3. preserve exact-head CI/browser/accessibility quality while minimizing owner manual effort and presenting concise mobile-friendly gates;
-4. resolve the known MacBook-class homepage hero typography backlog with browser evidence;
-5. standardize sprint execution records under `docs/sprints/` with a 30-day recent-record window and historical-only archive;
-6. establish the next writing-series foundation and publish one owner-approved intro/sneak-peek only;
-7. complete full responsive/accessibility/public-disclosure closeout.
-
-Owner decisions now resolved:
-
-- MacBook homepage hero calibration: **APPROVED**;
-- next series: **Prompt. Prove. Ship.**;
-- series direction: **AI-assisted engineering without outsourcing judgment**;
-- publish one series introduction/sneak-peek in P8;
-- do not publish numbered follow-on Prompt. Prove. Ship. articles until P8 is closed and the next focused content sprint is opened deliberately.
+The portfolio uses a lightweight directional roadmap plus bounded sprints. Open a sprint only when there is a concrete, meaningful outcome to deliver.
 
 ## Next writing arc — Prompt. Prove. Ship.
 
@@ -145,7 +112,11 @@ Series promise:
 
 > How do you use AI agents to move technical work faster without giving up context, verification, security boundaries, review, or human ownership?
 
-Durable topic themes, not yet fixed article numbers or dates:
+Current public entry point:
+
+`/prompt-prove-ship/` — **Prompt. Prove. Ship.: From Chat to Change**
+
+Durable topic themes, not committed numbers or dates:
 
 - repository instructions and context engineering;
 - planning, allowed/no-touch scope, and stop conditions;
@@ -160,16 +131,18 @@ Cloud Foundations remains a later candidate. Do not run both series simultaneous
 
 ## Employer-readiness finish line
 
-After the next focused Prompt. Prove. Ship. update arc:
+After the next focused Prompt. Prove. Ship. writing arc:
 
 1. pause new content;
 2. perform one deliberate employer-facing final pass across Home / Work / Writing / About / Resume;
-3. evaluate recruiter scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, broken links, public safety, visual consistency, and unnecessary documentation/assets;
+3. evaluate recruiter scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, broken links, public safety, visual consistency, performance, and documentation/assets;
 4. resolve only material issues found by that review;
 5. publish the accepted final polish;
 6. enter a stability period and avoid cosmetic churn until new career evidence, a real defect, or a meaningful content need justifies another change.
 
 The portfolio should be credible when inspected as both a professional profile and a working example of web administration, content governance, accessibility, CI/CD, and AI-assisted delivery discipline.
+
+One non-blocking visual observation remains for that final pass: the upper-right homepage focus rail may feel slightly open above its horizontal rule. Do not add decoration merely to fill space.
 
 ## Sprint-record lifecycle
 
@@ -202,7 +175,7 @@ Potential later work, only when evidence justifies it:
 
 Ongoing work should include:
 
-- publish new writing through the typed content schema and AI-assisted publishing workflow when there is a useful topic, not to satisfy a calendar;
+- publish new writing when there is a useful topic, not to satisfy a calendar;
 - periodically review featured content and professional positioning;
 - maintain dependencies and CI/browser quality gates;
 - review external links and time-sensitive technical claims;
@@ -210,7 +183,7 @@ Ongoing work should include:
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
 - use sprint records for material redesign, migration, content-system, or publication arcs rather than every minor edit;
 - archive closed sprint records after the 30-day recent-history window so execution history does not crowd current authority;
-- treat merge to `main` as the human production authorization and verify the automatic Pages deployment afterward;
+- treat merge to `main` as human production authorization and verify automatic Pages deployment afterward;
 - keep living state current so fresh chats recover production truth deterministically;
 - minimize owner manual work without replacing human public-representation judgment or claim-matching evidence.
 

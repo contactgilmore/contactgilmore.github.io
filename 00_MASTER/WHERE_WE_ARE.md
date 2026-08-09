@@ -11,48 +11,28 @@ Current production truth:
 
 ```text
 production branch: main
-current production merge: 6668237614720202adec43cd0feadd6dc36ce2af
-current release: Git to Know You #10 — Argo CD / GitOps
-automatic deployment run: 31287772916
+current production merge: fad90493ab0cad61fee834cdace94256e97e8557
+current release: P8 quality ratchet + Prompt. Prove. Ship. introduction
+automatic deployment run: 31290363581
 result: SUCCESS
-owner local smoke: 108 / 108 Playwright tests passed
 production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
 ```
 
-Historical release anchors:
+Final P8 candidate evidence:
 
 ```text
-P7 source merge: 5af373ab34a2ea1fd4692dc271fc1063b99f11f8
-release-policy merge: 88d4a34d63234416f73ba4771cc9839359d5196a
-first automatic deployment run: 31280952066
-Kubernetes merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
-Kubernetes deployment run: 31284483589
-OpenTelemetry merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
-OpenTelemetry deployment run: 31286854414
-Argo CD / GitOps merge: 6668237614720202adec43cd0feadd6dc36ce2af
-Argo CD / GitOps deployment run: 31287772916
+candidate head: 151c32f6a012fba970c3d678c5a566062b47f5ec
+Validate Astro migration: 31290157900 — SUCCESS
+Playwright portfolio smoke: 31290157896 — SUCCESS
+Playwright result: 116 passed / 4 intentional skips
+asset audit: 22 referenced / 22 present / 0 orphan
+Astro output: 21 pages
+Playwright artifact: 9031135480
+artifact digest: sha256:e0cc0cefefa63525965fb15683f8b9c7e3b0096d73c2c23c01c66471627fbd0c
 ```
 
-## Active sprint
-
-P8 — **Portfolio Quality Ratchet and Series Transition** is active.
-
-Authority:
-
-`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
-
-Current implementation PR:
-
-```text
-PR: #25
-branch: p8-quality-ratchet-series-transition
-owner homepage decision: APPROVED
-next-series name: Prompt. Prove. Ship.
-series intro/sneak-peek: APPROVED FOR PUBLICATION
-```
-
-P8 closes Git to Know You as the first complete #1–#10 series, hardens the proven low-owner-effort quality workflow, resolves the MacBook-class homepage hero typography backlog, standardizes sprint-record retention, and publishes only the introductory sneak-peek for the next writing series.
+There is **no active implementation sprint**.
 
 ## Durable decisions
 
@@ -69,9 +49,9 @@ P8 closes Git to Know You as the first complete #1–#10 series, hardens the pro
 - Date-only editorial metadata must render as the stored calendar date regardless of build-machine timezone.
 - Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
 - Product/tool logo thumbnails should prefer authoritative SVG artwork and use a contained logo-card treatment rather than crop-to-fill behavior. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace.
-- GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
-- Canonical sprint execution records live under `docs/sprints/`. Closed records remain there for 30 calendar days, then become eligible for Git move to `docs/sprints/archive/`; routine startup does not read the archive.
-- Avoid documentation duplication. Current doctrine/living state should point to one authoritative sprint record rather than create parallel summaries of the same execution history.
+- GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, scope expansion, safety uncertainty, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
+- Canonical sprint execution records live under `docs/sprints/`. Closed records remain there for 30 calendar days after their recorded close date, then become eligible for Git move to `docs/sprints/archive/`; routine startup does not read the archive.
+- Avoid documentation duplication. Living state points to one authoritative sprint record rather than creating parallel summaries.
 
 ## Current production structure
 
@@ -96,100 +76,60 @@ Current case studies:
 /work/operating-model/
 ```
 
-## P6 — complete
+## P8 — complete and deployed
 
-P6 improved recruiter scanability, first-person ownership, case-study specificity, career narrative, responsive visual QA, and public-repository governance.
+Sprint: **Portfolio Quality Ratchet and Series Transition**
 
-Historical record:
+Record:
 
-`docs/sprints/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
+`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
-## P7 — complete and deployed
+P8 outcomes:
 
-Sprint: **Blog Editorial System and AI-Assisted Publishing**
+- Git to Know You is durably closed as the first complete #1–#10 series; no #11 is implied.
+- Stale pre-launch/product/architecture/versioning backlog language was reconciled with current production truth.
+- Fresh-chat governance now explicitly favors autonomous bounded execution, exact-head proof, concise owner gates, and low owner friction without weakening quality.
+- Sprint execution records were standardized under `docs/sprints/` with a 30-day recent-history window and historical-only archive.
+- The homepage hero was structurally recalibrated for laptop-class viewports; a focused test caught an initial first-viewport failure, the implementation was corrected without weakening the test, and the owner approved the final MacBook presentation.
+- Standard desktop regression now exercises 1440×900, with focused 1440×900 and 1280×800 hero checks.
+- **Prompt. Prove. Ship.** is the approved next series direction.
+- **Prompt. Prove. Ship.: From Chat to Change** is published at `/prompt-prove-ship/` with a purpose-built vector thumbnail and intentional homepage feature placement.
+- The new intro and existing portfolio surfaces passed responsive/browser/accessibility regression before merge.
 
-Authorities:
+## Writing state
 
-```text
-docs/sprints/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md
-docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
-```
+### Git to Know You — complete
 
-P7 established the typed Astro blog, preserved historical dates/URLs, refreshed the original series content, added explicit series metadata/navigation, retired the obsolete launch article safely, and established the public-safe AI-assisted publishing workflow with responsive Playwright/axe gates and owner smoke review.
+The first series runs from Rundeck through Argo CD / GitOps. Its overview and #1–#10 entries are explicitly complete and remain a coherent beginner-friendly learning path.
 
-## Git to Know You — complete #1–#10 series
+### Prompt. Prove. Ship. — introduced
 
-The first complete Git to Know You series now runs from Rundeck through Argo CD / GitOps. The series remains public as a coherent beginner-friendly learning path. P8 reconciles the overview and all #1–#10 entries to `seriesStatus: complete`; no #11 is implied.
-
-### #8 Kubernetes — published and deployed
-
-```text
-PR: #19
-production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
-automatic Pages deployment run: 31284483589
-result: SUCCESS
-owner local smoke: 90 / 90
-```
-
-The owner smoke exposed a timezone-dependent date-rendering defect that UTC CI did not reveal; source dates were preserved and rendering became timezone-stable.
-
-### #9 OpenTelemetry — published and deployed
-
-```text
-PR: #21
-production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
-automatic Pages deployment run: 31286854414
-result: SUCCESS
-owner local smoke: 99 / 99
-```
-
-Owner visual review caught overly cropped logo thumbnails. The final release established authoritative SVG artwork plus a contained 16:9 logo-card treatment.
-
-### #10 Argo CD / GitOps — published and deployed
-
-```text
-PR: #23
-production merge: 6668237614720202adec43cd0feadd6dc36ce2af
-automatic Pages deployment run: 31287772916
-result: SUCCESS
-owner local smoke: 108 / 108
-```
-
-The release refreshed the living series overview through #10, used authoritative CNCF Argo vector artwork, and extended responsive/accessibility/series-navigation coverage through the completed learning arc.
-
-## Current P8 direction
-
-```text
-WP1 series closeout + roadmap/backlog reconciliation — complete pending release closeout
-WP2 deterministic quality + low-owner-effort workflow audit — complete pending release closeout
-WP3 MacBook-class homepage hero typography calibration — owner approved
-WP4 Prompt. Prove. Ship. foundation + one public intro/sneak-peek — approved and in candidate
-WP5 full verification + production closeout — next
-```
-
-### Prompt. Prove. Ship.
-
-Approved series name:
-
-**Prompt. Prove. Ship.**
-
-Working promise:
+Series promise:
 
 **AI-assisted engineering without outsourcing judgment.**
 
-The P8 public introduction is titled **Prompt. Prove. Ship.: From Chat to Change**. It is a concept-first transition from tool education into repository context, task boundaries, evidence, safe autonomy, review, and release control. No numbered follow-on article is authorized inside P8.
+The published introduction moves from tool education into the operating model around AI-assisted engineering: repository context, bounded work, claim-matching evidence, safe autonomy, review, and release control.
 
-Cloud Foundations remains a later series candidate rather than being discarded.
+No numbered follow-on article is currently committed. A later focused sprint may choose the strongest sequence from the series foundation rather than manufacturing a calendar.
 
-## Brand backlog note
+Cloud Foundations remains a later candidate.
 
-The MacBook-class hero issue is resolved in the P8 candidate and owner-approved. The implementation gives the value proposition more horizontal room, narrows the secondary signal rail, calibrates display scale, and adds explicit 1440×900 plus 1280×800 first-viewport proof.
+## Brand note
 
-One final-polish observation remains intentionally non-blocking: the top-right focus rail can feel slightly open above its horizontal rule. Do not add decorative filler now. Revisit during the final employer-readiness pass only if the composition still feels unfinished in context.
+The MacBook-class hero issue is resolved and deployed. One intentionally non-blocking observation remains for the later employer-readiness pass: the upper-right focus rail may feel slightly open above its horizontal rule. Do not add decorative filler now; revisit only if the composition still feels unfinished in the final full-site review.
 
-## Employer-readiness posture
+## Employer-readiness finish line
 
-The portfolio should be treated as an employer-facing production artifact, including for reviewers assessing web administration, content quality, accessibility, release discipline, and technical delivery. The next focused writing arc should be followed by one complete recruiter/web-admin-quality pass, then a deliberate stability period rather than continuous cosmetic churn.
+After the next focused Prompt. Prove. Ship. writing arc:
+
+1. pause new content;
+2. run one deliberate employer-facing final pass across Home / Work / Writing / About / Resume;
+3. evaluate recruiter scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, links, public safety, visual consistency, performance, and documentation/assets;
+4. fix only material issues;
+5. publish the accepted final polish;
+6. enter a stability period instead of continuous cosmetic churn.
+
+The portfolio should remain credible both as a professional profile and as a working example of content governance, accessibility, CI/CD, web administration, and disciplined AI-assisted delivery.
 
 ## Public-writing boundaries
 
@@ -199,7 +139,7 @@ For AI-assisted articles, do not fabricate anecdotes or tool usage. Use sourced 
 
 ## Verification posture
 
-Material changes should follow:
+Material changes continue to follow:
 
 ```text
 bounded branch
@@ -213,4 +153,4 @@ post-deploy verification
 living-state closeout
 ```
 
-A fresh chat must recover this same conclusion from repository authority without depending on conversation memory.
+A fresh chat must recover this same conclusion from repository authority without depending on conversation memory or routine reading of archived sprint records.
