@@ -7,6 +7,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    // Immutable first-publication instant used only for deterministic ordering.
+    // Later revisions use `updated` and must not rewrite this field.
     publishedAt: z.coerce.date().optional(),
     updated: z.coerce.date().optional(),
     thumbnail: z.string(),
