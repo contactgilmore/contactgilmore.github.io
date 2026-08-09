@@ -5,13 +5,17 @@ Updated: 2026-08-08
 
 ## Recommendation
 
-Working series name:
+Recommended **series direction**: AI-assisted engineering workflow.
+
+Working name/concept:
 
 # **Prompt to Proof**
 
 Working descriptor:
 
 **AI-assisted engineering without outsourcing judgment.**
+
+The direction is stronger than the name. A current naming scan found that the phrase `Prompt to Proof` is already in active use elsewhere in AI/evidence contexts, so it must remain provisional until owner review. A more distinctive delivery-oriented alternative is **Prompt. Prove. Ship.**. Do not publish either name merely because it appears in this strategy document.
 
 This is a strategy/foundation document, not authorization to publish a new article batch. P8 may prepare one intro/sneak-peek for owner review, but no numbered follow-on articles should publish in this sprint.
 
@@ -37,7 +41,7 @@ That is more valuable than a series of prompt tricks or vendor reviews because i
 
 ## Series promise
 
-**Prompt to Proof** should answer:
+The series should answer:
 
 > How do you use increasingly capable AI agents to move engineering work faster without giving up context, verification, security boundaries, or human ownership?
 
@@ -125,7 +129,9 @@ Durable lesson: more agents multiply both capacity and the need for clear bounda
 
 Working title:
 
-**Prompt to Proof: What Changes When AI Can Do the Work, Not Just Suggest It?**
+**What Changes When AI Can Do the Work, Not Just Suggest It?**
+
+Add the final approved series name only after the naming gate.
 
 The intro should be concept-first rather than another tool review. A useful opening tension:
 
@@ -168,9 +174,13 @@ Fits the existing Cursor article, but is generic and does not clearly communicat
 
 Catchy, but it overemphasizes shipment and could imply that the goal is to push generated work directly to production.
 
-### Prompt to Proof — recommended
+### Prompt to Proof
 
-Short, memorable, and aligned with the core operating idea: AI can accelerate the path from intent to implementation, but engineering quality comes from evidence before acceptance.
+Best expression of the concept, but the exact phrase has current naming collisions elsewhere. Keep it as a working concept unless owner review decides the conceptual fit outweighs uniqueness concerns.
+
+### Prompt. Prove. Ship.
+
+More distinctive and strongly aligned to the portfolio's delivery orientation. It preserves the evidence-before-release idea but sounds more operational and less like a general AI-evaluation phrase. Current preferred alternative for owner review.
 
 ## Relationship to Cloud Foundations
 
@@ -178,7 +188,7 @@ Cloud Foundations remains a strong future series, not a rejected idea.
 
 It should likely follow a focused concept arc rather than become “AWS services you should know.” Potential themes could include identity boundaries, networking, compute/runtime choices, storage/data durability, observability, cost/FinOps, and managed-service tradeoffs.
 
-Do not launch both series at once. Let Prompt to Proof establish its own identity first if the owner approves it.
+Do not launch both series at once. Let the approved AI-assisted engineering series establish its own identity first if the owner approves it.
 
 ## Owner gate before public introduction
 
