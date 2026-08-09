@@ -5,7 +5,7 @@ Owner: Mike Gilmore
 
 ## Purpose
 
-Governs sprint rhythm, work-package structure, sprint notes, closeout, GPT guardrails, backlog routing, and accountability.
+Governs sprint rhythm, work-package structure, sprint records, closeout, GPT guardrails, backlog routing, and accountability.
 
 ## Five-document law
 
@@ -21,7 +21,31 @@ Governs sprint rhythm, work-package structure, sprint notes, closeout, GPT guard
 
 ## Living sprint state
 
-`00_MASTER/ACTIVE_SPRINT.md` is a concise pointer. Detailed scope, queue, evidence, gates, and closeout live in a bounded file under `docs/sprint_notes/`.
+`00_MASTER/ACTIVE_SPRINT.md` is a concise pointer. Detailed scope, queue, evidence, gates, and closeout live in a bounded record under `docs/sprints/`.
+
+## Sprint-record lifecycle and anti-creep rule
+
+`docs/sprints/` is the operational sprint-record directory. It contains the active sprint record plus recently completed records that are still useful for near-term continuity.
+
+A completed sprint record becomes archive-eligible **30 calendar days after its recorded close date**. Archive-eligible records move to:
+
+```text
+docs/sprints/archive/
+```
+
+Rules:
+
+- startup and closeout perform a lightweight age/hygiene check of `docs/sprints/`;
+- never archive the record named by `00_MASTER/ACTIVE_SPRINT.md`;
+- never archive a record while a current living-state document still depends on its operational path;
+- archive by Git move so history remains intact;
+- routine startup does **not** read `docs/sprints/archive/`;
+- read archived records only for explicit historical recovery, audit, regression, or decision provenance;
+- the archive is evidence, not current authority;
+- do not create placeholder archive files merely to keep an empty directory in Git;
+- do not create separate sprint summaries when the sprint record itself already carries the needed closeout evidence.
+
+This retention rule is intentionally simple: enough recent history stays close at hand while old execution records stop competing with current authority.
 
 ## Units of work
 
@@ -39,7 +63,8 @@ A sprint defines thesis, authority, scope, non-goals, protected boundaries, work
 ```text
 confirm authority
 read startup doctrine/living state
-read active sprint note
+check sprint-record hygiene
+read active sprint record
 read smallest required domain source
 confirm one bounded work package
 implement on bounded branch
@@ -55,7 +80,7 @@ Product/content strategy -> `docs/product/`
 Framework/build/deploy -> `docs/architecture/`  
 Visual/interaction -> `docs/brand/`  
 Git/release/handoff -> `docs/versioning/`  
-Execution evidence -> `docs/sprint_notes/`
+Execution evidence -> `docs/sprints/`
 
 ## Stop rules
 
