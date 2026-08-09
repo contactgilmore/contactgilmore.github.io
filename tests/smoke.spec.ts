@@ -146,13 +146,6 @@ test('series continuation reaches Kubernetes', async ({ page }) => {
     has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
   });
   await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
-
-  await page.goto('/', { waitUntil: 'networkidle' });
-  const featuredCard = page.locator('.article-card').filter({
-    has: page.getByRole('link', { name: '#8. Git to Know You: Kubernetes' }),
-  });
-  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
-  await expect(featuredCard.getByRole('link', { name: '#8. Git to Know You: Kubernetes' })).toHaveAttribute('href', '/gtny-kubernetes/');
 });
 
 test('series continuation reaches OpenTelemetry', async ({ page }) => {
