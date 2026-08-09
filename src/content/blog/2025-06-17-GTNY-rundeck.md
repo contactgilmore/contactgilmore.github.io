@@ -8,7 +8,7 @@ categories: [sre, automation, runbook-automation]
 tags: [rundeck, automation, toil, self-service, reliability]
 series: "Git to Know You"
 seriesOrder: 1
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **Why start a reliability-tool series with Rundeck?** Because one of the fastest ways to improve reliability is to stop making experienced engineers repeat the same safe, well-understood task all day.
