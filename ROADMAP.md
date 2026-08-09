@@ -61,80 +61,97 @@ Recruiter-facing copy polish, stronger first-person ownership, deeper case-study
 
 Delivered:
 
-- eight active public articles plus a compatibility route for the retired launch post;
-- living Git to Know You series introduction;
-- current-source refreshes for Rundeck, New Relic, PagerDuty, Terraform, GitHub Actions, and Cursor;
-- typed `updated`, `slug`, `series`, `seriesOrder`, and `seriesStatus` metadata;
-- Published/Updated and `dateModified` support;
+- typed Astro content schema and historical URL/date preservation;
+- living Git to Know You series overview;
+- refreshed original series articles;
+- explicit `updated`, `slug`, `series`, `seriesOrder`, and `seriesStatus` metadata;
 - previous/next series navigation;
-- future article slugs without route-map code changes;
-- preserved historical publication dates and legacy URLs;
-- public-safe GPT-assisted publishing workflow;
-- expanded Writing/article Playwright and accessibility coverage;
+- public-safe AI-assisted publishing workflow;
+- expanded article/archive responsive Playwright and accessibility coverage;
 - owner local smoke testing before merge.
 
 P7 source merge: `5af373ab34a2ea1fd4692dc271fc1063b99f11f8`.
 
 Release policy was then simplified so approved merges to `main` automatically deploy GitHub Pages. Policy merge: `88d4a34d63234416f73ba4771cc9839359d5196a`. First automatic deployment run `31280952066` succeeded.
 
-## Post-P7 publication milestones
+## Completed first writing series — Git to Know You #1–#10
 
-### Git to Know You #8 — Kubernetes — PUBLISHED
+Git to Know You is now the first complete portfolio writing series. It remains a public beginner-friendly learning path, but the roadmap does not manufacture #11 simply to continue numbering.
 
-Kubernetes was delivered as a bounded editorial work package rather than a manufactured implementation sprint.
-
-Release record:
+### #8 Kubernetes — PUBLISHED
 
 ```text
 PR: #19
 production merge: 3986eab790441506eb8e34d31a7d51bbab4bcea3
 automatic Pages deployment run: 31284483589
-result: SUCCESS
 owner local Playwright smoke: 90 / 90 passed
 ```
 
-The owner smoke test caught a timezone-dependent rendering defect that UTC CI did not expose. Date-only editorial metadata now renders as the stored calendar date on article pages, the Writing archive, and homepage featured writing without changing historical source dates.
+The owner smoke caught timezone-dependent date rendering that UTC CI did not expose; the fix preserved historical source dates and made calendar-date rendering deterministic.
 
-The owner-side shared Playwright environment and `cd` + pull smoke-test expectations are documented as durable operating guidance for future publication work.
-
-### Git to Know You #9 — OpenTelemetry — PUBLISHED
-
-OpenTelemetry was delivered as the next bounded editorial work package.
-
-Release record:
+### #9 OpenTelemetry — PUBLISHED
 
 ```text
 PR: #21
 production merge: 40d171466381516c6dd57da3ff5964ad0f2300a0
 automatic Pages deployment run: 31286854414
-result: SUCCESS
 owner local Playwright smoke: 99 / 99 passed
 ```
 
-The first owner visual review caught a logo-thumbnail presentation problem even though automated smoke testing was green. The corrective release kept Kubernetes on its authoritative SVG, replaced the low-resolution OpenTelemetry navigation image with an authoritative vector asset, and changed SVG/product-logo thumbnails from crop-to-fill to a contained 16:9 logo-card treatment. The publishing workflow now prefers authoritative SVG artwork; raster fallback should be 16:9 at 1600×900 or larger with generous whitespace.
+Owner visual review caught a logo-thumbnail presentation issue despite green automated tests. The final release established authoritative SVG artwork and a contained 16:9 logo-card treatment; raster fallback should be 1600×900 or larger with generous whitespace.
 
-## Current planning state
+### #10 Argo CD / GitOps — PUBLISHED
 
-There is **no active implementation sprint**.
+```text
+PR: #23
+production merge: 6668237614720202adec43cd0feadd6dc36ce2af
+automatic Pages deployment run: 31287772916
+owner local Playwright smoke: 108 / 108 passed
+```
 
-The portfolio uses a lightweight directional roadmap plus bounded sprints rather than a permanent product backlog. Open a sprint only when there is a concrete, meaningful outcome to deliver.
+The release completed the cloud-native learning arc, refreshed the living series overview through #10, used authoritative CNCF Argo vector artwork, and extended series/browser/accessibility regression coverage.
 
-## Directional future work
+## P8 — Portfolio Quality Ratchet and Series Transition — ACTIVE
 
-Likely future themes, in current order:
+Sprint authority:
 
-- **Git to Know You #10 — Argo CD / GitOps**;
-- establish a second AI/engineering-workflow writing series when there is enough material;
-- consider a focused Cloud Foundations series rather than a single broad AWS article;
+`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+
+P8 exists to consolidate quality rather than increase publishing volume.
+
+Work packages:
+
+1. close Git to Know You cleanly and reconcile stale roadmap/domain backlog items;
+2. harden deterministic startup/execution/publishing guidance so GPT continues routine bounded work autonomously until a genuine owner decision/local-only proof/production gate;
+3. preserve exact-head CI/browser/accessibility quality while minimizing owner manual effort and presenting concise mobile-friendly gates;
+4. resolve the known MacBook-class homepage hero typography backlog with browser evidence;
+5. define the next writing-series foundation and optionally one intro/sneak-peek only, without publishing follow-on articles in P8;
+6. complete full responsive/accessibility/public-disclosure closeout.
+
+## Direction after P8
+
+Do not pre-commit to a numbered publishing schedule.
+
+Potential next writing-series directions remain:
+
+- **AI-assisted engineering workflow** — practical use of AI across discovery, implementation, troubleshooting, automation, review, and operational judgment;
+- **Cloud Foundations** — focused beginner-friendly cloud concepts instead of one shallow generic AWS article.
+
+P8 will compare these against the portfolio north star, current archive, professional positioning, and available first-party source depth before recommending a public series name/intro.
+
+Other directional work after P8 may include:
+
 - periodically refresh professional case studies after meaningful career changes;
-- revisit the homepage hero typography backlog using MacBook-class Playwright screenshots;
+- social/Open Graph preview artwork if it materially improves sharing;
+- richer topic/category discovery when archive volume justifies it;
+- periodic Lighthouse/performance review;
 - consider a custom domain when it improves professional presentation enough to justify the change.
 
 ## Continuous portfolio operations
 
 Ongoing work should include:
 
-- publish new writing through the typed content schema and AI-assisted publishing workflow;
+- publish new writing through the typed content schema and AI-assisted publishing workflow when there is a useful topic, not to satisfy a calendar;
 - periodically review featured content and professional positioning;
 - maintain dependencies and CI/browser quality gates;
 - review external links and time-sensitive technical claims;
@@ -142,7 +159,8 @@ Ongoing work should include:
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
 - use sprint notes for material redesign, migration, content-system, or publication arcs rather than every minor edit;
 - treat merge to `main` as the human production authorization and verify the automatic Pages deployment afterward;
-- keep living state current after bounded publications so the next deterministic startup begins from production truth.
+- keep living state current so fresh chats recover production truth deterministically;
+- minimize owner manual work without replacing human public-representation judgment or claim-matching evidence.
 
 ## Explicit non-goals
 
@@ -152,6 +170,7 @@ Ongoing work should include:
 - no animation-heavy portfolio aesthetic;
 - no giant skill icon wall or proficiency bars;
 - no artificial publication-date refreshing merely to make older articles look newer;
+- no forced article cadence or invented series numbering;
 - no unreviewed production merge;
 - no public-repository self-hosted runner exposure without a future security justification;
 - no tracked private personal/job-search memory in the public repository.
