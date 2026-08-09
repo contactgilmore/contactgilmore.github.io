@@ -120,7 +120,9 @@ When more than one post shares the same visible publication date, or exact intra
 publishedAt: 2026-08-09T02:27:13Z
 ```
 
-`publishedAt` is ordering metadata only. It does **not** replace or alter the human-facing `date`. Use an actual known publication/merge instant when available; do not fabricate a timestamp merely to force a preferred position.
+`publishedAt` is ordering metadata only. It does **not** replace or alter the human-facing `date`. Use an actual known first-publication/production-authorization instant when available; do not fabricate a timestamp merely to force a preferred position.
+
+**Once the post is published, `publishedAt` is immutable.** A later content correction, thumbnail refresh, factual update, or new merge must not rewrite the original publication instant. Later revisions use the existing `updated: YYYY-MM-DD` field for visible revision history. The site does not query GitHub for the current merge timestamp at render time, and revision metadata must never be used to promote an older article in publication order.
 
 Writing and featured-content ordering is deterministic:
 
@@ -131,7 +133,7 @@ publishedAt when present
 -> stable content ID
 ```
 
-This allows several posts to retain the same truthful calendar date while preserving the order in which they actually shipped. New same-day publication batches should record `publishedAt` when the real instant is known.
+This allows several posts to retain the same truthful calendar date while preserving the order in which they actually shipped. New same-day publication batches should record `publishedAt` when the real first-publication instant is known. Older posts without `publishedAt` keep the deterministic fallback above; do not retroactively invent timestamps solely for sorting.
 
 Migrated historical articles keep their explicit compatibility URLs. A **new** article must declare a lowercase, hyphenated `slug` so publishing it does not require changing routing code:
 
