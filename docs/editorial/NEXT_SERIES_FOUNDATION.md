@@ -1,203 +1,113 @@
-# Next Writing Series Foundation
+# Prompt. Prove. Ship. — Series Foundation
 
-Status: P8 candidate for owner review  
+Status: **APPROVED SERIES DIRECTION**  
 Updated: 2026-08-08
 
-## Recommendation
+## Identity
 
-Recommended **series direction**: AI-assisted engineering workflow.
+Series name:
 
-Working name/concept:
+# **Prompt. Prove. Ship.**
 
-# **Prompt to Proof**
-
-Working descriptor:
+Series descriptor:
 
 **AI-assisted engineering without outsourcing judgment.**
 
-The direction is stronger than the name. A current naming scan found that the phrase `Prompt to Proof` is already in active use elsewhere in AI/evidence contexts, so it must remain provisional until owner review. A more distinctive delivery-oriented alternative is **Prompt. Prove. Ship.**. Do not publish either name merely because it appears in this strategy document.
-
-This is a strategy/foundation document, not authorization to publish a new article batch. P8 may prepare one intro/sneak-peek for owner review, but no numbered follow-on articles should publish in this sprint.
-
-## Why this direction wins next
-
-The portfolio already demonstrates technical depth across automation, observability, Git, infrastructure as code, CI/CD, Kubernetes, OpenTelemetry, and GitOps. A generic cloud series would deepen that foundation, but it would not differentiate Mike's current professional story as strongly.
-
-AI-assisted engineering is a better immediate bridge between:
+Public introduction:
 
 ```text
-technical delivery
-customer/problem discovery
-repository/context engineering
-agentic implementation
-verification and troubleshooting
-CI/browser/accessibility evidence
-human review and release control
+title: Prompt. Prove. Ship.: From Chat to Change
+source: src/content/blog/2026-08-08-prompt-prove-ship.md
+slug: /prompt-prove-ship/
+seriesOrder: 0
 ```
 
-The public portfolio repository itself now provides a transparent operating example: repository doctrine preserves context, GPT performs bounded work through connected GitHub, automated evidence validates the candidate, local smoke is used only when it adds unique proof, and Mike remains the public-representation/production authority.
-
-That is more valuable than a series of prompt tricks or vendor reviews because it teaches an operating model.
+P8 is authorized to publish this introduction only. Numbered follow-on articles belong to a later focused content sprint.
 
 ## Series promise
 
-The series should answer:
+> How do you use increasingly capable AI agents to move technical work faster without giving up context, verification, security boundaries, review, or human ownership?
 
-> How do you use increasingly capable AI agents to move engineering work faster without giving up context, verification, security boundaries, or human ownership?
+The series should remain practical, tool-aware, and vendor-neutral at the concept level. Products may appear when they are the clearest example, but each article should teach an operating idea that survives the product.
 
-The series should remain practical, tool-aware, and vendor-neutral at the concept level. Individual products may appear when they are the clearest example, but the durable lesson should survive the product.
+## Why this direction
+
+The portfolio already demonstrates automation, observability, Git, infrastructure as code, CI/CD, Kubernetes, OpenTelemetry, and GitOps. The next useful step is not another disconnected tool list. It is the workflow that connects increasingly autonomous AI tools to disciplined technical delivery.
+
+The public repository can transparently demonstrate that model at a safe level:
+
+```text
+repository authority
+-> bounded task
+-> agent execution
+-> claim-matching evidence
+-> human judgment where it adds unique value
+-> controlled merge/deploy
+-> durable closeout
+```
 
 ## Audience
 
 Primary:
 
 - technical delivery / implementation professionals moving deeper into AI-assisted engineering;
-- SRE, DevOps, cloud, and systems practitioners using agentic tools in real repositories;
+- SRE, DevOps, cloud, systems, and web practitioners using agents in real repositories;
 - engineers who can generate code with AI but want a safer/repeatable operating model;
-- technical leaders evaluating where autonomy helps and where human gates still matter.
+- technical leaders deciding where autonomy helps and where human gates still matter.
 
 Secondary:
 
-- hiring managers/recruiters evaluating Mike's ability to connect modern AI tooling with SDLC discipline, delivery quality, troubleshooting, and customer/business judgment.
+- hiring managers evaluating Mike's ability to connect modern AI tooling with SDLC discipline, delivery quality, troubleshooting, accessibility, and customer/business judgment.
 
-## What this series is not
+## What the series is not
 
-Do not turn the series into:
+Do not turn it into:
 
 - daily AI product news;
 - model leaderboard commentary;
-- generic prompt-engineering lists;
-- “AI will replace engineers” speculation;
+- generic prompt lists;
+- replacement-of-engineers speculation;
 - vendor cheerleading;
-- unsourced claims about productivity;
+- unsourced productivity claims;
 - autonomous-agent demos with no verification story;
-- private portfolio/project memory exposed as tutorial content.
+- private project/chat memory exposed as tutorial content.
 
-## Durable themes
+## Durable topic themes
 
-The strongest arc currently looks like this. These are topic candidates, **not committed numbers or publication dates**.
+These are planning themes, **not committed numbers or publication dates**.
 
 ### Context is part of the system
-
-Repository instructions, doctrine, project rules, skills, architecture notes, and current-state docs can make agent behavior reproducible instead of chat-dependent.
-
-Durable lesson: better context beats repeatedly writing a heroic prompt.
+Repository instructions, concise maps, architecture/current-state docs, rules, and reusable skills make agent behavior recoverable instead of chat-dependent.
 
 ### Plan before edit
-
-Use task boundaries, allowed/no-touch paths, acceptance conditions, and explicit stop conditions before granting an agent broad autonomy.
-
-Durable lesson: autonomy works better when the operating envelope is clear.
+Allowed paths, protected boundaries, acceptance conditions, and stop conditions define a useful operating envelope for autonomy.
 
 ### Tools and connected context
-
-Explore tool use, MCP/connectors, repository APIs, search, terminals, and other controlled ways an agent can gather evidence or take action.
-
-Durable lesson: an agent's usefulness depends on what it can safely observe and do, not only what model generated the text.
+Connectors, MCP, repository APIs, terminals, search, and other controlled tools determine what an agent can safely observe and do.
 
 ### From generated change to proof
-
-Tests, builds, browser evidence, accessibility checks, linting, source verification, exact diffs, and claim-matching validation belong in the AI workflow itself.
-
-Durable lesson: “the agent finished” is not an acceptance criterion.
+Builds, tests, browser evidence, accessibility checks, source verification, exact diffs, and claim-matching validation belong inside the AI workflow.
 
 ### Safe autonomy
-
-Permissions, sandboxing, credentials, secret boundaries, third-party actions, public-repository exposure, and destructive operations require explicit design.
-
-Durable lesson: faster execution should not widen the security boundary by accident.
+Permissions, sandboxing, credentials, public-repository exposure, third-party dependencies, and destructive operations require explicit boundaries.
 
 ### Review and release control
-
-Branches, PRs, expected-head checks, human approval, deployment evidence, rollback anchors, and living-state closeout turn AI output into controlled software delivery.
-
-Durable lesson: human ownership moves to the highest-value decisions instead of disappearing.
+Branches, pull requests, expected-head checks, owner decisions, deployment evidence, rollback anchors, and living-state closeout turn generated work into controlled delivery.
 
 ### AI-assisted troubleshooting
-
-Logs, traces, configuration, diffs, symptoms, and runbooks can become structured evidence for an AI collaborator, but hypotheses still need validation against the real system.
-
-Durable lesson: AI can shorten the path to the next useful check without becoming the source of truth.
+Agents can shorten the path from logs/configuration/symptoms to the next useful hypothesis, but the real system remains the source of truth.
 
 ### Multi-agent / background work
+Later topic only after the fundamentals: parallel agents, specialized skills, background work, and orchestration multiply both capacity and the need for clear proof/boundaries.
 
-Potential later topic only after the basics are established: parallel agents, background tasks, specialized skills, and orchestration.
+## Source posture
 
-Durable lesson: more agents multiply both capacity and the need for clear boundaries/evidence.
+For time-sensitive claims, use current first-party documentation. The approved intro uses current OpenAI and GitHub primary material around repository instructions, agent execution, planning/testing, and pull-request review. Do not convert product behavior into a timeless claim when it can change.
 
-## Suggested first public intro / sneak-peek
+## Cloud Foundations relationship
 
-Working title:
+Cloud Foundations remains a later series candidate, not a rejected idea. It should be a focused concept arc rather than a shallow catalog of AWS services. Do not run both series simultaneously merely to increase publishing volume.
 
-**What Changes When AI Can Do the Work, Not Just Suggest It?**
+## Exit direction
 
-Add the final approved series name only after the naming gate.
-
-The intro should be concept-first rather than another tool review. A useful opening tension:
-
-```text
-Autocomplete was easy to reason about.
-An agent that can inspect a repository, edit multiple files, run tests, open a PR, and iterate on failures changes the operating model.
-The question is no longer only “can AI write this?”
-It is “what evidence and boundaries make the result trustworthy enough to use?”
-```
-
-The portfolio's public workflow can be referenced as a transparent example only at a high level:
-
-```text
-repository authority
--> bounded task
--> agent execution
--> exact-head automated evidence
--> owner review where judgment is unique
--> controlled merge/deploy
--> durable closeout
-```
-
-Do not expose private local paths, private infrastructure, job-search context, or chat-only memory to make the example more personal.
-
-## Naming alternatives considered
-
-### Human in the Loop
-
-Clear but overused and makes the human gate sound like the entire subject rather than one part of a broader engineering system.
-
-### AI in the Loop
-
-Better, but less specific about the proof/verification discipline that differentiates this portfolio.
-
-### Trust, But Verify
-
-Fits the existing Cursor article, but is generic and does not clearly communicate engineering workflow.
-
-### Prompt to Production
-
-Catchy, but it overemphasizes shipment and could imply that the goal is to push generated work directly to production.
-
-### Prompt to Proof
-
-Best expression of the concept, but the exact phrase has current naming collisions elsewhere. Keep it as a working concept unless owner review decides the conceptual fit outweighs uniqueness concerns.
-
-### Prompt. Prove. Ship.
-
-More distinctive and strongly aligned to the portfolio's delivery orientation. It preserves the evidence-before-release idea but sounds more operational and less like a general AI-evaluation phrase. Current preferred alternative for owner review.
-
-## Relationship to Cloud Foundations
-
-Cloud Foundations remains a strong future series, not a rejected idea.
-
-It should likely follow a focused concept arc rather than become “AWS services you should know.” Potential themes could include identity boundaries, networking, compute/runtime choices, storage/data durability, observability, cost/FinOps, and managed-service tradeoffs.
-
-Do not launch both series at once. Let the approved AI-assisted engineering series establish its own identity first if the owner approves it.
-
-## Owner gate before public introduction
-
-Before any site-visible intro/sneak-peek merges, Mike should approve:
-
-- series name;
-- one-sentence promise;
-- whether the portfolio workflow should be used as the opening example;
-- intro title/tone;
-- whether the next-series teaser belongs now or after a publishing pause.
-
-No numbered topic/order/date is implied until separately approved and researched.
+After the focused Prompt. Prove. Ship. arc is complete, pause new content and run the roadmap's employer-readiness final pass before entering a stability period.
