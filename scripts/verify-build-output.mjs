@@ -22,7 +22,7 @@ const requiredOutputs = [
   'robots.txt',
   'sitemap-index.xml',
   'sitemap-0.xml',
-  'assets/images/blog2025/0622/sre_logos_thumbnail.png',
+  'assets/images/blog2025/0622/git-to-know-you-intro.svg',
   'assets/images/blog2026/022026/cursorlogo2.png',
 ];
 
