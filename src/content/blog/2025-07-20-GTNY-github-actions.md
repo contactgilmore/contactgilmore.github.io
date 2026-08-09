@@ -8,7 +8,7 @@ categories: [sre, automation, ci-cd]
 tags: [github actions, ci/cd, workflows, automation, devops]
 series: "Git to Know You"
 seriesOrder: 6
-seriesStatus: "ongoing"
+seriesStatus: "complete"
 ---
 
 **It’s automation time.**
