@@ -2,7 +2,7 @@
 layout: post
 title: "#9. Git to Know You: OpenTelemetry"
 date: 2026-08-08
-thumbnail: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+thumbnail: /assets/images/blog2026/082026/open-telemetry.svg
 slug: gtny-opentelemetry
 categories: [sre, observability, devops]
 tags: [opentelemetry, observability, tracing, metrics, logs, otlp]
