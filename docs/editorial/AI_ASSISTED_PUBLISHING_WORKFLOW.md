@@ -130,6 +130,8 @@ The series overview uses `seriesOrder: 0`. Do not change the original publicatio
 
 For Git to Know You tool articles, a clean official/product-logo thumbnail is the default because it makes the archive easy to scan and avoids decorative visual noise.
 
+For logo-based article thumbnails, prefer an official or project-authoritative **SVG** whenever one is available. Vector logos should render as contained artwork inside the article's wide thumbnail frame with deliberate whitespace; do not use `object-fit: cover` for a logo because that crops/zooms the mark to fill the frame. If only raster artwork is available, prefer a 16:9 source at **1600×900 or larger**, with enough whitespace around the logo that it does not touch or nearly touch the canvas edges. Do not upscale a small navigation/favicon asset into a full-width article hero when a better source exists.
+
 Replace or redesign a thumbnail when:
 
 - the logo is obsolete;
