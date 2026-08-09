@@ -6,7 +6,7 @@ Owner: Mike Gilmore
 ## Core rhythm
 
 ```text
-direction -> sprint -> bounded note -> work package -> implement/audit -> prove -> disposition -> closeout
+direction -> sprint -> sprint record -> work package -> implement/audit -> prove -> disposition -> closeout
 ```
 
 ## Sprint opening requirements
@@ -25,6 +25,8 @@ acceptance condition
 closeout condition
 owner gates
 ```
+
+The sprint record lives under `docs/sprints/` while active and through the recent-history retention window defined by sprint-system doctrine.
 
 ## Work-package contract
 
