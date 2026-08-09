@@ -23,6 +23,13 @@ test('Prompt. Prove. Ship. introduction renders cleanly and is discoverable', as
 
   await page.goto('/blog/', { waitUntil: 'networkidle' });
   await expect(page.getByRole('link', { name: 'Prompt. Prove. Ship.: From Chat to Change' })).toHaveAttribute('href', '/prompt-prove-ship/');
+
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const featuredCard = page.locator('.article-card').filter({
+    has: page.getByRole('link', { name: 'Prompt. Prove. Ship.: From Chat to Change' }),
+  });
+  await expect(featuredCard).toHaveCount(1);
+  await expect(featuredCard.getByRole('link', { name: 'Prompt. Prove. Ship.: From Chat to Change' })).toHaveAttribute('href', '/prompt-prove-ship/');
 });
 
 test('Prompt. Prove. Ship. introduction passes accessibility scan', async ({ page }) => {
