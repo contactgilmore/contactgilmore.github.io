@@ -40,9 +40,19 @@ P8 — **Portfolio Quality Ratchet and Series Transition** is active.
 
 Authority:
 
-`docs/sprint_notes/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
 
-P8 is not another article batch. It closes Git to Know You as the first complete #1–#10 series, hardens the proven low-owner-effort quality workflow, resolves the existing MacBook-class homepage hero typography backlog, and prepares only the foundation/sneak-peek for the next writing series.
+Current implementation PR:
+
+```text
+PR: #25
+branch: p8-quality-ratchet-series-transition
+owner homepage decision: APPROVED
+next-series name: Prompt. Prove. Ship.
+series intro/sneak-peek: APPROVED FOR PUBLICATION
+```
+
+P8 closes Git to Know You as the first complete #1–#10 series, hardens the proven low-owner-effort quality workflow, resolves the MacBook-class homepage hero typography backlog, standardizes sprint-record retention, and publishes only the introductory sneak-peek for the next writing series.
 
 ## Durable decisions
 
@@ -60,6 +70,8 @@ P8 is not another article batch. It closes Git to Know You as the first complete
 - Owner/local browser smoke tests should reuse the documented shared Playwright environment before installing duplicate browser tooling.
 - Product/tool logo thumbnails should prefer authoritative SVG artwork and use a contained logo-card treatment rather than crop-to-fill behavior. If only raster artwork is available, use a 16:9 source at 1600×900 or larger with generous whitespace.
 - GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
+- Canonical sprint execution records live under `docs/sprints/`. Closed records remain there for 30 calendar days, then become eligible for Git move to `docs/sprints/archive/`; routine startup does not read the archive.
+- Avoid documentation duplication. Current doctrine/living state should point to one authoritative sprint record rather than create parallel summaries of the same execution history.
 
 ## Current production structure
 
@@ -90,7 +102,7 @@ P6 improved recruiter scanability, first-person ownership, case-study specificit
 
 Historical record:
 
-`docs/sprint_notes/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
+`docs/sprints/SPRINT_P6_RECRUITER_PROOFREAD_AND_CASE_STUDY_POLISH_2026-08-08.md`
 
 ## P7 — complete and deployed
 
@@ -99,7 +111,7 @@ Sprint: **Blog Editorial System and AI-Assisted Publishing**
 Authorities:
 
 ```text
-docs/sprint_notes/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md
+docs/sprints/SPRINT_P7_BLOG_EDITORIAL_SYSTEM_AND_AI_ASSISTED_PUBLISHING_2026-08-08.md
 docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
 ```
 
@@ -107,7 +119,7 @@ P7 established the typed Astro blog, preserved historical dates/URLs, refreshed 
 
 ## Git to Know You — complete #1–#10 series
 
-The first complete Git to Know You series now runs from Rundeck through Argo CD / GitOps. The series remains public as a coherent beginner-friendly learning path, but P8 must not manufacture #11 merely to continue numbering.
+The first complete Git to Know You series now runs from Rundeck through Argo CD / GitOps. The series remains public as a coherent beginner-friendly learning path. P8 reconciles the overview and all #1–#10 entries to `seriesStatus: complete`; no #11 is implied.
 
 ### #8 Kubernetes — published and deployed
 
@@ -148,18 +160,36 @@ The release refreshed the living series overview through #10, used authoritative
 ## Current P8 direction
 
 ```text
-WP1 series closeout + roadmap/backlog reconciliation
-WP2 deterministic quality + low-owner-effort workflow audit
-WP3 MacBook-class homepage hero typography calibration
-WP4 next-series foundation / optional intro sneak-peek only
-WP5 full verification + closeout
+WP1 series closeout + roadmap/backlog reconciliation — complete pending release closeout
+WP2 deterministic quality + low-owner-effort workflow audit — complete pending release closeout
+WP3 MacBook-class homepage hero typography calibration — owner approved
+WP4 Prompt. Prove. Ship. foundation + one public intro/sneak-peek — approved and in candidate
+WP5 full verification + production closeout — next
 ```
 
-The next writing-series direction is intentionally undecided entering P8. AI-assisted engineering workflow and Cloud Foundations are candidates, but usefulness, distinctiveness, and portfolio positioning must decide the direction. Do not begin numbered follow-on articles in P8.
+### Prompt. Prove. Ship.
+
+Approved series name:
+
+**Prompt. Prove. Ship.**
+
+Working promise:
+
+**AI-assisted engineering without outsourcing judgment.**
+
+The P8 public introduction is titled **Prompt. Prove. Ship.: From Chat to Change**. It is a concept-first transition from tool education into repository context, task boundaries, evidence, safe autonomy, review, and release control. No numbered follow-on article is authorized inside P8.
+
+Cloud Foundations remains a later series candidate rather than being discarded.
 
 ## Brand backlog note
 
-A macOS Chrome owner review identified the homepage display headline as visually aggressive at a common laptop/desktop viewport. P8 owns this item: compare a modestly wider hero measure and/or lower desktop maximum with browser evidence while preserving confident editorial hierarchy and recruiter scanability.
+The MacBook-class hero issue is resolved in the P8 candidate and owner-approved. The implementation gives the value proposition more horizontal room, narrows the secondary signal rail, calibrates display scale, and adds explicit 1440×900 plus 1280×800 first-viewport proof.
+
+One final-polish observation remains intentionally non-blocking: the top-right focus rail can feel slightly open above its horizontal rule. Do not add decorative filler now. Revisit during the final employer-readiness pass only if the composition still feels unfinished in context.
+
+## Employer-readiness posture
+
+The portfolio should be treated as an employer-facing production artifact, including for reviewers assessing web administration, content quality, accessibility, release discipline, and technical delivery. The next focused writing arc should be followed by one complete recruiter/web-admin-quality pass, then a deliberate stability period rather than continuous cosmetic churn.
 
 ## Public-writing boundaries
 
