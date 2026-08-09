@@ -7,6 +7,8 @@ type SortableBlogPost = {
   };
 };
 
+// Publication order is intentionally based only on immutable original-publication
+// metadata. Revision metadata such as `updated` must never promote an older post.
 const getPublicationSortTime = (post: SortableBlogPost) =>
   (post.data.publishedAt ?? post.data.date).valueOf();
 
