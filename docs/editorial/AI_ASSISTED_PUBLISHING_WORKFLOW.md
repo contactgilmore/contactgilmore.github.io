@@ -159,6 +159,8 @@ Do not create the next series or a new number merely because a prior list once i
 
 For tool/product articles, a clean official/project-authoritative logo thumbnail is the default because it makes the archive easy to scan and avoids decorative visual noise.
 
+**Thumbnails should be wordless by default.** Do not repeat the article title, series name, category label, slogan, or explanatory copy inside the thumbnail when the surrounding page already provides that information. Series overviews and introductions should use abstract/conceptual artwork that adds visual meaning rather than functioning as a second title card. Accessible SVG `<title>` and `<desc>` metadata are allowed because they are not rendered as visible thumbnail copy. Visible text inside thumbnail artwork requires a specific editorial reason and owner approval; it is not the default.
+
 For logo-based article thumbnails, prefer an official or project-authoritative **SVG** whenever one is available. Vector logos should render as contained artwork inside the article's wide thumbnail frame with deliberate whitespace; do not use `object-fit: cover` for a logo because that crops/zooms the mark to fill the frame. If Mike supplies raster logo artwork, request a **16:9 canvas at 1600×900 or larger** with generous whitespace around the mark; 1920×1080 is also ideal. Do not upscale a small navigation/favicon asset into a full-width article hero when a better source exists.
 
 Replace or redesign a thumbnail when:
@@ -166,6 +168,7 @@ Replace or redesign a thumbnail when:
 - the logo is obsolete;
 - the source image is low quality;
 - the composition is inconsistent with the current site;
+- visible words merely duplicate title/series information already present on the page;
 - the article is a series overview/concept piece rather than one identifiable product;
 - a diagram materially improves the reader's understanding.
 
