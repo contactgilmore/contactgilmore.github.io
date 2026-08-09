@@ -9,6 +9,8 @@ Keep the technical blog sustainable without requiring the owner to perform routi
 
 This repository is public. This workflow is written to be safe and useful if read by recruiters, engineers, or other visitors.
 
+The operating goal is **high quality with low owner friction**. Within approved scope, GPT should research, draft, update tracked files, inspect CI/browser evidence, correct in-scope defects, and maintain the PR autonomously until a genuine owner editorial/visual/production decision is needed.
+
 ## 1. Start from repository authority
 
 Before drafting or refreshing an article:
@@ -21,6 +23,8 @@ Before drafting or refreshing an article:
 
 Do not rely on a prior chat as the sole source of truth.
 
+Do not ask Mike to repeat routine repository state, locate files, click GitHub controls, or drive branch/PR mechanics when connected GitHub can resolve or perform them safely.
+
 ## 2. Decide whether the topic deserves an article
 
 Evaluate the topic against:
@@ -32,6 +36,8 @@ Evaluate the topic against:
 - likelihood that the article will remain useful beyond a short news cycle.
 
 A prior roadmap/list is not an obligation. Replace or reorder topics when evidence supports a better learning path.
+
+Do not publish merely because the previous article or series ended. The roadmap may advance, research may continue, and a next-series concept may be prepared without immediately starting another public article run.
 
 ## 3. Build a source pack
 
@@ -124,11 +130,13 @@ seriesOrder: 8
 seriesStatus: "ongoing"
 ```
 
-The series overview uses `seriesOrder: 0`. Do not change the original publication date to make an article look newer.
+The series overview uses `seriesOrder: 0`. When the owner declares a series complete, reconcile the series overview and series-status metadata deliberately rather than leaving the archive to imply that more numbered entries are expected. Completion does not require changing original article dates, URLs, or bodies.
+
+Do not create the next series or a new number merely because a prior list once implied it.
 
 ## 8. Images and thumbnails
 
-For Git to Know You tool articles, a clean official/product-logo thumbnail is the default because it makes the archive easy to scan and avoids decorative visual noise.
+For tool/product articles, a clean official/project-authoritative logo thumbnail is the default because it makes the archive easy to scan and avoids decorative visual noise.
 
 For logo-based article thumbnails, prefer an official or project-authoritative **SVG** whenever one is available. Vector logos should render as contained artwork inside the article's wide thumbnail frame with deliberate whitespace; do not use `object-fit: cover` for a logo because that crops/zooms the mark to fill the frame. If Mike supplies raster logo artwork, request a **16:9 canvas at 1600×900 or larger** with generous whitespace around the mark; 1920×1080 is also ideal. Do not upscale a small navigation/favicon asset into a full-width article hero when a better source exists.
 
@@ -159,19 +167,29 @@ Before owner review:
 
 Do not weaken a quality gate merely to make a draft pass.
 
+Use exact-head evidence. If the implementation/browser-tested head is green and later commits are documentation-only and cannot affect the approved claim, record that distinction rather than forcing Mike to repeat a local smoke test for bookkeeping changes.
+
 When an owner/local smoke test is needed, GPT must provide Mike with the exact copy-paste shell command block for that test. The command block must begin with `cd` into the local repository root, synchronize the candidate with GitHub, and include the pull before the build/smoke commands. Never assume the shell is already in the correct directory or that the checkout is current. Use the exact current local checkout path when it is available from private conversation context. If the current path is unknown, obtain it before issuing the smoke-test command rather than inventing or reusing a stale path. Never commit an expanded personal home path when a home-relative path is sufficient.
+
+The local block should remain interactive-shell safe: do not use `set -e`; capture/report build or smoke failures without terminating Mike's terminal; stop stale project previews before Playwright if needed; and start owner review surfaces only after the required smoke passes.
 
 For local Playwright smoke tests, use the established shared environment first: `~/Dev/dependencies/playwright`, with `NODE_PATH="$HOME/Dev/dependencies/playwright/node_modules"` and `PLAYWRIGHT_BROWSERS_PATH="$HOME/Dev/dependencies/playwright/ms-playwright"`. A project-local browser-executable miss does not by itself mean Playwright is absent. Reuse the shared browser cache before installing another copy. If the current project requires a browser revision not already present, add only that required revision to the shared cache using the current project's Playwright version, then rerun the smoke suite.
 
 ## 10. Owner editorial gate
 
-Present the owner with:
+Do not turn every checkpoint into an owner gate. Complete routine research, drafting, tracked updates, in-scope corrections, and available CI/browser investigation first.
+
+When owner judgment is genuinely needed, present a concise mobile-friendly decision packet:
 
 - what changed and why;
-- material factual updates;
-- any new first-person claims requiring verification;
-- important topic/series decisions;
-- any visual change that affects the brand system.
+- exact candidate/PR when relevant;
+- material factual or visual changes;
+- any first-person claim needing verification;
+- what automated/browser evidence passed;
+- what remains subjective or local-only;
+- the exact requested decision: **approved** or bounded revision notes.
+
+If a visual change requires desktop/laptop acceptance, do not imply that a phone-sized view alone proves it. Use the strongest rendered evidence available and request device-specific review only when it contributes unique proof.
 
 The owner may request copy/technical changes or approve the candidate.
 
@@ -190,9 +208,13 @@ After approval:
 5. perform a live-site spot check;
 6. record release/closeout state when required by repository authority.
 
+GPT should perform these repository mechanics directly through connected GitHub when available. Mike should not have to operate GitHub controls as part of the normal release ceremony.
+
 ## 12. Maintenance cadence
 
 Do not manufacture new posts to satisfy a calendar. Publish when there is a useful topic.
+
+A completed series may pause while the next series is researched and framed. An intro/sneak-peek should be published only when it genuinely clarifies the next direction; it is not a requirement for maintaining activity.
 
 Periodic maintenance should focus on:
 
@@ -202,6 +224,6 @@ Periodic maintenance should focus on:
 - stale screenshots;
 - product renames;
 - materially changed best practices;
-- series navigation as the archive grows.
+- series navigation/status as the archive grows.
 
 A small correction can be a maintenance change. A multi-article refresh, new series, schema change, or major editorial shift should open a bounded sprint.
