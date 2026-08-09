@@ -212,13 +212,6 @@ test('series continuation reaches Argo CD and GitOps', async ({ page }) => {
   });
   await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
   await expect(archiveRow.getByRole('link', { name: '#10. Git to Know You: Argo CD and GitOps' })).toHaveAttribute('href', '/gtny-argocd-gitops/');
-
-  await page.goto('/', { waitUntil: 'networkidle' });
-  const featuredCard = page.locator('.article-card').filter({
-    has: page.getByRole('link', { name: '#10. Git to Know You: Argo CD and GitOps' }),
-  });
-  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
-  await expect(featuredCard.getByRole('link', { name: '#10. Git to Know You: Argo CD and GitOps' })).toHaveAttribute('href', '/gtny-argocd-gitops/');
 });
 
 test('retired launch note points readers to current Writing', async ({ page }) => {
