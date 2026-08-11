@@ -16,8 +16,10 @@ production branch: main
 production authority at sprint open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
 P10 branch: p10-employer-readiness-final-polish
 draft PR: #31
-exact implementation/browser-certified head: d31f84a137da28942c6a5c23e0b1ee5ed1cae724
+exact implementation/browser-certified head: db1e1f3a25ee8192909ee91655216084c66680e4
 ```
+
+Commits after `db1e1f3...` are documentation-only bookkeeping and cannot alter the certified site source/rendered result.
 
 ## Audience contract
 
@@ -77,13 +79,15 @@ Audit dimensions:
 
 The Portfolio 2.0 design does **not** need another redesign. Keep the current hero composition/right rail, three-pillar information architecture, case-study page structure, About narrative, supported metrics, compact Home experience timeline, responsive visual system, and P9 blog bodies.
 
+The final candidate re-review identified exactly one additional material source issue: the first Resume candidate duplicated role/summary positioning between the hero and the immediate Professional Summary card. That repetition was removed. No additional Home, Work, About, case-study, Writing-index, navigation, or visual-system source change was justified.
+
 ## Research conclusions
 
 ### Resume
 
 Current career guidance consistently favors resume content that is quickly scannable, specific, accomplishment-oriented, and built around action + context/problem + result. Identity/contact, relevant skills, and evidence should be immediately legible.
 
-Portfolio implication: the existing experience bullets were already strong. The top of `/resume/` should behave like a resume header and professional summary rather than another first-person portfolio/About card.
+Portfolio implication: the existing experience bullets were already strong. The top of `/resume/` should behave like a resume header followed by one substantive Professional Summary rather than repeating portfolio positioning before experience evidence.
 
 ### Portfolio / proof
 
@@ -95,6 +99,8 @@ Portfolio implication: professional case studies remain the strongest evidence s
 
 Current W3C/WAI-ARIA guidance distinguishes an exact current page from a current location/section. P10 therefore uses `aria-current="page"` for exact top-level navigation destinations and `aria-current="location"` when a nested case study or article belongs to the Work or Writing section. The visual current-state treatment remains unchanged.
 
+A final documentation review caught one stale brand-authority sentence that still described nested routes as `aria-current="page"`. That sentence was reconciled to the tested `page` / `location` rule without changing site behavior.
+
 ### Search/discoverability
 
 Current search guidance supports descriptive concise page titles, `WebSite` structured data on the home page to indicate the preferred site name, and a stable representative favicon.
@@ -103,19 +109,23 @@ Current search guidance supports descriptive concise page titles, `WebSite` stru
 
 ### Resume
 
-`/resume/` now opens with:
+`/resume/` now opens in a deliberate resume sequence:
 
 ```text
 Mike Gilmore
 Technical Delivery & Customer Solutions
-concise resume-style professional summary
 Salt Lake City area
 public email
 LinkedIn
 GitHub
+one concise Professional Summary
+core capabilities
+experience evidence
 ```
 
-The professional-summary card no longer uses first-person portfolio prose. Existing capability tags, employer chronology, accomplishment bullets, and supported metrics remain intact. No education, certifications, dates, phone/address, or private details were invented.
+The hero is now a true resume header rather than a second summary block. The substantive Professional Summary appears once and remains non-first-person. Existing capability tags, employer chronology, accomplishment bullets, and supported metrics remain intact. No education, certifications, dates, phone/address, or private details were invented.
+
+The final de-duplication changed no claim, metric, role chronology, or case-study evidence. Its purpose is evaluation speed: experience begins sooner, particularly on phone layouts.
 
 ### Claim precision
 
@@ -158,17 +168,19 @@ The subject folder now contains exactly 00–04. The only remaining filename ref
 
 `04_BACKLOG_AND_RISKS.md` was reconciled so completed P8/P9 work is no longer presented as open and post-P10 stability is the default posture.
 
+Brand interaction authority was reconciled to the final tested navigation semantics. No parallel style or doctrine file was added.
+
 ## P10-WP5 — Exact-head verification — COMPLETE / OWNER GATE
 
 Exact source/browser-certified head:
 
-`d31f84a137da28942c6a5c23e0b1ee5ed1cae724`
+`db1e1f3a25ee8192909ee91655216084c66680e4`
 
 Permanent CI:
 
 ```text
-Validate Astro migration #274 / run 31459950653 — SUCCESS
-Playwright portfolio smoke #243 / run 31459950637 — SUCCESS
+Validate Astro migration #282 / run 31461649858 — SUCCESS
+Playwright portfolio smoke #251 / run 31461649933 — SUCCESS
 ```
 
 Validate passed:
@@ -196,7 +208,7 @@ P10-specific employer-readiness regressions passed on desktop/tablet/phone:
 
 ```text
 exact-page versus nested-section navigation semantics
-Resume identity/contact/summary contract
+Resume identity/contact/one-summary contract
 case-study claim precision + Work/Resume next-step contract
 favicon + og:site_name + home WebSite structured data
 employer-facing interior page titles
@@ -208,24 +220,24 @@ Evidence artifact:
 
 ```text
 playwright-smoke-evidence
-artifact id: 9089466578
-digest: sha256:5d8c4028ec35b339c91ddbef740148987f57f15754acde0a674b191a7cb562e9
+artifact id: 9090048571
+digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
 ```
 
-### Rendered evidence review
+### Final rendered evidence review
 
-The material P10 source candidate's screenshots were reviewed for desktop/tablet/phone before the final navigation-semantic refinement.
+The final P10 source candidate's screenshots were reviewed on desktop and phone after the Resume de-duplication; the full test suite also covered tablet.
 
 Observed result:
 
 - approved homepage first viewport remains visually unchanged and balanced;
-- Resume reads immediately as a resume on desktop and phone while staying inside the visual system;
+- Resume now reads directly as name -> role -> contact -> one Professional Summary -> experience;
+- removing the repeated Resume opening moves employer evidence upward, particularly on phone;
 - Work retains the existing composition with only clearer evidence labels;
-- case-study `Back to selected work` + `View resume` buttons fit naturally in the existing takeaway band;
-- no new overflow, spacing, hierarchy, or responsive defect was found;
-- About remains visually/content-wise unchanged except its more descriptive document title.
-
-The final `aria-current` refinement changes only navigation semantics (`page` versus `location`) plus the selector needed to preserve the same current-state color. The complete exact-head browser suite passed after that refinement.
+- all three case-study `Back to selected work` + `View resume` actions fit naturally in the existing takeaway band;
+- About remains visually/content-wise unchanged except its more descriptive document title;
+- Writing index/navigation remains coherent and blog article bodies remain untouched;
+- no new overflow, spacing, hierarchy, accessibility, or responsive defect was found.
 
 ## Protected paths / non-goals — HELD
 
@@ -241,7 +253,7 @@ The final `aria-current` refinement changes only navigation semantics (`page` ve
 
 ## Owner gate
 
-Mike must review the material Resume/employer-facing changes before merge because they change public professional representation. The technical/browser/visual candidate is otherwise frozen; further edits require a specific owner or evidence defect.
+Mike must review the material Resume/employer-facing changes before merge because they change public professional representation. The technical/browser/visual candidate is otherwise frozen; further source edits require a specific owner or evidence defect.
 
 ## Acceptance condition
 
