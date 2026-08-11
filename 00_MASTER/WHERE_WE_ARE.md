@@ -1,18 +1,20 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-08-08
+Updated: 2026-08-10
 
 ## Production authority
 
 Portfolio 2.0 is live at `https://contactgilmore.github.io/` using Astro and GitHub Pages workflow publishing.
 
-Current production truth:
+Current repository/production truth:
 
 ```text
 production branch: main
-current production merge: e4f368365a36923295d0c4272a2caeb0ea67f05f
-current release: post-P8 employer-facing polish — Writing order/series intros + Work spacing
+current GitHub main at P9 open: ed22dbc186429e6f8f1fe098fd4e26a3c670bf27
+current main content tree: 89cb31cf7b823bedd826c1ba16001c42d36bb37e
+last material website release: post-P8 employer-facing polish — Writing order/series intros + Work spacing
+material release merge: e4f368365a36923295d0c4272a2caeb0ea67f05f
 automatic deployment run: 31293406396
 result: SUCCESS
 production Validate Astro migration: 31293406399 — SUCCESS
@@ -21,7 +23,9 @@ production deployment policy: automatic after approved merge to main
 manual workflow dispatch: fallback only
 ```
 
-Final approved candidate evidence:
+The two P9-opening housekeeping commits on `main` added and immediately removed the P9 sprint record by mistake. Corrected `main` has the exact same tracked content tree as the pre-error portfolio authority, so no site/content source change survived the correction. Git history intentionally preserves the mistake and compensating removal.
+
+Final approved pre-P9 website candidate evidence:
 
 ```text
 candidate head: 09b5e21e7ba8fe98aaced5a84a6a72bac0e2c423
@@ -34,7 +38,16 @@ Playwright artifact: 9032136163
 artifact digest: sha256:99330d1e6d60a9486376767e13801744fe085aea0ada35778d0ece694f381bcb
 ```
 
-There is **no active implementation sprint**.
+## Active sprint
+
+**P9 — Editorial Voice and Full Blog Quality** is active on:
+
+```text
+branch: portfolio-p9-editorial-voice
+record: docs/sprints/SPRINT_P9_EDITORIAL_VOICE_AND_FULL_BLOG_QUALITY_2026-08-10.md
+```
+
+P9 was opened because the August 8 AI-created articles are technically strong but visibly different from the established human-written / AI-assisted corpus. The main defects are machine-like one-sentence paragraph cadence, over-sectioning, repeated explanatory templates, and source-pack completeness turning blog posts into condensed documentation.
 
 ## Durable decisions
 
@@ -58,6 +71,10 @@ There is **no active implementation sprint**.
 - GPT should continue autonomously through routine bounded repository work until a genuine owner decision, local-only proof, scope expansion, safety uncertainty, or production gate is reached; owner gates should be concise and mobile-friendly without weakening evidence requirements.
 - Canonical sprint execution records live under `docs/sprints/`. Closed records remain there for 30 calendar days after their recorded close date, then become eligible for Git move to `docs/sprints/archive/`; routine startup does not read the archive.
 - Avoid documentation duplication. Living state points to one authoritative sprint record rather than creating parallel summaries.
+- Portfolio Writing is a professional proof surface, not only a technical reference archive.
+- Long-form articles should normally be technical essay/tutorial hybrids: one useful mental model, cohesive prose, practical judgment, enough technical detail for the reader outcome, and links to authoritative docs for exhaustive reference detail.
+- One-sentence paragraphs remain an intentional emphasis tool, not the default article cadence. Cohesive short paragraphs are the normal blog rhythm.
+- AI-assisted factual rigor does not replace voice review. Material drafts must be compared with the established portfolio corpus for paragraph rhythm, narrative continuity, authorial signal, heading/list density, and generic AI-template repetition.
 
 ## Current production structure
 
@@ -131,9 +148,36 @@ No numbered follow-on article is currently committed. A later focused sprint may
 
 Cloud Foundations remains a later candidate.
 
+### P9 editorial audit — active
+
+The full 12-article corpus has been read and compared with current technical-writing, people-first-content, web-readability, developer-tutorial/blog, and AI-authorship research.
+
+Internal voice conclusion:
+
+```text
+Rundeck / New Relic / PagerDuty / Terraform / GitHub Actions = primary voice benchmarks
+Git = strongest raw personality; preserve rather than normalize
+Cursor = still recognizably authorial; only targeted polish if needed
+```
+
+Priority repair:
+
+```text
+OpenTelemetry                 STRUCTURAL REWRITE
+Argo CD / GitOps              STRUCTURAL REWRITE
+Kubernetes                    MODERATE REWRITE
+Prompt. Prove. Ship. intro    MODERATE PROSE-RHYTHM REWRITE
+```
+
+The earlier corpus is not being rewritten for superficial consistency. It remains the voice source unless a specific reader/editorial defect justifies a narrow change.
+
+P9 has strengthened the existing editorial workflow rather than creating another style-guide document. The durable standard now distinguishes blog writing from reference documentation, treats cohesive short paragraphs as the default rhythm, requires authorial value beyond source synthesis, constrains heading/list overuse, and adds an explicit voice review before technical sign-off.
+
+Material article rewrites will preserve original publication dates/slugs/series metadata and add `updated: 2026-08-10`. Mike's editorial approval is required before the rewritten public articles merge because this changes professional representation.
+
 ## Brand note
 
-The MacBook-class hero issue is resolved and deployed. One intentionally non-blocking observation remains for the later employer-readiness pass: the upper-right focus rail may feel slightly open above its horizontal rule. Do not add decorative filler now; revisit only if the composition still feels unfinished in the final full-site review.
+The MacBook-class hero issue is resolved and deployed. One intentionally non-blocking observation remains for the later employer-readiness pass: the upper-right focus rail may feel slightly open above its rule. Do not add decorative filler now; revisit only if the composition still feels unfinished in the final full-site review.
 
 ## Employer-readiness finish line
 
@@ -145,6 +189,8 @@ After the next focused Prompt. Prove. Ship. writing arc:
 4. fix only material issues;
 5. publish the accepted final polish;
 6. enter a stability period instead of continuous cosmetic churn.
+
+P9 is a corrective quality sprint and does not count as the future numbered Prompt. Prove. Ship. content arc.
 
 The portfolio should remain credible both as a professional profile and as a working example of content governance, accessibility, CI/CD, web administration, and disciplined AI-assisted delivery.
 
@@ -162,7 +208,7 @@ Material changes continue to follow:
 bounded branch
 PR
 exact-head applicable CI / route / asset / browser / accessibility checks
-public-disclosure review
+public-disclosure + editorial-voice review
 owner approval when public representation materially changes
 merge to main
 automatic GitHub Pages deployment

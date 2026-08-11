@@ -2,6 +2,7 @@
 layout: post
 title: "#8. Git to Know You: Kubernetes"
 date: 2026-08-08
+updated: 2026-08-10
 thumbnail: /assets/images/blog2026/082026/kubernetes-icon-color.svg
 slug: gtny-kubernetes
 categories: [sre, devops, containers]
@@ -15,97 +16,63 @@ seriesStatus: "complete"
 
 One container on one machine is understandable. A few containers behind a load balancer are still manageable. Then an instance dies, traffic shifts, a deployment needs to roll forward without dropping requests, one service needs three replicas while another needs twenty, and somebody asks which machine is actually running what.
 
-That is the problem Kubernetes is built to organize.
-
-If a container runtime answers, “How do I package and run this container?”, Kubernetes answers a different question:
-
-> “How do I keep a collection of containerized workloads in the state I intended?”
-
-That distinction is the key to understanding the platform.
+That is the problem Kubernetes is built to organize. A container runtime answers, “How do I package and run this container?” Kubernetes answers a different question: **“How do I keep a collection of containerized workloads in the state I intended?”** That distinction is the key to the whole platform.
 
 ---
 
 > **Beginner note:**  
-> Kubernetes is a large system. You do not need a production cluster, cloud account, or a week of YAML to learn the useful part. Start with the object model and a disposable local cluster. The goal is to understand what Kubernetes is reconciling and why.
+> Kubernetes is a large system. Do not start by trying to memorize every object or build a production cluster. Start with the desired-state model, a few core objects, and a disposable local environment where it is safe to break things.
 
 ---
 
-## What Is Kubernetes?
+## The mental model: declare what you want, then reconcile
 
-Kubernetes is an open-source platform for managing containerized workloads and services. It provides APIs and controllers for deployment, scaling, networking, configuration, recovery, and other operational concerns.
+Kubernetes is an open-source platform for managing containerized workloads and services. It exposes an API where you describe the state you want, stores that intent, and uses controllers to keep actual cluster state moving toward it.
 
-The important phrase is **desired state**.
+If you ask for three replicas of an application, Kubernetes keeps trying to maintain three. If a Pod disappears, a controller can replace it because the desired state still says that replica should exist. If you change the image in a Deployment, Kubernetes can roll the workload toward the new version instead of requiring you to log into individual machines and replace processes by hand.
 
-When you create a Kubernetes object, you describe what you want. Kubernetes stores that intent and continually works to make the actual cluster state match it.
-
-Ask for three replicas of an application and Kubernetes tries to keep three running. Replace the image version in a Deployment and Kubernetes can roll the workload toward that new state. Lose a Pod and a controller can create another one because the requested state still says that replica should exist.
-
-That control-loop model is much more important than memorizing `kubectl` commands.
-
-The official [Kubernetes concepts documentation](https://kubernetes.io/docs/concepts/) and [object model](https://kubernetes.io/docs/concepts/overview/working-with-objects/) are the best places to build that mental model.
+The Kubernetes documentation calls its objects a **record of intent**, which is a phrase worth remembering. YAML is just one way we submit that intent to the API; the control loop is the real idea. The official [Kubernetes object model](https://kubernetes.io/docs/concepts/overview/working-with-objects/) is the best place to go deeper on desired state and reconciliation.
 
 ---
 
-## The Cluster: Control Plane and Workers
+## Control plane and workers, without the vocabulary avalanche
 
-A Kubernetes cluster has a **control plane** and one or more **worker nodes**.
+A Kubernetes cluster has a **control plane** and one or more **worker nodes**. The control plane owns the API and cluster-level decisions: it stores cluster data, schedules workloads, and runs the controllers that compare desired state with reality. Worker nodes run the actual Pods and include components such as the kubelet and a container runtime.
 
-The control plane makes cluster-level decisions and maintains the system's state. Its core pieces include:
+For a beginner, this model is enough:
 
-- **kube-apiserver** — the front door to the Kubernetes API;
-- **etcd** — the key-value store used for API data;
-- **kube-scheduler** — decides which suitable node should run an unscheduled Pod;
-- **kube-controller-manager** — runs controllers that keep actual state moving toward desired state.
+```text
+control plane -> stores intent and coordinates
+worker nodes  -> run the workloads
+```
 
-Worker nodes run the workloads. A node normally includes the **kubelet**, which makes sure assigned Pods are running, plus a container runtime and networking components.
-
-You can go much deeper into every component, but the beginner model is enough:
-
-**control plane decides and coordinates → worker nodes run the workload**
-
-The current component breakdown lives in the official [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/) documentation.
+You can learn `kube-apiserver`, `etcd`, `kube-scheduler`, `kube-controller-manager`, CNI, CSI, and every other acronym when the problem in front of you actually requires them. Kubernetes has enough nouns already; there is no reason to collect all of them before you have launched your first Pod. The official [cluster components](https://kubernetes.io/docs/concepts/overview/components/) page covers the full breakdown when you are ready for it.
 
 ---
 
-## The Four Objects to Learn First
+## Four objects will get you surprisingly far
 
-Kubernetes has a lot of resource types. Ignore most of them at the beginning.
+I would start with this chain:
 
-Start with this chain:
+```text
+Container -> Pod -> Deployment -> Service
+```
 
-**Container → Pod → Deployment → Service**
+A **Pod** is the smallest deployable compute object in Kubernetes. Most beginner workloads put one primary application container in a Pod, although Pods can contain multiple tightly coupled containers that need to share networking or storage context. The important operational lesson is that Pods are replaceable; treating a Pod like a precious server you plan to nurse forever fights the platform instead of using it.
 
-### Pod
+A **Deployment** manages application Pods through ReplicaSets. You describe the Pod template and how many replicas you want, and the Deployment controller works toward that state. Deployments also give you rollout behavior when the template changes.
 
-A **Pod** is the smallest deployable compute object in Kubernetes. It can contain one or more tightly coupled containers that share networking and storage context.
+A **Service** gives a changing group of Pods a stable network identity. Deployments create and replace Pods over time, so clients need something more durable than one Pod IP. Services select matching Pods, normally through labels, and expose them behind a consistent endpoint.
 
-Pods are intentionally replaceable. You usually do not want to treat a specific Pod like a precious server that must live forever.
+Then add **ConfigMaps** for ordinary configuration and **Secrets** for sensitive values when you need them. One warning is worth learning immediately: base64-encoded Secret data is not encryption, and cluster-level controls still determine how Secrets are stored and protected.
 
-### Deployment
-
-A **Deployment** manages a set of application Pods through ReplicaSets. You describe the desired number of replicas and the Pod template, and the Deployment controller works toward that state.
-
-Deployments also provide controlled rollout behavior when the Pod template changes.
-
-### Service
-
-Pods come and go, so applications need something more stable than a Pod name or Pod IP. A **Service** exposes a logical set of Pods behind a stable network endpoint.
-
-The Service selects matching Pods using labels. That small detail is responsible for a surprising amount of both Kubernetes magic and Kubernetes troubleshooting.
-
-### ConfigMap and Secret
-
-Once those four make sense, add **ConfigMap** for non-confidential configuration and **Secret** for sensitive values.
-
-Do not confuse a Kubernetes Secret with automatic encryption. Secret values are represented as base64-encoded data and are stored unencrypted by default unless the cluster is configured for encryption at rest. Base64 is encoding, not security.
-
-Official references: [Pods](https://kubernetes.io/docs/concepts/workloads/pods/), [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [Services](https://kubernetes.io/docs/concepts/services-networking/service/), and [Secrets good practices](https://kubernetes.io/docs/concepts/security/secrets-good-practices/).
+The project documentation for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/), [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [Services](https://kubernetes.io/docs/concepts/services-networking/service/), and [Secrets](https://kubernetes.io/docs/concepts/security/secrets-good-practices/) is much better reference material than trying to fit every object into one blog post.
 
 ---
 
-## A Small Deployment That Actually Teaches Something
+## A small manifest that teaches the right things
 
-A useful beginner manifest should show more than “run nginx.” It should expose a few of the controls that make Kubernetes operationally interesting.
+A beginner example should show more than “run nginx.” The interesting part of Kubernetes is not that it can start a container; Docker can already do that. The interesting part is the operating policy around the workload.
 
 ```yaml
 apiVersion: apps/v1
@@ -159,76 +126,29 @@ spec:
       targetPort: 80
 ```
 
-This example says:
+This says much more than “please run nginx.” It says to keep two replicas, give the scheduler resource expectations, constrain resource use, keep unready Pods out of Service traffic, restart a container that repeatedly fails its liveness check, and expose the matching Pods through one Service. That is Kubernetes in miniature: **declaration plus policy plus reconciliation.**
 
-- keep two replicas of the workload;
-- schedule them with explicit CPU and memory requests;
-- enforce resource limits;
-- send Service traffic only to Pods that pass readiness checks;
-- restart a container if its liveness check repeatedly fails;
-- expose matching Pods through one stable in-cluster Service.
-
-The image tag above keeps the example readable. In a production delivery system, pinning an immutable image digest gives stronger reproducibility because image tags can move while digests identify exact image content.
-
-The official docs explain [resource requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/), [probes](https://kubernetes.io/docs/concepts/workloads/pods/probes/), and [container image tags versus digests](https://kubernetes.io/docs/concepts/containers/images/).
+For a production delivery system, I would also prefer an immutable image digest when exact reproducibility matters instead of assuming an image tag can never move. The Kubernetes [container image documentation](https://kubernetes.io/docs/concepts/containers/images/) explains the difference.
 
 ---
 
-## Readiness Is Not Liveness
+## Health checks and resources are operational decisions
 
-This is worth separating because mixing the two can turn a health check into an outage generator.
+Readiness and liveness look like two small YAML blocks, but they answer different questions. A **readiness probe** asks whether this Pod should receive traffic right now. If readiness fails, Kubernetes can keep the process running while removing the Pod from Service traffic.
 
-A **readiness probe** answers whether a container is ready to receive traffic. A failed readiness probe can remove that Pod from Service traffic without requiring the container to restart.
+A **liveness probe** asks whether the container is unhealthy enough that Kubernetes should restart it, while a **startup probe** can protect a slow-starting application from being judged too early. Mix those responsibilities carelessly and a health check can become an outage generator. If a temporary downstream database problem makes an application unready, restarting the process every few seconds may do nothing except make recovery noisier.
 
-A **liveness probe** asks whether the container should be restarted because it is unhealthy.
+The official [probe documentation](https://kubernetes.io/docs/concepts/workloads/pods/probes/) covers the mechanics; the judgment about what “healthy” means still belongs to the application and team.
 
-A **startup probe** protects slow-starting applications by delaying liveness and readiness checks until startup succeeds.
+Resources work the same way. **Requests** tell the scheduler what a container needs when deciding where it can run. **Limits** constrain how much CPU or memory it may consume. Set them wildly high and you waste capacity; set them unrealistically low and the cluster may look fine until workloads are throttled or killed under real load.
 
-Those jobs are different. A database dependency being temporarily unavailable might make an application not ready for traffic, but killing and restarting the process every few seconds may make recovery worse.
-
-Probes are not decorative YAML. They encode operational decisions.
+Kubernetes cannot make good placement decisions if every workload claims it needs nothing. The [resource management documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) is worth reading once the basic Deployment makes sense.
 
 ---
 
-## Resource Requests Are Scheduling Inputs
+## Troubleshooting starts by asking Kubernetes what it sees
 
-Kubernetes cannot make good placement decisions if every workload pretends it needs nothing.
-
-A resource **request** tells the scheduler how much CPU or memory a container needs when deciding where it can run. A resource **limit** constrains how much of that resource the container may consume.
-
-The details matter. CPU limits can throttle workloads. Exceeding a memory limit can result in an out-of-memory kill. Requests that are far too high waste capacity; requests that are far too low can make a cluster look healthier on paper than it is in reality.
-
-This is one of the places where Kubernetes stops being “a container tool” and starts looking like an operating system for shared compute.
-
----
-
-## `kubectl` Is the Client, Not the Platform
-
-`kubectl` is the command-line client most people use to talk to the Kubernetes API.
-
-A few commands go a long way when learning:
-
-```bash
-kubectl apply -f demo.yaml
-kubectl get deployments,pods,services
-kubectl rollout status deployment/demo-web
-kubectl describe pod <pod-name>
-kubectl logs <pod-name>
-```
-
-The first command is especially important. Kubernetes supports both imperative and declarative management, but declarative configuration is easier to version, review, reproduce, and eventually connect to a GitOps workflow.
-
-That is why YAML exists in so many Kubernetes examples. The file is not the interesting part. **The reviewable declaration of intent is.**
-
-The official [`kubectl` overview](https://kubernetes.io/docs/concepts/overview/kubectl/) covers the client model and recommends declarative management for reproducible workflows.
-
----
-
-## Troubleshooting: Start With State, Then Events
-
-Kubernetes troubleshooting gets much easier when you stop guessing and ask the API what state it sees.
-
-A practical first pass is:
+The platform gets much less mysterious when you stop guessing and inspect state. A basic troubleshooting loop goes a long way:
 
 ```bash
 kubectl get pods
@@ -236,102 +156,46 @@ kubectl describe pod <pod-name>
 kubectl logs <pod-name>
 ```
 
-Then read the status and recent events.
+`kubectl` is a client for the Kubernetes API, so the same API-driven model applies whether you are creating a Deployment, checking rollout status, reading events, or inspecting logs.
 
-Some common patterns:
+Some common failures become fairly readable once you know where to look. A **Pending** Pod may not be schedulable because of resources, constraints, storage, or setup. **ImagePullBackOff** usually points you toward the image name, registry, or credentials. **CrashLoopBackOff** means the container is repeatedly starting and failing. A Service with no useful backends often sends you straight to labels, selectors, and readiness.
 
-- **Pending** — the Pod has not been scheduled or cannot complete setup; resources, placement constraints, storage, or cluster configuration may be involved.
-- **ImagePullBackOff** — Kubernetes cannot successfully pull the requested image; inspect the image name, registry access, and pull credentials.
-- **CrashLoopBackOff** — the container repeatedly starts and exits; logs, termination state, command/configuration, and probes are good places to investigate.
-- **Service has no useful backends** — inspect labels, selectors, and readiness. A perfectly healthy Pod with the wrong label is invisible to the Service that was supposed to reach it.
-- **OOMKilled** — memory usage exceeded the effective limit; inspect workload behavior and resource configuration instead of blindly raising the number.
-
-The official [application debugging](https://kubernetes.io/docs/tasks/debug/debug-application/) guidance is more valuable than memorizing a list of error names because it teaches how to inspect the objects and events behind them.
+Those names are not a troubleshooting certification; they are clues. The useful habit is to inspect object state and events before inventing a theory about what the cluster is doing. The official [application debugging guide](https://kubernetes.io/docs/tasks/debug/debug-application/) is more valuable than memorizing a giant error-code list.
 
 ---
 
-## Security Does Not Arrive Automatically
+## Security and upgrades do not arrive by magic
 
-Kubernetes gives you security controls. It does not configure all of them correctly for your environment by telepathy.
-
-A few beginner rules are worth learning early:
+Kubernetes gives you a lot of security controls. It does not configure all of them correctly for your environment by telepathy. A few habits are worth carrying into the platform early:
 
 - use RBAC with least privilege;
-- avoid giving workloads Kubernetes API credentials they do not need;
-- prefer short-lived ServiceAccount tokens over long-lived static tokens;
+- do not give workloads Kubernetes API credentials they do not need;
 - understand how Secrets are protected in the actual cluster;
-- use NetworkPolicy only after confirming the cluster networking implementation enforces it;
-- keep image provenance and dependency trust in the delivery process, not as an afterthought.
+- verify that the networking implementation enforces the policies you rely on;
+- keep image and dependency trust in the delivery process;
+- treat cluster and client upgrades as compatibility work, not casual package updates.
 
-A Kubernetes API object existing does not always mean the surrounding infrastructure enforces the behavior you assumed. NetworkPolicy is a good example: the API can exist while the selected networking implementation provides no NetworkPolicy enforcement.
+The last point matters because Kubernetes components have documented version-skew rules. For example, current Kubernetes guidance supports `kubectl` within one minor version older or newer than the control plane. You do not need that table memorized, but you should know it exists before upgrading random pieces independently.
 
-See the project's [ServiceAccount guidance](https://kubernetes.io/docs/concepts/security/service-accounts/), [RBAC good practices](https://kubernetes.io/docs/concepts/security/rbac-good-practices/), and [networking overview](https://kubernetes.io/docs/concepts/services-networking/).
-
----
-
-## Version Skew Is Part of Operations
-
-Kubernetes moves quickly enough that version compatibility belongs in normal operations.
-
-At this article's publication in August 2026, upstream Kubernetes maintains the three most recent minor release branches: **1.36, 1.35, and 1.34**. The project provides roughly one year of patch support for modern minor releases.
-
-`kubectl` is supported within one minor version older or newer than the API server. Other cluster components have their own skew rules, and an upgrade has a supported order.
-
-You do not need to memorize that matrix. You do need to know it exists before casually upgrading half a cluster.
-
-The current matrix is maintained in the official [Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/).
+The official [RBAC guidance](https://kubernetes.io/docs/concepts/security/rbac-good-practices/) and [Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/) are the references I would keep handy rather than baking a specific current release number into an evergreen beginner article.
 
 ---
 
-## Where Kubernetes Helps
+## Where Kubernetes earns the complexity
 
-Kubernetes is strongest when the operational problem justifies the abstraction:
+Kubernetes is not a prize you win for having containers. It starts earning its complexity when the system genuinely needs repeatable scheduling and replacement, independent deployments across several services, controlled rollouts, service discovery, horizontal scaling, shared platform policy, or a common operating API across enough workloads that custom orchestration becomes the more expensive choice.
 
-- multiple services with independent deployment cycles;
-- workloads that need repeatable scheduling and replacement;
-- controlled rolling updates and rollback behavior;
-- service discovery and internal load balancing;
-- horizontal scaling;
-- shared platform controls around policy, configuration, identity, and observability;
-- teams that benefit from a common deployment API across environments.
+For a small application running happily on one or two machines, Kubernetes can create more operational work than it removes. You now have another distributed system, another security model, another network abstraction, another upgrade path, and a very large API surface to understand.
 
-It creates a consistent control surface for systems that would otherwise accumulate a lot of custom orchestration logic.
-
-That can remove enormous amounts of toil.
+So I would not ask only, “Can this run on Kubernetes?” Almost anything can. I would ask, **“What operational problem does Kubernetes solve here, and is that problem expensive enough to justify the platform?”** That question will save you more time than learning another fifty resource types.
 
 ---
 
-## Where Kubernetes Hurts
+## A safe way to learn
 
-Kubernetes is not a prize you win for having containers.
+Use a disposable local environment such as **kind** or **minikube**. The goal is to see the control loop, not to prove you can build a production control plane on a laptop.
 
-It adds real complexity:
-
-- another distributed system to understand;
-- cluster and component upgrades;
-- networking abstractions;
-- storage abstractions;
-- RBAC and workload identity;
-- resource management;
-- admission and policy layers;
-- a very large API surface;
-- failure modes that can cross application and platform boundaries.
-
-For a small application running happily on one or two machines, Kubernetes can create more operational work than it removes.
-
-The right question is not “Can this run on Kubernetes?”
-
-Almost anything can.
-
-The better question is **“Does orchestration solve a problem here that is expensive enough to justify the platform?”**
-
----
-
-## A Safe Way to Learn
-
-Do not begin by building a highly available production control plane from scratch.
-
-Use a disposable local learning environment such as **kind** or **minikube**, both referenced by the Kubernetes project for local learning. Then work through a small loop:
+A good learning loop is:
 
 1. create a Deployment;
 2. inspect the Pods;
@@ -340,24 +204,17 @@ Use a disposable local learning environment such as **kind** or **minikube**, bo
 5. watch the rollout;
 6. deliberately break a selector or image name;
 7. use `get`, `describe`, and `logs` to explain the failure;
-8. delete the workload and create it again from the manifest.
+8. delete a Pod and watch the controller restore the desired replica count;
+9. delete the workload and recreate it from the manifest.
 
-That exercise teaches the core idea better than installing a dozen add-ons before you understand what a Pod is.
-
-The official [learning environment](https://kubernetes.io/docs/setup/learning-environment/) and [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/) guides are solid starting points.
+That exercise teaches what Kubernetes is actually doing. Installing a dozen add-ons before you understand a Pod mostly teaches you how quickly YAML can accumulate. The official [learning environment](https://kubernetes.io/docs/setup/learning-environment/) and [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/) guides are solid next steps.
 
 ---
 
 ## Bottom Line
 
-Kubernetes is not mainly about YAML, and it is not mainly about memorizing commands.
+Kubernetes is not mainly about YAML, and it is not mainly about memorizing `kubectl` commands. It is a system for declaring workload intent and continually reconciling a cluster toward that state.
 
-It is a system for expressing desired state and continuously reconciling infrastructure toward that intent.
+Learn Pods, Deployments, Services, probes, resources, and the API-driven troubleshooting loop first. The rest of the ecosystem becomes much easier to place once that model clicks, and it leads naturally to another problem: once a distributed platform is constantly replacing and moving workloads, how do you follow one request through all of it and understand what the system actually did?
 
-Learn the relationship between Pods, Deployments, Services, health probes, resource requests, and the API. Learn how to inspect state when the system disagrees with your expectations. Learn the security and version boundaries before they become production surprises.
-
-Once that mental model clicks, the ecosystem around Kubernetes starts making more sense too.
-
-And that leads naturally to the next problem: **how do you understand what all of these distributed workloads are actually doing?**
-
-That is where OpenTelemetry enters the series next.
+That is where **OpenTelemetry** enters the series next.

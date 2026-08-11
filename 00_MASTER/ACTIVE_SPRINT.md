@@ -1,76 +1,132 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-08-08
+Status: **P9 ACTIVE — VERIFICATION / OWNER EDITORIAL GATE PREP**  
+Updated: 2026-08-10
 
-Most recently completed sprint: **P8 — Portfolio Quality Ratchet and Series Transition**
+Sprint: **P9 — Editorial Voice and Full Blog Quality**
 
-Historical sprint record:
+Sprint record:
 
-`docs/sprints/SPRINT_P8_PORTFOLIO_QUALITY_RATCHET_AND_SERIES_TRANSITION_2026-08-08.md`
+`docs/sprints/SPRINT_P9_EDITORIAL_VOICE_AND_FULL_BLOG_QUALITY_2026-08-10.md`
 
-A bounded post-P8 employer-facing polish package has also been completed and deployed; it did not open another sprint.
-
-Current production authority:
+Current GitHub authority:
 
 ```text
 production branch: main
-current production merge: e4f368365a36923295d0c4272a2caeb0ea67f05f
-current release: post-P8 employer-facing polish — Writing order/series intros + Work spacing
-automatic Pages deployment run: 31293406396
-result: SUCCESS
-production Validate Astro migration: 31293406399 — SUCCESS
-production Playwright portfolio smoke: 31293406404 — SUCCESS
-final candidate head: 09b5e21e7ba8fe98aaced5a84a6a72bac0e2c423
-final candidate validation: 31293235502 — SUCCESS
-final candidate Playwright: 31293235506 — 125 passed / 4 intentional skips
-Playwright artifact: 9032136163
-artifact digest: sha256:99330d1e6d60a9486376767e13801744fe085aea0ada35778d0ece694f381bcb
+current GitHub main: ed22dbc186429e6f8f1fe098fd4e26a3c670bf27
+main content tree: 89cb31cf7b823bedd826c1ba16001c42d36bb37e
+P9 branch: portfolio-p9-editorial-voice
+draft PR: #29
+last article-rewrite head before verification docs: 0691ee8d9eba3a1c9d49869ea54181fdeb6a7a5b
 ```
 
-## Current production state
+The current website remains the previously deployed post-P8 employer-facing polish. The two P9-opening housekeeping commits on `main` added and immediately removed the sprint record by mistake; corrected `main` has the exact same tracked content tree as before that error. P9 implementation proceeds only on the bounded branch.
 
-- Git to Know You is complete at #1–#10; no #11 is implied.
-- The owner-approved MacBook homepage hero calibration remains deployed. The post-P8 polish did not roll it back; `src/styles/home.css` remained unchanged through the release.
-- **Prompt. Prove. Ship.: From Chat to Change** is published and intentionally featured on the homepage.
-- **Prompt. Prove. Ship.** is the approved next writing-series direction: AI-assisted engineering without outsourcing judgment.
-- No numbered Prompt. Prove. Ship. follow-on article is currently committed.
-- Writing uses deterministic publication ordering. `publishedAt`, when present, is the immutable first-publication/production-authorization instant; later revisions use `updated` and do not affect publication order.
-- Series introductions use a subtle light-neutral divider-card treatment in Writing.
-- Series-introduction thumbnails are wordless conceptual SVGs by default; thumbnail art should add meaning rather than repeat visible title/series copy.
-- Work case-study actions have deliberate separation from capability pills.
-- Canonical sprint execution records live under `docs/sprints/`; closed records become archive-eligible 30 calendar days after their recorded close date and move to `docs/sprints/archive/` when eligible.
-- Routine startup does not read the sprint archive.
+## Sprint goal
 
-## Next-work posture
+Restore a coherent human technical-blog voice across Writing without weakening factual rigor, beginner accessibility, web scannability, public safety, or AI-assisted production discipline.
 
-Do not manufacture a sprint merely because the repository is active.
+The specific quality failure is the visible editorial discontinuity between the established human-written / AI-assisted corpus and the August 8 AI-created articles. The newer posts were technically strong but overused isolated one-sentence paragraphs, dense concept-by-concept sectioning, repeated explanatory templates, and upstream-documentation-style completeness.
 
-The next meaningful content sprint may develop a focused **Prompt. Prove. Ship.** arc around durable AI-assisted engineering practices such as repository context, bounded autonomy, claim-matching proof, safe tool access, troubleshooting, and review/release controls. Topic order and article count are not yet commitments.
+## Work-package state
 
-After that focused writing arc, pause new content and perform one deliberate employer-readiness pass across Home / Work / Writing / About / Resume, then prefer a stability period over cosmetic churn.
+```text
+P9-WP1 external editorial research + all-12-article corpus audit     COMPLETE
+P9-WP2 durable house voice / AI editorial authority                 COMPLETE
+P9-WP3 priority August 8 article repair                             COMPLETE
+P9-WP4 earlier-corpus targeted disposition                          COMPLETE — 8 RETAINED
+P9-WP5 build/browser/accessibility/publication evidence             IN PROGRESS
+```
 
-A non-blocking final-polish observation remains for that later pass: the upper-right homepage focus rail may feel slightly open above its rule. Do not add filler simply to occupy the space.
+## Article disposition
+
+Materially revised with `updated: 2026-08-10`:
+
+```text
+OpenTelemetry                 structural rewrite complete
+Argo CD / GitOps              structural rewrite complete
+Kubernetes                    moderate rewrite complete
+Prompt. Prove. Ship. intro    prose-rhythm rewrite complete
+```
+
+Intentionally retained after full-corpus review:
+
+```text
+SRE Tools overview
+Rundeck
+New Relic
+PagerDuty
+Git
+Terraform
+GitHub Actions
+Cursor
+```
+
+The earlier articles remain the internal voice baseline. They were not changed merely to manufacture uniformity.
+
+## Durable editorial direction
+
+Portfolio long-form writing should behave as a **technical essay/tutorial hybrid**:
+
+```text
+human reason to care
+-> one primary mental model
+-> cohesive short paragraphs
+-> truthful experience when available OR grounded author judgment
+-> practical example/workflow
+-> tradeoffs/failure modes
+-> safe starting path
+-> conclusion that returns to the operating idea
+```
+
+Scannability does not mean fragmenting every idea into a one-sentence paragraph or heading. One-sentence paragraphs remain available for deliberate emphasis, but cohesive multi-sentence paragraphs are the default blog rhythm.
+
+Detailed house voice and AI-drafting review authority:
+
+`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
+
+## Verification already complete
+
+- all 12 current blog articles were read and dispositioned;
+- current external first-party links retained by the four rewritten articles were re-opened and verified against Kubernetes, OpenTelemetry, Argo CD/OpenGitOps, OpenAI, and GitHub documentation;
+- no invented personal technology implementation story, customer/employer event, metric, or screenshot was added;
+- article publication dates, slugs, routes, series metadata, thumbnails, and Prompt `publishedAt` remain preserved.
+
+## Protected boundaries
+
+- Preserve publication dates, slugs, routes, series identity/order, and historical publication truth.
+- Never invent tool usage, employer/customer stories, incidents, metrics, screenshots, or first-person events.
+- First person is encouraged for truthful experience and clearly framed judgment/opinion.
+- Do not remove necessary technical/security caveats merely to shorten an article.
+- Do not write to an SEO word count; length follows the reader outcome.
+- Do not create a parallel blog-style doctrine file when existing editorial/product authority can own the rule.
+- No unrelated homepage, Work, case-study, runtime, visual-system, or infrastructure changes.
+
+## Remaining proof before owner review
+
+```text
+exact changed-file/material-diff review
+Astro/content/build integrity
+asset/internal-link integrity
+Playwright desktop/tablet/phone smoke
+representative axe accessibility coverage
+rendered long-form visual/readability review
+public-disclosure/professional-read review
+```
+
+## Owner gate
+
+Mike must review the materially rewritten public articles before merge because they are public professional representation. GPT owns the repository mechanics and verification leading to that gate.
 
 ## Release model
 
 ```text
-bounded branch
--> PR
--> required CI / browser / accessibility evidence
--> owner approval when required
--> merge to main = human production authorization
+bounded P9 branch
+-> draft PR while editorial/technical evidence is incomplete
+-> exact-head CI / browser / accessibility proof
+-> owner editorial approval
+-> merge to main = production authorization
 -> automatic GitHub Pages deployment
--> post-deploy verification
+-> live verification
 -> living-state closeout
 ```
-
-`workflow_dispatch` remains operational fallback only.
-
-## Owner-effort posture
-
-GPT should continue routine bounded repository work autonomously through connected GitHub until a genuine owner decision, local-only proof requirement, scope expansion, safety uncertainty, or production authorization gate is reached. Owner gates should be concise and mobile-friendly without weakening evidence requirements.
-
-## Public-repository rule
-
-This repository remains a public professional artifact. Tracked documentation, branches, PRs, logs, artifacts, screenshots, and metadata must stay safe for unrestricted public reading/copying and must not become private project memory.

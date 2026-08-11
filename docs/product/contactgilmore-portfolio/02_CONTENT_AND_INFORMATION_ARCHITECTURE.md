@@ -1,7 +1,7 @@
 # Content and Information Architecture
 
 Status: active product support document  
-Blueprint checkpoint: 2026-08-08
+Blueprint checkpoint: 2026-08-10
 
 ## Recommended top-level navigation
 
@@ -35,13 +35,17 @@ Purpose: strongest evidence surface, ordered as professional/sanitized case stud
 
 Purpose: dedicated technical-writing archive with clean long-form article reading. Homepage exposes only selected pieces.
 
+Writing is also a **professional proof surface**. It should demonstrate Mike's technical depth, judgment, ability to explain complex systems, customer/reader awareness, and practical operating perspective. An article that is factually correct but reads like anonymous reference documentation is therefore not fully successful for this portfolio.
+
+Long-form portfolio articles should normally behave as **technical essay/tutorial hybrids**: teach one primary mental model, explain why it matters, provide useful practical guidance and tradeoffs, and retain a recognizable authorial point of view. Upstream product/project documentation remains the reference authority for exhaustive feature/API coverage; the portfolio blog should not try to reproduce it.
+
 ### About
 
 Purpose: concise professional narrative, working style, experience context, and selected credentials. Avoid copying the full resume.
 
 ### Resume
 
-Purpose: fast evaluation artifact. It must pass the repository disclosure gate before being hosted or linked from repository-controlled content.
+Purpose: fast evaluation artifact. It must pass the repository disclosure gate before it is hosted or linked from repository-controlled content.
 
 ## Homepage content blueprint
 
@@ -153,6 +157,20 @@ clear article cards/list rows
 
 Do not introduce filter/search complexity until the archive size creates an actual navigation problem.
 
+### Long-form editorial shape
+
+Scannability and narrative reading must coexist.
+
+Use headings, lists, code, diagrams, and emphasis where they help a reader navigate, but do not fragment ordinary explanation into a heading or isolated sentence for every concept. Cohesive short paragraphs are the default reading rhythm. One-sentence paragraphs remain available for intentional emphasis rather than becoming the article's dominant shape.
+
+A strong article should add something beyond a source summary through verified experience, practical judgment, analogy, recommendation, tradeoff analysis, or a clear mental model. Never invent experience to create personality.
+
+Detailed drafting and review rules live in:
+
+```text
+docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+```
+
 ## Navigation and semantic rules
 
 - Use semantic `<header>`, `<nav>`, `<main>`, and `<footer>` landmarks.
@@ -168,6 +186,30 @@ Home supports scanning first and deeper reading second. Long-form explanation be
 
 Do not render every article, every technology, every certification, or every resume bullet on Home.
 
+Within Writing, technical completeness is not the same as editorial value. Include enough detail to teach the reader's intended outcome, then link to authoritative reference material for exhaustive implementation detail when appropriate.
+
 ## Research basis
 
-Current Linear, Stripe, and Vercel homepages were reviewed as information-hierarchy examples. WCAG 2.2 and web.dev navigation/content-structure guidance establish semantic, keyboard, heading, responsive, and readability constraints. The portfolio adapts these principles rather than imitating another company's visual identity.
+The 2026-08-08 benchmark used current Linear, Stripe, and Vercel homepages as structural references rather than visual templates, plus WCAG 2.2 and web.dev guidance for responsive layout, typography, navigation, and semantic structure.
+
+Observed transferable pattern:
+
+```text
+one concise promise
+-> grouped proof
+-> concrete examples/evidence
+-> deeper technical or functional detail
+-> clear next action
+```
+
+Portfolio adaptation:
+
+```text
+one coherent professional identity
+-> how Mike creates value
+-> evidence through work
+-> supporting technical depth/writing
+-> clear evaluation/contact paths
+```
+
+The 2026-08-10 Writing revision additionally established that the blog's role as professional proof requires a recognizable editorial voice and practical point of view, not only technically correct source synthesis. The detailed house style remains in the existing editorial workflow rather than creating another product document.

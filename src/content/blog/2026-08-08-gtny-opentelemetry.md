@@ -2,6 +2,7 @@
 layout: post
 title: "#9. Git to Know You: OpenTelemetry"
 date: 2026-08-08
+updated: 2026-08-10
 thumbnail: /assets/images/blog2026/082026/open-telemetry.svg
 slug: gtny-opentelemetry
 categories: [sre, observability, devops]
@@ -13,557 +14,146 @@ seriesStatus: "complete"
 
 **Distributed systems are very good at turning one user request into six unrelated-looking problems.**
 
-A browser calls an API. That API calls another service. The second service talks to a database, publishes a message, waits on something else, and eventually the user sees a spinner.
+A browser calls an API. That API calls another service. The second service talks to a database, publishes a message, and waits on something else. The user sees a spinner while one dashboard says latency is up, one log says timeout, and another service insists everything is fine.
 
-CPU looks fine. One log says timeout. Another service says success. A dashboard shows latency went up, but not why.
-
-This is where observability stops being a collection of charts and starts becoming a data-correlation problem.
-
-OpenTelemetry exists to standardize how that telemetry is generated, described, moved, and connected.
+I think this is the easiest way to understand why OpenTelemetry exists. The problem is not that we have no telemetry. The problem is that all of those signals need enough shared context to tell one coherent story, and OpenTelemetry is part of the layer that makes that possible.
 
 ---
 
 > **Beginner note:**  
-> OpenTelemetry is not another monitoring dashboard. It does not replace Grafana, Jaeger, Prometheus, New Relic, Datadog, or another observability backend. It gives applications and infrastructure a common way to produce and export telemetry so those systems have useful data to work with.
+> OpenTelemetry is not another monitoring dashboard. It does not replace Grafana, Jaeger, Prometheus, New Relic, Datadog, or another observability backend. Think of it as the common instrumentation and telemetry layer that helps applications produce useful data without hard-wiring every application directly to one backend.
 
 ---
 
-## What Is OpenTelemetry?
+## What OpenTelemetry actually does
 
-OpenTelemetry, usually shortened to **OTel**, is an open-source observability framework and toolkit for **generating, collecting, and exporting telemetry** such as traces, metrics, and logs.
+OpenTelemetry, usually shortened to **OTel**, is an open-source observability framework for generating, collecting, and exporting telemetry. The project supports signals such as **traces, metrics, and logs**, and provides common APIs, SDKs, conventions, protocols, and a Collector for moving that data through an observability system.
 
-It is vendor- and tool-agnostic by design.
-
-That distinction matters.
-
-Without a common instrumentation layer, changing observability platforms can mean changing application agents, proprietary libraries, attribute names, exporters, and operational habits at the same time. OpenTelemetry tries to separate those concerns:
+The mental model I would keep is deliberately simple:
 
 ```text
 application / infrastructure
         ↓
 instrumentation
         ↓
-OpenTelemetry data + conventions
+telemetry + shared context
         ↓
 OTLP / Collector
         ↓
 observability backend
 ```
 
-The backend still stores, queries, alerts on, and visualizes the data. OpenTelemetry handles the layer before that.
+Your backend still stores, queries, visualizes, and alerts on the data. OpenTelemetry sits earlier in the path and gives teams a more standard way to describe and transport what happened. That vendor-neutral boundary is the interesting part: changing or adding a backend can become a smaller problem when the application is not built entirely around one vendor's proprietary instrumentation model.
 
-The project's own [What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/) page is worth reading because it is unusually clear about what OpenTelemetry **is not**.
-
----
-
-## Start With the Signals
-
-OpenTelemetry organizes telemetry into signals. The three most familiar are:
-
-- **Traces** — follow work through a distributed request or operation.
-- **Metrics** — measurements aggregated over time.
-- **Logs** — records of discrete events.
-
-OpenTelemetry also defines **Baggage**, which carries contextual key-value data across service boundaries, and the project is actively developing **profiles** as another signal.
-
-The current signal overview is maintained in the official [Signals](https://opentelemetry.io/docs/concepts/signals/) documentation.
-
-These signals answer different questions.
-
-A metric might tell you:
-
-> Checkout latency is above 2 seconds.
-
-A trace might tell you:
-
-> Most of that latency is inside the inventory call.
-
-A log might tell you:
-
-> The inventory service timed out while waiting on its database connection pool.
-
-The value is not merely having all three. The value is being able to **correlate** them around the same system behavior.
+It does **not** make every observability product interchangeable, and that is not the goal. The project's [What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/) page is a good reference for the formal scope.
 
 ---
 
-## Traces: Follow the Request
+## One request, three useful views
 
-A distributed trace represents the path of an operation through a system.
+OpenTelemetry has enough terminology to make a beginner think the terminology is the point. It isn't. Start with what you are trying to learn from a system, and imagine a checkout request has suddenly become slow.
 
-A trace is made of **spans**. Each span represents a unit of work such as:
+A **metric** can tell you that checkout latency moved from its normal range to something ugly. Metrics are good at showing the shape of behavior over time: rates, counts, latency distributions, queue depth, CPU, memory, errors, or whatever else you choose to measure.
 
-- receiving an HTTP request;
-- making an outbound API call;
-- running a database query;
-- publishing or consuming a message;
-- performing an internal application operation.
+A **trace** can follow one checkout operation through several services and show that most of the delay happened inside an inventory call. Traces are built from spans, with each span representing a unit of work such as an HTTP request, database query, or message operation. A **log** can then preserve the specific event that explains what happened inside that slow inventory span, perhaps a connection-pool timeout or a failed dependency call.
 
-A span normally includes timing information, attributes, status, events, and identifiers that connect it to the rest of the trace.
-
-Imagine this request:
-
-```text
-browser
-  → checkout service
-      → inventory service
-      → payment service
-          → database
-```
-
-With distributed tracing, those operations can be represented as related spans in one trace instead of four unrelated timing records.
-
-That is the first mental model to learn: **a trace is the story of one operation; spans are the chapters.**
-
-The current tracing model is documented under [Traces](https://opentelemetry.io/docs/concepts/signals/traces/).
+Individually, those signals are useful. Together, they are much more useful when you can move from the metric spike to a trace and then to the related log instead of manually lining up timestamps and hoping you found the same incident. That correlation is the lesson I would learn before worrying about every OpenTelemetry API type; the project maintains current overviews for [signals](https://opentelemetry.io/docs/concepts/signals/) and [traces](https://opentelemetry.io/docs/concepts/signals/traces/).
 
 ---
 
-## Context Propagation Is What Holds the Trace Together
+## Context is what keeps the story together
 
-A trace cannot cross service boundaries unless the services agree on how to carry the context forward.
+A distributed trace falls apart if every service believes it is starting a brand-new request. When Service A calls Service B, some trace context has to cross that boundary so Service B can understand which larger operation it belongs to and which span came before it.
 
-When Service A calls Service B, it needs to pass enough information for Service B to understand:
+OpenTelemetry calls this **context propagation**, and instrumentation can handle much of it automatically across supported frameworks and protocols. That creates an important troubleshooting habit: if a trace suddenly splits in the middle, do not assume the services stopped producing telemetry. Sometimes the instrumentation is working on both sides and the context simply stopped crossing one network or messaging boundary.
 
-```text
-which trace am I part of?
-which span called me?
-what should my parent relationship be?
-```
-
-That process is **context propagation**.
-
-OpenTelemetry instrumentation usually handles it automatically. The default propagation model uses the W3C Trace Context format, so trace identifiers can travel in standardized request headers instead of every team inventing its own format.
-
-Without propagation, you can still have spans. They just look like separate traces.
-
-That failure mode is worth remembering because a broken trace is not always an instrumentation failure. Sometimes every service is producing telemetry perfectly and the context simply stopped crossing one boundary.
-
-See [Context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) for the full model.
+That is a much more useful mental model than memorizing a list of propagators. The project explains the mechanics in its [context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) guidance.
 
 ---
 
-## Metrics: The Shape of System Behavior
+## Instrumentation gives telemetry meaning
 
-Metrics are measurements captured at runtime and aggregated into useful statistics.
+Telemetry does not appear just because you bought an observability platform. Something still has to describe what the application is doing, and OpenTelemetry supports both automatic or **zero-code instrumentation** and **manual instrumentation** for that job.
 
-Examples include:
+Automatic instrumentation is a practical way to get broad visibility into familiar operations such as HTTP requests, database calls, and common runtime behavior without manually wrapping every line of code. Manual instrumentation adds the application-specific meaning that a generic library cannot know. A framework can tell you an HTTP request occurred; your code knows the request represented `reserve_inventory` or `process_refund`.
 
-- request counts;
-- request latency;
-- active requests;
-- CPU or memory usage;
-- queue depth;
-- bytes processed;
-- error counts;
-- custom business measurements.
+I would treat those approaches as complementary rather than competitive: automatic instrumentation gives you breadth, while manual instrumentation adds meaning where the generic view stops being enough. OpenTelemetry keeps current language and instrumentation guidance under its [instrumentation documentation](https://opentelemetry.io/docs/concepts/instrumentation/).
 
-Metrics are efficient because they summarize many events instead of storing every individual operation as a separate record.
+The other half of meaning is identity. A 900 ms span becomes much more useful when the telemetry consistently tells you which logical service, version, environment, container, or Kubernetes workload produced it. OpenTelemetry represents that producing entity with a **Resource**, and its **Semantic Conventions** give teams common names for familiar attributes and operations.
 
-That efficiency creates one of the most important observability design constraints: **cardinality**.
-
-Suppose you record request latency with an attribute named `user.id`. If every user produces a unique attribute combination, the metric system may need to maintain an enormous number of separate time series or aggregation states.
-
-Useful dimensions are good. Unbounded dimensions are expensive.
-
-OpenTelemetry's [Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/) documentation explicitly discusses cardinality limits and why high-cardinality attributes need care.
-
-This is one reason the right question is not “How much telemetry can we collect?”
-
-It is **“What telemetry lets us answer the operational question at a sustainable cost?”**
+That sounds like standards work because it is standards work. It is also what keeps ten teams from inventing ten different spellings of `service.name` and making everybody regret it later. See [Resources](https://opentelemetry.io/docs/concepts/resources/) and [Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) for the deeper reference.
 
 ---
 
-## Logs: Keep the Event, Add the Context
+## OTLP and the Collector: the useful plumbing
 
-Logs are still logs.
+Once an application is producing telemetry, the data has to go somewhere. **OTLP**, the OpenTelemetry Protocol, is the project's standard protocol for moving telemetry between sources, intermediary components, and backends.
 
-OpenTelemetry does not require teams to throw away mature logging libraries and replace every logging call with a new API. The project includes a logging data model and bridge approach that lets existing logging ecosystems participate in the OpenTelemetry pipeline.
+For a small lab, direct export from an application to a compatible backend can be perfectly reasonable; you do not earn extra observability points for adding more infrastructure than you need. As an environment grows, the **OpenTelemetry Collector** becomes more interesting because it gives you a telemetry control point outside the application.
 
-The interesting part is correlation.
-
-A log record that contains trace and span context can take you from:
-
-```text
-ERROR database timeout
-```
-
-to:
-
-```text
-ERROR database timeout
-trace_id=...
-span_id=...
-service.name=inventory
-```
-
-Now the log is not an isolated string. It can be connected to the distributed operation that caused it.
-
-The current logging model is covered under [Logs](https://opentelemetry.io/docs/concepts/signals/logs/) and the project's [specification status](https://opentelemetry.io/docs/specs/status/).
-
----
-
-## Baggage: Useful Context With Sharp Edges
-
-**Baggage** is a key-value store that can travel alongside trace context across services.
-
-That can be useful when a value known near the beginning of a request should be available farther downstream.
-
-But baggage is not automatically a span attribute, metric attribute, or log field. Instrumentation has to decide how to use it.
-
-It also deserves a security warning.
-
-Baggage can be propagated in request headers. Sensitive values can therefore travel farther than expected, including toward third-party services if the application forwards them.
-
-Treat baggage like network-visible context, not a secret vault.
-
-The OpenTelemetry project calls this out directly in its [Baggage](https://opentelemetry.io/docs/concepts/signals/baggage/) guidance.
-
----
-
-## Instrumentation: Automatic, Manual, or Both
-
-Telemetry does not appear because an observability backend exists. Something has to instrument the application or infrastructure.
-
-OpenTelemetry supports two broad approaches.
-
-### Zero-code instrumentation
-
-Zero-code instrumentation can add telemetry without changing application source code. Depending on the language/runtime, this may involve an agent, runtime hooks, injected libraries, or platform-specific mechanisms.
-
-This is often the fastest way to get broad visibility across standard frameworks and libraries.
-
-### Code-based instrumentation
-
-Manual instrumentation uses OpenTelemetry APIs and SDKs inside the application.
-
-That lets developers describe the application-specific work that generic instrumentation cannot understand:
-
-```text
-reserve_inventory
-calculate_shipping_quote
-validate_entitlement
-process_refund
-```
-
-The two approaches are complementary. Automatic instrumentation gives breadth; manual instrumentation adds business and application meaning where it matters.
-
-OpenTelemetry documents both models under [Instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/) and maintains language-specific status under [Language APIs & SDKs](https://opentelemetry.io/docs/languages/).
-
----
-
-## API, SDK, and Instrumentation Are Different Things
-
-The terms blur together quickly, so here is a useful simplification.
-
-### API
-
-The API is what instrumentation calls to describe telemetry operations.
-
-For tracing, that means concepts such as tracers and spans.
-
-### SDK
-
-The SDK is the application-side implementation that configures how telemetry is sampled, processed, and exported.
-
-### Instrumentation library
-
-An instrumentation library understands a specific framework or dependency and translates its behavior into OpenTelemetry signals.
-
-That separation is important for library authors. A reusable library can depend on the OpenTelemetry API without forcing an application to activate a specific telemetry pipeline.
-
-The application decides whether an SDK is configured and where the data goes.
-
----
-
-## Resources Tell You What Produced the Telemetry
-
-A span saying “database call took 900 ms” is more useful when you know **which service and environment produced it**.
-
-OpenTelemetry represents the entity producing telemetry with a **Resource**.
-
-Resource attributes can describe things such as:
-
-- `service.name`;
-- service version;
-- deployment environment;
-- host;
-- process;
-- container;
-- Kubernetes pod, namespace, or deployment;
-- cloud provider metadata.
-
-One of the first things to configure correctly is `service.name`. OpenTelemetry SDKs have a fallback for an unknown service, but a fleet full of `unknown_service` is not a satisfying observability strategy.
-
-The official [Resources](https://opentelemetry.io/docs/concepts/resources/) documentation explains how resources and detectors work.
-
----
-
-## Semantic Conventions Make Telemetry Portable
-
-Standard transport alone is not enough.
-
-Two services could both send perfectly valid telemetry while disagreeing on every field name:
-
-```text
-service
-service_name
-app
-application
-svc
-```
-
-That makes cross-team queries miserable.
-
-OpenTelemetry **Semantic Conventions** define common names and meanings for telemetry about familiar operations and entities: services, HTTP, databases, messaging, Kubernetes, exceptions, cloud infrastructure, and more.
-
-For example, `service.name` has a shared meaning instead of being a field each team invents independently.
-
-Semantic conventions are one of the less flashy parts of OpenTelemetry and one of the most important. Portable telemetry requires agreement on meaning, not just agreement on wire format.
-
-See [Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) for the concept and the current specification.
-
----
-
-## OTLP: The Transport Layer
-
-OpenTelemetry Protocol, or **OTLP**, is the standard protocol used to export telemetry.
-
-OTLP supports telemetry over gRPC and HTTP. For OTLP/HTTP, the conventional signal endpoints include:
-
-```text
-/v1/traces
-/v1/metrics
-/v1/logs
-```
-
-An application SDK can export OTLP directly to a compatible backend, or it can send OTLP to an OpenTelemetry Collector first.
-
-That gives the architecture a useful boundary:
-
-```text
-application
-   ↓ OTLP
-Collector
-   ↓
-backend
-```
-
-The current protocol details live in the [OTLP specification](https://opentelemetry.io/docs/specs/otlp/).
-
----
-
-## The Collector: A Telemetry Pipeline You Can Operate
-
-The **OpenTelemetry Collector** is a vendor-neutral service for receiving, processing, and exporting telemetry.
-
-Its basic model is simple:
+The Collector is built around pipelines of receivers, processors, and exporters:
 
 ```text
 receiver → processor → exporter
 ```
 
-A **receiver** accepts or collects telemetry.
+That can let you batch data, retry delivery, enrich or transform telemetry, filter unwanted data, redact sensitive fields, or route the same telemetry toward more than one destination without rebuilding every application each time the backend architecture changes.
 
-A **processor** can batch, filter, transform, enrich, sample, or otherwise handle telemetry.
+It also means you now operate another service. A Collector can fail, fill buffers, consume resources, need upgrades, and become important enough that you should observe the observability pipeline. There is no prize for putting a Collector everywhere by reflex.
 
-An **exporter** sends telemetry to another system.
-
-A Collector configuration wires those components into one or more pipelines.
-
-Here is a deliberately small local-lab example:
-
-```yaml
-receivers:
-  otlp:
-    protocols:
-      grpc:
-        endpoint: 127.0.0.1:4317
-      http:
-        endpoint: 127.0.0.1:4318
-
-processors:
-  batch:
-
-exporters:
-  debug:
-    verbosity: basic
-
-service:
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug]
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug]
-    logs:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug]
-```
-
-That configuration is not a production architecture. It is a learning pipeline: accept OTLP locally, batch the data, and print it so you can see what the instrumentation is actually producing.
-
-The Collector's [overview](https://opentelemetry.io/docs/collector/) and [architecture](https://opentelemetry.io/docs/collector/architecture/) explain the pipeline model in more depth.
+The official [OTLP specification](https://opentelemetry.io/docs/specs/otlp/) covers the protocol, while the [Collector documentation](https://opentelemetry.io/docs/collector/) explains when that intermediary layer becomes useful.
 
 ---
 
-## Why Put a Collector in the Middle?
+## The expensive part is collecting the wrong things
 
-For a small experiment, sending telemetry directly from an application to a backend is perfectly reasonable.
+Observability conversations often start with “How do we collect more?” I think the better question is **“What evidence will help us answer the operational question?”**
 
-At larger scale, the Collector gives you a control point outside the application.
+Metrics make that obvious because of **cardinality**. If you attach an effectively unique value such as a user ID to a metric, you can create a huge number of distinct time series. The metric may be technically valid and operationally painful at the same time.
 
-That can be useful for:
+Tracing has a similar design decision in **sampling**. High-volume systems may produce far more traces than it makes sense to retain, and sampling determines which evidence survives. The policy should reflect the questions you need to investigate rather than an arbitrary percentage somebody copied from an example.
 
-- batching;
-- retries;
-- filtering;
-- redaction;
-- transformation;
-- routing to multiple destinations;
-- changing backend details without rebuilding every application;
-- centralizing some telemetry policy.
+Then there is privacy. Logs, URLs, headers, database statements, custom attributes, and propagated context can all carry information you did not intend to export. Automatic instrumentation is convenient precisely because it can see a lot, which is a good reason to review what it actually captures before shipping the stream somewhere else.
 
-It also moves work somewhere else.
-
-A Collector is another service to configure, scale, secure, observe, and upgrade. If it becomes a critical telemetry gateway, its own failure modes matter.
-
-The right architecture is not “always use a Collector.” The project's guidance is more practical: direct export is fine for getting started, while a Collector is generally recommended as systems grow because it can offload and centralize telemetry handling.
+This is where observability becomes an engineering system instead of a checkbox. Cost, privacy, cardinality, sampling, and signal quality all affect whether the telemetry remains useful. OpenTelemetry's [sampling](https://opentelemetry.io/docs/concepts/sampling/) documentation is a good starting point for that tradeoff.
 
 ---
 
-## Sampling Is a Design Decision, Not Just a Cost Knob
+## Why this fits so naturally after Kubernetes
 
-A busy service can produce an enormous number of spans.
+The previous article was about Kubernetes, where Pods are replaceable, workloads move, replicas scale, and desired state is constantly being reconciled. That is great for operating software, but less great for the old habit of identifying a problem by saying, “it was on server three.”
 
-Keeping every trace forever is rarely practical.
+OpenTelemetry fits that world because the useful identity becomes the logical service and operation rather than one long-lived machine. Resource metadata can still tell you which Pod, node, container, or environment was involved, while the trace can follow the request through a system even as the individual workload instances change underneath it.
 
-**Sampling** controls how much trace data is retained or exported.
-
-A head-based decision happens early, before the full trace is known. Tail-based approaches can make decisions after more of the trace is available, which can make it possible to retain interesting traces such as errors or unusually slow requests.
-
-Sampling changes what evidence survives.
-
-That means a sampling strategy should follow the operational questions you need to answer, not merely an arbitrary percentage.
-
-OpenTelemetry maintains a dedicated [Sampling](https://opentelemetry.io/docs/concepts/sampling/) concept guide.
+This is one of the places where the last few tools in the series start connecting. Kubernetes gives the workloads a common operating model; OpenTelemetry gives their behavior a common language.
 
 ---
 
-## Telemetry Can Leak Sensitive Data
+## A safe way to learn it
 
-Observability data can be surprisingly sensitive.
+Do not begin by building an enterprise observability platform. You can learn most of the important architecture with one tiny application and telemetry you can actually see.
 
-HTTP headers, database statements, URLs, user identifiers, baggage, log bodies, and custom attributes can all contain information that should not leave the application boundary unchanged.
+I would use a progression like this:
 
-Instrumentation is therefore part of the data-governance surface.
-
-A few practical rules:
-
-- do not capture sensitive headers just because an instrumentation option exists;
-- avoid secrets, tokens, passwords, and raw authentication material in attributes or logs;
-- treat baggage as data that may cross network boundaries;
-- filter or redact sensitive fields before export when required;
-- keep the Collector and OTLP endpoints authenticated/encrypted appropriately for the environment;
-- review what auto-instrumentation captures before assuming defaults match your privacy requirements.
-
-Observability that creates a security incident is not observability working well.
-
----
-
-## OpenTelemetry Does Not Eliminate Backend Differences
-
-Vendor-neutral instrumentation does **not** mean every backend behaves the same.
-
-Backends still differ in:
-
-- query languages;
-- storage models;
-- retention;
-- alerting;
-- dashboards;
-- sampling support;
-- service maps;
-- pricing;
-- data processing features;
-- how completely they support each OpenTelemetry signal and semantic convention.
-
-OpenTelemetry reduces coupling at the telemetry-generation and transport layers. It does not flatten the entire observability market into one interchangeable product.
-
-That is still a meaningful improvement.
-
-It lets teams make more of the instrumentation investment in an open standard instead of baking every application directly into one vendor's proprietary model.
-
----
-
-## OpenTelemetry and Kubernetes Fit Naturally Together
-
-The last article ended with Kubernetes because orchestration gives distributed workloads a consistent operating model.
-
-OpenTelemetry fits naturally into that environment because the telemetry needs the same kind of consistency.
-
-Kubernetes environments constantly change:
-
-- Pods are replaced;
-- replicas scale up and down;
-- workloads move between nodes;
-- service instances are temporary;
-- one request can cross many workloads.
-
-Resource metadata, semantic conventions, context propagation, and centralized Collector patterns help turn that churn into telemetry that still describes **which logical service did what**.
-
-The OpenTelemetry project also maintains Kubernetes-specific deployment tooling, including the OpenTelemetry Operator, but learning the core telemetry model first is more useful than starting with another controller and a large Helm values file.
-
----
-
-## A Safe Way to Learn
-
-You do not need to build a production observability platform to understand OpenTelemetry.
-
-Use one small application and make the telemetry visible.
-
-A useful progression is:
-
-1. start with an application that handles one HTTP request;
-2. add zero-code or basic SDK instrumentation;
-3. set a meaningful `service.name`;
-4. export OTLP to a local Collector;
-5. use the Collector's debug exporter so you can inspect the raw telemetry;
+1. run a small application with one HTTP request;
+2. add automatic or basic SDK instrumentation;
+3. give the service a meaningful `service.name`;
+4. export the telemetry locally, directly or through a Collector;
+5. inspect a trace and identify the spans in the request;
 6. add one manual span around application-specific work;
-7. make one outbound request and verify context propagation creates a connected trace;
-8. add one metric with bounded attributes;
-9. correlate one log with trace context;
-10. deliberately break propagation and compare the result.
+7. make one outbound request and verify the trace stays connected across the boundary;
+8. add one useful metric with bounded attributes;
+9. correlate one log with the same request;
+10. deliberately break propagation and explain what changed.
 
-That teaches the important architecture without hiding it behind a polished dashboard.
-
-Once the flow makes sense, point the same telemetry at a real backend and see what that backend adds.
+That exercise gives you something a feature tour does not: a mental picture of how the evidence travels. Once that makes sense, point the same telemetry at a real backend and learn what the backend adds on top—storage, queries, dashboards, alerts, retention, service maps, and all the product-specific features that OpenTelemetry intentionally does not standardize away.
 
 ---
 
 ## Bottom Line
 
-OpenTelemetry is not the thing that shows you a pretty service map.
+OpenTelemetry is not the pretty service map. It is part of the machinery that makes a useful service map possible.
 
-It is the standardization layer that makes a useful service map, trace search, metric query, or correlated log investigation possible across a mixed distributed system.
+If you remember only one thing, remember the path: **instrument the work, preserve context as the request moves, identify who produced the telemetry, use common meanings where you can, and move the signals toward a backend that can help you investigate them.** You can learn the rest of the nouns as you need them.
 
-Learn the boundaries:
-
-```text
-instrumentation generates telemetry
-context propagation connects operations
-resources identify producers
-semantic conventions standardize meaning
-OTLP moves the data
-Collectors process and route it
-backends store, query, alert, and visualize it
-```
-
-Once those pieces are clear, OpenTelemetry becomes much less mysterious.
-
-It also makes the next step in this series easier to understand. If Kubernetes describes desired application state and OpenTelemetry describes what the running system is doing, **GitOps asks how we make the deployed state follow what is declared in Git.**
-
-That brings us to **Argo CD and GitOps** next.
+And once you have both Kubernetes desired state and OpenTelemetry evidence, the next question becomes interesting: how do we make the deployed state follow what we reviewed in Git without turning deployment into another collection of manual steps? That is where **Argo CD and GitOps** come in next.
