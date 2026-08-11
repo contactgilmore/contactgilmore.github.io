@@ -27,12 +27,12 @@ production deployment policy: automatic after approved merge to main
 branch: p10-employer-readiness-final-polish
 draft PR: #31
 record: docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md
-exact implementation/browser-certified head: d31f84a137da28942c6a5c23e0b1ee5ed1cae724
-Validate Astro migration #274 / 31459950653: SUCCESS
-Playwright portfolio smoke #243 / 31459950637: SUCCESS
+exact implementation/browser-certified head: db1e1f3a25ee8192909ee91655216084c66680e4
+Validate Astro migration #282 / 31461649858: SUCCESS
+Playwright portfolio smoke #251 / 31461649933: SUCCESS
 Playwright: 140 passed / 4 intentional skips / 0 failures
-artifact: 9089466578
-artifact digest: sha256:5d8c4028ec35b339c91ddbef740148987f57f15754acde0a674b191a7cb562e9
+artifact: 9090048571
+artifact digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
 ```
 
 Blog article bodies are out of scope and unchanged. P9 remains their editorial authority.
@@ -43,6 +43,8 @@ The full non-blog employer-facing scan covered Home, Work, all three case studie
 
 The approved Portfolio 2.0 design remains strong. P10 does **not** redesign the site. Keep the homepage hero/right focus rail, three-pillar proof hierarchy, case-study structure, About narrative, supported metrics, compact Home experience timeline, and responsive visual system.
 
+A final candidate re-review found one material Resume scan issue and no broader design issue: the first P10 Resume candidate repeated role/summary positioning across the hero and immediate Professional Summary card. The final source removes that duplication so employer evidence appears sooner, especially on mobile. Home, Work, About, Writing index/navigation, and all three case studies required no additional source change.
+
 ## P10 candidate outcome
 
 ### Resume
@@ -52,12 +54,14 @@ The approved Portfolio 2.0 design remains strong. P10 does **not** redesign the 
 ```text
 Mike Gilmore
 Technical Delivery & Customer Solutions
-concise professional summary
 Salt Lake City area
 public email / LinkedIn / GitHub
+one concise Professional Summary
+core capabilities
+experience evidence
 ```
 
-The professional summary is no longer first-person portfolio prose. Existing capability tags, employer chronology, accomplishment bullets, and supported metrics remain intact. No education, certifications, dates, phone/address, or private details were invented.
+The hero behaves as a resume header rather than repeating a second summary. The Professional Summary is non-first-person and appears once. Existing capability tags, employer chronology, accomplishment bullets, and supported metrics remain intact. No education, certifications, dates, phone/address, or private details were invented.
 
 ### Proof precision and evaluation flow
 
@@ -86,9 +90,11 @@ before redundant `05_CASE_STUDY_TRUTH_MAP.md` was removed. Historical P4 provena
 
 The product backlog now records P8/P9 as completed and stability as the default post-P10 posture.
 
+Brand interaction authority was also reconciled to the tested navigation rule: exact top-level destinations use `aria-current="page"`; nested section routes use `aria-current="location"`. That correction is documentation-only and does not alter visual behavior.
+
 ## Exact-head proof
 
-`d31f84a137da28942c6a5c23e0b1ee5ed1cae724` passed:
+`db1e1f3a25ee8192909ee91655216084c66680e4` passed:
 
 ```text
 21 Astro pages
@@ -102,7 +108,7 @@ representative axe accessibility
 existing homepage/Work/Writing/series/browser contracts
 ```
 
-The P10 source candidate's desktop/phone screenshots were reviewed after the material visual changes. Resume reads as a resume; Work and case studies retain the approved visual system; the Work/Resume exit buttons fit the existing takeaway band; the homepage first viewport remains the approved composition. The final `aria-current` page/location refinement is semantic rather than compositional and passed the complete exact-head browser suite. No new overflow, hierarchy, spacing, or responsive defect was found.
+The final P10 source candidate's desktop/phone screenshots were reviewed after the Resume de-duplication. Resume now reads in the intended sequence: name, role, contact, one Professional Summary, then experience. The adjustment removes repeated positioning without changing supported evidence and improves the phone scan by moving experience upward. No new overflow, hierarchy, spacing, accessibility, or responsive defect was found.
 
 ## Durable writing state
 
