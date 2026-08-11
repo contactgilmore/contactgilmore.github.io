@@ -16,12 +16,12 @@ production branch: main
 production main at P10 open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
 P10 branch: p10-employer-readiness-final-polish
 draft PR: #31
-exact implementation/browser-certified head: 432b6aae2fed56dd78b998ae2781b58a681970e9
-Validate Astro migration #267 / 31457749622: SUCCESS
-Playwright portfolio smoke #236 / 31457749583: SUCCESS
+exact implementation/browser-certified head: d31f84a137da28942c6a5c23e0b1ee5ed1cae724
+Validate Astro migration #274 / 31459950653: SUCCESS
+Playwright portfolio smoke #243 / 31459950637: SUCCESS
 Playwright: 140 passed / 4 intentional skips / 0 failures
-artifact: 9088709831
-artifact digest: sha256:f4b604d15fc4bab6dcc1092fc20c51869dd1190e5d6e39ea73f74c95a9450295
+artifact: 9089466578
+artifact digest: sha256:5d8c4028ec35b339c91ddbef740148987f57f15754acde0a674b191a7cb562e9
 ```
 
 ## Goal
@@ -44,14 +44,14 @@ P10-WP5 exact-head browser/accessibility/owner gate     TECHNICAL + VISUAL EVIDE
 - Resume now opens with Mike's name, role identity, public-safe professional contact paths, and a concise resume-style summary while preserving existing accomplishment bullets/metrics.
 - Employer-facing proof uses `durable remediation` and `shared operating model` where those are more evidence-aligned and literal.
 - Deep case studies now provide both Back to selected work and View resume.
-- Work remains current on nested case-study routes; Writing remains current on article routes.
+- Top-level Work/Writing pages use `aria-current="page"`; nested case-study/article routes use `aria-current="location"` on their parent navigation item while preserving the same visual active state.
 - Added stable MG favicon, `og:site_name`, home `WebSite` structured data, and clearer interior document titles.
 - Product subject folder again obeys the five-document law; case-study truth/evidence was consolidated into canonical Proof & Case Study Strategy before the redundant sixth file was removed.
 - Blog article bodies are unchanged.
 
 ## Verification
 
-Exact source/browser head `432b6aae...` passed:
+Exact source/browser head `d31f84a137da28942c6a5c23e0b1ee5ed1cae724` passed:
 
 ```text
 21 Astro pages
@@ -63,7 +63,7 @@ representative axe accessibility
 existing hero/series/Writing/Work regression contracts
 ```
 
-Rendered exact-head desktop/phone evidence was reviewed. No new overflow, hierarchy, spacing, or responsive defect was found. Resume reads as a resume; the case-study Resume exit fits the existing visual system; the homepage first viewport remains the approved composition.
+Rendered employer-facing desktop/phone evidence from the P10 source candidate was reviewed. No new overflow, hierarchy, spacing, or responsive defect was found. Resume reads as a resume; the case-study Resume exit fits the existing visual system; the homepage first viewport remains the approved composition. The final navigation-semantic refinement does not alter page composition and is protected by exact-head browser tests.
 
 ## Protected boundaries — HELD
 
