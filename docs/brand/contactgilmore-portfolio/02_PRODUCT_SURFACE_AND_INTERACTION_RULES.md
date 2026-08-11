@@ -1,7 +1,7 @@
 # Product Surface and Interaction Rules
 
 Status: **ACTIVE — Portfolio 2.0 interaction authority**  
-Validated: 2026-08-08
+Validated: 2026-08-10
 
 ## Primary navigation
 
@@ -18,6 +18,8 @@ Resume
 External professional links belong in restrained footer/contact surfaces rather than competing with primary navigation.
 
 The header remains sticky and visually quiet. On narrow layouts the brand may compact and navigation may use a two-row treatment; do not reduce links to unreadably small controls merely to preserve one row.
+
+Current location should remain clear on nested routes. `Work` remains current while a visitor is inside a professional case study under `/work/`, and `Writing` remains current while a visitor is reading an article. Preserve `aria-current="page"` on the relevant top-level destination rather than treating only exact top-level URLs as current.
 
 ## Homepage flow
 
@@ -78,6 +80,8 @@ Technical tags use quiet pills. They are metadata, not primary UI.
 
 Technical projects may appear beneath professional evidence where they strengthen the story.
 
+A deep case study should end with a restrained evaluation path: return to selected Work and move to Resume. This keeps the employer journey obvious without adding a sales-style conversion funnel.
+
 ## Writing surface
 
 `/blog/` is a scan-friendly archive using date, title, and restrained topic metadata. The homepage features only selected writing.
@@ -86,7 +90,11 @@ Historical article bodies remain content authority unless intentionally edited i
 
 ## Resume surface
 
-The public Resume page is intentionally web-native and public-safe. It is not required to reproduce the private/application résumé PDF exactly. Avoid unnecessary personal data such as private phone/address information. Use evidence already approved for public professional presentation.
+The public Resume page is intentionally web-native and public-safe. It is not required to reproduce the private/application résumé PDF exactly, but it should behave like a resume rather than another About page.
+
+The first scan should expose Mike's name, coherent professional identity, concise professional summary, public-safe location, and public professional contact paths. Experience remains accomplishment-led and evidence-heavy, using supported metrics where available.
+
+Avoid unnecessary personal data such as private phone/address information. Do not invent education, certifications, dates, or other conventional résumé fields merely to make the page look more complete. Use evidence already approved for public professional presentation.
 
 ## Responsive behavior
 
