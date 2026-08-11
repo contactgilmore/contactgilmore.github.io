@@ -45,7 +45,19 @@ Purpose: concise professional narrative, working style, experience context, and 
 
 ### Resume
 
-Purpose: fast evaluation artifact. It must pass the repository disclosure gate before it is hosted or linked from repository-controlled content.
+Purpose: fast, scan-first employer evaluation artifact inside the portfolio visual system. It is web-native and public-safe, but it should still behave like a resume rather than another About page.
+
+The top should expose:
+
+```text
+Mike's name
+one coherent role identity
+concise professional summary
+public-safe location
+public-safe professional contact links
+```
+
+Experience should prioritize accomplishment/contribution evidence, action-oriented bullets, supported results, and role chronology. Avoid first-person narrative in the resume summary when direct resume phrasing is clearer. Do not invent education, certifications, dates, phone/address, or other information merely to fill a traditional template.
 
 ## Homepage content blueprint
 
@@ -146,6 +158,8 @@ optional capability index
 
 Professional case studies visually outrank technical labs.
 
+A completed case study should provide an obvious next evaluation path back to Work and into Resume without turning the page into a sales funnel.
+
 ## Writing page blueprint
 
 ```text
@@ -177,6 +191,7 @@ docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
 - Include a skip-to-content link.
 - Link text should state destination/purpose rather than repeat generic `Read More` everywhere.
 - Keep global navigation consistent across main pages and article pages.
+- Preserve current-location state for nested routes: Work remains current on professional case studies, and Writing remains current on article pages.
 - Mobile visual order and keyboard order must preserve the desktop information hierarchy.
 - Each page has one descriptive `h1`; section headings follow a logical hierarchy.
 
@@ -213,3 +228,5 @@ one coherent professional identity
 ```
 
 The 2026-08-10 Writing revision additionally established that the blog's role as professional proof requires a recognizable editorial voice and practical point of view, not only technically correct source synthesis. The detailed house style remains in the existing editorial workflow rather than creating another product document.
+
+The 2026-08-10 P10 employer-readiness audit separately established that portfolio, About, and Resume surfaces have different reading jobs. Resume remains scan-first and evidence-led; About carries human professional narrative; Work carries proof; Home curates the employer journey. Do not normalize them into one writing style.
