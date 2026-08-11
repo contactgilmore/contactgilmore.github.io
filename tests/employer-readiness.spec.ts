@@ -1,14 +1,20 @@
 import { expect, test } from '@playwright/test';
 
-test('nested portfolio routes preserve current navigation location', async ({ page }) => {
+test('portfolio navigation distinguishes current pages from nested current locations', async ({ page }) => {
   const primaryNav = page.getByRole('navigation', { name: /primary navigation/i });
 
-  await page.goto('/work/implementation-delivery/', { waitUntil: 'networkidle' });
+  await page.goto('/work/', { waitUntil: 'networkidle' });
   await expect(primaryNav.getByRole('link', { name: 'Work' })).toHaveAttribute('aria-current', 'page');
-  await expect(primaryNav.getByRole('link', { name: 'Home' })).not.toHaveAttribute('aria-current', 'page');
+
+  await page.goto('/work/implementation-delivery/', { waitUntil: 'networkidle' });
+  await expect(primaryNav.getByRole('link', { name: 'Work' })).toHaveAttribute('aria-current', 'location');
+  await expect(primaryNav.getByRole('link', { name: 'Home' })).not.toHaveAttribute('aria-current');
+
+  await page.goto('/blog/', { waitUntil: 'networkidle' });
+  await expect(primaryNav.getByRole('link', { name: 'Writing' })).toHaveAttribute('aria-current', 'page');
 
   await page.goto('/gtny-kubernetes/', { waitUntil: 'networkidle' });
-  await expect(primaryNav.getByRole('link', { name: 'Writing' })).toHaveAttribute('aria-current', 'page');
+  await expect(primaryNav.getByRole('link', { name: 'Writing' })).toHaveAttribute('aria-current', 'location');
 });
 
 test('Resume presents direct identity, public-safe contact paths, and resume-style summary', async ({ page }) => {
