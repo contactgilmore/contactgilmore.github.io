@@ -1,4 +1,9 @@
 ---
+interface Props {
+  activeHref?: string;
+}
+
+const { activeHref } = Astro.props;
 const path = Astro.url.pathname;
 const nav = [
   { href: '/', label: 'Home' },
@@ -7,6 +12,18 @@ const nav = [
   { href: '/about/', label: 'About' },
   { href: '/resume/', label: 'Resume' },
 ];
+
+const currentHref = activeHref ?? (
+  path === '/'
+    ? '/'
+    : nav.find(({ href }) => href !== '/' && path.startsWith(href))?.href
+);
+
+const currentType = currentHref
+  ? path === currentHref
+    ? 'page'
+    : 'location'
+  : undefined;
 ---
 
 <header class="site-header">
@@ -19,10 +36,16 @@ const nav = [
       <ul class="nav-list">
         {nav.map((item) => (
           <li>
-            <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+            <a href={item.href} aria-current={currentHref === item.href ? currentType : undefined}>{item.label}</a>
           </li>
         ))}
       </ul>
     </nav>
   </div>
 </header>
+
+<style>
+  .nav-list a[aria-current='location'] {
+    color: var(--ink-strong);
+  }
+</style>

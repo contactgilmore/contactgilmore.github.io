@@ -1,27 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/resume.css';
 
 const core = ['Enterprise Implementation', 'Professional Services', 'Business Systems Analysis', 'Program Delivery', 'Project Management', 'Customer Onboarding', 'Requirements', 'Stakeholder Management', 'Process Improvement', 'APIs & Integrations', 'SQL', 'Cloud Infrastructure'];
 ---
 
 <BaseLayout
-  title="Resume | Mike Gilmore"
-  description="Professional resume summary for Mike Gilmore, focused on implementation, program delivery, systems analysis, SaaS reliability, and customer solutions."
+  title="Mike Gilmore Resume | Technical Delivery & Customer Solutions"
+  description="Resume for Mike Gilmore, focused on technical delivery, enterprise implementation, program delivery, systems analysis, SaaS reliability, and customer solutions."
 >
-  <header class="page-hero shell">
+  <header class="page-hero shell resume-hero">
     <p class="eyebrow">Resume</p>
-    <h1>Technical delivery, implementation, and systems experience.</h1>
-    <p>
-      Experience across customer operations, enterprise SaaS implementation, business systems and program delivery, cloud engineering, and site reliability.
-    </p>
+    <h1>Mike Gilmore</h1>
+    <p class="resume-hero__role">Technical Delivery & Customer Solutions</p>
+    <ul class="resume-contact" aria-label="Professional contact links">
+      <li>Salt Lake City area</li>
+      <li><a href="mailto:contactgilmore@gmail.com">contactgilmore@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/contactgilmore/">LinkedIn</a></li>
+      <li><a href="https://github.com/contactgilmore">GitHub</a></li>
+    </ul>
   </header>
 
   <section class="shell page-grid">
     <article class="detail-card">
-      <p class="eyebrow">Profile</p>
-      <h2>Technical Delivery & Customer Solutions</h2>
+      <h2>Professional summary</h2>
       <p>
-        I work where customer requirements, technical constraints, and cross-functional execution meet. Strengths include discovery, implementation planning, systems analysis, process improvement, integrations, troubleshooting, and stakeholder coordination.
+        Customer-facing technical delivery professional with experience translating requirements into implementation plans, systems analysis, process improvements, integrations, troubleshooting, and cross-functional execution. Combines enterprise implementation experience with cloud and reliability depth to move between customer context and technical evidence when a problem crosses organizational boundaries.
       </p>
       <ul class="tag-list" aria-label="Core capabilities">
         {core.map((skill) => <li>{skill}</li>)}
@@ -61,7 +65,7 @@ const core = ['Enterprise Implementation', 'Professional Services', 'Business Sy
       <p class="eyebrow">Earlier experience</p>
       <h2>Customer-facing operations and leadership</h2>
       <p>
-        Earlier roles include Store Manager at Sears, Senior Advisor in Technical Support Operations at Apple, and Market Manager at Best Buy. That experience built the customer, coaching, operations, and influence-without-authority foundation I later carried into enterprise technical delivery.
+        Earlier roles include Store Manager at Sears, Senior Advisor in Technical Support Operations at Apple, and Market Manager at Best Buy. That experience built the customer, coaching, operations, and influence-without-authority foundation later carried into enterprise technical delivery.
       </p>
     </article>
   </section>

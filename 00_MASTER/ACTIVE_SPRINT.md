@@ -1,65 +1,81 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
+Status: **P10 ACTIVE — EXACT-HEAD VERIFIED / OWNER PROFESSIONAL-REPRESENTATION GATE**  
 Updated: 2026-08-10
 
-Most recently completed sprint: **P9 — Editorial Voice and Full Blog Quality**
+Sprint: **P10 — Employer Readiness and Final Portfolio Polish**
 
 Sprint record:
 
-`docs/sprints/SPRINT_P9_EDITORIAL_VOICE_AND_FULL_BLOG_QUALITY_2026-08-10.md`
+`docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md`
 
-Current production authority:
+Current authority:
 
 ```text
 production branch: main
-P9 production merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
-Pages deployment: 31454588266 — SUCCESS
-production Validate Astro migration: 31454588241 — SUCCESS
-production Playwright portfolio smoke: 31454588274 — SUCCESS
-candidate browser-certified head: 266eb4079bc3e30e9ecd74ff5e52a0f382616d29
-candidate Playwright: 125 passed / 4 intentional skips
-owner local Playwright: 125 passed / 4 intentional skips / 0 failures
-owner editorial review: APPROVED
+production main at P10 open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
+P10 branch: p10-employer-readiness-final-polish
+draft PR: #31
+exact implementation/browser-certified head: db1e1f3a25ee8192909ee91655216084c66680e4
+Validate Astro migration #282 / 31461649858: SUCCESS
+Playwright portfolio smoke #251 / 31461649933: SUCCESS
+Playwright: 140 passed / 4 intentional skips / 0 failures
+artifact: 9090048571
+artifact digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
 ```
 
-## Current production state
+## Goal
 
-- Git to Know You remains complete at #1–#10.
-- Kubernetes, OpenTelemetry, and Argo CD / GitOps now use the owner-approved P9 editorial rewrites.
-- Prompt. Prove. Ship.: From Chat to Change now uses the owner-approved P9 prose-rhythm rewrite.
-- The earlier eight articles remain intentionally unchanged and are the internal voice baseline.
-- Long-form Writing is governed by `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` as a technical essay/tutorial hybrid rather than condensed reference documentation.
-- Cohesive short paragraphs are the default; one-sentence paragraphs are deliberate emphasis, not default cadence.
-- Source packs are evidence, not automatic outlines. Research may be broader than the published article.
-- Material AI-assisted drafts require explicit voice review in addition to factual/technical verification.
-- Writing remains a professional proof surface, so owner review is required when material public voice or representation changes.
-- Original publication dates and `publishedAt` remain immutable; later material changes use `updated` and do not reorder the archive.
-- Canonical sprint records remain under `docs/sprints/`, with the 30-day archive lifecycle unchanged.
+Run the deliberate final employer-readiness pass across the non-blog portfolio surfaces for recruiters, hiring managers, technical leaders, and cross-functional stakeholders. Improve only material evaluation, credibility, navigation, resume, discovery, or web-administration issues. Do not redesign an already approved visual system.
 
-## Next-work posture
-
-Do not manufacture a sprint merely because P9 closed.
-
-The next meaningful writing sprint may develop a focused **Prompt. Prove. Ship.** arc around durable AI-assisted engineering practices. Topic count/order is not committed yet.
-
-P9 was a corrective editorial-quality sprint and does not count as that future content arc.
-
-After the focused Prompt. Prove. Ship. arc, pause new content and perform one deliberate employer-readiness/web-administration-quality pass across Home / Work / Writing / About / Resume, then prefer a stability period over cosmetic churn.
-
-## Release model
+## Work-package state
 
 ```text
-bounded branch
--> PR
--> exact applicable CI / browser / accessibility evidence
--> owner approval when public representation materially changes
--> merge to main = production authorization
--> automatic GitHub Pages deployment
--> production verification
--> living-state closeout
+P10-WP1 full non-blog employer-facing audit             COMPLETE
+P10-WP2 resume / claim / evaluation-flow polish         COMPLETE
+P10-WP3 navigation / search / site-identity polish      COMPLETE
+P10-WP4 documentation-law reconciliation                COMPLETE
+P10-WP5 exact-head browser/accessibility/owner gate     TECHNICAL + VISUAL EVIDENCE COMPLETE / OWNER REVIEW
 ```
 
-## Public-repository rule
+## Candidate outcome
 
-This repository remains a public professional artifact. Tracked docs, branches, PRs, logs, artifacts, screenshots, and metadata must remain safe for unrestricted public reading and must not become private project memory.
+- Portfolio 2.0 design and homepage hero remain unchanged in composition.
+- Resume now uses a concise resume-header sequence: Mike's name, role identity, and public-safe professional contact paths, followed by one substantive non-first-person Professional Summary and capability set. A final scan removed duplicated role/summary copy that had delayed experience evidence, especially on mobile.
+- Existing Resume accomplishment bullets, chronology, and supported metrics remain intact.
+- Employer-facing proof uses `durable remediation` and `shared operating model` where those are more evidence-aligned and literal.
+- Deep case studies now provide both Back to selected work and View resume.
+- Top-level Work/Writing pages use `aria-current="page"`; nested case-study/article routes use `aria-current="location"` on their parent navigation item while preserving the same visual active state.
+- Added stable MG favicon, `og:site_name`, home `WebSite` structured data, and clearer interior document titles.
+- Product subject folder again obeys the five-document law; case-study truth/evidence was consolidated into canonical Proof & Case Study Strategy before the redundant sixth file was removed.
+- Blog article bodies are unchanged.
+
+## Verification
+
+Exact source/browser head `db1e1f3a25ee8192909ee91655216084c66680e4` passed:
+
+```text
+21 Astro pages
+22 referenced public assets / 22 present / 0 orphan
+144 Playwright tests discovered
+140 Playwright passes
+4 intentional project skips
+0 failures
+all P10 employer-readiness tests on desktop/tablet/phone
+representative axe accessibility
+existing hero/series/Writing/Work regression contracts
+```
+
+Rendered desktop/phone evidence from the final P10 source candidate was reviewed. The Resume now reads more efficiently as name -> role -> contact -> one Professional Summary -> experience; the same improvement is visible on phone without a new spacing, hierarchy, overflow, or responsive defect. Home, Work, About, Writing index/navigation, and all three case studies were re-reviewed and no additional source change was justified. The homepage first viewport remains the approved composition.
+
+## Protected boundaries — HELD
+
+- no blog article-body edits;
+- no new claims, metrics, education, certifications, dates, phone/address, or private details;
+- no homepage hero re-layout, palette redesign, or typography-system replacement;
+- no new framework, CMS, database, analytics, or hosting work;
+- no private interview/job-search context in this public repository.
+
+## Remaining gate
+
+Mike reviews the material public Resume/employer-facing changes. If approved, mark PR #31 ready and merge; merge to `main` is production authorization. Then verify automatic Pages deployment and close P10. Further source edits require a specific owner or evidence defect.

@@ -1,0 +1,57 @@
+.resume-hero {
+  max-width: 980px;
+}
+
+.resume-hero h1 {
+  max-width: none;
+}
+
+.resume-hero__role {
+  margin: 0 0 14px;
+  color: var(--ink-strong) !important;
+  font-size: clamp(1.25rem, 2vw, 1.65rem) !important;
+  line-height: 1.35 !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 28px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  color: var(--muted);
+}
+
+.resume-contact li {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.resume-contact a {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+.resume-contact a:hover {
+  color: var(--ink-strong);
+}
+
+@media (max-width: 720px) {
+  .resume-contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .resume-contact {
+    grid-template-columns: 1fr;
+  }
+}
