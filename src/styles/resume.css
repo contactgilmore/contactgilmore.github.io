@@ -15,11 +15,6 @@
   letter-spacing: -0.02em;
 }
 
-.resume-hero__summary {
-  max-width: 72ch !important;
-  margin: 0;
-}
-
 .resume-contact {
   display: flex;
   flex-wrap: wrap;
