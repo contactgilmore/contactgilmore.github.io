@@ -22,6 +22,7 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://contactgilmore.github.io';
+const siteName = 'Mike Gilmore';
 const canonical = new URL(Astro.url.pathname, siteUrl);
 const socialImage = image ? new URL(image, siteUrl) : undefined;
 const personId = `${siteUrl}/#person`;
@@ -46,6 +47,21 @@ const jsonLd = structuredData
       '@context': 'https://schema.org',
       ...person,
     };
+
+const pathname = Astro.url.pathname;
+const activeNavHref = pageType === 'article'
+  ? '/blog/'
+  : pathname === '/'
+    ? '/'
+    : pathname.startsWith('/work/')
+      ? '/work/'
+      : pathname.startsWith('/blog/')
+        ? '/blog/'
+        : pathname.startsWith('/about/')
+          ? '/about/'
+          : pathname.startsWith('/resume/')
+            ? '/resume/'
+            : undefined;
 ---
 
 <!doctype html>
@@ -56,7 +72,9 @@ const jsonLd = structuredData
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content={pageType} />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -71,7 +89,7 @@ const jsonLd = structuredData
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <SiteHeader />
+    <SiteHeader activeHref={activeNavHref} />
     <main id="main-content">
       <slot />
     </main>
