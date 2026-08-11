@@ -27,12 +27,12 @@ production deployment policy: automatic after approved merge to main
 branch: p10-employer-readiness-final-polish
 draft PR: #31
 record: docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md
-exact implementation/browser-certified head: 432b6aae2fed56dd78b998ae2781b58a681970e9
-Validate Astro migration #267 / 31457749622: SUCCESS
-Playwright portfolio smoke #236 / 31457749583: SUCCESS
+exact implementation/browser-certified head: d31f84a137da28942c6a5c23e0b1ee5ed1cae724
+Validate Astro migration #274 / 31459950653: SUCCESS
+Playwright portfolio smoke #243 / 31459950637: SUCCESS
 Playwright: 140 passed / 4 intentional skips / 0 failures
-artifact: 9088709831
-artifact digest: sha256:f4b604d15fc4bab6dcc1092fc20c51869dd1190e5d6e39ea73f74c95a9450295
+artifact: 9089466578
+artifact digest: sha256:5d8c4028ec35b339c91ddbef740148987f57f15754acde0a674b191a7cb562e9
 ```
 
 Blog article bodies are out of scope and unchanged. P9 remains their editorial authority.
@@ -68,8 +68,7 @@ The professional summary is no longer first-person portfolio prose. Existing cap
 
 ### Navigation and site identity
 
-- Work remains current on nested `/work/*` routes.
-- Writing remains current on article routes without article-body edits.
+- Exact top-level Work/Writing pages use `aria-current="page"`; nested case-study/article routes identify their parent section with `aria-current="location"` while retaining the same visual current-state treatment.
 - Added a stable 96×96 MG favicon matching the existing brand mark.
 - Added `og:site_name` and home `WebSite` structured data.
 - Work, About, Writing, and Resume use clearer compact document titles.
@@ -89,11 +88,12 @@ The product backlog now records P8/P9 as completed and stability as the default 
 
 ## Exact-head proof
 
-`432b6aae2fed56dd78b998ae2781b58a681970e9` passed:
+`d31f84a137da28942c6a5c23e0b1ee5ed1cae724` passed:
 
 ```text
 21 Astro pages
 22 referenced public assets / 22 present / 0 orphan
+144 Playwright tests discovered
 140 Playwright passes
 4 intentional project skips
 0 failures
@@ -102,7 +102,7 @@ representative axe accessibility
 existing homepage/Work/Writing/series/browser contracts
 ```
 
-Exact-head desktop/phone screenshots were reviewed. Resume reads as a resume; Work and case studies retain the approved visual system; Work current-state is visible on nested cases; the Work/Resume exit buttons fit the existing takeaway band; the homepage first viewport remains the approved composition. No new overflow, hierarchy, spacing, or responsive defect was found.
+The P10 source candidate's desktop/phone screenshots were reviewed after the material visual changes. Resume reads as a resume; Work and case studies retain the approved visual system; the Work/Resume exit buttons fit the existing takeaway band; the homepage first viewport remains the approved composition. The final `aria-current` page/location refinement is semantic rather than compositional and passed the complete exact-head browser suite. No new overflow, hierarchy, spacing, or responsive defect was found.
 
 ## Durable writing state
 
