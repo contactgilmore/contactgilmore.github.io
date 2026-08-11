@@ -1,6 +1,6 @@
 # Active Sprint
 
-Status: **P10 ACTIVE — EMPLOYER READINESS / FINAL PORTFOLIO POLISH**  
+Status: **P10 ACTIVE — EXACT-HEAD VERIFIED / OWNER PROFESSIONAL-REPRESENTATION GATE**  
 Updated: 2026-08-10
 
 Sprint: **P10 — Employer Readiness and Final Portfolio Polish**
@@ -15,51 +15,57 @@ Current authority:
 production branch: main
 production main at P10 open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
 P10 branch: p10-employer-readiness-final-polish
-open PRs at sprint open: none
+draft PR: #31
+exact implementation/browser-certified head: 432b6aae2fed56dd78b998ae2781b58a681970e9
+Validate Astro migration #267 / 31457749622: SUCCESS
+Playwright portfolio smoke #236 / 31457749583: SUCCESS
+Playwright: 140 passed / 4 intentional skips / 0 failures
+artifact: 9088709831
+artifact digest: sha256:f4b604d15fc4bab6dcc1092fc20c51869dd1190e5d6e39ea73f74c95a9450295
 ```
 
 ## Goal
 
 Run the deliberate final employer-readiness pass across the non-blog portfolio surfaces for recruiters, hiring managers, technical leaders, and cross-functional stakeholders. Improve only material evaluation, credibility, navigation, resume, discovery, or web-administration issues. Do not redesign an already approved visual system.
 
-## In scope
-
-```text
-Home
-Work
-three professional case studies
-About
-Resume
-Writing index / global navigation only
-shared header/footer/meta shell
-responsive/accessibility/browser proof
-documentation hygiene required by existing doctrine
-```
-
-Blog article bodies are protected by P9 and are out of scope.
-
 ## Work-package state
 
 ```text
 P10-WP1 full non-blog employer-facing audit             COMPLETE
-P10-WP2 resume / claim / evaluation-flow polish         IN PROGRESS
-P10-WP3 navigation / search / site-identity polish      QUEUED
-P10-WP4 documentation-law reconciliation                QUEUED
-P10-WP5 exact-head browser/accessibility/owner gate     QUEUED
+P10-WP2 resume / claim / evaluation-flow polish         COMPLETE
+P10-WP3 navigation / search / site-identity polish      COMPLETE
+P10-WP4 documentation-law reconciliation                COMPLETE
+P10-WP5 exact-head browser/accessibility/owner gate     TECHNICAL + VISUAL EVIDENCE COMPLETE / OWNER REVIEW
 ```
 
-## Bounded implementation direction
+## Candidate outcome
 
-- Resume becomes more resume-like at the top: direct identity, public-safe contact paths, concise non-first-person professional summary, existing accomplishment bullets preserved.
-- Replace absolute `permanent remediation` wording with evidence-aligned `durable remediation`.
-- Prefer literal `shared operating model` over `shared operating system` on employer-facing proof labels.
-- Case-study endings add a Resume next step while retaining Back to selected work.
-- Nested Work routes keep Work active in global navigation; article routes keep Writing active without article-body edits.
-- Add missing site identity/discovery basics: favicon, `og:site_name`, home `WebSite` structured data, and more descriptive compact interior page titles where justified.
-- Restore Product doctrine's five-document law by consolidating the sixth case-study truth-map file into the canonical Proof & Case Study Strategy without losing evidence.
-- Reconcile stale completed P8/P9 backlog language rather than carrying it forward.
+- Portfolio 2.0 design and homepage hero remain unchanged in composition.
+- Resume now opens with Mike's name, role identity, public-safe professional contact paths, and a concise resume-style summary while preserving existing accomplishment bullets/metrics.
+- Employer-facing proof uses `durable remediation` and `shared operating model` where those are more evidence-aligned and literal.
+- Deep case studies now provide both Back to selected work and View resume.
+- Work remains current on nested case-study routes; Writing remains current on article routes.
+- Added stable MG favicon, `og:site_name`, home `WebSite` structured data, and clearer interior document titles.
+- Product subject folder again obeys the five-document law; case-study truth/evidence was consolidated into canonical Proof & Case Study Strategy before the redundant sixth file was removed.
+- Blog article bodies are unchanged.
 
-## Protected boundaries
+## Verification
+
+Exact source/browser head `432b6aae...` passed:
+
+```text
+21 Astro pages
+22 referenced public assets / 22 present / 0 orphan
+140 Playwright passes
+4 intentional project skips
+all P10 employer-readiness tests on desktop/tablet/phone
+representative axe accessibility
+existing hero/series/Writing/Work regression contracts
+```
+
+Rendered exact-head desktop/phone evidence was reviewed. No new overflow, hierarchy, spacing, or responsive defect was found. Resume reads as a resume; the case-study Resume exit fits the existing visual system; the homepage first viewport remains the approved composition.
+
+## Protected boundaries — HELD
 
 - no blog article-body edits;
 - no new claims, metrics, education, certifications, dates, phone/address, or private details;
@@ -67,21 +73,6 @@ P10-WP5 exact-head browser/accessibility/owner gate     QUEUED
 - no new framework, CMS, database, analytics, or hosting work;
 - no private interview/job-search context in this public repository.
 
-## Required proof
+## Remaining gate
 
-```text
-exact changed-file review
-public-disclosure/professional-read review
-Astro/content/build integrity
-asset/internal-link integrity
-navigation aria-current regression
-resume content/semantic regression
-case-study CTA regression
-favicon/site-identity checks
-Playwright desktop/tablet/phone smoke
-representative axe accessibility
-focused visual review for non-blog employer-facing surfaces
-owner approval for material public representation changes
-```
-
-Merge to `main` remains production authorization. GitHub Pages deploys automatically after an approved merge.
+Mike reviews the material public Resume/employer-facing changes. If approved, mark PR #31 ready and merge; merge to `main` is production authorization. Then verify automatic Pages deployment and close P10. Further source edits require a specific owner or evidence defect.
