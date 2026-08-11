@@ -11,24 +11,30 @@ Current production truth:
 
 ```text
 production branch: main
-current material release: P9 — Editorial Voice and Full Blog Quality
-production merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
-Pages deployment run: 31454588266 — SUCCESS
-production Validate Astro migration: 31454588241 — SUCCESS
-production Playwright portfolio smoke: 31454588274 — SUCCESS
+current main at P10 open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
+last material site/content release: P9 — Editorial Voice and Full Blog Quality
+P9 source merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
+P9 Pages / Validate Astro / Playwright: SUCCESS
+P9 closeout merge: d0c1600f2af85541084aa4afd888beaf0f2a48e5
 production deployment policy: automatic after approved merge to main
-manual workflow_dispatch: fallback only
 ```
 
-There is **no active implementation sprint**.
+## Active sprint
 
-Most recently completed sprint:
+**P10 — Employer Readiness and Final Portfolio Polish** is active.
 
-`docs/sprints/SPRINT_P9_EDITORIAL_VOICE_AND_FULL_BLOG_QUALITY_2026-08-10.md`
+```text
+branch: p10-employer-readiness-final-polish
+record: docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md
+```
+
+P10 is the deliberate employer-facing quality pass across the non-blog site. It was pulled forward from the previously planned stability finish line and is constrained to material recruiter/hiring-manager/technical-leader evaluation improvements rather than cosmetic redesign.
+
+Blog article bodies are out of scope. P9 remains their editorial authority.
 
 ## Current product posture
 
-The site remains a professional portfolio and technical-writing platform positioned around:
+Primary positioning remains:
 
 ```text
 Technical Delivery & Customer Solutions
@@ -43,7 +49,7 @@ Top-level structure remains:
 Home / Work / Writing / About / Resume
 ```
 
-Current professional case studies remain:
+Professional proof remains centered on:
 
 ```text
 /work/implementation-delivery/
@@ -51,15 +57,39 @@ Current professional case studies remain:
 /work/operating-model/
 ```
 
-No P9 layout, CSS, component, routing, asset, homepage, Work, About, Resume, runtime, or infrastructure behavior changed.
+The approved Portfolio 2.0 visual system remains strong across desktop, tablet, and phone. P10 does not authorize a redesign.
 
-## Writing state
+## P10 audit conclusion
 
-### Git to Know You — complete
+The full non-blog employer-facing scan covered Home, Work, all three case studies, About, Resume, the Writing index/global navigation, shared header/footer/meta shell, and existing Playwright desktop/tablet/phone evidence.
 
-Git to Know You remains a completed #1–#10 beginner-friendly series. No #11 is implied.
+### Keep
 
-P9 audited all 12 current Astro articles. The earlier eight entries were intentionally retained unchanged and now serve as the internal voice baseline:
+- homepage hero composition and current right-side focus rail;
+- three-pillar proof architecture;
+- professional case-study layout and supported metrics;
+- About narrative voice/structure;
+- compact Home experience timeline;
+- current responsive visual system;
+- global navigation model;
+- P9 blog article bodies and editorial doctrine.
+
+### Improve
+
+- Resume top should behave like a resume: direct identity, public-safe professional contact paths, concise non-first-person summary, existing accomplishment bullets preserved;
+- replace absolute `permanent remediation` wording with evidence-aligned `durable remediation`;
+- use `shared operating model` where the figurative `shared operating system` is less precise for employer readers;
+- case-study endings should offer Resume as the next evaluation step in addition to Back to selected work;
+- nested Work routes should retain Work as current navigation location; article routes should retain Writing as current location without article-body changes;
+- add missing site-identity/search basics: favicon, `og:site_name`, home `WebSite` structured data, and stronger compact interior page titles where appropriate;
+- reconcile the Product domain's accidental sixth Markdown authority by consolidating the case-study truth map into the canonical Proof & Case Study Strategy without losing evidence;
+- remove stale completed P8/P9 items from the active product backlog.
+
+## Durable writing state
+
+P9 is complete, owner approved, and deployed.
+
+Internal long-form voice baseline remains:
 
 ```text
 SRE Tools overview
@@ -72,116 +102,46 @@ GitHub Actions
 Cursor
 ```
 
-Materially revised and owner-approved in P9:
+P9 owner-approved rewrites remain deployed for Kubernetes, OpenTelemetry, Argo CD / GitOps, and Prompt. Prove. Ship.: From Chat to Change.
 
-```text
-Kubernetes                    moderate editorial rewrite
-OpenTelemetry                 structural editorial rewrite
-Argo CD / GitOps              structural editorial rewrite
-Prompt. Prove. Ship. intro    prose-rhythm rewrite
-```
-
-All four preserve original publication dates, routes, slugs, thumbnails, series metadata, and historical ordering metadata. Each uses `updated: 2026-08-10`. Prompt retains its immutable `publishedAt`.
-
-### Prompt. Prove. Ship. — introduced
-
-Series promise remains:
-
-**AI-assisted engineering without outsourcing judgment.**
-
-The introduction remains published and featured. No numbered follow-on article is committed yet.
-
-P9 is a corrective editorial-quality sprint and does **not** count as the future focused Prompt. Prove. Ship. content arc.
-
-## Durable editorial decisions
-
-Authority remains:
+Long-form authority remains:
 
 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
-The portfolio house standard now explicitly treats substantial long-form posts as **technical essay/tutorial hybrids**, not condensed copies of upstream documentation.
+Do not reopen article bodies during P10.
 
-Durable rules:
+## Durable site rules
 
-- source packs are evidence, not automatic outlines;
-- research breadth may exceed publication breadth;
-- cohesive short paragraphs are the normal blog rhythm;
-- one-sentence paragraphs remain available for genuine emphasis, transition, humor, or deliberately isolated conclusions, not as the dominant cadence;
-- headings mark meaningful changes in the reader's question/task rather than every new term;
-- lists are for genuinely list-shaped material;
-- substantial posts should add authorial value beyond source synthesis through verified experience, grounded professional judgment, analogy, recommendation, tradeoff analysis, or a useful mental model;
-- AI-assisted drafts require explicit voice review separate from factual/technical verification;
-- the earlier human-written / AI-assisted corpus is the primary internal voice reference;
-- do not use AI detectors as authorship or quality gates;
-- never invent tool usage, employer/customer stories, incidents, metrics, screenshots, or first-person events;
-- first person is appropriate for truthful experience and clearly framed judgment/opinion;
-- Writing is a professional proof surface, so material public voice/representation changes require owner editorial approval.
+- Merge to `main` is human production authorization; GitHub Pages deployment is the automated consequence.
+- Public repository content, branches, PRs, logs, artifacts, screenshots, and metadata must remain safe for unrestricted disclosure.
+- Professional evidence outranks technology decoration.
+- Home remains scan-first; Work carries proof; About carries narrative; Resume carries condensed resume evidence; Writing carries long-form technical communication.
+- Original publication dates and immutable `publishedAt` are historical authority; `updated` never reorders publication chronology.
+- Canonical sprint records live under `docs/sprints/` with the 30-day archive lifecycle.
+- Avoid parallel doctrine/style files when existing authority can own the rule.
 
-Product content authority in `docs/product/contactgilmore-portfolio/02_CONTENT_AND_INFORMATION_ARCHITECTURE.md` also records Writing as professional proof, not only a reference archive.
+## P10 verification posture
 
-## P9 verification and release
-
-Exact implementation/browser-certified head:
-
-`266eb4079bc3e30e9ecd74ff5e52a0f382616d29`
-
-Candidate proof:
+Before production authorization:
 
 ```text
-Validate Astro migration #264 / 31452230462 — SUCCESS
-Playwright portfolio smoke #233 / 31452230492 — SUCCESS
-125 passed / 4 intentional skips
-artifact: 9086752892
-artifact digest: sha256:9a6b78871db1f3915d4e09be5e465a66830da696a20e743ab7b84190de1c266b
+exact changed-file review
+public-disclosure/professional-read review
+Astro/content/build integrity
+asset/internal-link integrity
+navigation aria-current regressions
+resume content/semantic regressions
+case-study CTA regressions
+favicon/site-name structured-data checks
+Playwright desktop/tablet/phone smoke
+representative axe accessibility
+focused non-blog visual review
+owner review for material subjective public-representation changes
 ```
 
-Owner-local proof on the final review branch:
+## Stability finish line
 
-```text
-Astro 7.2.0 build — 21 pages / PASS
-Playwright 1.62.1 — 125 passed / 4 intentional skips / 0 failures
-clean preview on 127.0.0.1:4322
-initial visual scan — PASS
-final voice/tone/editorial read — APPROVED
-```
-
-Production proof on merge `80614d4d24c6f7fbf6087ed2325f27a63786d3d2`:
-
-```text
-Pages — SUCCESS
-Validate Astro migration — SUCCESS
-Playwright portfolio smoke — SUCCESS
-```
-
-## Other durable site decisions
-
-- Astro 7+ with TypeScript/content collections remains the static-site foundation.
-- The smoke-tested Portfolio 2.0 visual system remains brand authority.
-- The owner-approved MacBook homepage hero calibration remains deployed.
-- Writing ordering remains deterministic: immutable `publishedAt` when present, then visible publication date, series order, and stable content ID. `updated` never promotes an older article.
-- Series introductions remain subtle light-neutral divider cards.
-- Thumbnails are wordless by default; series introductions use conceptual artwork rather than repeating title/series copy.
-- Work case-study actions retain deliberate spacing from capability pills.
-- GitHub-hosted runners remain the ordinary public-repository workflow environment; do not expose private self-hosted infrastructure.
-- Merge to `main` remains human production authorization; Pages deployment is the automated consequence.
-- Canonical sprint execution records live under `docs/sprints/`; completed records become archive-eligible after 30 calendar days and routine startup does not read `docs/sprints/archive/`.
-- Avoid duplicate summaries and parallel doctrine files when existing authority can own a rule.
-
-## Next-work posture
-
-Do not manufacture another sprint merely because P9 closed.
-
-A future focused **Prompt. Prove. Ship.** content sprint may select the strongest durable topics around repository context, bounded autonomy, controlled tool access, claim-matching proof, troubleshooting, and review/release controls. Topic order and article count are not yet commitments.
-
-After that focused writing arc:
-
-1. pause new content;
-2. perform one deliberate employer-readiness/web-administration-quality pass across Home / Work / Writing / About / Resume;
-3. fix only material issues;
-4. publish the accepted final polish;
-5. favor a stability period over continuous cosmetic churn.
-
-One non-blocking visual observation remains for that later final pass: the upper-right homepage focus rail may still feel slightly open above its rule. Do not add filler merely to occupy space.
+When P10 is accepted and deployed, close the sprint and prefer stability over further cosmetic churn. A future Prompt. Prove. Ship. content sprint remains a separate deliberate decision and must follow the P9 editorial standard from the start.
 
 ## Public-safety boundary
 
