@@ -19,7 +19,7 @@ External professional links belong in restrained footer/contact surfaces rather 
 
 The header remains sticky and visually quiet. On narrow layouts the brand may compact and navigation may use a two-row treatment; do not reduce links to unreadably small controls merely to preserve one row.
 
-Current location should remain clear on nested routes. `Work` remains current while a visitor is inside a professional case study under `/work/`, and `Writing` remains current while a visitor is reading an article. Preserve `aria-current="page"` on the relevant top-level destination rather than treating only exact top-level URLs as current.
+Current location should remain clear on nested routes. Exact top-level destinations use `aria-current="page"`; when a visitor is inside a nested professional case study or article, the parent `Work` or `Writing` navigation item uses `aria-current="location"` while retaining the same visual current-state treatment.
 
 ## Homepage flow
 
