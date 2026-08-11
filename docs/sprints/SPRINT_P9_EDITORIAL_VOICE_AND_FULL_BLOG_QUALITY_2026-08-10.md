@@ -1,9 +1,11 @@
 # P9 — Editorial Voice and Full Blog Quality
 
-Status: **ACTIVE — RESEARCH / CORPUS AUDIT COMPLETE; REWRITE IN PROGRESS**  
+Status: **ACTIVE — REWRITES COMPLETE / VERIFICATION IN PROGRESS**  
 Opened: 2026-08-10  
 Owner: Mike Gilmore  
-Repository: `contactgilmore/contactgilmore.github.io`
+Repository: `contactgilmore/contactgilmore.github.io`  
+Branch: `portfolio-p9-editorial-voice`  
+Draft PR: `#29`
 
 ## Thesis
 
@@ -11,7 +13,7 @@ The portfolio Writing section should read like a professional technical blog wri
 
 ## Trigger
 
-Owner review after the August 8 publishing batch identified a visible editorial discontinuity: the newly AI-created posts stand out from the earlier human-written / AI-assisted articles because they rely more heavily on isolated one-sentence paragraphs, repeated explanatory templates, dense heading structures, and documentation-style concept coverage.
+Owner review after the August 8 publishing batch identified a visible editorial discontinuity: the newly AI-created posts stood out from the earlier human-written / AI-assisted articles because they relied more heavily on isolated one-sentence paragraphs, repeated explanatory templates, dense heading structures, and documentation-style concept coverage.
 
 This is a quality problem even where the technical content is correct. Writing is part of the portfolio's professional proof surface, so voice and authorship quality are acceptance concerns rather than cosmetic preferences.
 
@@ -20,150 +22,98 @@ This is a quality problem even where the technical content is correct. Writing i
 ```text
 production branch: main
 production authority at sprint open: ed22dbc186429e6f8f1fe098fd4e26a3c670bf27
-production tree at sprint open: unchanged from pre-P9 source tree 89cb31cf7b823bedd826c1ba16001c42d36bb37e
+production tree at sprint open: 89cb31cf7b823bedd826c1ba16001c42d36bb37e
 P9 branch: portfolio-p9-editorial-voice
-open portfolio PRs at sprint open: none
-current blog corpus: 12 Astro Markdown articles
-existing editorial authority: docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
-product content authority: docs/product/contactgilmore-portfolio/02_CONTENT_AND_INFORMATION_ARCHITECTURE.md
+draft PR: #29
+last article-rewrite head: 0691ee8d9eba3a1c9d49869ea54181fdeb6a7a5b
+current verification/docs head will advance as evidence is recorded
 ```
 
-A repository-mechanics error occurred while opening P9: the initial sprint-record create call defaulted to `main`. It was immediately removed by a compensating commit before any other P9 mutation. Corrected `main` retained the exact pre-error tree. Git history intentionally preserves the error/correction; P9 tracked work proceeds only on the bounded branch.
+A repository-mechanics error occurred while opening P9: the initial sprint-record create call defaulted to `main`. It was immediately removed by a compensating commit before any other P9 mutation. Corrected `main` retained the exact pre-error content tree. Git history intentionally preserves the error/correction; all actual P9 work proceeds on the bounded branch.
 
-## Scope
+An additional unnecessary branch ref, `portfolio-p9-editorial-voice-pr-placeholder`, was accidentally created while attempting to open the draft PR. It contains no unique work and is not authority. The available connected GitHub controls in this session do not expose branch deletion; do not use or advance that ref.
 
-### P9-WP1 — External editorial research + complete corpus audit
-
-- research current first-party/authoritative guidance for people-first technical writing, web readability, developer tutorials/blog voice, and AI-assisted authorship;
-- read all 12 current blog articles rather than sampling;
-- identify the internal voice baseline from the strongest established articles;
-- distinguish deliberate rhetorical emphasis from machine-like fragmentation;
-- classify each current article as keep, light polish, moderate rewrite, or structural rewrite.
-
-### P9-WP2 — Durable editorial standard
-
-Update existing authority only. Do not create a parallel style-guide tree.
-
-- strengthen `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` with a concrete portfolio house voice;
-- define paragraph cadence, heading/list discipline, narrative continuity, authorial signal, source usage, and anti-template checks;
-- update product Content & Information Architecture only where the durable role of Writing needs clarification;
-- preserve factual/public-safety/owner-publication gates.
-
-### P9-WP3 — Priority August 8 article repair
-
-Rewrite in this order:
+## Work-package state
 
 ```text
-1. OpenTelemetry                 structural rewrite
-2. Argo CD / GitOps              structural rewrite
-3. Kubernetes                    moderate rewrite
-4. Prompt. Prove. Ship. intro    moderate prose-rhythm rewrite
+P9-WP1 external editorial research + all-12-article corpus audit     COMPLETE
+P9-WP2 durable house voice / AI editorial authority                 COMPLETE
+P9-WP3 priority August 8 article repair                             COMPLETE
+P9-WP4 earlier-corpus targeted disposition                          COMPLETE — KEEP
+P9-WP5 verification / owner editorial gate                          IN PROGRESS
 ```
 
-Preserve publication dates, slugs, series identity/order, factual claims that survive verification, external-source integrity, and route compatibility. Add `updated: 2026-08-10` for materially revised articles.
+## P9-WP1 — Research and complete corpus audit
 
-### P9-WP4 — Earlier-corpus disposition
+The full 12-article Astro corpus was read rather than sampled. Current research covered:
 
-The earlier corpus is the primary internal voice reference. Do not normalize it into the newer AI style.
+- Google people-first/helpful-content and generative-AI guidance;
+- Google Technical Writing and developer-style paragraph guidance;
+- Microsoft human/conversational web-writing guidance;
+- GitHub Docs content-design and tutorial guidance;
+- Nielsen Norman Group web-reading/scannability research;
+- Write the Docs discussion of developer-blog voice versus documentation;
+- recent ACL/EMNLP research on stylistic differences between unassisted human and LLM-generated/post-edited writing.
 
-Default disposition after audit:
+### Durable research conclusions
+
+- Helpful technical content should add original explanation, judgment, expertise, or insight rather than merely summarize sources.
+- Scannability is not the same thing as fragmented prose. Headings, lists, code, and emphasis help readers navigate; they do not replace narrative paragraphs.
+- Many one-sentence paragraphs are a useful editorial warning sign even though an occasional one-sentence paragraph can be excellent emphasis.
+- A developer tutorial/blog can be conversational and opinionated while remaining technically precise.
+- AI-assisted text can retain recognizable machine-shaped stylistic patterns after ordinary post-editing, so voice must be reviewed explicitly rather than assumed to return during fact-checking.
+
+## Full-corpus disposition
+
+### Internal voice benchmarks — retained unchanged
 
 ```text
 SRE Tools overview     KEEP
-Rundeck                KEEP — voice benchmark
-New Relic              KEEP — voice benchmark
-PagerDuty              KEEP — voice benchmark
-Git                    KEEP — strongest personality; rough edges are preferable to sanding away voice
-Terraform              KEEP — voice benchmark
-GitHub Actions         KEEP — voice benchmark
-Cursor                 KEEP / only light polish if a clear fragmentation defect remains after priority rewrites
+Rundeck                KEEP — primary practitioner-story benchmark
+New Relic              KEEP — problem/evidence/judgment benchmark
+PagerDuty              KEEP — personality + operational-context benchmark
+Git                    KEEP — strongest raw personality; do not over-polish
+Terraform              KEEP — first-person judgment + technical-depth benchmark
+GitHub Actions         KEEP — workflow evolution + practical judgment benchmark
+Cursor                 KEEP — current technical topic with clear authorial perspective
 ```
 
-Any earlier-post edit must solve a specific reader/editorial problem, not pursue uniformity for its own sake.
+The earlier corpus is the voice source, not collateral damage. No older post was edited merely to create visual or structural uniformity.
 
-### P9-WP5 — Verification / owner editorial gate
+### August 8 repairs — complete
 
-- review complete article diffs for technical meaning and public safety;
-- verify external links/current time-sensitive claims where retained;
-- run Astro/build/content integrity checks;
-- run existing Playwright desktop/tablet/phone and accessibility coverage;
-- visually inspect representative long-form pages for readable paragraph rhythm and hierarchy;
-- owner editorial review is required before merge because this changes public professional representation;
-- merge to `main` remains production authorization; Pages deployment remains automatic afterward.
+```text
+OpenTelemetry                 STRUCTURAL REWRITE COMPLETE
+Argo CD / GitOps              STRUCTURAL REWRITE COMPLETE
+Kubernetes                    MODERATE REWRITE COMPLETE
+Prompt. Prove. Ship. intro    PROSE-RHYTHM REWRITE COMPLETE
+```
 
-## Research findings
+All four preserve original `date`, slug/route, thumbnail, series metadata, and historical publication identity. Prompt also preserves its immutable `publishedAt`. Each materially revised article now has:
 
-### People-first and professional-proof principle
+```yaml
+updated: 2026-08-10
+```
 
-Current Google Search guidance prioritizes original, helpful, reliable content that provides first-hand expertise, insightful analysis, a clear audience/purpose, and substantial value beyond simply summarizing other sources. Its current generative-AI guidance explicitly permits AI-assisted research/structure but warns against producing commodity content without added user value.
+No fabricated tool use, incident, employer/customer story, metric, screenshot, or first-person event was added. First-person language is used for grounded professional judgment where appropriate.
 
-Portfolio implication: technical correctness and source coverage are necessary but insufficient. Each article should contribute Mike's explanation, judgment, framing, experience when real, or a useful point of view that would not be obtained by simply reading the linked product documentation.
+## P9-WP2 — Durable editorial standard
 
-### Paragraph principle
+No parallel style-guide file was created.
 
-Google's Technical Writing course says readers generally welcome paragraphs of roughly three to five sentences and explicitly warns that a document containing many one-sentence paragraphs is probably organized poorly. Google's developer style guide separately allows occasional one-sentence paragraphs when they genuinely contain one idea.
+Existing authority was strengthened in:
 
-Portfolio implication: one-sentence paragraphs remain valid rhetorical tools, but they must be exceptional emphasis rather than the default cadence. The house preference is cohesive short paragraphs, commonly two to four sentences for this web/blog format, with intentional variation.
+```text
+docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+docs/product/contactgilmore-portfolio/02_CONTENT_AND_INFORMATION_ARCHITECTURE.md
+```
 
-### Scannability is not fragmentation
-
-Microsoft's style guidance recommends human/conversational language and writing for scanning first, reading second. GitHub's docs guidance similarly recommends meaningful structure, active voice, concise prose, and selective use of headings/lists/visuals. Nielsen Norman Group's web-reading research shows that people scan headings and opening words, but good formatting is intended to guide readers through meaningful content rather than replace prose with fragments.
-
-Portfolio implication: headings, lists, code, bolding, and callouts support a reader; they do not substitute for narrative paragraphs. A blog article should still read naturally when consumed top to bottom.
-
-### Technical blog versus documentation
-
-GitHub describes tutorials as more conversational than other documentation and as a developer-to-developer conversation that includes expert advice, real examples, troubleshooting, and best practices. Write the Docs explicitly distinguishes developer-blog voice and point of view from technical documentation.
-
-Portfolio implication: the Git to Know You series is best treated as a **technical essay/tutorial hybrid**. It teaches a mental model and gives a safe starting path, but it should not attempt to reproduce an upstream reference manual.
-
-### AI-style risk
-
-Recent ACL/EMNLP research finds systematic stylistic differences between human and LLM-generated writing, including lower stylistic/syntactic diversity in model output and persistent LLM stylistic traces even after human post-editing.
-
-Portfolio implication: fact-checking plus an ordinary human read is not a sufficient voice-preservation process. Drafting must be conditioned on the site's real human-written corpus, and editorial review must explicitly test voice, paragraph structure, narrative variation, and authorial point of view.
-
-## Full-corpus editorial audit
-
-### Internal voice benchmark
-
-The strongest recurring qualities in the earlier articles are:
-
-- a human opening that sounds spoken rather than generated;
-- short multi-sentence paragraphs with natural transitions;
-- a clear opinion about why the tool matters;
-- real professional stories where evidence exists;
-- dry humor and analogy used sparingly;
-- practical tradeoffs instead of feature worship;
-- beginner-friendly explanation without flattening every concept into a definition;
-- lists used for genuinely list-shaped material;
-- conclusions that return to the operating idea rather than summarize every section.
-
-### Article disposition
-
-| Article | Current editorial verdict | Action |
-|---|---|---|
-| SRE Tools overview | Strong framing and progression; good concise authorial voice | Keep |
-| Rundeck | Excellent practitioner story, analogy, operational lesson | Keep; primary benchmark |
-| New Relic | Strong problem/story/evidence/judgment progression | Keep; primary benchmark |
-| PagerDuty | Strong personality and lived operational context | Keep; primary benchmark |
-| Git | Most overt personality; some older roughness/list density but authentically human | Keep; do not over-polish |
-| Terraform | Strong first-person operating lesson + useful technical depth | Keep; primary benchmark |
-| GitHub Actions | Strong story, current portfolio tie-in, clear judgment | Keep; primary benchmark |
-| Cursor | Strong personal use perspective; some fragment cadence but still recognizably authorial | Keep unless final light polish is clearly beneficial |
-| Kubernetes | Technically strong and reasonably focused, but much more reference-shaped than earlier series entries | Moderate rewrite |
-| OpenTelemetry | Accurate and useful but over-comprehensive; many concepts/sections read like condensed upstream docs | Structural rewrite / highest priority |
-| Argo CD / GitOps | Accurate and practical but over-sectioned and too complete for the series' beginner-blog job | Structural rewrite / high priority |
-| Prompt. Prove. Ship. | Strong thesis and authentic portfolio connection; too many isolated lines/rhetorical fragments | Moderate prose-rhythm rewrite |
-
-## Durable house-style direction
-
-The preferred portfolio article is:
+The preferred portfolio article is now explicitly a **technical essay/tutorial hybrid**:
 
 ```text
 human reason to care
 -> one primary mental model
--> explanation in cohesive short paragraphs
+-> cohesive short paragraphs
 -> real experience when verified OR explicit grounded author judgment
 -> practical example/workflow
 -> tradeoffs/failure modes
@@ -171,28 +121,77 @@ human reason to care
 -> conclusion that returns to the operating idea
 ```
 
-It is **not**:
+It is not an upstream reference manual recreated as a blog post.
+
+### House-voice rules promoted
+
+- Source packs are evidence, not automatic outlines.
+- Research breadth may be much larger than publication breadth.
+- Cohesive short paragraphs, commonly around two to four sentences on this site, are the default rhythm; natural variation remains important.
+- One-sentence paragraphs are retained for real emphasis, transition, humor, or deliberately isolated conclusions rather than as the dominant cadence.
+- Headings mark meaningful changes in the reader's question/task, not every new noun in the source pack.
+- Lists are for genuinely list-shaped material.
+- A substantial article should contain authorial value beyond source synthesis through verified experience, professional judgment, analogy, recommendation, tradeoff analysis, or a useful mental model.
+- Draft review explicitly tests opening, top-to-bottom flow, paragraph rhythm, authorial signal, unnecessary completeness, similarity to the established corpus, and read-aloud cadence.
+- Do not use an AI detector as an authorship or quality gate.
+
+## P9-WP3 — Rewrite outcomes
+
+### OpenTelemetry
+
+Refocused from a broad vocabulary/reference tour into one operating story: how a distributed request becomes evidence that can stay connected across metrics, traces, and logs. Retained the necessary architecture around context propagation, instrumentation, resource identity/semantic conventions, OTLP, the Collector, sampling/cardinality/privacy, Kubernetes fit, and a safe learning path.
+
+### Argo CD / GitOps
+
+Refocused around the reconciliation loop: Git records desired intent, Argo CD compares it with the live cluster, and automation is useful only when ownership, drift, security, and recovery are understandable. Preserved the practical `Application` example, sync versus health, manual-to-automatic progression, prune/self-heal caution, controller ownership, Projects/RBAC framing, live-cluster troubleshooting, and a safe learning loop.
+
+### Kubernetes
+
+Kept the strong original desired-state thesis but compressed the reference-shaped middle. The article now teaches control plane/workers, Pod/Deployment/Service, one meaningful manifest, probes/resources, troubleshooting, security/upgrade discipline, when Kubernetes earns its complexity, and a safe local learning path without trying to inventory the whole platform.
+
+### Prompt. Prove. Ship.
+
+Preserved the original thesis and portfolio connection. Recombined stacks of rhetorical one-line paragraphs into conversational prose while retaining intentional emphasis, the repository-context discussion, claim-matching proof, human judgment boundaries, and the branded Prompt/Prove/Ship close.
+
+## Source verification checkpoint
+
+All current first-party external links retained by the rewritten articles were re-opened during P9 against current official sources:
 
 ```text
-definition
--> every component
--> every component caveat
--> every security feature
--> every operational feature
--> every upstream-doc link
--> generic summary
+Kubernetes project documentation
+OpenTelemetry project documentation / OTLP specification
+Argo CD documentation + OpenGitOps principles
+OpenAI Codex / harness-engineering guidance
+GitHub Copilot repository-instructions / coding-agent guidance
 ```
+
+No broken target was found in this source pass. Time-sensitive wording was reduced where evergreen phrasing served the reader better, including avoiding an unnecessary hard-coded Kubernetes release number.
+
+## P9-WP5 — Remaining verification
+
+Before owner review:
+
+```text
+exact changed-file/material-diff review
+Astro/content/build integrity
+asset/internal-link integrity
+Playwright desktop/tablet/phone smoke
+representative axe accessibility coverage
+rendered long-form visual/readability review
+public-disclosure/professional-read review
+```
+
+After those pass, Mike receives one concise editorial review packet covering the four rewritten article routes. This is the required professional-representation gate before merge.
 
 ## Protected boundaries
 
 - Never invent Mike's use of a technology, employer/customer story, metric, result, screenshot, incident, or first-person event.
-- First person is encouraged for truthful experience and for clearly framed judgment/opinion; it is not restricted to autobiographical claims.
-- Preserve historically accurate publication dates and URLs.
-- Material rewrites receive an `updated` date rather than a new publication date.
-- Do not add filler anecdotes merely to make AI-written material sound human.
+- Preserve historically accurate publication dates, URLs, series identity, and publication ordering metadata.
+- Do not add filler anecdotes merely to make AI-assisted material sound human.
 - Do not sacrifice factual precision, security caveats, accessibility, or beginner clarity to create personality.
 - Do not write to an SEO word count. Length follows the reader outcome.
 - Do not create a new editorial/style doctrine file when existing authority can own the rule.
+- No unrelated Home, Work, About, Resume, case-study, runtime, or visual-system changes.
 
 ## Owner gate
 
