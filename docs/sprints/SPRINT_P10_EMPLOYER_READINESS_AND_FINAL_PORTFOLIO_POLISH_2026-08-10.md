@@ -16,7 +16,7 @@ production branch: main
 production authority at sprint open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
 P10 branch: p10-employer-readiness-final-polish
 draft PR: #31
-exact implementation/browser-certified head: 432b6aae2fed56dd78b998ae2781b58a681970e9
+exact implementation/browser-certified head: d31f84a137da28942c6a5c23e0b1ee5ed1cae724
 ```
 
 ## Audience contract
@@ -81,7 +81,7 @@ The Portfolio 2.0 design does **not** need another redesign. Keep the current he
 
 ### Resume
 
-Current MIT/Harvard/Yale career guidance consistently favors resume content that is quickly scannable, specific, accomplishment-oriented, and built around action + context/problem + result. Recruiters may scan for only a few seconds, so identity/contact, relevant skills, and evidence should be immediately legible.
+Current career guidance consistently favors resume content that is quickly scannable, specific, accomplishment-oriented, and built around action + context/problem + result. Identity/contact, relevant skills, and evidence should be immediately legible.
 
 Portfolio implication: the existing experience bullets were already strong. The top of `/resume/` should behave like a resume header and professional summary rather than another first-person portfolio/About card.
 
@@ -93,11 +93,11 @@ Portfolio implication: professional case studies remain the strongest evidence s
 
 ### Navigation and accessibility
 
-Current W3C guidance supports descriptive navigation/location cues alongside clear focus and usable controls. P10 preserves the strong existing navigation semantics while keeping Work current on nested Work routes and Writing current on article routes.
+Current W3C/WAI-ARIA guidance distinguishes an exact current page from a current location/section. P10 therefore uses `aria-current="page"` for exact top-level navigation destinations and `aria-current="location"` when a nested case study or article belongs to the Work or Writing section. The visual current-state treatment remains unchanged.
 
 ### Search/discoverability
 
-Current Google Search Central guidance supports descriptive concise page titles, `WebSite` structured data on the home page to indicate the preferred site name, and a stable representative favicon.
+Current search guidance supports descriptive concise page titles, `WebSite` structured data on the home page to indicate the preferred site name, and a stable representative favicon.
 
 ## P10-WP2 — Resume / claim / evaluation-flow polish — COMPLETE
 
@@ -134,8 +134,8 @@ All three deep case studies retain `Back to selected work` and now also provide 
 
 ## P10-WP3 — Navigation / search / site identity polish — COMPLETE
 
-- Work remains `aria-current="page"` on nested `/work/*` case studies.
-- Writing remains current while reading article routes, without article-body edits.
+- Exact top-level Work and Writing destinations use `aria-current="page"`.
+- Nested Work case studies and Writing article routes use `aria-current="location"` on the parent navigation item while preserving the same visual active state.
 - Added `/favicon.svg`, a 96×96 MG brand mark matching the existing header identity.
 - Added `og:site_name` = `Mike Gilmore`.
 - Home now includes `WebSite` structured data alongside existing Person identity.
@@ -162,13 +162,13 @@ The subject folder now contains exactly 00–04. The only remaining filename ref
 
 Exact source/browser-certified head:
 
-`432b6aae2fed56dd78b998ae2781b58a681970e9`
+`d31f84a137da28942c6a5c23e0b1ee5ed1cae724`
 
 Permanent CI:
 
 ```text
-Validate Astro migration #267 / run 31457749622 — SUCCESS
-Playwright portfolio smoke #236 / run 31457749583 — SUCCESS
+Validate Astro migration #274 / run 31459950653 — SUCCESS
+Playwright portfolio smoke #243 / run 31459950637 — SUCCESS
 ```
 
 Validate passed:
@@ -186,7 +186,7 @@ Playwright evidence:
 ```text
 144 tests discovered
 140 passed
-4 intentional desktop-only/project skips
+4 intentional project skips
 0 failures
 21 Astro pages
 22 referenced public assets / 22 present / 0 orphan
@@ -195,7 +195,7 @@ Playwright evidence:
 P10-specific employer-readiness regressions passed on desktop/tablet/phone:
 
 ```text
-nested Work/Writing current-location state
+exact-page versus nested-section navigation semantics
 Resume identity/contact/summary contract
 case-study claim precision + Work/Resume next-step contract
 favicon + og:site_name + home WebSite structured data
@@ -208,23 +208,24 @@ Evidence artifact:
 
 ```text
 playwright-smoke-evidence
-artifact id: 9088709831
-digest: sha256:f4b604d15fc4bab6dcc1092fc20c51869dd1190e5d6e39ea73f74c95a9450295
+artifact id: 9089466578
+digest: sha256:5d8c4028ec35b339c91ddbef740148987f57f15754acde0a674b191a7cb562e9
 ```
 
 ### Rendered evidence review
 
-Exact-head screenshots were reviewed for desktop/tablet/phone.
+The material P10 source candidate's screenshots were reviewed for desktop/tablet/phone before the final navigation-semantic refinement.
 
 Observed result:
 
 - approved homepage first viewport remains visually unchanged and balanced;
-- Resume now reads immediately as a resume on desktop and phone while staying inside the visual system;
+- Resume reads immediately as a resume on desktop and phone while staying inside the visual system;
 - Work retains the existing composition with only clearer evidence labels;
-- nested case studies visibly preserve Work as current;
-- case-study Work/Resume exit buttons fit naturally in the existing takeaway band;
+- case-study `Back to selected work` + `View resume` buttons fit naturally in the existing takeaway band;
 - no new overflow, spacing, hierarchy, or responsive defect was found;
 - About remains visually/content-wise unchanged except its more descriptive document title.
+
+The final `aria-current` refinement changes only navigation semantics (`page` versus `location`) plus the selector needed to preserve the same current-state color. The complete exact-head browser suite passed after that refinement.
 
 ## Protected paths / non-goals — HELD
 
