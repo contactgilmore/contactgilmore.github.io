@@ -1,132 +1,65 @@
 # Active Sprint
 
-Status: **P9 ACTIVE — VERIFICATION / OWNER EDITORIAL GATE PREP**  
+Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
 Updated: 2026-08-10
 
-Sprint: **P9 — Editorial Voice and Full Blog Quality**
+Most recently completed sprint: **P9 — Editorial Voice and Full Blog Quality**
 
 Sprint record:
 
 `docs/sprints/SPRINT_P9_EDITORIAL_VOICE_AND_FULL_BLOG_QUALITY_2026-08-10.md`
 
-Current GitHub authority:
+Current production authority:
 
 ```text
 production branch: main
-current GitHub main: ed22dbc186429e6f8f1fe098fd4e26a3c670bf27
-main content tree: 89cb31cf7b823bedd826c1ba16001c42d36bb37e
-P9 branch: portfolio-p9-editorial-voice
-draft PR: #29
-last article-rewrite head before verification docs: 0691ee8d9eba3a1c9d49869ea54181fdeb6a7a5b
+P9 production merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
+Pages deployment: 31454588266 — SUCCESS
+production Validate Astro migration: 31454588241 — SUCCESS
+production Playwright portfolio smoke: 31454588274 — SUCCESS
+candidate browser-certified head: 266eb4079bc3e30e9ecd74ff5e52a0f382616d29
+candidate Playwright: 125 passed / 4 intentional skips
+owner local Playwright: 125 passed / 4 intentional skips / 0 failures
+owner editorial review: APPROVED
 ```
 
-The current website remains the previously deployed post-P8 employer-facing polish. The two P9-opening housekeeping commits on `main` added and immediately removed the sprint record by mistake; corrected `main` has the exact same tracked content tree as before that error. P9 implementation proceeds only on the bounded branch.
+## Current production state
 
-## Sprint goal
+- Git to Know You remains complete at #1–#10.
+- Kubernetes, OpenTelemetry, and Argo CD / GitOps now use the owner-approved P9 editorial rewrites.
+- Prompt. Prove. Ship.: From Chat to Change now uses the owner-approved P9 prose-rhythm rewrite.
+- The earlier eight articles remain intentionally unchanged and are the internal voice baseline.
+- Long-form Writing is governed by `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` as a technical essay/tutorial hybrid rather than condensed reference documentation.
+- Cohesive short paragraphs are the default; one-sentence paragraphs are deliberate emphasis, not default cadence.
+- Source packs are evidence, not automatic outlines. Research may be broader than the published article.
+- Material AI-assisted drafts require explicit voice review in addition to factual/technical verification.
+- Writing remains a professional proof surface, so owner review is required when material public voice or representation changes.
+- Original publication dates and `publishedAt` remain immutable; later material changes use `updated` and do not reorder the archive.
+- Canonical sprint records remain under `docs/sprints/`, with the 30-day archive lifecycle unchanged.
 
-Restore a coherent human technical-blog voice across Writing without weakening factual rigor, beginner accessibility, web scannability, public safety, or AI-assisted production discipline.
+## Next-work posture
 
-The specific quality failure is the visible editorial discontinuity between the established human-written / AI-assisted corpus and the August 8 AI-created articles. The newer posts were technically strong but overused isolated one-sentence paragraphs, dense concept-by-concept sectioning, repeated explanatory templates, and upstream-documentation-style completeness.
+Do not manufacture a sprint merely because P9 closed.
 
-## Work-package state
+The next meaningful writing sprint may develop a focused **Prompt. Prove. Ship.** arc around durable AI-assisted engineering practices. Topic count/order is not committed yet.
 
-```text
-P9-WP1 external editorial research + all-12-article corpus audit     COMPLETE
-P9-WP2 durable house voice / AI editorial authority                 COMPLETE
-P9-WP3 priority August 8 article repair                             COMPLETE
-P9-WP4 earlier-corpus targeted disposition                          COMPLETE — 8 RETAINED
-P9-WP5 build/browser/accessibility/publication evidence             IN PROGRESS
-```
+P9 was a corrective editorial-quality sprint and does not count as that future content arc.
 
-## Article disposition
-
-Materially revised with `updated: 2026-08-10`:
-
-```text
-OpenTelemetry                 structural rewrite complete
-Argo CD / GitOps              structural rewrite complete
-Kubernetes                    moderate rewrite complete
-Prompt. Prove. Ship. intro    prose-rhythm rewrite complete
-```
-
-Intentionally retained after full-corpus review:
-
-```text
-SRE Tools overview
-Rundeck
-New Relic
-PagerDuty
-Git
-Terraform
-GitHub Actions
-Cursor
-```
-
-The earlier articles remain the internal voice baseline. They were not changed merely to manufacture uniformity.
-
-## Durable editorial direction
-
-Portfolio long-form writing should behave as a **technical essay/tutorial hybrid**:
-
-```text
-human reason to care
--> one primary mental model
--> cohesive short paragraphs
--> truthful experience when available OR grounded author judgment
--> practical example/workflow
--> tradeoffs/failure modes
--> safe starting path
--> conclusion that returns to the operating idea
-```
-
-Scannability does not mean fragmenting every idea into a one-sentence paragraph or heading. One-sentence paragraphs remain available for deliberate emphasis, but cohesive multi-sentence paragraphs are the default blog rhythm.
-
-Detailed house voice and AI-drafting review authority:
-
-`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
-
-## Verification already complete
-
-- all 12 current blog articles were read and dispositioned;
-- current external first-party links retained by the four rewritten articles were re-opened and verified against Kubernetes, OpenTelemetry, Argo CD/OpenGitOps, OpenAI, and GitHub documentation;
-- no invented personal technology implementation story, customer/employer event, metric, or screenshot was added;
-- article publication dates, slugs, routes, series metadata, thumbnails, and Prompt `publishedAt` remain preserved.
-
-## Protected boundaries
-
-- Preserve publication dates, slugs, routes, series identity/order, and historical publication truth.
-- Never invent tool usage, employer/customer stories, incidents, metrics, screenshots, or first-person events.
-- First person is encouraged for truthful experience and clearly framed judgment/opinion.
-- Do not remove necessary technical/security caveats merely to shorten an article.
-- Do not write to an SEO word count; length follows the reader outcome.
-- Do not create a parallel blog-style doctrine file when existing editorial/product authority can own the rule.
-- No unrelated homepage, Work, case-study, runtime, visual-system, or infrastructure changes.
-
-## Remaining proof before owner review
-
-```text
-exact changed-file/material-diff review
-Astro/content/build integrity
-asset/internal-link integrity
-Playwright desktop/tablet/phone smoke
-representative axe accessibility coverage
-rendered long-form visual/readability review
-public-disclosure/professional-read review
-```
-
-## Owner gate
-
-Mike must review the materially rewritten public articles before merge because they are public professional representation. GPT owns the repository mechanics and verification leading to that gate.
+After the focused Prompt. Prove. Ship. arc, pause new content and perform one deliberate employer-readiness/web-administration-quality pass across Home / Work / Writing / About / Resume, then prefer a stability period over cosmetic churn.
 
 ## Release model
 
 ```text
-bounded P9 branch
--> draft PR while editorial/technical evidence is incomplete
--> exact-head CI / browser / accessibility proof
--> owner editorial approval
+bounded branch
+-> PR
+-> exact applicable CI / browser / accessibility evidence
+-> owner approval when public representation materially changes
 -> merge to main = production authorization
 -> automatic GitHub Pages deployment
--> live verification
+-> production verification
 -> living-state closeout
 ```
+
+## Public-repository rule
+
+This repository remains a public professional artifact. Tracked docs, branches, PRs, logs, artifacts, screenshots, and metadata must remain safe for unrestricted public reading and must not become private project memory.
