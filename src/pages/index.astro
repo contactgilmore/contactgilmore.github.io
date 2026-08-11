@@ -46,7 +46,7 @@ const selectedWork = [
   },
   {
     eyebrow: 'SaaS reliability',
-    title: 'From customer outage complaints to permanent remediation',
+    title: 'From customer outage complaints to durable remediation',
     metric: '55%',
     metricLabel: 'reduction in repeat customer escalations',
     body: 'Built the visibility to prove a recurring failure pattern, communicated the RCA, and helped move the problem into cross-functional software remediation.',
@@ -54,7 +54,7 @@ const selectedWork = [
   },
   {
     eyebrow: 'Operational improvement',
-    title: 'A shared operating system for reliability work',
+    title: 'A shared operating model for reliability work',
     metric: '60%',
     metricLabel: 'improvement in response and recovery metrics',
     body: 'Improved dashboards and alerts, standardized runbooks and RCA practices, automated workflow coordination, and helped teams adopt a shared response model.',
@@ -63,11 +63,21 @@ const selectedWork = [
 ];
 
 const technicalDepth = ['APIs & integrations', 'SQL', 'Authentication', 'AWS', 'Kubernetes', 'Terraform', 'Linux', 'Observability'];
+const siteUrl = 'https://contactgilmore.github.io/';
+const websiteStructuredData = {
+  '@type': 'WebSite',
+  '@id': `${siteUrl}#website`,
+  name: 'Mike Gilmore',
+  alternateName: 'ContactGilmore',
+  url: siteUrl,
+  inLanguage: 'en-US',
+};
 ---
 
 <BaseLayout
   title="Mike Gilmore | Technical Delivery & Customer Solutions"
   description="Professional portfolio for Mike Gilmore: technical delivery, implementation, SaaS integrations, systems analysis, customer solutions, cloud, and reliability."
+  structuredData={websiteStructuredData}
 >
   <section class="hero shell section section--hero">
     <div class="hero__content">
