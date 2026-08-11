@@ -1,7 +1,7 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-08-10
+Updated: 2026-08-11
 
 ## Production authority
 
@@ -11,132 +11,200 @@ Current production truth:
 
 ```text
 production branch: main
-current main at P10 open: d0c1600f2af85541084aa4afd888beaf0f2a48e5
-last material site/content release: P9 — Editorial Voice and Full Blog Quality
-P9 source merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
-P9 Pages / Validate Astro / Playwright: SUCCESS
-P9 closeout merge: d0c1600f2af85541084aa4afd888beaf0f2a48e5
+current material release: P10 — Employer Readiness and Final Portfolio Polish
+implementation PR: #31
+production merge: 99bcd3a82cc37a99350d6eae2171b053d8f27199
+Pages deployment run: 31464158531 — SUCCESS
+Validate Astro migration run: 31464158520 — SUCCESS
+Playwright portfolio smoke run: 31464158526 — SUCCESS
+Playwright: 140 passed / 4 intentional skips / 0 failures
+production evidence artifact: 9090915653
+artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
 production deployment policy: automatic after approved merge to main
 ```
 
-## Active sprint
+There is **no active implementation sprint**.
 
-**P10 — Employer Readiness and Final Portfolio Polish** is active at the owner professional-representation gate.
+Most recently completed sprint:
+
+`docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md`
+
+P10 closed on 2026-08-11 and remains in `docs/sprints/` through the 30-day recent-history window.
+
+## Current product posture
+
+The site is a professional portfolio and technical-writing platform positioned around:
 
 ```text
-branch: p10-employer-readiness-final-polish
-draft PR: #31
-record: docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md
-exact implementation/browser-certified head: db1e1f3a25ee8192909ee91655216084c66680e4
-Validate Astro migration #282 / 31461649858: SUCCESS
-Playwright portfolio smoke #251 / 31461649933: SUCCESS
-Playwright: 140 passed / 4 intentional skips / 0 failures
-artifact: 9090048571
-artifact digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
+Technical Delivery & Customer Solutions
+Implementation & Technical Delivery
+Integrations & Troubleshooting
+Customer & Stakeholder Leadership
 ```
 
-Blog article bodies are out of scope and unchanged. P9 remains their editorial authority.
+Top-level structure remains:
 
-## P10 audit conclusion
+```text
+Home / Work / Writing / About / Resume
+```
 
-The full non-blog employer-facing scan covered Home, Work, all three case studies, About, Resume, the Writing index/global navigation, shared header/footer/meta shell, and desktop/tablet/phone evidence.
+Primary professional case studies remain:
 
-The approved Portfolio 2.0 design remains strong. P10 does **not** redesign the site. Keep the homepage hero/right focus rail, three-pillar proof hierarchy, case-study structure, About narrative, supported metrics, compact Home experience timeline, and responsive visual system.
+```text
+/work/implementation-delivery/
+/work/reliability-remediation/
+/work/operating-model/
+```
 
-A final candidate re-review found one material Resume scan issue and no broader design issue: the first P10 Resume candidate repeated role/summary positioning across the hero and immediate Professional Summary card. The final source removes that duplication so employer evidence appears sooner, especially on mobile. Home, Work, About, Writing index/navigation, and all three case studies required no additional source change.
+The P10 employer-readiness audit concluded that Portfolio 2.0 does **not** need another redesign. The approved homepage hero/right rail, three-pillar proof hierarchy, case-study composition, About narrative, supported metrics, compact experience timeline, responsive system, and P9 long-form article bodies remain deliberate authority.
 
-## P10 candidate outcome
+Post-P10 default is **stability over cosmetic churn**.
+
+## P10 accepted outcomes
 
 ### Resume
 
-`/resume/` now behaves like a scan-first resume while remaining web-native and public-safe:
+`/resume/` now behaves as a scan-first resume inside the Portfolio 2.0 visual system:
 
 ```text
 Mike Gilmore
 Technical Delivery & Customer Solutions
 Salt Lake City area
 public email / LinkedIn / GitHub
-one concise Professional Summary
+one Professional Summary
 core capabilities
 experience evidence
 ```
 
-The hero behaves as a resume header rather than repeating a second summary. The Professional Summary is non-first-person and appears once. Existing capability tags, employer chronology, accomplishment bullets, and supported metrics remain intact. No education, certifications, dates, phone/address, or private details were invented.
+The hero is a resume header rather than a second narrative summary. The substantive Professional Summary is non-first-person and appears once. The final P10 scan removed duplicate role/summary positioning so experience evidence appears sooner, particularly on phone layouts.
 
-### Proof precision and evaluation flow
+Existing employer chronology, accomplishment bullets, supported metrics, and capability evidence remain intact. P10 did not invent education, certifications, dates, private phone/address data, or unsupported claims.
 
-- `permanent remediation` became evidence-aligned `durable remediation` on employer-facing proof surfaces.
-- `shared operating system` became literal `shared operating model` where it describes the program-delivery case.
-- All three case studies now end with both `Back to selected work` and `View resume`.
+### Work and proof
+
+- `permanent remediation` was tightened to evidence-aligned `durable remediation` on employer-facing proof surfaces.
+- `shared operating system` was tightened to literal `shared operating model` where that wording better matches the evidence.
+- All three professional case studies end with both `Back to selected work` and `View resume`.
+- The canonical case-study truth/evidence authority is `docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md`.
 - No supported metrics were removed or inflated.
 
 ### Navigation and site identity
 
-- Exact top-level Work/Writing pages use `aria-current="page"`; nested case-study/article routes identify their parent section with `aria-current="location"` while retaining the same visual current-state treatment.
-- Added a stable 96×96 MG favicon matching the existing brand mark.
-- Added `og:site_name` and home `WebSite` structured data.
-- Work, About, Writing, and Resume use clearer compact document titles.
-- Homepage hero composition remains unchanged.
+- Exact Work/Writing destinations use `aria-current="page"`.
+- Nested Work case studies and Writing articles use `aria-current="location"` on the parent navigation item while retaining the same visual current state.
+- Brand interaction authority is reconciled to that tested semantic rule.
+- `/favicon.svg` is the stable MG site favicon.
+- `og:site_name` and home `WebSite` structured data are present.
+- Work, About, Writing, and Resume use clearer descriptive document titles.
+- Homepage composition was not redesigned.
 
 ### Documentation hygiene
 
-Product doctrine's exactly-five-file rule is restored for `docs/product/contactgilmore-portfolio/`.
+Product doctrine's five-document subject-folder rule is restored for `docs/product/contactgilmore-portfolio/`.
 
-The full case-study truth/evidence authority was consolidated into:
+Case-study DIRECT / SAFE GENERALIZATION / SUPPORTING SKILLS / DO NOT CLAIM evidence was consolidated into canonical:
 
 `docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md`
 
-before redundant `05_CASE_STUDY_TRUTH_MAP.md` was removed. Historical P4 provenance referring to the old filename remains intentionally historical and is not live authority.
+Redundant `05_CASE_STUDY_TRUTH_MAP.md` was removed after consolidation. Historical P4 provenance that mentions the old filename remains historical only and is not current authority.
 
-The product backlog now records P8/P9 as completed and stability as the default post-P10 posture.
+The product backlog records stability as the post-P10 posture.
 
-Brand interaction authority was also reconciled to the tested navigation rule: exact top-level destinations use `aria-current="page"`; nested section routes use `aria-current="location"`. That correction is documentation-only and does not alter visual behavior.
+## P10 verification and release
 
-## Exact-head proof
+Final implementation/browser-certified source before closeout bookkeeping:
 
-`db1e1f3a25ee8192909ee91655216084c66680e4` passed:
+`db1e1f3a25ee8192909ee91655216084c66680e4`
+
+Candidate evidence:
 
 ```text
+Validate Astro migration #282 / run 31461649858 — SUCCESS
+Playwright portfolio smoke #251 / run 31461649933 — SUCCESS
+144 tests discovered / 140 passed / 4 intentional skips / 0 failures
 21 Astro pages
 22 referenced public assets / 22 present / 0 orphan
-144 Playwright tests discovered
-140 Playwright passes
-4 intentional project skips
-0 failures
-all P10 employer-readiness regressions on desktop/tablet/phone
-representative axe accessibility
-existing homepage/Work/Writing/series/browser contracts
+artifact: 9090048571
+artifact digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
 ```
 
-The final P10 source candidate's desktop/phone screenshots were reviewed after the Resume de-duplication. Resume now reads in the intended sequence: name, role, contact, one Professional Summary, then experience. The adjustment removes repeated positioning without changing supported evidence and improves the phone scan by moving experience upward. No new overflow, hierarchy, spacing, accessibility, or responsive defect was found.
+Owner approved the final public Resume and bounded employer-facing representation. PR #31 was then marked ready and squash-merged to `main` as:
+
+`99bcd3a82cc37a99350d6eae2171b053d8f27199`
+
+Production proof on that exact merge:
+
+```text
+Deploy Portfolio to GitHub Pages run 31464158531 — SUCCESS
+Validate Astro migration run 31464158520 — SUCCESS
+Playwright portfolio smoke run 31464158526 — SUCCESS
+144 tests discovered / 140 passed / 4 intentional skips / 0 failures
+21 Astro pages
+22 referenced public assets / 22 present / 0 orphan
+production artifact: 9090915653
+production digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
+```
+
+The production suite verified the Home, Work, all three professional case studies, Writing, About, Resume, current-location navigation, employer-readiness contracts, existing writing/series regressions, and representative axe accessibility coverage across desktop/tablet/phone.
 
 ## Durable writing state
 
-P9 is complete, owner approved, and deployed. Long-form authority remains:
+P9 — Editorial Voice and Full Blog Quality — remains the long-form editorial authority.
+
+Detailed rules live in:
 
 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
-The earlier human-written / AI-assisted corpus remains the internal voice baseline, and the P9 owner-approved rewrites for Kubernetes, OpenTelemetry, Argo CD / GitOps, and Prompt. Prove. Ship. remain production truth. Do not reopen article bodies during P10.
+Durable P9 rules include:
+
+- substantial posts are technical essay/tutorial hybrids rather than condensed upstream documentation;
+- source packs are evidence, not automatic outlines;
+- research breadth may exceed publication breadth;
+- cohesive short paragraphs are the normal long-form rhythm;
+- one-sentence paragraphs are for intentional emphasis, transition, humor, or isolated conclusions rather than the dominant cadence;
+- headings mark meaningful changes in the reader's question/task;
+- lists are for genuinely list-shaped material;
+- substantial writing should add verified experience, grounded judgment, analogy, recommendation, tradeoff analysis, or another useful authorial signal beyond source synthesis;
+- AI-assisted drafts require explicit voice review separate from factual/technical verification;
+- the earlier human-written / AI-assisted corpus remains the internal voice reference;
+- never invent tool use, employer/customer stories, incidents, metrics, screenshots, or first-person events;
+- Writing is professional proof, so material public voice/representation changes require owner editorial approval.
+
+P10 did not reopen blog article bodies. Resume, About, Work, Home, and Writing have different reading jobs; blog paragraph rules must not be mechanically normalized across those surfaces.
 
 ## Durable site rules
 
 - Home is scan-first and routes to proof.
-- Work carries professional proof.
-- About carries professional narrative and working style.
-- Resume carries scan-first résumé evidence and should not behave like About or a blog.
-- Writing carries long-form technical communication.
+- Work carries professional evidence.
+- Case studies demonstrate role, judgment, approach, and supported outcomes.
+- About carries concise professional narrative and working style.
+- Resume carries scan-first resume evidence and should not behave like About or a blog.
+- Writing carries long-form technical communication and professional point of view.
 - Merge to `main` is human production authorization; Pages deployment is the automated consequence.
-- Public repo artifacts must remain safe for unrestricted disclosure.
-- Original publication dates and immutable `publishedAt` remain historical authority; `updated` never reorders publication chronology.
-- Canonical sprint records live under `docs/sprints/` with the 30-day archive lifecycle.
-- Avoid parallel doctrine/style files when existing authority can own the rule.
+- Public repository artifacts must remain safe for unrestricted disclosure and professional review.
+- Original article publication dates and immutable `publishedAt` remain historical authority; `updated` never reorders publication chronology.
+- Canonical sprint records live under `docs/sprints/`; completed records become archive-eligible after 30 calendar days and routine startup does not read `docs/sprints/archive/`.
+- Avoid duplicate summaries and parallel doctrine/style files when existing authority can own the rule.
 
-## Remaining gate
+## Next-work posture
 
-Mike reviews the material Resume/employer-facing candidate. If approved, mark PR #31 ready, merge, verify automatic Pages/production checks, close P10, and prefer stability over further cosmetic churn unless a real employer/user defect is found.
+Do not manufacture another sprint merely because P10 closed.
+
+The previously discussed focused **Prompt. Prove. Ship.** writing arc remains directional rather than committed. If it is pursued later, it must follow the P9 editorial standard from the first outline and should be opened as a deliberate bounded content sprint.
+
+Other work should be triggered by evidence, such as:
+
+- meaningful new professional experience or case-study proof;
+- a real employer/user defect;
+- stale/broken external links or time-sensitive technical claims;
+- dependency/security/browser maintenance;
+- a deliberate useful article or writing arc;
+- a performance/accessibility/discoverability issue supported by evidence.
+
+Do not continue polishing the current Portfolio 2.0 surfaces merely to make them different.
 
 ## Public-safety boundary
 
 Do not publish private correspondence, customer identities, proprietary employer/customer artifacts, credentials, private infrastructure details, private addresses/phone numbers, health/financial information, unsupported metrics, or private job-search/personal context.
 
-A fresh chat must recover this same state from repository authority without depending on conversation memory or routine reading of archived sprint records.
+A fresh chat must recover this same production/stability state from repository authority without depending on conversation memory or routine reading of archived sprint records.

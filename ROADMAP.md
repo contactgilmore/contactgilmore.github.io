@@ -1,7 +1,7 @@
 # ContactGilmore Portfolio 2.0 Roadmap
 
 Status: active roadmap  
-Updated: 2026-08-08
+Updated: 2026-08-11
 
 ## North star
 
@@ -25,7 +25,7 @@ axe accessibility checks
 
 React, a CMS, database, or alternate hosting provider is not part of the default architecture unless a later requirement justifies the change.
 
-## Design/product direction
+## Design / product direction
 
 Portfolio 2.0 leads with one coherent professional identity:
 
@@ -35,7 +35,7 @@ Current top-level structure:
 
 `Home / Work / Writing / About / Resume`
 
-Primary professional proof is carried by three curated case studies rather than a chronological project dump.
+Primary professional proof is carried by three curated sanitized case studies rather than a chronological project dump. Technical projects and long-form Writing support that professional evidence rather than replacing it.
 
 ## Completed delivery phases
 
@@ -55,12 +55,10 @@ Three sanitized professional case studies, truth-mapped evidence, Home/Work/Abou
 Public-asset minimization, sitemap/robots/canonical/social metadata, structured data, accessibility hardening, link/route regression, Pages deployment/rollback controls, and production launch.
 
 ### P6 — Recruiter proofread, voice, and case-study polish — COMPLETE
-Recruiter-facing copy polish, stronger first-person ownership, deeper case-study specificity, career-foundation narrative, responsive visual review, public-repository hardening, and GitHub-first continuation doctrine. Squash-merged as `21031c0a18ae1c10ab9bafcbd0922c4b620c5383`.
+Recruiter-facing copy polish, stronger first-person ownership, deeper case-study specificity, career-foundation narrative, responsive visual review, public-repository hardening, and GitHub-first continuation doctrine.
 
 ### P7 — Blog editorial system and AI-assisted publishing — COMPLETE
 Established the typed Astro blog, protected historical dates/URLs, refreshed the original series, added series metadata/navigation, established public-safe AI-assisted publishing, and expanded responsive/accessibility regression.
-
-P7 source merge: `5af373ab34a2ea1fd4692dc271fc1063b99f11f8`.
 
 ### P8 — Portfolio Quality Ratchet and Series Transition — COMPLETE
 
@@ -71,42 +69,92 @@ Delivered:
 - made autonomous bounded execution, exact-head proof, low owner friction, and concise owner gates durable startup rules;
 - standardized sprint execution records under `docs/sprints/` with a 30-day recent-history window and historical-only archive;
 - corrected the MacBook-class homepage hero composition and expanded laptop-specific proof;
-- introduced **Prompt. Prove. Ship.** as the next writing series;
+- introduced **Prompt. Prove. Ship.** as the next writing direction;
 - published **Prompt. Prove. Ship.: From Chat to Change** with a purpose-built vector thumbnail and homepage feature placement;
 - preserved responsive, route, asset, link, and accessibility quality gates.
 
-Release record:
+Release anchor:
 
 ```text
 PR: #25
 production merge: fad90493ab0cad61fee834cdace94256e97e8557
-automatic Pages deployment run: 31290363581
-result: SUCCESS
-final Validate run: 31290157900 — SUCCESS
-final Playwright run: 31290157896 — 116 passed / 4 intentional skips
+Pages deployment: 31290363581 — SUCCESS
+```
+
+### P9 — Editorial Voice and Full Blog Quality — COMPLETE
+
+Audited the full current article corpus and established the durable long-form house standard:
+
+- technical essay/tutorial hybrid rather than condensed upstream documentation;
+- source packs as evidence rather than automatic outlines;
+- cohesive short paragraphs as the normal rhythm;
+- one-sentence paragraphs only when emphasis/transition/humor genuinely earns them;
+- headings and lists used for meaningful structure rather than fragmentation;
+- explicit authorial value beyond source synthesis;
+- a separate voice/read-aloud gate from factual/technical verification;
+- the established human-written / AI-assisted corpus as the internal voice baseline.
+
+Materially revised Kubernetes, OpenTelemetry, Argo CD / GitOps, and the Prompt. Prove. Ship. introduction while preserving historical publication identity. P9 remains the long-form Writing authority.
+
+Release anchor:
+
+```text
+PR: #29
+production merge: 80614d4d24c6f7fbf6087ed2325f27a63786d3d2
+Pages deployment: 31454588266 — SUCCESS
+```
+
+### P10 — Employer Readiness and Final Portfolio Polish — COMPLETE
+
+Performed the deliberate full non-blog employer-facing finish-line audit across Home, Work, all three case studies, Writing index/navigation, About, Resume, and shared site shell.
+
+Accepted outcomes:
+
+- preserved the approved Portfolio 2.0 design after evidence found no redesign requirement;
+- made Resume a scan-first employer artifact with direct identity/role/contact, one Professional Summary, capabilities, and accomplishment-led experience;
+- removed duplicated Resume opening positioning so experience evidence appears sooner, especially on phone;
+- tightened claim wording to `durable remediation` and `shared operating model` where more literal language better fits the evidence;
+- added Resume evaluation exits to all three professional case studies;
+- distinguished exact current pages from nested current section locations with tested ARIA semantics;
+- added stable favicon/site-name/WebSite identity metadata and clearer interior titles;
+- consolidated case-study truth/evidence authority and restored product documentation's five-file contract;
+- kept all P9 article bodies untouched.
+
+Release anchor:
+
+```text
+PR: #31
+production merge: 99bcd3a82cc37a99350d6eae2171b053d8f27199
+Pages deployment: 31464158531 — SUCCESS
+Validate: 31464158520 — SUCCESS
+Playwright: 31464158526 — 140 passed / 4 intentional skips / 0 failures
+production evidence artifact: 9090915653
 ```
 
 ## Completed first writing series — Git to Know You #1–#10
 
 Git to Know You remains a public beginner-friendly learning path from Rundeck through Argo CD / GitOps. The roadmap does not manufacture #11 simply to continue numbering.
 
-Post-P7 release anchors:
-
-```text
-Kubernetes: PR #19 / merge 3986eab790441506eb8e34d31a7d51bbab4bcea3 / deploy 31284483589 / owner smoke 90/90
-OpenTelemetry: PR #21 / merge 40d171466381516c6dd57da3ff5964ad0f2300a0 / deploy 31286854414 / owner smoke 99/99
-Argo CD / GitOps: PR #23 / merge 6668237614720202adec43cd0feadd6dc36ce2af / deploy 31287772916 / owner smoke 108/108
-```
-
 ## Current planning state
 
 There is **no active implementation sprint**.
 
-The portfolio uses a lightweight directional roadmap plus bounded sprints. Open a sprint only when there is a concrete, meaningful outcome to deliver.
+P10 reached the employer-readiness finish line. The default posture is now **stability over cosmetic churn**.
 
-## Next writing arc — Prompt. Prove. Ship.
+Open another sprint only for a concrete meaningful outcome, such as:
 
-**Prompt. Prove. Ship.** moves the Writing section from introductory tool education into the engineering operating model around increasingly capable AI agents.
+- material new professional evidence or a new safely documentable case study;
+- a real employer/user defect;
+- meaningful accessibility/performance/discoverability evidence;
+- dependency/security/browser maintenance that requires tracked change;
+- a deliberate useful article or bounded writing arc;
+- a justified architecture/hosting/product requirement.
+
+Do not create work merely because the portfolio can always be made different.
+
+## Prompt. Prove. Ship. — directional future writing arc
+
+**Prompt. Prove. Ship.** remains the next likely long-form direction, but it is not a committed cadence, article count, or active sprint.
 
 Series promise:
 
@@ -116,7 +164,7 @@ Current public entry point:
 
 `/prompt-prove-ship/` — **Prompt. Prove. Ship.: From Chat to Change**
 
-Durable topic themes, not committed numbers or dates:
+Potential durable themes:
 
 - repository instructions and context engineering;
 - planning, allowed/no-touch scope, and stop conditions;
@@ -127,22 +175,15 @@ Durable topic themes, not committed numbers or dates:
 - branch/PR/review/release controls;
 - background and multi-agent workflows after the fundamentals are established.
 
-Cloud Foundations remains a later candidate. Do not run both series simultaneously merely to increase publication volume.
+If this arc is pursued, open it deliberately and follow the P9 editorial standard from the first outline. Do not publish merely to maintain a calendar.
 
-## Employer-readiness finish line
+Cloud Foundations remains a later candidate. Do not run multiple series merely to increase publication volume.
 
-After the next focused Prompt. Prove. Ship. writing arc:
+## Employer-readiness finish line — COMPLETE
 
-1. pause new content;
-2. perform one deliberate employer-facing final pass across Home / Work / Writing / About / Resume;
-3. evaluate recruiter scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, broken links, public safety, visual consistency, performance, and documentation/assets;
-4. resolve only material issues found by that review;
-5. publish the accepted final polish;
-6. enter a stability period and avoid cosmetic churn until new career evidence, a real defect, or a meaningful content need justifies another change.
+P10 completed the previously planned employer-facing final pass. The accepted site was evaluated for recruiter/hiring-manager scanability, web-administration quality, responsive behavior, accessibility, metadata/discoverability, routes/links/assets, public safety, visual consistency, Resume conventions, proof precision, and documentation governance.
 
-The portfolio should be credible when inspected as both a professional profile and a working example of web administration, content governance, accessibility, CI/CD, and AI-assisted delivery discipline.
-
-One non-blocking visual observation remains for that final pass: the upper-right homepage focus rail may feel slightly open above its horizontal rule. Do not add decoration merely to fill space.
+The final audit explicitly rejected unnecessary redesign and filler. Future changes to Home / Work / About / Resume should require evidence that the current surface is materially wrong, stale, or incomplete.
 
 ## Sprint-record lifecycle
 
@@ -160,29 +201,18 @@ docs/sprints/archive/
 
 Routine startup does not read archived records. Archive lookup is only for historical recovery, regression, audit, or decision provenance. Do not create duplicate sprint summaries or placeholder archive files.
 
-## Other directional work
-
-Potential later work, only when evidence justifies it:
-
-- periodically refresh professional case studies after meaningful career changes;
-- Cloud Foundations writing series;
-- social/Open Graph preview artwork if it materially improves sharing;
-- richer topic/category discovery when archive volume justifies it;
-- periodic Lighthouse/performance review;
-- consider a custom domain when it improves professional presentation enough to justify the change.
-
 ## Continuous portfolio operations
 
 Ongoing work should include:
 
-- publish new writing when there is a useful topic, not to satisfy a calendar;
-- periodically review featured content and professional positioning;
+- publish new writing only when there is a useful topic;
+- periodically review featured content and professional positioning when career evidence changes;
 - maintain dependencies and CI/browser quality gates;
 - review external links and time-sensitive technical claims;
-- remove stale assets/claims/technologies;
+- remove stale assets/claims/technologies when evidence supports removal;
 - keep public documentation useful as SDLC/AI-delivery evidence while excluding private project memory;
 - use sprint records for material redesign, migration, content-system, or publication arcs rather than every minor edit;
-- archive closed sprint records after the 30-day recent-history window so execution history does not crowd current authority;
+- archive closed sprint records after the 30-day recent-history window;
 - treat merge to `main` as human production authorization and verify automatic Pages deployment afterward;
 - keep living state current so fresh chats recover production truth deterministically;
 - minimize owner manual work without replacing human public-representation judgment or claim-matching evidence.
@@ -198,4 +228,5 @@ Ongoing work should include:
 - no forced article cadence or invented series numbering;
 - no unreviewed production merge;
 - no public-repository self-hosted runner exposure without a future security justification;
-- no tracked private personal/job-search memory in the public repository.
+- no tracked private personal/job-search memory in the public repository;
+- no continuous cosmetic churn after P10 without evidence of a real problem.
