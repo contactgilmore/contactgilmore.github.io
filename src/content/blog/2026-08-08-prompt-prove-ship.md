@@ -18,9 +18,7 @@ featured: true
 
 An editor suggesting the next line of code is fairly easy to reason about. You read the suggestion, decide whether it makes sense, and accept it or you do not. The blast radius is usually sitting right in front of you.
 
-An AI agent that can inspect a repository, edit several files, search documentation, run commands, respond to failing tests, and prepare a pull request is different. We already know these systems can produce a lot of code. The question I care about now is **what makes the result trustworthy enough to use?**
-
-That is where I want to go next with **Prompt. Prove. Ship.**, a practical series about AI-assisted engineering without outsourcing judgment.
+An AI agent that can inspect a repository, edit several files, search documentation, run commands, respond to failing tests, and prepare a pull request is different. We already know these systems can produce a lot of code. The question I care about now is **what makes the result trustworthy enough to use?** That is where I want to go next with **Prompt. Prove. Ship.**, a practical series about AI-assisted engineering without outsourcing judgment.
 
 ---
 
@@ -28,11 +26,9 @@ That is where I want to go next with **Prompt. Prove. Ship.**, a practical serie
 
 The first **Git to Know You** series was deliberately about building a technical mental model one tool at a time. Git gave change a history. Terraform made infrastructure reviewable. GitHub Actions automated repeatable delivery work. Kubernetes introduced reconciliation. OpenTelemetry standardized operational evidence. Argo CD connected reviewed desired state to deployment.
 
-Those tools keep pointing toward the same larger idea: **good engineering is not only about producing a change. It is about making the change understandable, reviewable, testable, and recoverable.**
+Those tools keep pointing toward the same larger idea: **good engineering is not only about producing a change. It is about making the change understandable, reviewable, testable, and recoverable.** AI agents make that operating model more important, not less.
 
-AI agents make that operating model more important, not less. A capable model can now move through much more of the workflow before a person touches the keyboard. That can remove a remarkable amount of friction, but it can also let one bad assumption travel through more files, more commands, and more decisions before somebody notices.
-
-So I am less interested in “ten prompts that make an agent smarter” than I am in the system around the agent:
+A capable model can now move through much more of the workflow before a person touches the keyboard. That can remove a remarkable amount of friction, but it can also let one bad assumption travel through more files, more commands, and more decisions before somebody notices. So I am less interested in “ten prompts that make an agent smarter” than I am in the system around the agent:
 
 ```text
 prompt
@@ -50,9 +46,7 @@ That is the path from a useful answer to dependable engineering work.
 
 ## Prompt writing matters. Boundary writing matters more.
 
-A capable agent needs a good task, but a good task is more than a clever paragraph.
-
-Before an agent starts changing a real repository, somebody should be able to explain what the actual source of truth is, which files or systems are in scope, what must not change, what evidence proves the work is complete, which failures the agent may correct on its own, and which decisions still belong to a person.
+A capable agent needs a good task, but a good task is more than a clever paragraph. Before an agent starts changing a real repository, somebody should be able to explain what the actual source of truth is, which files or systems are in scope, what must not change, what evidence proves the work is complete, which failures the agent may correct on its own, and which decisions still belong to a person.
 
 Those are familiar software-delivery questions. AI did not invent them. What changed is how much work can now happen between the initial request and the next human decision.
 
@@ -68,7 +62,7 @@ If every new AI session begins by re-explaining the architecture, build commands
 
 Modern coding-agent platforms are moving toward repository-level context for exactly this reason. OpenAI's Codex can be guided with repository `AGENTS.md` files that describe how to navigate a codebase, which commands to run, and which project practices to follow. GitHub Copilot also supports repository custom instructions that can document project structure, coding standards, and build/test expectations.
 
-The durable lesson is not the filename. It is this:
+The durable lesson is not the filename:
 
 > **Important project context should be recoverable from the project itself.**
 
@@ -80,13 +74,9 @@ OpenAI's [Codex introduction](https://openai.com/index/introducing-codex/) descr
 
 ## “The agent finished” is not evidence
 
-One of the easiest AI mistakes is accepting some version of: “Done. Everything looks good.”
+One of the easiest AI mistakes is accepting some version of: “Done. Everything looks good.” Based on what?
 
-Based on what?
-
-For me, this is where AI-assisted engineering becomes regular engineering again. A CSS change needs rendered evidence. A migration needs integrity checks. A deployment change needs deployment evidence. A technical claim may need current first-party documentation. A refactor needs tests that exercise the behavior that supposedly did not change.
-
-The proof should match the claim.
+For me, this is where AI-assisted engineering becomes regular engineering again. A CSS change needs rendered evidence. A migration needs integrity checks. A deployment change needs deployment evidence. A technical claim may need current first-party documentation. A refactor needs tests that exercise the behavior that supposedly did not change. **The proof should match the claim.**
 
 That sounds obvious until an agent has made twelve coherent-looking changes in a few minutes and the temptation is to treat fluent explanation as verification. Fluent output is useful. It is not a browser, a test suite, a database integrity check, or a production deployment.
 
@@ -96,9 +86,7 @@ The more capable the agent becomes, the more important it is to separate **what 
 
 ## Human in the loop is too vague
 
-“Keep a human in the loop” is sensible advice, but it does not tell you where the human is useful.
-
-Requiring approval for every file read, harmless command, and routine formatting fix can turn an agent into an expensive keyboard macro. Giving the agent unrestricted authority and reviewing nothing is the opposite failure.
+“Keep a human in the loop” is sensible advice, but it does not tell you where the human is useful. Requiring approval for every file read, harmless command, and routine formatting fix can turn an agent into an expensive keyboard macro. Giving the agent unrestricted authority and reviewing nothing is the opposite failure.
 
 I would rather place human judgment where judgment actually adds something: material scope changes, architecture tradeoffs, security or privacy uncertainty, public claims, destructive actions, visual taste, and the point where a change becomes production.
 
@@ -110,9 +98,7 @@ GitHub's current [coding-agent best practices](https://docs.github.com/en/copilo
 
 ## This portfolio is part of the experiment
 
-The workflow behind this site is intentionally visible because the process itself is part of the portfolio.
-
-The repository carries durable project doctrine and current-state documentation. Work happens on bounded branches. Automated checks build the site, verify routes and assets, exercise browser behavior at several viewport sizes, and run accessibility checks. Public-facing decisions still have a human owner gate before merge. Production deploys automatically after an approved merge to `main`, and project state is updated so the next session can recover from repository truth instead of reconstructing a conversation.
+The workflow behind this site is intentionally visible because the process itself is part of the portfolio. The repository carries durable project doctrine and current-state documentation. Work happens on bounded branches. Automated checks build the site, verify routes and assets, exercise browser behavior at several viewport sizes, and run accessibility checks. Public-facing decisions still have a human owner gate before merge. Production deploys automatically after an approved merge to `main`, and project state is updated so the next session can recover from repository truth instead of reconstructing a conversation.
 
 That does not mean this exact governance structure belongs in every repository. It does make the larger idea tangible:
 
