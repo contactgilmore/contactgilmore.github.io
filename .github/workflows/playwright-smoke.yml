@@ -61,13 +61,11 @@ jobs:
       - name: Run browser smoke tests
         run: npm run test:smoke
 
-      - name: Upload Playwright evidence
-        if: always()
+      - name: Upload Playwright failure evidence
+        if: failure()
         uses: actions/upload-artifact@v5
         with:
-          name: playwright-smoke-evidence
-          path: |
-            playwright-report/
-            test-results/
-          retention-days: 7
+          name: playwright-smoke-failure-evidence
+          path: test-results/
+          retention-days: 1
           if-no-files-found: warn
