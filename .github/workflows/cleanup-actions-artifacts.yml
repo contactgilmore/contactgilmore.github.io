@@ -30,9 +30,6 @@ jobs:
           token = os.environ['GH_TOKEN']
           api = f'https://api.github.com/repos/{repo}'
           preserve = {9090915653}
-          deleted = 0
-          reclaimed = 0
-          page = 1
 
           def request(url, method='GET'):
               req = urllib.request.Request(
@@ -48,6 +45,8 @@ jobs:
               with urllib.request.urlopen(req) as response:
                   return response.read()
 
+          targets = []
+          page = 1
           while True:
               payload = json.loads(request(f'{api}/actions/artifacts?per_page=100&page={page}'))
               artifacts = payload.get('artifacts', [])
@@ -61,11 +60,16 @@ jobs:
                       continue
                   if artifact.get('name') != 'playwright-smoke-evidence':
                       continue
-                  request(f'{api}/actions/artifacts/{artifact_id}', method='DELETE')
-                  deleted += 1
-                  reclaimed += int(artifact.get('size_in_bytes') or 0)
-                  print(f"deleted artifact {artifact_id} ({artifact.get('size_in_bytes', 0)} bytes)")
+                  targets.append((artifact_id, int(artifact.get('size_in_bytes') or 0)))
               page += 1
+
+          deleted = 0
+          reclaimed = 0
+          for artifact_id, size in targets:
+              request(f'{api}/actions/artifacts/{artifact_id}', method='DELETE')
+              deleted += 1
+              reclaimed += size
+              print(f'deleted artifact {artifact_id} ({size} bytes)')
 
           print(f'deleted_count={deleted}')
           print(f'reclaimed_bytes={reclaimed}')
