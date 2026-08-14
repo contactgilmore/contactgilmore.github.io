@@ -1,0 +1,73 @@
+name: One-time Actions artifact cleanup
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/cleanup-actions-artifacts.yml'
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete superseded Playwright evidence artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          repo = os.environ['GH_REPOSITORY']
+          token = os.environ['GH_TOKEN']
+          api = f'https://api.github.com/repos/{repo}'
+          preserve = {9090915653}
+          deleted = 0
+          reclaimed = 0
+          page = 1
+
+          def request(url, method='GET'):
+              req = urllib.request.Request(
+                  url,
+                  method=method,
+                  headers={
+                      'Authorization': f'Bearer {token}',
+                      'Accept': 'application/vnd.github+json',
+                      'X-GitHub-Api-Version': '2022-11-28',
+                      'User-Agent': 'portfolio-actions-cleanup',
+                  },
+              )
+              with urllib.request.urlopen(req) as response:
+                  return response.read()
+
+          while True:
+              payload = json.loads(request(f'{api}/actions/artifacts?per_page=100&page={page}'))
+              artifacts = payload.get('artifacts', [])
+              if not artifacts:
+                  break
+              for artifact in artifacts:
+                  artifact_id = artifact['id']
+                  if artifact_id in preserve:
+                      continue
+                  if artifact.get('expired'):
+                      continue
+                  if artifact.get('name') != 'playwright-smoke-evidence':
+                      continue
+                  request(f'{api}/actions/artifacts/{artifact_id}', method='DELETE')
+                  deleted += 1
+                  reclaimed += int(artifact.get('size_in_bytes') or 0)
+                  print(f"deleted artifact {artifact_id} ({artifact.get('size_in_bytes', 0)} bytes)")
+              page += 1
+
+          print(f'deleted_count={deleted}')
+          print(f'reclaimed_bytes={reclaimed}')
+          print(f'preserved_artifact_ids={sorted(preserve)}')
+          PY
