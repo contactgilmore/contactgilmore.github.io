@@ -27,11 +27,16 @@ Current posture: stability. Do not open another implementation sprint merely to 
 
 ## Central-governance side package
 
-This repository still has **NO ACTIVE IMPLEMENTATION SPRINT**. The GOV-1 Portfolio reconciliation is an authorized governance/runtime-hygiene side package and does not reopen P10 or authorize cosmetic/product changes.
+GOV-1 Portfolio reconciliation is **COMPLETE** on trusted repository main `1d53cf919a928df3c6c2414e30d6688c8302fe28`. This repository still has **NO ACTIVE IMPLEMENTATION SPRINT**. P10 remains closed/accepted and the current product posture remains stability.
 
 ```text
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
 central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+Portfolio PR #36 merge = 1d53cf919a928df3c6c2414e30d6688c8302fe28
+post-merge Governance = 31864145177 SUCCESS
+post-merge Validate = 31864145203 SUCCESS
+post-merge Playwright = 31864145165 SUCCESS
+post-merge Pages deploy = 31864145155 SUCCESS
 ```
