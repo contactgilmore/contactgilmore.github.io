@@ -3,6 +3,14 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
   workflow_dispatch:
 
 permissions:
@@ -12,7 +20,7 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
