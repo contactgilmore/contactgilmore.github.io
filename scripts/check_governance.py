@@ -36,7 +36,7 @@ for rel in sorted(required):
 master = read("00_MASTER/00_MASTER_DOCTRINE.md")
 for token in (
     "contactgilmore/augusta-method-governance",
-    f"{CENTRAL_SNAPSHOT}",
+    CENTRAL_SNAPSHOT,
     "CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED",
     "CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED",
     "CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE",
@@ -66,16 +66,16 @@ else:
 
 for rel_dir, expected_names in {
     "docs/product/contactgilmore-portfolio": {
-        "00_PRODUCT_BRIEF.md", "01_AUDIENCE_AND_JOBS.md", "02_CONTENT_AND_INFORMATION_ARCHITECTURE.md",
+        "00_PRODUCT_BRIEF.md", "01_AUDIENCE_AND_VISITOR_JOURNEYS.md", "02_CONTENT_AND_INFORMATION_ARCHITECTURE.md",
         "03_PROOF_AND_CASE_STUDY_STRATEGY.md", "04_BACKLOG_AND_RISKS.md"
     },
     "docs/architecture/contactgilmore-portfolio": {
-        "00_ARCHITECTURE_BRIEF.md", "01_RUNTIME_AND_HOSTING.md", "02_CONTENT_AND_DATA_CONTRACT.md",
-        "03_VALIDATION_AND_DEPLOYMENT.md", "04_BACKLOG_AND_RISKS.md"
+        "00_PRODUCT_BRIEF.md", "01_RUNTIME_AND_WORKFLOW.md", "02_ENGINE_CONTRACT.md",
+        "03_CONTENT_AND_URL_CONTRACT.md", "04_BACKLOG_AND_RISKS.md"
     },
     "docs/brand/contactgilmore-portfolio": {
-        "00_BRAND_BRIEF.md", "01_VISUAL_LANGUAGE.md", "02_TYPOGRAPHY_COLOR_AND_TOKENS.md",
-        "03_COMPONENT_AND_INTERACTION_LANGUAGE.md", "04_BACKLOG_AND_RISKS.md"
+        "00_BRAND_BRIEF.md", "01_VISUAL_SYSTEM_HARD_STANDARDS.md", "02_PRODUCT_SURFACE_AND_INTERACTION_RULES.md",
+        "03_TOKENS_AND_CODE_REFERENCES.md", "04_BACKLOG_AND_RISKS.md"
     },
     "docs/versioning/contactgilmore-portfolio": {
         "00_VERSIONING_BRIEF.md", "01_BRANCH_AND_RELEASE_WORKFLOW.md", "02_VALIDATION_AND_EVIDENCE.md",
