@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '22.20.0'
           package-manager-cache: false
-      - name: Generate lockfile and update central routing
+      - name: Generate lockfile and update non-workflow central routing
         shell: bash
         run: |
           npm install --package-lock-only --ignore-scripts --no-audit --no-fund
@@ -31,7 +31,6 @@ jobs:
 
           master_path = Path('00_MASTER/00_MASTER_DOCTRINE.md')
           master = master_path.read_text(encoding='utf-8')
-
           anchor = 'The repository is the durable project memory. Chat memory is helpful but non-authoritative.\n\n'
           central = '''The repository is the durable project memory. Chat memory is helpful but non-authoritative.\n\n## Central shared-governance adoption\n\n```text\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral repository = contactgilmore/augusta-method-governance\nconsumed central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a\n```\n\nShared repository/GitHub and Sprint System execution policy comes from the central repository. Portfolio product/content, architecture, public-disclosure, professional-read, brand, editorial, release, blog/URL, and production-authorization authority remains local. Do not recreate `00_MASTER/01_SPRINT_SYSTEM/`.\n\n'''
           if 'CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED' not in master:
@@ -43,24 +42,21 @@ jobs:
           end = master.find('## Living current-state files\n')
           if start < 0 or end < 0 or end <= start:
               raise SystemExit('Master old Sprint System block markers missing')
-          replacement = '''## Shared-development governance law\n\nCentral Development Governance owns the reusable Sprint System. This repository does not keep a second local copy. Living state and project-specific sprint records remain local and are not counted as central doctrine.\n\n'''
-          master = master[:start] + replacement + master[end:]
+          master = master[:start] + '''## Shared-development governance law\n\nCentral Development Governance owns the reusable Sprint System. This repository does not keep a second local copy. Living state and project-specific sprint records remain local and are not counted as central doctrine.\n\n''' + master[end:]
 
           old_order = '''```text\n00_MASTER/01_SPRINT_SYSTEM/00_SPRINT_SYSTEM_DOCTRINE.md\n00_MASTER/01_SPRINT_SYSTEM/01_SPRINT_RHYTHM_AND_WORK_PACKAGES.md\n00_MASTER/01_SPRINT_SYSTEM/02_CLOSEOUT_HANDOFF_AND_PACKAGING.md\n00_MASTER/01_SPRINT_SYSTEM/03_GPT_REVIEW_AND_CHANGE_GUARDRAILS.md\n00_MASTER/01_SPRINT_SYSTEM/04_BACKLOG_RISKS_AND_ACCOUNTABILITY.md\n00_MASTER/WHERE_WE_ARE.md\n00_MASTER/ACTIVE_SPRINT.md\n00_MASTER/LAST_CLOSEOUT_PROMPT.txt\n```'''
           new_order = '''```text\ncontactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md\ncentral Repository Governance module when REQUIRED\ncentral Development Governance module when REQUIRED\n00_MASTER/WHERE_WE_ARE.md\n00_MASTER/ACTIVE_SPRINT.md\n00_MASTER/LAST_CLOSEOUT_PROMPT.txt\n```'''
           if old_order not in master:
               raise SystemExit('Master deterministic startup order block missing')
-          master = master.replace(old_order, new_order, 1)
-          master_path.write_text(master, encoding='utf-8')
+          master_path.write_text(master.replace(old_order, new_order, 1), encoding='utf-8')
 
           where_path = Path('00_MASTER/WHERE_WE_ARE.md')
           where = where_path.read_text(encoding='utf-8')
           if '## Central governance adoption' not in where:
               marker = '## Production authority\n'
-              block = '''## Central governance adoption\n\n```text\nrepository main at adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a\n```\n\nThis is a governance/runtime-hygiene side package only. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged.\n\n'''
               if marker not in where:
                   raise SystemExit('WHERE marker missing')
-              where = where.replace(marker, block + marker, 1)
+              where = where.replace(marker, '''## Central governance adoption\n\n```text\nrepository main at adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a\n```\n\nThis is a governance/runtime-hygiene side package only. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged.\n\n''' + marker, 1)
           where_path.write_text(where, encoding='utf-8')
 
           active_path = Path('00_MASTER/ACTIVE_SPRINT.md')
@@ -86,25 +82,11 @@ jobs:
           if 'Owner-local browser smoke' not in evidence:
               evidence += '''\n\n## Owner-local browser smoke\n\nOwner-local browser review is optional evidence and is distinct from public CI. When used on the owned Mac, prefer the established home-relative shared Playwright environment (`~/Dev/dependencies/playwright`) rather than repeatedly installing browsers for ad-hoc local review. Do not publish expanded personal filesystem paths or host-sensitive details merely to document a local smoke. Repository package/CI identity remains controlled by this repository's tracked `package.json` + `package-lock.json`; the local shared environment does not replace repository dependency authority.\n'''
           evidence_path.write_text(evidence, encoding='utf-8')
-
-          for rel in [
-              '.github/workflows/deploy-pages.yml',
-              '.github/workflows/package-pages-candidate.yml',
-              '.github/workflows/playwright-smoke.yml',
-              '.github/workflows/validate-astro.yml',
-          ]:
-              p = Path(rel)
-              body = p.read_text(encoding='utf-8')
-              body = body.replace('npm install --no-audit --no-fund', 'npm ci --no-audit --no-fund')
-              body = body.replace('run: npm install\n', 'run: npm ci --no-audit --no-fund\n')
-              if "- 'package-lock.json'" not in body and "- 'package.json'" in body:
-                  body = body.replace("- 'package.json'", "- 'package.json'\n      - 'package-lock.json'")
-              p.write_text(body, encoding='utf-8')
           PY
 
           git config user.name contactgilmore
           git config user.email contactgilmore@gmail.com
-          git add package-lock.json 00_MASTER/00_MASTER_DOCTRINE.md 00_MASTER/WHERE_WE_ARE.md 00_MASTER/ACTIVE_SPRINT.md 00_MASTER/LAST_CLOSEOUT_PROMPT.txt docs/versioning/00_VERSIONING_DOCTRINE.md docs/versioning/contactgilmore-portfolio/02_VALIDATION_AND_EVIDENCE.md .github/workflows/deploy-pages.yml .github/workflows/package-pages-candidate.yml .github/workflows/playwright-smoke.yml .github/workflows/validate-astro.yml
-          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "11"
+          git add package-lock.json 00_MASTER/00_MASTER_DOCTRINE.md 00_MASTER/WHERE_WE_ARE.md 00_MASTER/ACTIVE_SPRINT.md 00_MASTER/LAST_CLOSEOUT_PROMPT.txt docs/versioning/00_VERSIONING_DOCTRINE.md docs/versioning/contactgilmore-portfolio/02_VALIDATION_AND_EVIDENCE.md
+          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "7"
           git commit -m 'GOVERNANCE: route portfolio centrally and lock npm dependencies'
           git push origin HEAD:governance-central-adoption-20260814
