@@ -1,3 +1,14 @@
+CURRENT TRUSTED REPOSITORY AUTHORITY
+- main: 1d53cf919a928df3c6c2414e30d6688c8302fe28
+- Portfolio central adoption PR #36: MERGED / CERTIFIED
+- post-merge Governance 31864145177: SUCCESS
+- post-merge Validate Astro 31864145203: SUCCESS
+- post-merge Playwright 31864145165: SUCCESS / zero failure artifact
+- post-merge Pages deployment 31864145155: SUCCESS
+- Actions caches: 0
+- P10 product/release evidence remains 99bcd3a82cc37a99350d6eae2171b053d8f27199 + artifact 9090915653
+- NO ACTIVE IMPLEMENTATION SPRINT
+
 CENTRAL SHARED GOVERNANCE
 - canonical store: contactgilmore/augusta-method-governance
 - consumed snapshot: 4eaebde64a4a6ad3bf918d25c76812eae1db978a

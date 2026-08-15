@@ -6,14 +6,15 @@ Updated: 2026-08-11
 ## Central governance adoption
 
 ```text
-repository main at adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212
+current trusted repository main = 1d53cf919a928df3c6c2414e30d6688c8302fe28
+central-adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
 central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
 ```
 
-This is a governance/runtime-hygiene side package only. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged.
+The GOV-1 Portfolio reconciliation side package is COMPLETE on trusted repository main `1d53cf919a928df3c6c2414e30d6688c8302fe28`. PR #36 exact head `919d33c2de2c545a57a11a0f14647fc4ef3b60a7` passed Portfolio Governance run `31863980494`, Validate Astro run `31863980495`, and Playwright smoke run `31863980466`; successful Playwright produced zero failure artifacts. Post-merge main passed Portfolio Governance `31864145177`, Validate Astro `31864145203`, Playwright smoke `31864145165`, and Pages deployment `31864145155`. Actions caches remain zero. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged; P10 merge `99bcd3a82cc37a99350d6eae2171b053d8f27199` and accepted artifact `9090915653` remain historical product/release evidence rather than current repository-head identity.
 
 ## Production authority
 
