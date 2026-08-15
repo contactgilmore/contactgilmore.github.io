@@ -1,0 +1,65 @@
+name: Portfolio Closeout Once
+
+on:
+  push:
+    branches:
+      - governance-central-adoption-closeout-20260814
+    paths:
+      - '.github/workflows/portfolio-closeout-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  closeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: governance-central-adoption-closeout-20260814
+      - name: Update three living recovery files only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          where_path = Path('00_MASTER/WHERE_WE_ARE.md')
+          where = where_path.read_text(encoding='utf-8')
+          old = '''repository main at adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a'''
+          new = '''current trusted repository main = 1d53cf919a928df3c6c2414e30d6688c8302fe28\ncentral-adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a'''
+          if old not in where:
+              raise SystemExit('WHERE adoption block missing')
+          where = where.replace(old, new, 1)
+          sentence = 'This is a governance/runtime-hygiene side package only. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged.\n'
+          closeout = '''The GOV-1 Portfolio reconciliation side package is COMPLETE on trusted repository main `1d53cf919a928df3c6c2414e30d6688c8302fe28`. PR #36 exact head `919d33c2de2c545a57a11a0f14647fc4ef3b60a7` passed Portfolio Governance run `31863980494`, Validate Astro run `31863980495`, and Playwright smoke run `31863980466`; successful Playwright produced zero failure artifacts. Post-merge main passed Portfolio Governance `31864145177`, Validate Astro `31864145203`, Playwright smoke `31864145165`, and Pages deployment `31864145155`. Actions caches remain zero. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged; P10 merge `99bcd3a82cc37a99350d6eae2171b053d8f27199` and accepted artifact `9090915653` remain historical product/release evidence rather than current repository-head identity.\n'''
+          if sentence not in where:
+              raise SystemExit('WHERE side-package sentence missing')
+          where = where.replace(sentence, closeout, 1)
+          where_path.write_text(where, encoding='utf-8')
+
+          active_path = Path('00_MASTER/ACTIVE_SPRINT.md')
+          active = active_path.read_text(encoding='utf-8')
+          start = active.find('## Central-governance side package\n')
+          if start < 0:
+              raise SystemExit('ACTIVE side-package block missing')
+          active = active[:start] + '''## Central-governance side package\n\nGOV-1 Portfolio reconciliation is **COMPLETE** on trusted repository main `1d53cf919a928df3c6c2414e30d6688c8302fe28`. This repository still has **NO ACTIVE IMPLEMENTATION SPRINT**. P10 remains closed/accepted and the current product posture remains stability.\n\n```text\nCENTRAL_REPOSITORY_GOVERNANCE = REQUIRED\nCENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED\nCENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE\ncentral snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a\nPortfolio PR #36 merge = 1d53cf919a928df3c6c2414e30d6688c8302fe28\npost-merge Governance = 31864145177 SUCCESS\npost-merge Validate = 31864145203 SUCCESS\npost-merge Playwright = 31864145165 SUCCESS\npost-merge Pages deploy = 31864145155 SUCCESS\n```\n'''
+          active_path.write_text(active, encoding='utf-8')
+
+          close_path = Path('00_MASTER/LAST_CLOSEOUT_PROMPT.txt')
+          close = close_path.read_text(encoding='utf-8')
+          marker = 'CENTRAL SHARED GOVERNANCE\n'
+          if marker not in close:
+              raise SystemExit('closeout central marker missing')
+          prefix = '''CURRENT TRUSTED REPOSITORY AUTHORITY\n- main: 1d53cf919a928df3c6c2414e30d6688c8302fe28\n- Portfolio central adoption PR #36: MERGED / CERTIFIED\n- post-merge Governance 31864145177: SUCCESS\n- post-merge Validate Astro 31864145203: SUCCESS\n- post-merge Playwright 31864145165: SUCCESS / zero failure artifact\n- post-merge Pages deployment 31864145155: SUCCESS\n- Actions caches: 0\n- P10 product/release evidence remains 99bcd3a82cc37a99350d6eae2171b053d8f27199 + artifact 9090915653\n- NO ACTIVE IMPLEMENTATION SPRINT\n\n'''
+          if 'CURRENT TRUSTED REPOSITORY AUTHORITY' not in close:
+              close = prefix + close
+          close_path.write_text(close, encoding='utf-8')
+          PY
+
+          git config user.name contactgilmore
+          git config user.email contactgilmore@gmail.com
+          git add 00_MASTER/WHERE_WE_ARE.md 00_MASTER/ACTIVE_SPRINT.md 00_MASTER/LAST_CLOSEOUT_PROMPT.txt
+          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "3"
+          git commit -m 'GOVERNANCE: certify Portfolio central adoption closeout'
+          git push origin HEAD:governance-central-adoption-closeout-20260814
