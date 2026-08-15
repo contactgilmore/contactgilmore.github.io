@@ -105,6 +105,6 @@ jobs:
           git config user.name contactgilmore
           git config user.email contactgilmore@gmail.com
           git add package-lock.json 00_MASTER/00_MASTER_DOCTRINE.md 00_MASTER/WHERE_WE_ARE.md 00_MASTER/ACTIVE_SPRINT.md 00_MASTER/LAST_CLOSEOUT_PROMPT.txt docs/versioning/00_VERSIONING_DOCTRINE.md docs/versioning/contactgilmore-portfolio/02_VALIDATION_AND_EVIDENCE.md .github/workflows/deploy-pages.yml .github/workflows/package-pages-candidate.yml .github/workflows/playwright-smoke.yml .github/workflows/validate-astro.yml
-          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "12"
+          test "$(git diff --cached --name-only | wc -l | tr -d ' ')" = "11"
           git commit -m 'GOVERNANCE: route portfolio centrally and lock npm dependencies'
           git push origin HEAD:governance-central-adoption-20260814
