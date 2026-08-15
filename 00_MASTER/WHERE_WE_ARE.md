@@ -3,6 +3,18 @@
 Status: active living state  
 Updated: 2026-08-11
 
+## Central governance adoption
+
+```text
+repository main at adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212
+CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
+CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
+CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
+central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+```
+
+This is a governance/runtime-hygiene side package only. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged.
+
 ## Production authority
 
 Portfolio 2.0 is live at `https://contactgilmore.github.io/` using Astro and GitHub Pages workflow publishing.
