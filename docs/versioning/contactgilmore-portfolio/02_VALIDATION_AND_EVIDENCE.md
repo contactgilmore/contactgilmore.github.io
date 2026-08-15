@@ -35,3 +35,8 @@ self-hosted evidence storage = prohibited for ordinary public-repository PR/fork
 This repository intentionally stays on GitHub-hosted runners because public pull-request/fork code must not be exposed to private self-hosted infrastructure. That security boundary means local Node3 storage is not the default evidence sink here. The correct optimization is to avoid cloud artifact creation on successful runs and retain only bounded short-lived failure diagnostics.
 
 Large repeated browser reports are not release authority. Production acceptance remains the combination of exact source identity, green claim-matching validation, owner approval where required, merge to `main`, and successful Pages deployment.
+
+
+## Owner-local browser smoke
+
+Owner-local browser review is optional evidence and is distinct from public CI. When used on the owned Mac, prefer the established home-relative shared Playwright environment (`~/Dev/dependencies/playwright`) rather than repeatedly installing browsers for ad-hoc local review. Do not publish expanded personal filesystem paths or host-sensitive details merely to document a local smoke. Repository package/CI identity remains controlled by this repository's tracked `package.json` + `package-lock.json`; the local shared environment does not replace repository dependency authority.

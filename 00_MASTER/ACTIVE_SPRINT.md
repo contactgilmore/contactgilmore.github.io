@@ -24,3 +24,14 @@ artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6b
 ```
 
 Current posture: stability. Do not open another implementation sprint merely to continue cosmetic portfolio polishing. New work should require a real defect, meaningful new professional evidence, a deliberate writing/content objective, or another concrete product outcome.
+
+## Central-governance side package
+
+This repository still has **NO ACTIVE IMPLEMENTATION SPRINT**. The GOV-1 Portfolio reconciliation is an authorized governance/runtime-hygiene side package and does not reopen P10 or authorize cosmetic/product changes.
+
+```text
+CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
+CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
+CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
+central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+```

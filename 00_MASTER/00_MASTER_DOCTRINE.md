@@ -24,6 +24,18 @@ If a new-chat request needs unusually specific source material, the handoff prom
 
 The repository is the durable project memory. Chat memory is helpful but non-authoritative.
 
+## Central shared-governance adoption
+
+```text
+CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
+CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
+CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
+central repository = contactgilmore/augusta-method-governance
+consumed central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+```
+
+Shared repository/GitHub and Sprint System execution policy comes from the central repository. Portfolio product/content, architecture, public-disclosure, professional-read, brand, editorial, release, blog/URL, and production-authorization authority remains local. Do not recreate `00_MASTER/01_SPRINT_SYSTEM/`.
+
 ## Public repository disclosure and professional-artifact law
 
 `contactgilmore/contactgilmore.github.io` is a public repository. Every tracked file, branch, commit, pull request, workflow, artifact, issue, discussion, image, metadata field, and generated output must be treated as publicly discoverable, clonable, forkable, copyable, and durable.
@@ -69,20 +81,9 @@ Before every tracked change, GPT must apply the safety and professional-read tes
 
 Git history is durable. Accidentally committed sensitive information must be treated as exposed even if later deleted from the current tree; stop and address rotation, revocation, notification, and/or history-remediation requirements as appropriate.
 
-## Six-file startup doctrine law
+## Shared-development governance law
 
-Startup doctrine is exactly six files:
-
-```text
-00_MASTER/00_MASTER_DOCTRINE.md
-00_MASTER/01_SPRINT_SYSTEM/00_SPRINT_SYSTEM_DOCTRINE.md
-00_MASTER/01_SPRINT_SYSTEM/01_SPRINT_RHYTHM_AND_WORK_PACKAGES.md
-00_MASTER/01_SPRINT_SYSTEM/02_CLOSEOUT_HANDOFF_AND_PACKAGING.md
-00_MASTER/01_SPRINT_SYSTEM/03_GPT_REVIEW_AND_CHANGE_GUARDRAILS.md
-00_MASTER/01_SPRINT_SYSTEM/04_BACKLOG_RISKS_AND_ACCOUNTABILITY.md
-```
-
-Living state sits beside doctrine and is not counted as doctrine.
+Central Development Governance owns the reusable Sprint System. This repository does not keep a second local copy. Living state and project-specific sprint records remain local and are not counted as central doctrine.
 
 ## Living current-state files
 
@@ -116,11 +117,9 @@ Each domain has one portfolio subject folder with exactly five Markdown document
 After the new chat is pointed to this master doctrine, GPT must read, without requiring Mike to enumerate them:
 
 ```text
-00_MASTER/01_SPRINT_SYSTEM/00_SPRINT_SYSTEM_DOCTRINE.md
-00_MASTER/01_SPRINT_SYSTEM/01_SPRINT_RHYTHM_AND_WORK_PACKAGES.md
-00_MASTER/01_SPRINT_SYSTEM/02_CLOSEOUT_HANDOFF_AND_PACKAGING.md
-00_MASTER/01_SPRINT_SYSTEM/03_GPT_REVIEW_AND_CHANGE_GUARDRAILS.md
-00_MASTER/01_SPRINT_SYSTEM/04_BACKLOG_RISKS_AND_ACCOUNTABILITY.md
+contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md
+central Repository Governance module when REQUIRED
+central Development Governance module when REQUIRED
 00_MASTER/WHERE_WE_ARE.md
 00_MASTER/ACTIVE_SPRINT.md
 00_MASTER/LAST_CLOSEOUT_PROMPT.txt
