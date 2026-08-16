@@ -18,4 +18,4 @@ Repository package identity is lockfile-controlled. Setup actions explicitly dis
 
 The former successful `playwright-smoke-evidence` object and the P10 production artifact remain historical evidence by recorded ID/digest and GitHub run history; they are not live Actions storage now.
 
-GitHub Pages deployment artifacts are bounded deployment mechanics rather than the repository's general evidence warehouse. The retired `package-pages-candidate.yml` path must remain absent unless a future owner-approved release architecture proves a new need through the Document Creation Gate and storage exception law.
+GitHub Pages deployment artifacts are bounded deployment mechanics rather than the repository's general evidence warehouse. The retired candidate-packaging workflow, `.github/workflows/package-pages-candidate.yml`, must remain absent unless a future owner-approved release architecture proves a new need through the Document Creation Gate and storage exception law.
