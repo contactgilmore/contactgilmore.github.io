@@ -3,9 +3,19 @@
 Default:
 
 ```text
-main -> bounded working branch -> exact changed-file review -> CI -> draft PR -> rendered acceptance -> Mike approval -> merge/cutover
+exact current main
+-> bounded working branch
+-> public-disclosure and professional-read review
+-> exact changed-file review
+-> GitHub-hosted CI
+-> draft PR while evidence is incomplete
+-> rendered/claim-matching acceptance
+-> Mike approval when public representation or production significance requires it
+-> squash merge to main
+-> automatic Pages deployment
+-> affected-surface verification
 ```
 
-Large implementation sprints may use additional bounded branches later, but current foundation authority is `portfolio-2.0-foundation`.
+`main` is the only production branch. The former `portfolio-2.0-foundation` branch was retired after its exact tip was proven as merged PR #14 head. The associated candidate-packaging workflow is retired; ordinary work must not recreate a persistent parallel release branch or routine candidate artifact path.
 
-Do not merge migration scaffolding into production merely because it builds.
+Migration scaffolding, experimental code, or a green build alone never authorizes production. Public self-hosted execution remains prohibited.

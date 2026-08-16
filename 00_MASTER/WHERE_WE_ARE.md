@@ -1,20 +1,39 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-08-11
+Updated: 2026-08-15
 
-## Central governance adoption
+## Central governance and GOV-2E maintenance
 
 ```text
-current trusted repository main = 1d53cf919a928df3c6c2414e30d6688c8302fe28
-central-adoption base = a78a3ea171acd176435817bd7fb06ea2f46e7212
+current repository main = resolve from live GitHub at startup
+GOV-2E cleanup base = 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
+latest prior repository maintenance checkpoint = PR #40 / 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
 ```
 
-The GOV-1 Portfolio reconciliation side package is COMPLETE on trusted repository main `1d53cf919a928df3c6c2414e30d6688c8302fe28`. PR #36 exact head `919d33c2de2c545a57a11a0f14647fc4ef3b60a7` passed Portfolio Governance run `31863980494`, Validate Astro run `31863980495`, and Playwright smoke run `31863980466`; successful Playwright produced zero failure artifacts. Post-merge main passed Portfolio Governance `31864145177`, Validate Astro `31864145203`, Playwright smoke `31864145165`, and Pages deployment `31864145155`. Actions caches remain zero. P10 production authority, public positioning, content, visual design, and the stability posture are unchanged; P10 merge `99bcd3a82cc37a99350d6eae2171b053d8f27199` and accepted artifact `9090915653` remain historical product/release evidence rather than current repository-head identity.
+The Portfolio remains a stable public Astro site with no active product implementation sprint. GOV-2E repository maintenance retired the obsolete candidate branch only after exact merged-PR proof and removes its unreachable packaging workflow without changing public content or deployment behavior.
+
+```text
+merged launch PR = #14
+former candidate branch = portfolio-2.0-foundation
+former candidate tip / exact PR #14 head = c1211564f2086280d3a09fe992e1dc378aa960dd
+PR #14 merge commit = bb2968e523bd7af87e3cd31a3a7e045ecb44947b
+branch-retirement transaction head = 97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6
+branch-retirement run = 31919041013 PASS
+branch-retirement job = 95095736087 PASS
+former candidate branch = ABSENT
+temporary retirement branch = ABSENT
+candidate-packaging workflow = ABSENT in current GOV-2E cleanup tree
+live GitHub Actions artifacts = 0
+live GitHub Actions caches = 0
+settings correction = PENDING / separate settings-only transaction
+```
+
+Historical sprint references to the foundation branch remain provenance. Squash ancestry alone was not used as deletion proof; the exact live branch tip was matched to merged PR #14 before deletion.
 
 ## Production authority
 
@@ -31,7 +50,7 @@ Pages deployment run: 31464158531 — SUCCESS
 Validate Astro migration run: 31464158520 — SUCCESS
 Playwright portfolio smoke run: 31464158526 — SUCCESS
 Playwright: 140 passed / 4 intentional skips / 0 failures
-production evidence artifact: 9090915653
+historical production evidence artifact: 9090915653
 artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
 production deployment policy: automatic after approved merge to main
 ```

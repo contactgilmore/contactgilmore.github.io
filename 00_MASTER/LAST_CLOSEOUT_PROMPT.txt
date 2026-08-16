@@ -1,20 +1,39 @@
-CURRENT TRUSTED REPOSITORY AUTHORITY
-- main: 1d53cf919a928df3c6c2414e30d6688c8302fe28
-- Portfolio central adoption PR #36: MERGED / CERTIFIED
-- post-merge Governance 31864145177: SUCCESS
-- post-merge Validate Astro 31864145203: SUCCESS
-- post-merge Playwright 31864145165: SUCCESS / zero failure artifact
-- post-merge Pages deployment 31864145155: SUCCESS
-- Actions caches: 0
-- P10 product/release evidence remains 99bcd3a82cc37a99350d6eae2171b053d8f27199 + artifact 9090915653
-- NO ACTIVE IMPLEMENTATION SPRINT
+Review `contactgilmore/contactgilmore.github.io` and begin with `00_MASTER/00_MASTER_DOCTRINE.md`. Follow its deterministic central + local startup protocol before action.
+
+CURRENT PRODUCT STATE
+- Portfolio 2.0 is live on `main` using Astro and GitHub Pages.
+- P10 — Employer Readiness and Final Portfolio Polish — is COMPLETE / OWNER APPROVED / DEPLOYED.
+- P10 merge: `99bcd3a82cc37a99350d6eae2171b053d8f27199`.
+- P10 production proof: Pages `31464158531`, Validate `31464158520`, Playwright `31464158526`, all SUCCESS.
+- Playwright: 140 passed / 4 intentional skips / 0 failures.
+- Historical production artifact: `9090915653`, digest `sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06`.
+- NO ACTIVE IMPLEMENTATION SPRINT.
+- Product posture: stability over cosmetic churn.
 
 CENTRAL SHARED GOVERNANCE
-- canonical store: contactgilmore/augusta-method-governance
-- consumed snapshot: 4eaebde64a4a6ad3bf918d25c76812eae1db978a
-- CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
-- CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
-- CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-- do not recreate 00_MASTER/01_SPRINT_SYSTEM/
+- canonical store: `contactgilmore/augusta-method-governance`
+- consumed snapshot: `377fbbd47c695d764e033e3839ea9a7c3fdba409`
+- `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`
+- `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`
+- `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`
+- do not recreate `00_MASTER/01_SPRINT_SYSTEM/`
 
-Review contactgilmore/contactgilmore.github.io and begin with 00_MASTER/00_MASTER_DOCTRINE.md. Follow its deterministic startup protocol before action. There is NO ACTIVE IMPLEMENTATION SPRINT. P10 — Employer Readiness and Final Portfolio Polish — is COMPLETE / OWNER APPROVED / DEPLOYED. Implementation PR #31 was squash-merged to production `main` as `99bcd3a82cc37a99350d6eae2171b053d8f27199`. Production evidence on that exact merge: Deploy Portfolio to GitHub Pages run 31464158531 SUCCESS; Validate Astro migration run 31464158520 SUCCESS; Playwright portfolio smoke run 31464158526 SUCCESS; 144 tests discovered / 140 passed / 4 intentional skips / 0 failures; 21 Astro pages; public asset audit 22 referenced / 22 present / 0 orphan; production evidence artifact 9090915653 digest `sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06`. P10 concluded that Portfolio 2.0 does not need another redesign. The final Resume uses a scan-first resume sequence: Mike Gilmore -> Technical Delivery & Customer Solutions -> public-safe location/contact paths -> one non-first-person Professional Summary -> capabilities -> experience evidence; duplicate opening positioning was removed without changing accomplishment bullets, chronology, metrics, or claims. Employer-facing proof uses `durable remediation` and `shared operating model` where those are more literal/evidence-aligned. All three case studies provide Back to selected work + View resume. Exact Work/Writing index routes use `aria-current="page"`; nested case-study/article routes use `aria-current="location"` on the parent section. The site has the MG favicon, `og:site_name`, home WebSite JSON-LD, and clearer interior titles. Canonical case-study truth authority is `docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md`; redundant `05_CASE_STUDY_TRUTH_MAP.md` was removed after consolidation. Blog article bodies were not changed by P10; P9 and `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remain long-form voice authority. Post-P10 posture is stability over cosmetic churn. Do not manufacture another sprint merely because P10 closed. Future Prompt. Prove. Ship. work remains directional and should be opened deliberately only when a concrete content objective exists. New portfolio work should be driven by a real defect, meaningful new professional evidence, deliberate useful writing, or maintenance evidence rather than continuous polish.
+CURRENT GOV-2E PORTFOLIO MAINTENANCE STATE
+- cleanup base: `6cd58c05a5b68de0eac4a69e2315c3539c0a0144`
+- merged launch PR: #14
+- former candidate tip / exact PR #14 head: `c1211564f2086280d3a09fe992e1dc378aa960dd`
+- PR #14 merge commit: `bb2968e523bd7af87e3cd31a3a7e045ecb44947b`
+- branch-retirement transaction head: `97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6`
+- branch-retirement run `31919041013`: PASS
+- branch-retirement job `95095736087`: PASS
+- `portfolio-2.0-foundation`: ABSENT
+- temporary retirement branch: ABSENT
+- obsolete candidate-packaging workflow: ABSENT
+- live Actions artifacts: 0
+- live Actions caches: 0
+- public self-hosted execution: PROHIBITED
+- repository settings correction: PENDING / separate settings-only transaction
+
+The candidate branch was deleted only after exact merged-PR proof; squash ancestry alone was not treated as sufficient. Historical sprint references remain provenance and were not rewritten. The cleanup changes no public page, content, design, URL, application source, production build behavior, or Pages deployment logic.
+
+Future portfolio product work remains evidence-triggered. The previously discussed Prompt. Prove. Ship. writing arc is directional, not committed, and requires a deliberate content sprint. Do not manufacture a product sprint merely because central maintenance completed.

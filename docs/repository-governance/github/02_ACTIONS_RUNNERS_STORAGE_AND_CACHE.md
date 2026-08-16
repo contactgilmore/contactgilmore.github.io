@@ -2,11 +2,20 @@
 
 Status: active local adoption fact
 
-- ordinary workflows use GitHub-hosted runners because the repository is public;
-- GitHub dependency caching is disabled unless a later bounded exception is justified;
-- repository package identity is lockfile-controlled;
-- Playwright failure evidence may upload only as a short-retention diagnostic exception;
-- the accepted historical `playwright-smoke-evidence` artifact is intentionally preserved until its existing retention expires or a later evidence decision changes that classification;
-- GitHub Pages deployment artifacts are deployment mechanics rather than the repository's general evidence warehouse.
+Current routing and storage posture:
 
-Current audit at central adoption: Actions caches = 0.
+```text
+ordinary CI and deployment = GitHub-hosted runners only
+private self-hosted execution = PROHIBITED for public PR/fork code
+GitHub Actions artifacts audit (2026-08-15) = 0
+GitHub Actions caches audit (2026-08-15) = 0
+routine successful validation artifacts = OFF
+GitHub dependency cache = OFF by default
+Playwright failure evidence = smallest useful payload / 1 day
+```
+
+Repository package identity is lockfile-controlled. Setup actions explicitly disable package-manager caching, and workflows use `npm ci` rather than ad-hoc dependency installation.
+
+The former successful `playwright-smoke-evidence` object and the P10 production artifact remain historical evidence by recorded ID/digest and GitHub run history; they are not live Actions storage now.
+
+GitHub Pages deployment artifacts are bounded deployment mechanics rather than the repository's general evidence warehouse. The retired candidate-packaging workflow, `.github/workflows/package-pages-candidate.yml`, must remain absent unless a future owner-approved release architecture proves a new need through the Document Creation Gate and storage exception law.

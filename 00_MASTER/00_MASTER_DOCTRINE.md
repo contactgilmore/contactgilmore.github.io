@@ -31,7 +31,7 @@ CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
 central repository = contactgilmore/augusta-method-governance
-consumed central snapshot = 4eaebde64a4a6ad3bf918d25c76812eae1db978a
+consumed central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
 ```
 
 Shared repository/GitHub and Sprint System execution policy comes from the central repository. Portfolio product/content, architecture, public-disclosure, professional-read, brand, editorial, release, blog/URL, and production-authorization authority remains local. Do not recreate `00_MASTER/01_SPRINT_SYSTEM/`.
@@ -250,7 +250,7 @@ React or another UI framework is not a default dependency. Add one only when a r
 
 Hosting is an architectural decision, not doctrine identity. GitHub Pages may later be replaced by another static host if the owner approves and the change improves security, privacy, reliability, workflow, or professional presentation without breaking URLs/content.
 
-## GitHub Actions runner policy
+## GitHub Actions runner and storage policy
 
 While this repository is public, ordinary CI and deployment use GitHub-hosted standard runners such as:
 
@@ -273,6 +273,8 @@ URL regression checks for historical blog posts
 ```
 
 Workflows and artifacts must also comply with the public-disclosure law. Never echo secrets or private data into Actions logs or upload sensitive artifacts.
+
+Routine successful validation artifacts and GitHub dependency caches remain off. Playwright may upload the smallest useful failure-only evidence for one day. GitHub Pages deployment artifacts are bounded deployment mechanics, not the general evidence warehouse. The former long-lived candidate branch and routine candidate-packaging workflow are retired and must not be recreated without a newly proven release-architecture need.
 
 ## Roles
 
@@ -320,6 +322,7 @@ If a gate fails, stop and state what is missing.
 
 ## Change history
 
+- **2026-08-15:** Adopted the current central GOV-2 lifecycle/storage baseline; retired the exact merged Portfolio 2.0 candidate branch and obsolete candidate-packaging workflow after bounded proof; preserved public GitHub-hosted execution and zero live artifact/cache posture.
 - **2026-08-08:** Standardized execution records under `docs/sprints/`, established a 30-day recent-record window, and made `docs/sprints/archive/` historical-only so routine startup does not accumulate document creep.
 - **2026-08-08:** Made approved merge to `main` the human production authorization and changed GitHub Pages to automatic deployment on `main` pushes; retained manual workflow dispatch as an operational fallback.
 - **2026-08-08:** Established the master doctrine as the single fresh-chat entry point; retired ZIP/script/upload handoff as the normal workflow; made repository documentation itself a recruiter-readable public engineering artifact subject to safety and professional-read gates.
