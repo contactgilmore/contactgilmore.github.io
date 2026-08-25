@@ -1,12 +1,21 @@
 {
-  "schema_version": 1,
-  "policy_id": "portfolio-public-github-hosted-v1",
+  "schema_version": 2,
+  "policy_id": "portfolio-public-github-hosted-v2",
   "repository": "contactgilmore/contactgilmore.github.io",
   "trust_mode": "public_untrusted_github_hosted",
   "private_self_hosted_infrastructure_allowed": false,
   "github_hosted_runners_allowed": true,
+  "allowed_hosted_runner_labels": [
+    "ubuntu-latest"
+  ],
   "github_dependency_cache_allowed": false,
-  "github_artifact_upload_allowed": true,
+  "github_artifact_upload_allowed": false,
+  "github_artifact_exceptions": [
+    ".github/workflows/playwright-smoke.yml"
+  ],
+  "job_timeout_required": true,
+  "max_job_timeout_minutes": 60,
+  "require_explicit_setup_cache_disable": true,
   "public_runner_behavior": "USE_GITHUB_HOSTED_STANDARD_RUNNERS_NEVER_PRIVATE_FLEET",
   "owner_override_required_for_private_self_hosted": true
 }
