@@ -16,5 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
+      - name: Enforce public hosted-runner isolation
+        run: python3 scripts/ci/validate_runner_routing_policy.py
       - name: Validate portfolio governance
         run: python3 scripts/check_governance.py
