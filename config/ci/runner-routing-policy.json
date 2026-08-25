@@ -5,6 +5,9 @@
   "trust_mode": "public_untrusted_github_hosted",
   "private_self_hosted_infrastructure_allowed": false,
   "github_hosted_runners_allowed": true,
+  "allowed_hosted_runner_labels": [
+    "ubuntu-latest"
+  ],
   "github_dependency_cache_allowed": false,
   "github_artifact_upload_allowed": false,
   "github_artifact_exceptions": [
