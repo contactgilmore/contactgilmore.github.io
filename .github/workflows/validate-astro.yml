@@ -11,7 +11,10 @@ on:
       - 'tsconfig.json'
       - 'src/**'
       - 'public/**'
-      - 'scripts/**'
+      - 'scripts/verify-blog-integrity.mjs'
+      - 'scripts/audit-public-assets.mjs'
+      - 'scripts/verify-build-output.mjs'
+      - 'scripts/verify-internal-links.mjs'
       - '.github/workflows/validate-astro.yml'
   pull_request:
     branches:
@@ -23,7 +26,10 @@ on:
       - 'tsconfig.json'
       - 'src/**'
       - 'public/**'
-      - 'scripts/**'
+      - 'scripts/verify-blog-integrity.mjs'
+      - 'scripts/audit-public-assets.mjs'
+      - 'scripts/verify-build-output.mjs'
+      - 'scripts/verify-internal-links.mjs'
       - '.github/workflows/validate-astro.yml'
 
 permissions:

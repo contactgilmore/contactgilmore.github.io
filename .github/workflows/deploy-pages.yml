@@ -10,7 +10,10 @@ on:
       - 'tsconfig.json'
       - 'src/**'
       - 'public/**'
-      - 'scripts/**'
+      - 'scripts/verify-blog-integrity.mjs'
+      - 'scripts/audit-public-assets.mjs'
+      - 'scripts/verify-build-output.mjs'
+      - 'scripts/verify-internal-links.mjs'
   workflow_dispatch:
 
 permissions:
