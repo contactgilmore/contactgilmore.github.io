@@ -41,7 +41,7 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — COMPLETE
-active implementation sprint = NONE
+active implementation sprint = NO ACTIVE IMPLEMENTATION SPRINT
 next strongest candidate = Plan Before Edit
 ```
 
