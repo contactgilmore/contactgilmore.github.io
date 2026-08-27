@@ -9,7 +9,7 @@ tags: [ai, agents, context, documentation, software-delivery]
 series: "Prompt. Prove. Ship."
 seriesOrder: 1
 seriesStatus: "ongoing"
-draft: true
+featured: true
 ---
 
 **The giant prompt is a smell.**

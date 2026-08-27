@@ -8,8 +8,7 @@ CURRENT PRODUCT STATE
 - Product Goal: PG-2 — ACTIVE.
 - P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE.
 - Sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
-- Working branch: `p11-prompt-prove-ship-editorial-continuation`.
-- Draft PR: #43 — keep DRAFT / DO NOT MERGE until owner article approval.
+- PR #43 is the approved #1 publication transaction; reconcile its exact live state before acting.
 
 CENTRAL SHARED GOVERNANCE
 - canonical store: `contactgilmore/augusta-method-governance`
@@ -19,28 +18,19 @@ CENTRAL SHARED GOVERNANCE
 - `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`
 - do not recreate a local Sprint System or a second roadmap.
 
-P11 SETUP CHECKPOINT — ACCEPTED
-- checkpoint head: `11cceb19bd4de54b0d2a45f8e579cbc492acf3fc`
-- governance run `33103394319` = SUCCESS
-- Astro validation run `33103394300` = SUCCESS
-- Playwright run `33103394302` = SUCCESS
-- canonical roadmap now lives only at `00_MASTER/PRODUCT_ROADMAP.md`
-- stale P10/GOV-2E current-state assumptions are removed from current authority/checks
-- live repository settings are reconciled: public, squash merge enabled, merge/rebase disabled, delete merged branch enabled
-- `draft: true` is excluded from Astro catch-all route generation as well as Writing/home/series discovery
+P11 ACCEPTED LEARNING
+- GPT owns routine topic selection, source research, drafting, metadata, GitHub mechanics, and validation inside the approved Product Goal.
+- Mike's normal article gate is review/approval of the real rendered public representation.
+- Draft articles use `draft: true`; normal builds/public routes exclude them.
+- Local owner review uses `npm run review:drafts` to render the actual Astro page before publication.
+- A preview failure is repaired at the source; do not weaken draft isolation.
+- Local generated output such as `.astro/`, `dist/`, `node_modules/`, Playwright output, and `.DS_Store` is disposable and ignored rather than committed.
 
-CURRENT ARTICLE CANDIDATE
-- series: `Prompt. Prove. Ship.`
-- published introduction: `Prompt. Prove. Ship.: From Chat to Change`, `/prompt-prove-ship/`, seriesOrder 0.
-- selected installment: `#1. Prompt. Prove. Ship.: Context Is Part of the System`.
-- source: `src/content/blog/2026-08-27-prompt-prove-ship-context.md`.
-- planned slug: `/prompt-prove-ship-context/`.
-- seriesOrder: 1.
-- `draft: true`; `publishedAt` intentionally absent.
-- concept thumbnail: `public/assets/images/blog2026/082026/prompt-prove-ship-context.svg`.
-- article thesis: increasingly capable agents need recoverable layered repository context rather than one giant prompt/chat-dependent memory; thin tool-entry instructions should route to durable project authority, current roadmap/sprint state, task-specific evidence, and live truth.
-- current first-party examples: OpenAI Codex `AGENTS.md`, GitHub Copilot repository/path/agent instructions, Cursor Rules/`AGENTS.md`.
-- P9 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains the voice/quality authority.
+CURRENT SERIES
+- introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
+- #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, owner approved 2026-08-27.
+- #1 editorial assessment: length/tone/structure accepted; one context-architecture mental model; direct established voice; natural lead-in to the next article.
+- next article: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
 
-NEXT GATE
-Reconcile exact live branch/PR/Actions. The article transaction must pass governance, Astro, Playwright draft-isolation/browser/accessibility, link, and asset proof on its exact head. Then Mike reviews the final draft and thumbnail. Do not remove `draft: true`, mark the PR ready, fabricate publication ordering metadata, or merge until that owner approval is explicit.
+NEXT ACTION
+Reconcile exact current `main`, P11 branch/PR #43, and Actions. If #1 is already merged and production verified, advance P11 to Plan Before Edit. If publication proof is still pending, complete only the remaining exact-head/production verification; do not reopen owner-approved article content without new evidence.
