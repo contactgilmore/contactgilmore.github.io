@@ -1,0 +1,14 @@
+:root {
+  /* P12 review candidate: bounded aubergine/violet accent only. */
+  --accent: #7c3aed;
+  --accent-strong: #5b2c83;
+}
+
+:focus-visible {
+  outline-color: #a78bfa;
+}
+
+.eyebrow--light,
+.case-metric strong {
+  color: #c4b5fd;
+}
