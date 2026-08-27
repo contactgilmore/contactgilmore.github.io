@@ -1,6 +1,6 @@
 # Prompt. Prove. Ship. — Series Foundation
 
-Status: **ACTIVE SERIES / P11 CONTINUATION**  
+Status: **ACTIVE SERIES DIRECTION / P11 CONTINUATION**  
 Updated: 2026-08-27
 
 ## Identity
