@@ -1,50 +1,80 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-08-15
+Status: **ACTIVE**  
+Updated: 2026-08-27
 
-P10 — Employer Readiness and Final Portfolio Polish — remains complete, owner approved, merged, deployed, and production verified.
-
-Most recently completed sprint record:
-
-`docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md`
-
-Production authority:
+## P11 — Prompt. Prove. Ship. Editorial Continuation
 
 ```text
-production branch: main
-P10 implementation PR: #31
-P10 production merge: 99bcd3a82cc37a99350d6eae2171b053d8f27199
-Pages run: 31464158531 — SUCCESS
-Validate Astro migration run: 31464158520 — SUCCESS
-Playwright portfolio smoke run: 31464158526 — SUCCESS
-Playwright: 140 passed / 4 intentional skips / 0 failures
-historical production evidence artifact: 9090915653
-artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
+Roadmap = 00_MASTER/PRODUCT_ROADMAP.md
+Roadmap Horizon = H2 — Sustained professional signal and editorial proof
+Product Goal = PG-2
+Sprint = P11 — Prompt. Prove. Ship. Editorial Continuation
+Sprint record = docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md
+Working branch = p11-prompt-prove-ship-editorial-continuation
+PR = #43
+Activation base = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
+Consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
+Current branch/head/Actions = resolve from live GitHub
 ```
 
-Current product posture: stability. Do not open another implementation sprint merely to continue cosmetic portfolio polishing. New product/content work requires a real defect, meaningful new professional evidence, a deliberate writing objective, or another concrete public outcome.
+## Sprint Goal
 
-## Central-maintenance posture
+Prove the low-owner-friction **Prompt. Prove. Ship.** publishing model: GPT selects, researches, drafts, verifies, and maintains the publication transaction; Mike reviews the real rendered page and approves public representation.
 
-The Portfolio has no product sprint, but bounded central maintenance may proceed under the current central GOV-2 execution record.
+## Current work package
+
+**P11-WP2 — Publish Context Is Part of the System — OWNER APPROVED / RELEASE TRANSACTION**
+
+Article:
 
 ```text
-CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
-CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
-CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
-GOV-2E cleanup base = 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
-former candidate tip = c1211564f2086280d3a09fe992e1dc378aa960dd
-branch-retirement transaction head = 97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6
-candidate branch retirement = COMPLETE / VERIFIED
-branch-retirement run = 31919041013 PASS
-branch-retirement job = 95095736087 PASS
-candidate branch = ABSENT
-candidate-packaging workflow = ABSENT
-GitHub Actions artifacts = 0
-GitHub Actions caches = 0
-settings correction = PENDING / separate settings-only transaction
+#1. Prompt. Prove. Ship.: Context Is Part of the System
+source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
+slug = /prompt-prove-ship-context/
+seriesOrder = 1
+publication date = 2026-08-27
+thumbnail = /assets/images/blog2026/082026/prompt-prove-ship-context.svg
+owner editorial/visual approval = RECEIVED 2026-08-27
+publishedAt = intentionally absent; no ordering need requires fabrication
 ```
 
-This maintenance state changes no public page, content, design, URL, application source, production build behavior, or deployment workflow. Public workflows remain GitHub-hosted only.
+Editorial review concluded that the article length, tone, structure, and transition are appropriate for the established portfolio corpus. The article stays on one mental model and leads directly into **Plan Before Edit** without absorbing that topic.
+
+## Durable review workflow learned in P11
+
+Candidate articles remain `draft: true` until owner approval. Normal Astro builds and public routes exclude drafts. For owner editorial review, use the actual site locally with:
+
+```text
+npm run review:drafts
+```
+
+This review mode exposes draft routes only in the local review process so Mike can evaluate the real layout, typography, thumbnail, navigation, and article flow before publication. A failed preview is a source defect to fix, not a reason to weaken draft isolation.
+
+Local generated output is not source authority. `.astro/`, `dist/`, `node_modules/`, Playwright output, and `.DS_Store` are ignored so GitHub Desktop stays focused on intentional source changes.
+
+## Next work package
+
+After exact-head publication proof, merge, and production verification, advance P11 to:
+
+**P11-WP3 — Plan Before Edit**
+
+Primary topic: allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits a real system.
+
+## Protected / no-touch scope
+
+Do not reopen historical articles, P10-approved Home/Work/case-study/About/Resume content, shared visual design, production deploy semantics, or the public-runner trust boundary as a side effect of this writing sprint.
+
+## Release gates
+
+Before merge:
+
+- article is publishable rather than draft-only;
+- current first-party source claims remain valid;
+- governance, Astro/content/link/asset, Playwright responsive, and accessibility proof pass on the exact head;
+- exact changed-file/material review passes;
+- PR head still matches the reviewed head.
+
+## Owner gate
+
+The P11-WP2 owner gate is satisfied. Further owner approval is not required for routine exact-scope CI repair, merge, or production verification unless the public article/visual changes materially from the approved candidate.

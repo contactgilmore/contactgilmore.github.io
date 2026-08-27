@@ -1,30 +1,34 @@
 import { expect, test } from '@playwright/test';
 
-test('Writing orders same-day publications deterministically and distinguishes series introductions', async ({ page }) => {
+test('Writing orders publications deterministically and distinguishes series introductions', async ({ page }) => {
   await page.goto('/blog/', { waitUntil: 'networkidle' });
 
   const rows = page.locator('.writing-row');
 
-  await expect(rows.nth(0).getByRole('link', { name: 'Prompt. Prove. Ship.: From Chat to Change' }))
-    .toHaveAttribute('href', '/prompt-prove-ship/');
-  await expect(rows.nth(0)).toHaveClass(/writing-row--series-intro/);
-  await expect(rows.nth(0).getByText('Series introduction')).toBeVisible();
+  await expect(rows.nth(0).getByRole('link', { name: '#1. Prompt. Prove. Ship.: Context Is Part of the System' }))
+    .toHaveAttribute('href', '/prompt-prove-ship-context/');
+  await expect(rows.nth(0).locator('.writing-row__date')).toContainText('Aug 27, 2026');
 
-  await expect(rows.nth(1).getByRole('link', { name: '#10. Git to Know You: Argo CD and GitOps' }))
+  await expect(rows.nth(1).getByRole('link', { name: 'Prompt. Prove. Ship.: From Chat to Change' }))
+    .toHaveAttribute('href', '/prompt-prove-ship/');
+  await expect(rows.nth(1)).toHaveClass(/writing-row--series-intro/);
+  await expect(rows.nth(1).getByText('Series introduction')).toBeVisible();
+
+  await expect(rows.nth(2).getByRole('link', { name: '#10. Git to Know You: Argo CD and GitOps' }))
     .toHaveAttribute('href', '/gtny-argocd-gitops/');
-  await expect(rows.nth(2).getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' }))
+  await expect(rows.nth(3).getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' }))
     .toHaveAttribute('href', '/gtny-opentelemetry/');
-  await expect(rows.nth(3).getByRole('link', { name: '#8. Git to Know You: Kubernetes' }))
+  await expect(rows.nth(4).getByRole('link', { name: '#8. Git to Know You: Kubernetes' }))
     .toHaveAttribute('href', '/gtny-kubernetes/');
 
   // Cursor was materially updated on Aug 8, 2026, but its original publication
   // date remains Feb 25, 2026. Updates must not promote an older post above new publications.
-  await expect(rows.nth(4).getByRole('link', { name: '#7. Git to Know You: Cursor' }))
+  await expect(rows.nth(5).getByRole('link', { name: '#7. Git to Know You: Cursor' }))
     .toHaveAttribute('href', '/GTNY-cursor/');
-  await expect(rows.nth(4).locator('.writing-row__date')).toContainText('Feb 25, 2026');
-  await expect(rows.nth(4).locator('.writing-row__date')).toContainText('Updated Aug 8, 2026');
+  await expect(rows.nth(5).locator('.writing-row__date')).toContainText('Feb 25, 2026');
+  await expect(rows.nth(5).locator('.writing-row__date')).toContainText('Updated Aug 8, 2026');
 
-  const introStyle = await rows.nth(0).evaluate((element) => {
+  const introStyle = await rows.nth(1).evaluate((element) => {
     const style = getComputedStyle(element);
     return {
       backgroundColor: style.backgroundColor,

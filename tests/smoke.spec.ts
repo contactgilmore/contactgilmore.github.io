@@ -171,13 +171,6 @@ test('series continuation reaches OpenTelemetry', async ({ page }) => {
   });
   await expect(archiveRow.locator('.writing-row__date')).toContainText('Aug 8, 2026');
   await expect(archiveRow.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' })).toHaveAttribute('href', '/gtny-opentelemetry/');
-
-  await page.goto('/', { waitUntil: 'networkidle' });
-  const featuredCard = page.locator('.article-card').filter({
-    has: page.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' }),
-  });
-  await expect(featuredCard.locator('.article-card__date')).toContainText('Aug 8, 2026');
-  await expect(featuredCard.getByRole('link', { name: '#9. Git to Know You: OpenTelemetry' })).toHaveAttribute('href', '/gtny-opentelemetry/');
 });
 
 test('series continuation reaches Argo CD and GitOps', async ({ page }) => {

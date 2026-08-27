@@ -5,7 +5,9 @@ import BlogPostLayout from '../layouts/BlogPostLayout.astro';
 import { getBlogPath } from '../lib/blog-paths';
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection('blog');
+  const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
+  const allPosts = await getCollection('blog');
+  const posts = includeDrafts ? allPosts : allPosts.filter(({ data }) => data.draft !== true);
 
   return posts.map((post) => ({
     params: { slug: getBlogPath(post.id, post.data.slug).replace(/^\//, '').replace(/\/$/, '') },
@@ -19,13 +21,15 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
 
 let previousInSeries: { title: string; href: string } | undefined;
 let nextInSeries: { title: string; href: string } | undefined;
 
 if (post.data.series && post.data.seriesOrder !== undefined) {
-  const seriesPosts = (await getCollection('blog'))
-    .filter(({ data }) => data.draft !== true && data.series === post.data.series && data.seriesOrder !== undefined)
+  const allSeriesPosts = (await getCollection('blog'))
+    .filter(({ data }) => data.series === post.data.series && data.seriesOrder !== undefined);
+  const seriesPosts = (includeDrafts ? allSeriesPosts : allSeriesPosts.filter(({ data }) => data.draft !== true))
     .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
 
   const currentIndex = seriesPosts.findIndex(({ id }) => id === post.id);

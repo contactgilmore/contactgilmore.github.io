@@ -1,113 +1,100 @@
 # Prompt. Prove. Ship. — Series Foundation
 
-Status: **APPROVED SERIES DIRECTION**  
-Updated: 2026-08-08
+Status: **ACTIVE SERIES DIRECTION / P11 CONTINUATION**  
+Updated: 2026-08-27
 
 ## Identity
 
-Series name:
+Series: **Prompt. Prove. Ship.**  
+Descriptor: **AI-assisted engineering without outsourcing judgment.**
 
-# **Prompt. Prove. Ship.**
-
-Series descriptor:
-
-**AI-assisted engineering without outsourcing judgment.**
-
-Public introduction:
+Published introduction:
 
 ```text
-title: Prompt. Prove. Ship.: From Chat to Change
-source: src/content/blog/2026-08-08-prompt-prove-ship.md
-slug: /prompt-prove-ship/
+Prompt. Prove. Ship.: From Chat to Change
+/prompt-prove-ship/
 seriesOrder: 0
 ```
 
-P8 is authorized to publish this introduction only. Numbered follow-on articles belong to a later focused content sprint.
+Current installment:
+
+```text
+#1. Prompt. Prove. Ship.: Context Is Part of the System
+/prompt-prove-ship-context/
+seriesOrder: 1
+owner approved: 2026-08-27
+publication transaction: P11-WP2
+```
 
 ## Series promise
 
 > How do you use increasingly capable AI agents to move technical work faster without giving up context, verification, security boundaries, review, or human ownership?
 
-The series should remain practical, tool-aware, and vendor-neutral at the concept level. Products may appear when they are the clearest example, but each article should teach an operating idea that survives the product.
+The series remains practical, tool-aware, and vendor-neutral at the concept level. Product behavior may illustrate a point, but every installment should teach an operating idea that survives the product.
 
-## Why this direction
+## Editorial operating model
 
-The portfolio already demonstrates automation, observability, Git, infrastructure as code, CI/CD, Kubernetes, OpenTelemetry, and GitOps. The next useful step is not another disconnected tool list. It is the workflow that connects increasingly autonomous AI tools to disciplined technical delivery.
-
-The public repository can transparently demonstrate that model at a safe level:
+This series proves a low-owner-friction publishing workflow:
 
 ```text
-repository authority
--> bounded task
--> agent execution
--> claim-matching evidence
--> human judgment where it adds unique value
+roadmap Product Goal
+-> GPT chooses the strongest next durable question
+-> current first-party source pack
+-> draft in the established portfolio voice
+-> technical/factual verification
+-> separate voice/read-aloud review
+-> public-safety + exact-diff review
+-> automated browser/accessibility proof
+-> local real-page owner review with npm run review:drafts
+-> Mike approves public representation
+-> publishable exact-head proof
 -> controlled merge/deploy
--> durable closeout
+-> production verification
 ```
 
-## Audience
+Candidate articles remain `draft: true` while under review. Normal builds/public routes must exclude drafts. Local owner review uses `npm run review:drafts` so the actual Astro page—not only Markdown—is the editorial review surface.
 
-Primary:
+Mike should not need to supply routine topic ideas, outlines, metadata, source research, GitHub mechanics, or test-driving steps when repository authority can resolve them. GPT must stop rather than invent personal experience when a real anecdote would be required.
 
-- technical delivery / implementation professionals moving deeper into AI-assisted engineering;
-- SRE, DevOps, cloud, systems, and web practitioners using agents in real repositories;
-- engineers who can generate code with AI but want a safer/repeatable operating model;
-- technical leaders deciding where autonomy helps and where human gates still matter.
+## Voice contract
 
-Secondary:
+P9's `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains controlling long-form authority. Preserve:
 
-- hiring managers evaluating Mike's ability to connect modern AI tooling with SDLC discipline, delivery quality, troubleshooting, accessibility, and customer/business judgment.
+- direct beginner framing without talking down;
+- one primary mental model per article;
+- practical professional judgment rather than source-summary prose;
+- short cohesive paragraphs with natural variation;
+- occasional earned dry humor or analogy;
+- concrete operating consequences;
+- willingness to say complexity is unnecessary when it is unnecessary;
+- no invented tool use, incidents, customers, screenshots, or metrics.
 
-## What the series is not
+The approved #1 article fits this standard: its direct opening, context-layer model, documentation-drift argument, and small-project caution all read as one essay rather than a vendor feature tour.
 
-Do not turn it into:
+## Current learning path
 
-- daily AI product news;
-- model leaderboard commentary;
-- generic prompt lists;
-- replacement-of-engineers speculation;
-- vendor cheerleading;
-- unsourced productivity claims;
-- autonomous-agent demos with no verification story;
-- private project/chat memory exposed as tutorial content.
+1. **Context Is Part of the System** — repository instructions, durable authority, context routing, stale-context failure modes.
+2. **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+3. **The Agent Finished Is Not Evidence** — builds, tests, browser evidence, source verification, and claim-matching proof.
+4. **Give Tools Less Trust, Not Less Usefulness** — connectors/MCP, permissions, credentials, public/private boundaries, destructive operations.
+5. **Review Is a Release Control** — branches, PRs, expected-head checks, owner decisions, deployment/rollback, durable closeout.
 
-## Durable topic themes
+Later candidates include AI-assisted troubleshooting and background/multi-agent orchestration.
 
-These are planning themes, **not committed numbers or publication dates**.
+This is a learning path, not a publication calendar. Reorder, combine, replace, or stop when evidence says a different article better serves the series promise.
 
-### Context is part of the system
-Repository instructions, concise maps, architecture/current-state docs, rules, and reusable skills make agent behavior recoverable instead of chat-dependent.
+## Next article — Plan Before Edit
 
-### Plan before edit
-Allowed paths, protected boundaries, acceptance conditions, and stop conditions define a useful operating envelope for autonomy.
+Primary question:
 
-### Tools and connected context
-Connectors, MCP, repository APIs, terminals, search, and other controlled tools determine what an agent can safely observe and do.
+How do you define what an AI agent may change before it starts editing?
 
-### From generated change to proof
-Builds, tests, browser evidence, accessibility checks, source verification, exact diffs, and claim-matching validation belong inside the AI workflow.
-
-### Safe autonomy
-Permissions, sandboxing, credentials, public-repository exposure, third-party dependencies, and destructive operations require explicit boundaries.
-
-### Review and release control
-Branches, pull requests, expected-head checks, owner decisions, deployment evidence, rollback anchors, and living-state closeout turn generated work into controlled delivery.
-
-### AI-assisted troubleshooting
-Agents can shorten the path from logs/configuration/symptoms to the next useful hypothesis, but the real system remains the source of truth.
-
-### Multi-agent / background work
-Later topic only after the fundamentals: parallel agents, specialized skills, background work, and orchestration multiply both capacity and the need for clear proof/boundaries.
+The article should build directly from #1's final question and focus on allowed scope, no-touch boundaries, acceptance criteria, and stop conditions. It should explain why more capable agents make boundary writing more valuable, while avoiding bureaucracy for small/low-risk tasks.
 
 ## Source posture
 
-For time-sensitive claims, use current first-party documentation. The approved intro uses current OpenAI and GitHub primary material around repository instructions, agent execution, planning/testing, and pull-request review. Do not convert product behavior into a timeless claim when it can change.
+For time-sensitive product claims, verify current first-party documentation again at drafting time. Instruction filenames, precedence rules, agent capabilities, permissions, and configuration surfaces can change quickly.
 
 ## Cloud Foundations relationship
 
-Cloud Foundations remains a later series candidate, not a rejected idea. It should be a focused concept arc rather than a shallow catalog of AWS services. Do not run both series simultaneously merely to increase publishing volume.
-
-## Exit direction
-
-After the focused Prompt. Prove. Ship. arc is complete, pause new content and run the roadmap's employer-readiness final pass before entering a stability period.
+Cloud Foundations remains a later candidate only. Do not run multiple series merely to increase publishing volume.
