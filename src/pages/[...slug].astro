@@ -4,9 +4,8 @@ import type { CollectionEntry, GetStaticPaths } from 'astro';
 import BlogPostLayout from '../layouts/BlogPostLayout.astro';
 import { getBlogPath } from '../lib/blog-paths';
 
-const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
-
 export const getStaticPaths = (async () => {
+  const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
   const posts = (await getCollection('blog')).filter(({ data }) => includeDrafts || data.draft !== true);
 
   return posts.map((post) => ({
@@ -21,6 +20,7 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
 
 let previousInSeries: { title: string; href: string } | undefined;
 let nextInSeries: { title: string; href: string } | undefined;
