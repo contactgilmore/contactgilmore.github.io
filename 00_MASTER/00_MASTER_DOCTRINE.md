@@ -6,23 +6,21 @@ Home: `00_MASTER/00_MASTER_DOCTRINE.md`
 
 ## Purpose
 
-This is the repository-wide **single start-here authority** for the ContactGilmore professional portfolio. Mike is owner and final decision maker. GPT is project manager and may perform bounded GitHub work when Mike authorizes the task.
+This is the repository-wide **single start-here authority** for the ContactGilmore professional portfolio. Mike is owner and final public-representation decision maker. GPT is project manager/editor and may perform bounded GitHub work inside owner-authorized scope.
 
 The project goal is to maintain `contactgilmore.github.io` as a polished professional profile, technical portfolio, writing platform, and public demonstration of disciplined AI-assisted software delivery.
 
+GitHub repository truth is authoritative. Chat history and GPT memory are useful context only and must not become alternate project-state stores.
+
 ## Single-entry fresh-chat contract
 
-A new GPT chat should normally need only this instruction:
+A new GPT chat should normally need only:
 
 ```text
 Review contactgilmore/contactgilmore.github.io and begin with 00_MASTER/00_MASTER_DOCTRINE.md. Follow its startup protocol before taking action.
 ```
 
-The master doctrine is responsible for routing the new session to all additional authority. The user should not have to upload a ZIP, run a handoff script, reconstruct state from chat memory, or manually enumerate standard startup files.
-
-If a new-chat request needs unusually specific source material, the handoff prompt may additionally name those files, PRs, commits, or external sources. Those are supplements to the master-doctrine startup, not replacements for it.
-
-The repository is the durable project memory. Chat memory is helpful but non-authoritative.
+Do not require a ZIP, local handoff script, prior conversation transcript, or remembered branch state when connected GitHub and repository authority can recover the project.
 
 ## Central shared-governance adoption
 
@@ -31,14 +29,79 @@ CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
 central repository = contactgilmore/augusta-method-governance
-consumed central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
+consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 ```
 
-Shared repository/GitHub and Sprint System execution policy comes from the central repository. Portfolio product/content, architecture, public-disclosure, professional-read, brand, editorial, release, blog/URL, and production-authorization authority remains local. Do not recreate `00_MASTER/01_SPRINT_SYSTEM/`.
+Shared repository/GitHub and Sprint System policy comes from the central repository. Portfolio product/content, architecture, public-disclosure, professional-read, editorial, release, blog/URL, and production-authorization authority remains local.
+
+Do not recreate `00_MASTER/01_SPRINT_SYSTEM/` or another local copy of central Development Governance.
+
+## Required authority hierarchy
+
+The portfolio follows this project-management chain:
+
+```text
+00_MASTER/00_MASTER_DOCTRINE.md
+-> central governance master
+-> applicable central doctrine + child documents
+-> 00_MASTER/PRODUCT_ROADMAP.md
+-> product brief / task-required local doctrine
+-> WHERE_WE_ARE + ACTIVE_SPRINT + LAST_CLOSEOUT_PROMPT
+-> current sprint record
+-> smallest task-specific source/evidence set
+-> live GitHub truth and claim-matching proof
+```
+
+The canonical roadmap is `00_MASTER/PRODUCT_ROADMAP.md`. A second roadmap, roadmap-like plan, campaign plan, or strategy file is prohibited.
+
+## Deterministic startup read order
+
+Before tracked mutation, read in this order:
+
+1. this file;
+2. `contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md`;
+3. central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and its exactly five Sprint System children when Development Governance is REQUIRED;
+4. `00_MASTER/PRODUCT_ROADMAP.md`;
+5. `docs/product/00_PRODUCT_DOCTRINE.md` and `docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md`;
+6. `00_MASTER/WHERE_WE_ARE.md`;
+7. `00_MASTER/ACTIVE_SPRINT.md`;
+8. `00_MASTER/LAST_CLOSEOUT_PROMPT.txt`;
+9. the active sprint record named by `ACTIVE_SPRINT.md`, if a sprint is open;
+10. perform the lightweight `docs/sprints/` hygiene check required by central Development Governance; do not broad-read `docs/sprints/archive/`;
+11. load only the smallest additional local doctrine/source required by the task;
+12. reconcile exact current `main`, relevant branch/PR/issue state, and applicable Actions before mutation.
+
+For GitHub settings, Actions, runners, storage, cache, permissions, or repository-security work, additionally read the local Repository Governance adoption package and the smallest applicable central Repository Governance authority.
+
+For article creation or material article revision, additionally read:
+
+```text
+docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+docs/editorial/NEXT_SERIES_FOUNDATION.md when the series is relevant
+representative established articles named by the editorial workflow
+current Astro content schema and affected Writing routes/tests
+```
+
+Do not substitute a style-summary prompt for sampling the real article corpus before substantial long-form writing.
+
+## Product Roadmap law
+
+`00_MASTER/PRODUCT_ROADMAP.md` is the one canonical durable roadmap. It owns Roadmap Horizons and Product Goals. Sprint records under `docs/sprints/` advance named Product Goals and may not become alternate roadmaps or plans.
+
+```text
+Product Roadmap
+-> Roadmap Horizon
+-> Product Goal
+-> Sprint Goal
+-> Work Package
+-> proof / owner decision / increment
+```
+
+Material roadmap or product-direction changes remain owner decisions. GPT may select and execute the next work package inside an already authorized Product Goal when the selection follows current doctrine and does not widen owner-reserved scope.
 
 ## Public repository disclosure and professional-artifact law
 
-`contactgilmore/contactgilmore.github.io` is a public repository. Every tracked file, branch, commit, pull request, workflow, artifact, issue, discussion, image, metadata field, and generated output must be treated as publicly discoverable, clonable, forkable, copyable, and durable.
+`contactgilmore/contactgilmore.github.io` is public. Every tracked file, branch, commit, pull request, workflow, artifact, issue, discussion, image, metadata field, and generated output must be treated as publicly discoverable, clonable, forkable, copyable, and durable.
 
 ```text
 PUBLIC_DISCLOSURE_DEFAULT=YES
@@ -48,58 +111,22 @@ PRIVATE_CONTEXT_IN_PROJECT_DOCS=PROHIBITED
 PUBLIC_DOCUMENTATION_IS_PORTFOLIO_EVIDENCE=YES
 ```
 
-The repository is intentionally allowed to demonstrate architecture, SDLC thinking, sprint execution, doctrine, decision records, CI/CD, testing, accessibility, release controls, rollback planning, and responsible AI-assisted delivery. It must **not** become private project memory or a transcript of Mike's personal life/job search.
-
-Every tracked document must pass two tests:
+Every tracked change must pass both tests:
 
 1. **Safety test:** Would publication or verbatim copying materially increase personal, security, financial, professional, or privacy risk?
-2. **Professional-read test:** Would Mike be comfortable with a recruiter, hiring manager, security engineer, stranger, or future fork owner reading the sentence without additional private context?
+2. **Professional-read test:** Would Mike be comfortable with a recruiter, hiring manager, security engineer, stranger, or future fork owner reading it without private context?
 
 If either answer is no or uncertain, sanitize, generalize, omit, or stop for owner review.
 
-Never commit, paste into tracked documentation, expose through workflow logs/artifacts, or otherwise publish:
+Never publish credentials, tokens, keys, private addresses/phone numbers, financial or health information, private job-search records, recruiter correspondence, private emails/calendar/contact data, security-sensitive private infrastructure details, confidential employer/customer material, unredacted private screenshots/logs/backups, or invented professional claims.
 
-```text
-home or private physical addresses
-private phone numbers
-credentials, passwords, API keys, access tokens, cookies, SSH/private keys, recovery codes, or secrets
-financial account information, balances, tax records, loan details, or private compensation records
-health, diagnosis, medication, disability, insurance, or other medical information
-private job-search records, unpublished applications, recruiter correspondence, interview notes, or negotiation details
-private emails, calendar data, contact records, or personal correspondence
-private infrastructure details that materially increase attack surface, including credentials, internal-only addresses, privileged topology, or security-sensitive configuration
-local filesystem paths or machine information when disclosure creates unnecessary security or privacy risk
-third-party confidential, proprietary, NDA-covered, customer, employer, or partner information
-resume/application source documents containing information not intentionally approved for public display
-unredacted screenshots, logs, exports, backups, database contents, or metadata containing any of the above
-private reasoning, scratchpad content, or conversational details that are not needed to understand the public engineering work
-```
-
-Public professional facts may be published only when intentionally relevant to the portfolio and appropriate for unrestricted public disclosure.
-
-Before every tracked change, GPT must apply the safety and professional-read tests. Convenience, sprint velocity, debugging value, documentation completeness, or continuity never overrides this rule.
-
-Git history is durable. Accidentally committed sensitive information must be treated as exposed even if later deleted from the current tree; stop and address rotation, revocation, notification, and/or history-remediation requirements as appropriate.
-
-## Shared-development governance law
-
-Central Development Governance owns the reusable Sprint System. This repository does not keep a second local copy. Living state and project-specific sprint records remain local and are not counted as central doctrine.
-
-## Living current-state files
-
-```text
-00_MASTER/WHERE_WE_ARE.md
-00_MASTER/ACTIVE_SPRINT.md
-00_MASTER/LAST_CLOSEOUT_PROMPT.txt
-00_MASTER/README.md
-00_MASTER/PACKAGE_PROFILE.txt
-```
-
-There is exactly one `WHERE_WE_ARE.md` and one `ACTIVE_SPRINT.md`.
+Accidentally committed sensitive information must be treated as exposed even if later deleted from the current tree.
 
 ## Documentation-domain law
 
-All durable project documentation lives under `docs/`.
+Durable project documentation lives under `docs/`. Existing controlling authority is updated by default; new documents are exceptional and must pass central Development Governance's Document Creation Gate.
+
+Canonical domain routers include:
 
 ```text
 docs/product/00_PRODUCT_DOCTRINE.md
@@ -108,63 +135,51 @@ docs/brand/00_BRAND_DOCTRINE.md
 docs/versioning/00_VERSIONING_DOCTRINE.md
 ```
 
-Each domain has one portfolio subject folder with exactly five Markdown documents. Sprint records are the execution-history exception and live under `docs/sprints/`.
+The portfolio product subject folder contains exactly five living Markdown documents. Sprint records are the execution-history exception and live under `docs/sprints/` with the central 30-day archive lifecycle.
 
-`docs/sprints/` contains the active sprint record plus recently completed sprint records. Completed records become archive-eligible 30 calendar days after their recorded close date and then move to `docs/sprints/archive/`. The archive is historical evidence, not startup authority, and must not be read during routine startup unless a specific historical/audit/regression need requires it.
+Do not create parallel notes, plans, decisions, summaries, handoff trees, or style guides when existing authority can own the truth.
 
-## Deterministic startup read order
-
-After the new chat is pointed to this master doctrine, GPT must read, without requiring Mike to enumerate them:
+## Living current-state files
 
 ```text
-contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md
-central Repository Governance module when REQUIRED
-central Development Governance module when REQUIRED
+00_MASTER/PRODUCT_ROADMAP.md
 00_MASTER/WHERE_WE_ARE.md
 00_MASTER/ACTIVE_SPRINT.md
 00_MASTER/LAST_CLOSEOUT_PROMPT.txt
+00_MASTER/README.md
+00_MASTER/PACKAGE_PROFILE.txt
 ```
 
-Then:
+There is exactly one roadmap, one `WHERE_WE_ARE.md`, and one `ACTIVE_SPRINT.md`.
 
-1. perform the lightweight `docs/sprints/` hygiene check defined by sprint-system doctrine; do not read `docs/sprints/archive/` by default;
-2. read the active sprint record named by `ACTIVE_SPRINT.md`, if a sprint is open;
-3. read only the domain documents referenced by the active work package or needed for the task;
-4. inspect the relevant current source files and current PR/branch state through connected GitHub;
-5. reconcile documentation claims against repository truth before writing;
-6. apply the public-disclosure/professional-read gate before any tracked update.
+`WHERE_WE_ARE.md` is durable current position, not a chronological log. `ACTIVE_SPRINT.md` is concise execution state. Detailed evidence belongs in the current sprint record.
 
-Do not require Mike to upload repository snapshots when connected GitHub access can recover current state.
+## Editorial operating law
 
-## Source-request protocol
+Writing is professional proof, not filler content. New posts are published only when they teach something useful and fit the portfolio's professional direction.
 
-Before substantial action, identify:
+`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` owns the durable editorial workflow and P9 voice standard. GPT is the default researcher, source-pack builder, drafter, metadata editor, and verification operator. Mike's routine role is review and public editorial approval, not driving research or repository mechanics.
+
+GPT must never invent first-person tool use, employer/customer incidents, metrics, screenshots, or lived experience. First-person professional judgment is allowed when it is genuinely judgment rather than fabricated biography.
+
+Substantial posts should read like technical essay/tutorial hybrids: one useful mental model, cohesive short paragraphs, meaningful headings, lists only when the information is genuinely list-shaped, current first-party sources for time-sensitive claims, and visible authorial judgment beyond source summary.
+
+Before owner review, perform a separate voice/read-aloud pass and technical/factual verification pass.
+
+A candidate article may use `draft: true` while under review. `draft: true` must exclude the article from generated public routes, Writing/home discovery, and series navigation. Never treat metadata alone as a publication gate unless the implementation and tests enforce that behavior.
+
+## Current source and production authority
 
 ```text
-Current authority:
-Current sprint/work package:
-Task classification:
-Documents already read:
-Documents needed next:
-Allowed update paths:
-No-touch paths:
-Verification gates:
-Stop conditions:
+repository = contactgilmore/contactgilmore.github.io
+production branch = main
+hosting = GitHub Pages via GitHub Actions
+build target = static HTML generated by Astro
+production authorization = approved merge to main
+production deployment = automatic after merge
 ```
 
-Tracked repository work should be handled through connected GitHub rather than transferred to Mike as manual patch work.
-
-## Current source authority
-
-```text
-GitHub: contactgilmore/contactgilmore.github.io
-Production branch: main
-Current hosting: GitHub Pages via GitHub Actions
-Build target: static HTML generated by Astro
-Production deployment: automatic on push to main after approved merge; workflow_dispatch retained as fallback
-```
-
-Branch names are living state. `ACTIVE_SPRINT.md` and GitHub truth override examples in older history.
+Branch names and exact SHAs are living GitHub state. Resolve them at startup rather than copying old values forward as authority.
 
 ## GitHub-first execution law
 
@@ -172,65 +187,47 @@ Default route:
 
 ```text
 connected GitHub read
--> reconcile repository truth with living state
+-> reconcile repository + central authority
+-> identify roadmap Product Goal and sprint/work package
 -> bounded branch from exact current main
--> GPT performs approved tracked-source changes
+-> perform approved tracked-source changes
 -> public-disclosure + professional-read review
--> review exact changed-file set
--> repository-portable CI / browser validation
--> draft PR while evidence is incomplete
--> owner acceptance when required
--> merge only after approval
--> push to main automatically builds and deploys GitHub Pages
--> verify production deployment and affected live surfaces
--> record final evidence and next state
+-> exact changed-file/material review
+-> repository-portable build/validation/browser evidence
+-> draft PR while owner/content evidence is incomplete
+-> owner editorial/visual/public-representation approval when required
+-> merge only after all gates are satisfied
+-> automatic Pages deployment
+-> verify affected production surfaces
+-> update living state / sprint closeout
 ```
-
-The **merge to `main` is the human production authorization**. Do not require a second manual deploy click as a routine release ceremony. `workflow_dispatch` exists for operational fallback/recovery and deliberate re-runs.
 
 Do not make experimental changes directly on `main`.
 
-## Legacy handoff/process retirement law
+The merge to `main` is the human production authorization. `workflow_dispatch` is fallback/recovery, not a second routine release ceremony.
 
-The former workflow of generating ZIP packages, local patch/apply scripts, manually applying changes on Mike's computer, and uploading a repository ZIP into a new chat is **retired as a normal operating model**.
+## Protected production/content law
 
-Do not recreate that workflow merely because old documentation, historical commits, or prior chats mention it.
-
-Use ZIP/export/manual transfer only as an explicit disaster-recovery fallback when connected GitHub access is unavailable and the owner asks for it. If used, treat the package as a temporary transfer artifact, not project authority.
-
-Current authority order is:
-
-```text
-Git repository truth
--> master/startup doctrine
--> living state
--> active sprint record
--> domain docs
--> CI/PR/deployment evidence
--> chat context
-```
-
-## Production and content protection law
-
-Protected portfolio assets include:
+Protected assets include:
 
 ```text
 historical blog article identities and publication dates
-published blog/article URLs
+published article URLs/slugs and compatibility routes
 required public images/assets
-main branch production behavior
-GitHub Pages availability or successor-host availability
-historical Git content
+accepted professional case-study claims
+main production behavior
+GitHub Pages availability
+historical Git provenance
 ```
 
 Rules:
 
-1. Never rewrite or delete historical blog content as a side effect of unrelated framework, design, or process work; deliberate editorial refreshes are allowed when explicitly scoped and original publication history is preserved.
-2. Preserve article slugs or provide explicit redirects/compatibility routes before changing public URLs.
-3. Preserve required image references or migrate them with verified replacements.
-4. Keep production deployable while a replacement candidate is under review.
-5. Framework/hosting changes must not erase authorship history or article metadata without an explicit content decision.
-6. Historical content is not exempt from the public-disclosure law; if an audit discovers sensitive material, stop and classify it.
+1. Never rewrite/delete historical blog content as a side effect of unrelated work.
+2. Preserve public slugs or provide deliberate redirects/compatibility routes before URL changes.
+3. Preserve original publication dates; later revisions use `updated` and do not reorder history.
+4. Preserve required image references or migrate them with verified replacements.
+5. Keep production deployable while a candidate is under review.
+6. Public-safety review outranks content-history preservation if sensitive material is discovered.
 
 ## Technology direction
 
@@ -244,43 +241,27 @@ custom HTML/CSS
 minimal client JavaScript
 GitHub Actions
 GitHub Pages
+Playwright
+axe accessibility checks
 ```
 
-React or another UI framework is not a default dependency. Add one only when a real interaction requires it.
-
-Hosting is an architectural decision, not doctrine identity. GitHub Pages may later be replaced by another static host if the owner approves and the change improves security, privacy, reliability, workflow, or professional presentation without breaking URLs/content.
+React, a database, CMS, or alternate host is not a default dependency. Add architecture only for a proven product requirement.
 
 ## GitHub Actions runner and storage policy
 
-While this repository is public, ordinary CI and deployment use GitHub-hosted standard runners such as:
+This is a public/untrusted repository. Ordinary CI and deployment use bounded standard GitHub-hosted runners such as `ubuntu-latest`.
 
-```text
-ubuntu-latest
-```
+Private self-hosted infrastructure is not exposed to public/fork workflow code. Successful routine validation artifacts and GitHub dependency caches remain off by default. Playwright may retain smallest useful failure-only evidence for one day. GitHub Pages deployment artifacts are bounded deployment mechanics.
 
-Public-repository workflows must not run untrusted pull-request or fork code on Mike's dedicated self-hosted infrastructure. The dedicated server is not registered for this portfolio by default.
+Repository-portable checks include Astro build/content validation, public asset and link/route audits, Playwright responsive smoke, accessibility checks, and historical URL regressions.
 
-Repository-portable checks include or should preserve:
+## Roles and owner gates
 
-```text
-Astro build
-type/content validation
-public asset audit
-internal/broken-link checks
-Playwright responsive/browser smoke
-axe accessibility checks
-URL regression checks for historical blog posts
-```
+Mike owns priority, material roadmap/product direction, final public representation, editorial acceptance, visual taste decisions, new paid/recurring spend, and approval for materially risky public/security boundaries.
 
-Workflows and artifacts must also comply with the public-disclosure law. Never echo secrets or private data into Actions logs or upload sensitive artifacts.
+GPT owns project management, source/repository reconciliation, roadmap/sprint maintenance, editorial topic selection inside an authorized writing goal, research, drafting, metadata, repository execution, verification design, public-safety review, exact-diff review, and closeout.
 
-Routine successful validation artifacts and GitHub dependency caches remain off. Playwright may upload the smallest useful failure-only evidence for one day. GitHub Pages deployment artifacts are bounded deployment mechanics, not the general evidence warehouse. The former long-lived candidate branch and routine candidate-packaging workflow are retired and must not be recreated without a newly proven release-architecture need.
-
-## Roles
-
-Mike owns priority, approval, final public representation, career-positioning decisions, and approval to merge production-significant changes.
-
-GPT owns project management, doctrine review, roadmap and sprint design, tracked repository execution, architecture/content recommendations, verification design, risk classification, public-disclosure review, professional-read review, and closeout/handoff updates.
+Bounded implementation and repair remain delegated until a genuine owner gate is reached.
 
 ## Root hygiene
 
@@ -289,7 +270,6 @@ Preferred root essentials:
 ```text
 README.md
 CHANGELOG.md
-ROADMAP.md
 00_MASTER/
 docs/
 src/
@@ -299,32 +279,36 @@ tests/
 .github/
 ```
 
-Historical/legacy files may remain only when they have compatibility, content-history, or rollback value.
+The canonical roadmap lives under `00_MASTER/`; do not recreate root `ROADMAP.md`.
+
+Historical/legacy source may remain only when it has compatibility, content-history, or rollback value.
 
 ## Hard compliance gates
 
 ```text
-Gate 1 — master doctrine read from current repository truth
-Gate 2 — startup doctrine and living state deterministically recovered
-Gate 3 — current branch/PR/sprint truth reconciled
-Gate 4 — exact scope and no-touch paths declared
-Gate 5 — public-disclosure and professional-read safety verified
-Gate 6 — protected blog/URL/production constraints resolved
-Gate 7 — required domain doctrine read
-Gate 8 — exact changed-file set reviewed
-Gate 9 — proof matches the claim
-Gate 10 — Mike's current decision controls
-Gate 11 — living state and sprint authority updated when truth changes
-Gate 12 — production changes are explicit, reversible, automatically deployed from approved `main`, and verified
+Gate 1  — current project master read
+Gate 2  — applicable central governance and children read
+Gate 3  — canonical roadmap/Product Goal identified
+Gate 4  — product brief + living state + active sprint reconciled
+Gate 5  — exact current GitHub branch/PR/Actions truth reconciled
+Gate 6  — exact scope/no-touch/proof/stop conditions clear
+Gate 7  — public-disclosure and professional-read safety passed
+Gate 8  — protected blog/URL/production constraints preserved
+Gate 9  — task-required local doctrine/editorial authority read
+Gate 10 — exact changed-file/material review complete
+Gate 11 — proof matches the claim
+Gate 12 — owner-reserved editorial/product/public gate satisfied
+Gate 13 — living state and sprint authority reflect the durable result
+Gate 14 — production changes are reversible, deployed from approved main, and verified
 ```
 
-If a gate fails, stop and state what is missing.
+If a gate fails, stop at the first genuine blocker rather than guessing.
 
 ## Change history
 
-- **2026-08-15:** Adopted the current central GOV-2 lifecycle/storage baseline; retired the exact merged Portfolio 2.0 candidate branch and obsolete candidate-packaging workflow after bounded proof; preserved public GitHub-hosted execution and zero live artifact/cache posture.
-- **2026-08-08:** Standardized execution records under `docs/sprints/`, established a 30-day recent-record window, and made `docs/sprints/archive/` historical-only so routine startup does not accumulate document creep.
-- **2026-08-08:** Made approved merge to `main` the human production authorization and changed GitHub Pages to automatic deployment on `main` pushes; retained manual workflow dispatch as an operational fallback.
-- **2026-08-08:** Established the master doctrine as the single fresh-chat entry point; retired ZIP/script/upload handoff as the normal workflow; made repository documentation itself a recruiter-readable public engineering artifact subject to safety and professional-read gates.
-- **2026-08-08:** Made public-disclosure safety a hard repository law and established GitHub-hosted runners as the default for the public portfolio; prohibited exposing dedicated self-hosted infrastructure to untrusted public-repository workflow code.
-- **2026-08-08:** Established Portfolio 2.0 governance modeled on Job Search Studio, with Astro migration direction, production protection, blog preservation, and GitHub-first execution.
+- **2026-08-27:** Reconciled the portfolio to central one-roadmap/deterministic-startup governance; made `00_MASTER/PRODUCT_ROADMAP.md` canonical; formalized the low-owner-friction editorial continuation path and draft-isolation requirement.
+- **2026-08-25:** Adopted bounded standard GitHub-hosted runner policy for the public repository.
+- **2026-08-15:** Adopted the central GOV-2 lifecycle/storage baseline and retired obsolete candidate packaging/branch state.
+- **2026-08-11:** Completed and production-verified P10 employer-readiness polish.
+- **2026-08-10:** Established P9 long-form editorial voice authority.
+- **2026-08-08:** Established Portfolio 2.0, deterministic GitHub-first continuation, AI-assisted publishing, public-disclosure law, automatic Pages deployment after approved merge, and protected blog/URL history.

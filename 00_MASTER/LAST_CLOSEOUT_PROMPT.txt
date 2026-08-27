@@ -1,39 +1,39 @@
 Review `contactgilmore/contactgilmore.github.io` and begin with `00_MASTER/00_MASTER_DOCTRINE.md`. Follow its deterministic central + local startup protocol before action.
 
 CURRENT PRODUCT STATE
-- Portfolio 2.0 is live on `main` using Astro and GitHub Pages.
-- P10 — Employer Readiness and Final Portfolio Polish — is COMPLETE / OWNER APPROVED / DEPLOYED.
-- P10 merge: `99bcd3a82cc37a99350d6eae2171b053d8f27199`.
-- P10 production proof: Pages `31464158531`, Validate `31464158520`, Playwright `31464158526`, all SUCCESS.
-- Playwright: 140 passed / 4 intentional skips / 0 failures.
-- Historical production artifact: `9090915653`, digest `sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06`.
-- NO ACTIVE IMPLEMENTATION SPRINT.
-- Product posture: stability over cosmetic churn.
+- Portfolio 2.0 is live and the P10 employer-readiness finish line remains COMPLETE / OWNER APPROVED / DEPLOYED.
+- Core Home / Work / case studies / About / Resume / visual presentation remain in stability posture.
+- Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
+- Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
+- Product Goal: PG-2 — ACTIVE.
+- P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE.
+- Sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
+- Current work package: P11-A — Context Is Part of the System.
 
 CENTRAL SHARED GOVERNANCE
 - canonical store: `contactgilmore/augusta-method-governance`
-- consumed snapshot: `377fbbd47c695d764e033e3839ea9a7c3fdba409`
+- consumed snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`
 - `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`
 - `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`
 - `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`
-- do not recreate `00_MASTER/01_SPRINT_SYSTEM/`
+- do not recreate a local Sprint System or a second roadmap.
 
-CURRENT GOV-2E PORTFOLIO MAINTENANCE STATE
-- cleanup base: `6cd58c05a5b68de0eac4a69e2315c3539c0a0144`
-- merged launch PR: #14
-- former candidate tip / exact PR #14 head: `c1211564f2086280d3a09fe992e1dc378aa960dd`
-- PR #14 merge commit: `bb2968e523bd7af87e3cd31a3a7e045ecb44947b`
-- branch-retirement transaction head: `97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6`
-- branch-retirement run `31919041013`: PASS
-- branch-retirement job `95095736087`: PASS
-- `portfolio-2.0-foundation`: ABSENT
-- temporary retirement branch: ABSENT
-- obsolete candidate-packaging workflow: ABSENT
-- live Actions artifacts: 0
-- live Actions caches: 0
-- public self-hosted execution: PROHIBITED
-- repository settings correction: PENDING / separate settings-only transaction
+P11 ARTICLE DIRECTION
+- series: `Prompt. Prove. Ship.`
+- published introduction: `Prompt. Prove. Ship.: From Chat to Change`, `/prompt-prove-ship/`, seriesOrder 0.
+- selected installment: `#1. Prompt. Prove. Ship.: Context Is Part of the System`.
+- planned slug: `/prompt-prove-ship-context/`.
+- article thesis: increasingly capable agents need recoverable layered repository context rather than one giant prompt/chat-dependent memory; thin tool-entry instructions should route to durable project authority, current roadmap/sprint state, and task-specific evidence.
+- P9 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains the long-form voice/quality authority.
+- sample the real established article corpus before substantial drafting; do not rely on style adjectives alone.
 
-The candidate branch was deleted only after exact merged-PR proof; squash ancestry alone was not treated as sufficient. Historical sprint references remain provenance and were not rewritten. The cleanup changes no public page, content, design, URL, application source, production build behavior, or Pages deployment logic.
+P11 STARTUP RECONCILIATION
+- activation base main: `ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3`; resolve exact current main/branch/PR/Actions from GitHub on continuation.
+- root `ROADMAP.md` is being retired in favor of the central-required `00_MASTER/PRODUCT_ROADMAP.md`.
+- stale P10-active product backlog language is being reconciled.
+- stale GOV-2E/snapshot assumptions in the governance checker are being replaced with current startup/roadmap/sprint invariants.
+- live GitHub settings were re-read 2026-08-27: public, squash merge enabled, merge/rebase disabled, delete merged head branches enabled.
+- Astro draft routing is being corrected so `draft: true` does not generate a public article route and remains absent from Writing/home/series navigation.
 
-Future portfolio product work remains evidence-triggered. The previously discussed Prompt. Prove. Ship. writing arc is directional, not committed, and requires a deliberate content sprint. Do not manufacture a product sprint merely because central maintenance completed.
+OWNER GATE
+GPT is expected to perform routine topic selection, source research, drafting, metadata, repository work, and verification. Mike's next genuine gate is review/approval of the final public article and its visual representation. Do not publish merely because automated checks are green.

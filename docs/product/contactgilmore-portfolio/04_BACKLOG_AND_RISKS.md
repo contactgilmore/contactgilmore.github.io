@@ -1,7 +1,7 @@
 # Product Backlog and Risks
 
 Status: active maintenance record  
-Updated: 2026-08-10
+Updated: 2026-08-27
 
 ## Completed foundation
 
@@ -9,43 +9,73 @@ The following are no longer open product questions:
 
 - role/value proposition language is established around `Technical Delivery & Customer Solutions`;
 - three primary professional case studies are selected and published;
-- Resume presentation is live;
+- Resume presentation is live and P10 employer-readiness work is COMPLETE;
 - Writing/archive structure is live on typed Astro content collections;
 - Git to Know You #1–#10 is the first completed writing series;
 - Prompt. Prove. Ship. is the approved next-series direction and its introduction is published;
-- P8 MacBook-class homepage hero calibration is complete and owner approved;
-- post-P8 Writing ordering/series-intro/thumbnail and Work spacing polish is deployed;
-- P9 full-corpus editorial audit and August 8 voice correction are complete, owner approved, and deployed;
-- long-form Writing has a durable technical essay/tutorial house standard;
-- featured writing is automatically drawn from current published content;
-- historical blog dates/URLs are preserved through the current Astro presentation;
-- canonical sprint records use `docs/sprints/` with a 30-day recent-history window.
+- P9 full-corpus editorial audit is the durable long-form voice/quality authority;
+- the accepted Portfolio 2.0 core does not need another redesign;
+- canonical sprint records use `docs/sprints/` with the central 30-day recent-history window;
+- repository merge settings now match the intended squash-only/delete-merged-branch posture.
 
 ## Current bounded work
 
-P10 — Employer Readiness and Final Portfolio Polish — is the active final non-blog quality pass. It is limited to material recruiter/hiring-manager/technical-leader evaluation improvements, resume conventions, claim precision, navigation orientation, discovery/site identity, and documentation-law cleanup.
+P11 — **Prompt. Prove. Ship. Editorial Continuation** — advances Roadmap Horizon H2 / Product Goal PG-2.
 
-Do not convert P10 into a redesign or a new-content sprint.
+Current installment:
+
+`#1. Prompt. Prove. Ship.: Context Is Part of the System`
+
+P11 is deliberately testing the low-owner-friction editorial model established by P7/P9: GPT handles routine topic selection, source research, drafting, metadata, repository mechanics, and verification; Mike reviews/approves the final public representation.
+
+The same sprint is reconciling the small governance/editorial-system defects that would otherwise make future GPT continuation unreliable: canonical roadmap location, stale living/backlog state, stale governance-check invariants, and draft-route isolation.
+
+Do not convert P11 into a redesign or a broad rewrite of existing articles.
 
 ## Future backlog
 
-- after P10, prefer a stability period over cosmetic churn;
-- a future focused Prompt. Prove. Ship. content sprint may select the strongest durable topics around repository context, bounded autonomy, controlled tool access, claim-matching proof, troubleshooting, and review/release controls;
-- topic count/order for that writing arc is not committed;
+- continue Prompt. Prove. Ship. one useful installment at a time after each accepted article; do not commit a calendar or publish to satisfy momentum;
+- likely durable next themes are plan/scope boundaries, claim-matching proof, safe tool/permission boundaries, and review/release control;
+- AI-assisted troubleshooting and multi-agent/background work remain later candidates after fundamentals;
 - Cloud Foundations remains a later candidate only if it adds distinct portfolio value;
 - review category/topic discovery only when archive volume makes the current Writing list meaningfully harder to scan;
 - periodically revisit featured writing and professional positioning after meaningful career changes;
-- deepen or add professional proof only when new public-safe evidence exists.
+- deepen or add professional proof only when new public-safe evidence exists;
+- maintain dependencies, links, browser/accessibility coverage, and time-sensitive technical claims when evidence requires it.
 
 ## Risks
 
-- over-positioning as SRE/cloud architect when the portfolio's value proposition is broader technical delivery/customer solutions;
-- allowing writing/tooling to outrank professional proof;
-- making Resume behave like About or a blog instead of a scan-first resume artifact;
-- publishing new series/articles to satisfy momentum rather than reader value;
-- oversharing confidential employer/customer information or unsupported metrics;
-- using wording that implies stronger causality/permanence than the evidence supports;
-- presenting private/lab work as primary senior-level professional proof;
-- bloating homepage copy/navigation or adding decorative features without an employer/user need;
-- letting stale backlog items cause a fresh chat to repeat already-completed work;
-- allowing additional ad hoc product authority files to break the five-document product structure.
+### Publishing momentum over reader value
+
+**Impact:** Writing becomes filler and weakens the portfolio signal.  
+**Mitigation:** Every article must earn publication through the roadmap goal, source quality, a clear mental model, and authorial value beyond source summary. No forced cadence.
+
+### GPT voice flattening
+
+**Impact:** technically correct articles read like generic AI documentation rather than the established author.  
+**Mitigation:** sample the real corpus before substantial drafting and perform a separate P9 voice/read-aloud review. Preserve direct beginner framing, practical judgment, occasional earned humor, and concrete operational consequence without imitating phrases mechanically.
+
+### Invented personal authority
+
+**Impact:** false professional representation and credibility risk.  
+**Mitigation:** never invent first-person tool use, incidents, customer/employer stories, screenshots, or metrics. Use truthful professional judgment or clearly generic examples when repository authority does not support an anecdote.
+
+### Stale authority causing repeated work
+
+**Impact:** a fresh GPT reopens completed sprints or follows superseded process.  
+**Mitigation:** one canonical roadmap, concise living state, one active sprint record, current central snapshot, and governance checks that assert current hierarchy instead of preserving obsolete campaign tokens.
+
+### Draft leakage
+
+**Impact:** an unapproved article can become directly reachable even if hidden from navigation.  
+**Mitigation:** `draft: true` must exclude generated routes as well as archive/home/series discovery, with claim-matching proof before owner review.
+
+### Writing outranking professional proof
+
+**Impact:** the portfolio over-positions as a content/tool site rather than employer-facing technical delivery/customer solutions evidence.  
+**Mitigation:** keep Home/Work/case-study/Resume hierarchy stable and publish Writing only as supporting proof.
+
+### Public disclosure
+
+**Impact:** private, proprietary, security-sensitive, or unsupported material becomes durable public Git history.  
+**Mitigation:** apply Master Doctrine safety/professional-read gates to every tracked draft, source note, image, PR, log, and artifact.

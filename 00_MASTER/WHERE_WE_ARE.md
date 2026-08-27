@@ -1,242 +1,116 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-08-15
+Updated: 2026-08-27
 
-## Central governance and GOV-2E maintenance
+## Current repository authority
 
 ```text
-current repository main = resolve from live GitHub at startup
-GOV-2E cleanup base = 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
-latest prior repository maintenance checkpoint = PR #40 / 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
+repository = contactgilmore/contactgilmore.github.io
+production branch = main
+main at P11 activation = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
+current main = resolve from live GitHub at startup
+hosting = GitHub Pages
+build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
+consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 ```
 
-The Portfolio remains a stable public Astro site with no active product implementation sprint. GOV-2E repository maintenance retired the obsolete candidate branch only after exact merged-PR proof and removes its unreachable packaging workflow without changing public content or deployment behavior.
+No open pull request existed at P11 activation. Live GitHub must be reconciled again before any later mutation or merge.
+
+## Product position
+
+Portfolio 2.0 is live and stable. P10 — Employer Readiness and Final Portfolio Polish — is **COMPLETE / OWNER APPROVED / DEPLOYED**.
+
+Accepted P10 production anchor:
 
 ```text
-merged launch PR = #14
-former candidate branch = portfolio-2.0-foundation
-former candidate tip / exact PR #14 head = c1211564f2086280d3a09fe992e1dc378aa960dd
-PR #14 merge commit = bb2968e523bd7af87e3cd31a3a7e045ecb44947b
-branch-retirement transaction head = 97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6
-branch-retirement run = 31919041013 PASS
-branch-retirement job = 95095736087 PASS
-former candidate branch = ABSENT
-temporary retirement branch = ABSENT
-candidate-packaging workflow = ABSENT in current GOV-2E cleanup tree
-live GitHub Actions artifacts = 0
-live GitHub Actions caches = 0
-settings correction = PENDING / separate settings-only transaction
+P10 PR = #31
+production merge = 99bcd3a82cc37a99350d6eae2171b053d8f27199
+Pages run = 31464158531 — SUCCESS
+Validate run = 31464158520 — SUCCESS
+Playwright run = 31464158526 — SUCCESS
+Playwright = 140 passed / 4 intentional skips / 0 failures
+historical production artifact = 9090915653
 ```
 
-Historical sprint references to the foundation branch remain provenance. Squash ancestry alone was not used as deletion proof; the exact live branch tip was matched to merged PR #14 before deletion.
+Home, Work, the three professional case studies, About, Resume, the shared visual system, and the P9 long-form house standard remain accepted. The default for those surfaces is stability rather than cosmetic churn.
 
-## Production authority
-
-Portfolio 2.0 is live at `https://contactgilmore.github.io/` using Astro and GitHub Pages workflow publishing.
-
-Current production truth:
+## Canonical roadmap state
 
 ```text
-production branch: main
-current material release: P10 — Employer Readiness and Final Portfolio Polish
-implementation PR: #31
-production merge: 99bcd3a82cc37a99350d6eae2171b053d8f27199
-Pages deployment run: 31464158531 — SUCCESS
-Validate Astro migration run: 31464158520 — SUCCESS
-Playwright portfolio smoke run: 31464158526 — SUCCESS
-Playwright: 140 passed / 4 intentional skips / 0 failures
-historical production evidence artifact: 9090915653
-artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
-production deployment policy: automatic after approved merge to main
+canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
+Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
+Product Goal = PG-2 — ACTIVE
+current sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE
+current work package = P11-A — Context Is Part of the System
 ```
 
-There is **no active implementation sprint**.
+P11 is the first deliberate continuation of the **Prompt. Prove. Ship.** series after its published introduction. It is also the proving ground for the intended low-owner-friction publishing model: GPT selects/researches/drafts/verifies useful articles; Mike primarily reviews and approves public representation.
 
-Most recently completed sprint:
+## Current Writing authority
 
-`docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md`
-
-P10 closed on 2026-08-11 and remains in `docs/sprints/` through the 30-day recent-history window.
-
-## Current product posture
-
-The site is a professional portfolio and technical-writing platform positioned around:
-
-```text
-Technical Delivery & Customer Solutions
-Implementation & Technical Delivery
-Integrations & Troubleshooting
-Customer & Stakeholder Leadership
-```
-
-Top-level structure remains:
-
-```text
-Home / Work / Writing / About / Resume
-```
-
-Primary professional case studies remain:
-
-```text
-/work/implementation-delivery/
-/work/reliability-remediation/
-/work/operating-model/
-```
-
-The P10 employer-readiness audit concluded that Portfolio 2.0 does **not** need another redesign. The approved homepage hero/right rail, three-pillar proof hierarchy, case-study composition, About narrative, supported metrics, compact experience timeline, responsive system, and P9 long-form article bodies remain deliberate authority.
-
-Post-P10 default is **stability over cosmetic churn**.
-
-## P10 accepted outcomes
-
-### Resume
-
-`/resume/` now behaves as a scan-first resume inside the Portfolio 2.0 visual system:
-
-```text
-Mike Gilmore
-Technical Delivery & Customer Solutions
-Salt Lake City area
-public email / LinkedIn / GitHub
-one Professional Summary
-core capabilities
-experience evidence
-```
-
-The hero is a resume header rather than a second narrative summary. The substantive Professional Summary is non-first-person and appears once. The final P10 scan removed duplicate role/summary positioning so experience evidence appears sooner, particularly on phone layouts.
-
-Existing employer chronology, accomplishment bullets, supported metrics, and capability evidence remain intact. P10 did not invent education, certifications, dates, private phone/address data, or unsupported claims.
-
-### Work and proof
-
-- `permanent remediation` was tightened to evidence-aligned `durable remediation` on employer-facing proof surfaces.
-- `shared operating system` was tightened to literal `shared operating model` where that wording better matches the evidence.
-- All three professional case studies end with both `Back to selected work` and `View resume`.
-- The canonical case-study truth/evidence authority is `docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md`.
-- No supported metrics were removed or inflated.
-
-### Navigation and site identity
-
-- Exact Work/Writing destinations use `aria-current="page"`.
-- Nested Work case studies and Writing articles use `aria-current="location"` on the parent navigation item while retaining the same visual current state.
-- Brand interaction authority is reconciled to that tested semantic rule.
-- `/favicon.svg` is the stable MG site favicon.
-- `og:site_name` and home `WebSite` structured data are present.
-- Work, About, Writing, and Resume use clearer descriptive document titles.
-- Homepage composition was not redesigned.
-
-### Documentation hygiene
-
-Product doctrine's five-document subject-folder rule is restored for `docs/product/contactgilmore-portfolio/`.
-
-Case-study DIRECT / SAFE GENERALIZATION / SUPPORTING SKILLS / DO NOT CLAIM evidence was consolidated into canonical:
-
-`docs/product/contactgilmore-portfolio/03_PROOF_AND_CASE_STUDY_STRATEGY.md`
-
-Redundant `05_CASE_STUDY_TRUTH_MAP.md` was removed after consolidation. Historical P4 provenance that mentions the old filename remains historical only and is not current authority.
-
-The product backlog records stability as the post-P10 posture.
-
-## P10 verification and release
-
-Final implementation/browser-certified source before closeout bookkeeping:
-
-`db1e1f3a25ee8192909ee91655216084c66680e4`
-
-Candidate evidence:
-
-```text
-Validate Astro migration #282 / run 31461649858 — SUCCESS
-Playwright portfolio smoke #251 / run 31461649933 — SUCCESS
-144 tests discovered / 140 passed / 4 intentional skips / 0 failures
-21 Astro pages
-22 referenced public assets / 22 present / 0 orphan
-artifact: 9090048571
-artifact digest: sha256:5283e324af164f6919e756695f3800fe2f1c750db9f471b4b3d0e10d57ac708e
-```
-
-Owner approved the final public Resume and bounded employer-facing representation. PR #31 was then marked ready and squash-merged to `main` as:
-
-`99bcd3a82cc37a99350d6eae2171b053d8f27199`
-
-Production proof on that exact merge:
-
-```text
-Deploy Portfolio to GitHub Pages run 31464158531 — SUCCESS
-Validate Astro migration run 31464158520 — SUCCESS
-Playwright portfolio smoke run 31464158526 — SUCCESS
-144 tests discovered / 140 passed / 4 intentional skips / 0 failures
-21 Astro pages
-22 referenced public assets / 22 present / 0 orphan
-production artifact: 9090915653
-production digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
-```
-
-The production suite verified the Home, Work, all three professional case studies, Writing, About, Resume, current-location navigation, employer-readiness contracts, existing writing/series regressions, and representative axe accessibility coverage across desktop/tablet/phone.
-
-## Durable writing state
-
-P9 — Editorial Voice and Full Blog Quality — remains the long-form editorial authority.
-
-Detailed rules live in:
+The completed **Git to Know You #1–#10** series remains historical published content. P9 remains the durable long-form voice/quality authority through:
 
 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
-Durable P9 rules include:
+The current series foundation is:
 
-- substantial posts are technical essay/tutorial hybrids rather than condensed upstream documentation;
-- source packs are evidence, not automatic outlines;
-- research breadth may exceed publication breadth;
-- cohesive short paragraphs are the normal long-form rhythm;
-- one-sentence paragraphs are for intentional emphasis, transition, humor, or isolated conclusions rather than the dominant cadence;
-- headings mark meaningful changes in the reader's question/task;
-- lists are for genuinely list-shaped material;
-- substantial writing should add verified experience, grounded judgment, analogy, recommendation, tradeoff analysis, or another useful authorial signal beyond source synthesis;
-- AI-assisted drafts require explicit voice review separate from factual/technical verification;
-- the earlier human-written / AI-assisted corpus remains the internal voice reference;
-- never invent tool use, employer/customer stories, incidents, metrics, screenshots, or first-person events;
-- Writing is professional proof, so material public voice/representation changes require owner editorial approval.
+`docs/editorial/NEXT_SERIES_FOUNDATION.md`
 
-P10 did not reopen blog article bodies. Resume, About, Work, Home, and Writing have different reading jobs; blog paragraph rules must not be mechanically normalized across those surfaces.
+Published series introduction:
 
-## Durable site rules
+```text
+Prompt. Prove. Ship.: From Chat to Change
+slug = /prompt-prove-ship/
+seriesOrder = 0
+```
 
-- Home is scan-first and routes to proof.
-- Work carries professional evidence.
-- Case studies demonstrate role, judgment, approach, and supported outcomes.
-- About carries concise professional narrative and working style.
-- Resume carries scan-first resume evidence and should not behave like About or a blog.
-- Writing carries long-form technical communication and professional point of view.
-- Merge to `main` is human production authorization; Pages deployment is the automated consequence.
-- Public repository artifacts must remain safe for unrestricted disclosure and professional review.
-- Original article publication dates and immutable `publishedAt` remain historical authority; `updated` never reorders publication chronology.
-- Canonical sprint records live under `docs/sprints/`; completed records become archive-eligible after 30 calendar days and routine startup does not read `docs/sprints/archive/`.
-- Avoid duplicate summaries and parallel doctrine/style files when existing authority can own the rule.
+Selected next article:
 
-## Next-work posture
+```text
+#1. Prompt. Prove. Ship.: Context Is Part of the System
+planned slug = /prompt-prove-ship-context/
+seriesOrder = 1
+publication state = NOT YET OWNER APPROVED
+```
 
-Do not manufacture another sprint merely because P10 closed.
+The article should teach a durable vendor-neutral idea: increasingly autonomous agents need recoverable, layered project context rather than one giant prompt or chat-dependent memory. Current first-party agent documentation may be used as examples, but the article must remain about the operating model rather than a product feature tour.
 
-The previously discussed focused **Prompt. Prove. Ship.** writing arc remains directional rather than committed. If it is pursued later, it must follow the P9 editorial standard from the first outline and should be opened as a deliberate bounded content sprint.
+## P11 startup findings
 
-Other work should be triggered by evidence, such as:
+The 2026-08-27 reconciliation found and is correcting four continuity defects before the article is published:
 
-- meaningful new professional experience or case-study proof;
-- a real employer/user defect;
-- stale/broken external links or time-sensitive technical claims;
-- dependency/security/browser maintenance;
-- a deliberate useful article or writing arc;
-- a performance/accessibility/discoverability issue supported by evidence.
+1. the canonical roadmap was still at root `ROADMAP.md` even though current central Development Governance requires `00_MASTER/PRODUCT_ROADMAP.md`;
+2. product backlog authority still described P10 as active after P10 had closed;
+3. the repository governance validator was hard-coded to the superseded central snapshot/GOV-2E recovery state;
+4. `draft: true` content was hidden from Writing/home discovery but still received a generated catch-all route, so draft metadata was not a safe publication boundary.
 
-Do not continue polishing the current Portfolio 2.0 surfaces merely to make them different.
+These are governance/editorial-system fixes, not a redesign.
+
+## Repository settings posture
+
+Live GitHub was re-read on 2026-08-27:
+
+```text
+visibility = PUBLIC
+squash merge = ENABLED
+merge commits = DISABLED
+rebase merge = DISABLED
+delete merged head branches = ENABLED
+GitHub Pages = ENABLED
+```
+
+The former GOV-2E settings drift is resolved. Public/untrusted workflow code remains GitHub-hosted-only and must never be routed to private self-hosted infrastructure.
+
+## Next bounded transaction
+
+Complete the P11 governance/startup reconciliation on the P11 branch and inspect immediate CI. Then draft **Context Is Part of the System** with current source research, a wordless concept thumbnail, draft-isolation proof, voice/factual review, and exact changed-file review.
+
+The genuine owner gate is the article's public editorial/visual representation. Do not publish or merge the article merely because automated checks pass.
 
 ## Public-safety boundary
 
-Do not publish private correspondence, customer identities, proprietary employer/customer artifacts, credentials, private infrastructure details, private addresses/phone numbers, health/financial information, unsupported metrics, or private job-search/personal context.
-
-A fresh chat must recover this same production/stability state from repository authority without depending on conversation memory or routine reading of archived sprint records.
+Do not publish private correspondence, customer identities, proprietary employer/customer artifacts, credentials, private infrastructure/security details, private addresses/phone numbers, health/financial information, unsupported metrics, private job-search context, or invented first-person experience.

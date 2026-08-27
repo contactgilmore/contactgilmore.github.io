@@ -5,16 +5,16 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
-CENTRAL_SNAPSHOT = "377fbbd47c695d764e033e3839ea9a7c3fdba409"
-OLD_CENTRAL_SNAPSHOTS = {
+CENTRAL_SNAPSHOT = "065c670ea96878d2d21f065908d6b66d49c16dc2"
+STALE_CENTRAL_SNAPSHOTS = {
+    "377fbbd47c695d764e033e3839ea9a7c3fdba409",
     "4eaebde64a4a6ad3bf918d25c76812eae1db978a",
     "483a9e2dab6684ad82a043e9de8b184fc0b53adf",
 }
-CLEANUP_BASE = "6cd58c05a5b68de0eac4a69e2315c3539c0a0144"
-CANDIDATE_HEAD = "c1211564f2086280d3a09fe992e1dc378aa960dd"
-BRANCH_RETIREMENT_HEAD = "97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6"
-BRANCH_RETIREMENT_RUN = "31919041013"
-BRANCH_RETIREMENT_JOB = "95095736087"
+ACTIVE_SPRINT = "P11"
+ACTIVE_HORIZON = "H2"
+ACTIVE_PRODUCT_GOAL = "PG-2"
+ACTIVE_SPRINT_RECORD = "docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
 
 
 def read(rel: str) -> str:
@@ -28,22 +28,32 @@ def read(rel: str) -> str:
 required = {
     "README.md",
     "00_MASTER/00_MASTER_DOCTRINE.md",
+    "00_MASTER/PRODUCT_ROADMAP.md",
     "00_MASTER/WHERE_WE_ARE.md",
     "00_MASTER/ACTIVE_SPRINT.md",
     "00_MASTER/LAST_CLOSEOUT_PROMPT.txt",
+    "00_MASTER/README.md",
+    "00_MASTER/PACKAGE_PROFILE.txt",
     "package.json",
     "package-lock.json",
     "docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md",
     "docs/product/00_PRODUCT_DOCTRINE.md",
+    "docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md",
+    "docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md",
     "docs/architecture/00_ARCHITECTURE_DOCTRINE.md",
     "docs/brand/00_BRAND_DOCTRINE.md",
     "docs/versioning/00_VERSIONING_DOCTRINE.md",
-    "docs/versioning/contactgilmore-portfolio/00_VERSIONING_BRIEF.md",
-    "docs/versioning/contactgilmore-portfolio/01_BRANCH_AND_RELEASE_WORKFLOW.md",
+    "docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
+    "docs/editorial/NEXT_SERIES_FOUNDATION.md",
+    ACTIVE_SPRINT_RECORD,
+    "src/pages/[...slug].astro",
 }
 for rel in sorted(required):
     if not (ROOT / rel).is_file():
         errors.append(f"missing required file: {rel}")
+
+if (ROOT / "ROADMAP.md").exists():
+    errors.append("parallel root ROADMAP.md must be absent; canonical roadmap is 00_MASTER/PRODUCT_ROADMAP.md")
 
 for forbidden in (
     ".github/workflows/package-pages-candidate.yml",
@@ -59,18 +69,16 @@ for token in (
     "CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED",
     "CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED",
     "CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE",
+    "00_MASTER/PRODUCT_ROADMAP.md",
     "PUBLIC_DISCLOSURE_DEFAULT=YES",
+    "draft: true",
 ):
     if token not in master:
-        errors.append(f"Master missing required central/public token: {token}")
+        errors.append(f"Master missing required current token: {token}")
 
 sprint_dir = ROOT / "00_MASTER/01_SPRINT_SYSTEM"
-if sprint_dir.exists() and any(
-    path.suffix.lower() == ".md" for path in sprint_dir.iterdir() if path.is_file()
-):
-    errors.append(
-        "duplicated local Sprint System must not exist after central Development Governance adoption"
-    )
+if sprint_dir.exists() and any(path.suffix.lower() == ".md" for path in sprint_dir.iterdir() if path.is_file()):
+    errors.append("duplicated local Sprint System must not exist after central Development Governance adoption")
 
 repo_gov = ROOT / "docs/repository-governance/github"
 expected_repo_gov = {
@@ -83,11 +91,7 @@ expected_repo_gov = {
 if not repo_gov.is_dir():
     errors.append("missing docs/repository-governance/github")
 else:
-    actual = {
-        path.name
-        for path in repo_gov.iterdir()
-        if path.is_file() and path.suffix.lower() == ".md"
-    }
+    actual = {path.name for path in repo_gov.iterdir() if path.is_file() and path.suffix.lower() == ".md"}
     if actual != expected_repo_gov:
         errors.append(
             "repository-governance five-document law violation: "
@@ -128,11 +132,7 @@ for rel_dir, expected_names in {
     if not root.is_dir():
         errors.append(f"missing governed domain directory: {rel_dir}")
         continue
-    actual = {
-        path.name
-        for path in root.iterdir()
-        if path.is_file() and path.suffix.lower() == ".md"
-    }
+    actual = {path.name for path in root.iterdir() if path.is_file() and path.suffix.lower() == ".md"}
     if actual != expected_names:
         errors.append(
             f"{rel_dir} five-document law violation: "
@@ -143,6 +143,101 @@ repo_root = read("docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.m
 if CENTRAL_SNAPSHOT not in repo_root:
     errors.append("repository-governance root missing current central snapshot")
 
+roadmap = read("00_MASTER/PRODUCT_ROADMAP.md")
+for token in (
+    "one canonical roadmap",
+    "Roadmap Horizon H2",
+    "Product Goal PG-2",
+    "P11",
+    "Context Is Part of the System",
+):
+    if token not in roadmap:
+        errors.append(f"Product Roadmap missing current direction token: {token}")
+
+where = read("00_MASTER/WHERE_WE_ARE.md")
+active = read("00_MASTER/ACTIVE_SPRINT.md")
+last = read("00_MASTER/LAST_CLOSEOUT_PROMPT.txt")
+sprint = read(ACTIVE_SPRINT_RECORD)
+for rel, body in (
+    ("00_MASTER/WHERE_WE_ARE.md", where),
+    ("00_MASTER/ACTIVE_SPRINT.md", active),
+    ("00_MASTER/LAST_CLOSEOUT_PROMPT.txt", last),
+    (ACTIVE_SPRINT_RECORD, sprint),
+):
+    for token in (CENTRAL_SNAPSHOT, ACTIVE_SPRINT, ACTIVE_HORIZON, ACTIVE_PRODUCT_GOAL):
+        if token not in body:
+            errors.append(f"{rel} missing current sprint/central token: {token}")
+
+for token in ("P10", "COMPLETE", "stability", "9090915653"):
+    if token not in where:
+        errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
+
+for token in (
+    "Status: **ACTIVE**",
+    ACTIVE_SPRINT_RECORD,
+    "Context Is Part of the System",
+    "Owner gate",
+):
+    if token not in active:
+        errors.append(f"ACTIVE_SPRINT missing required token: {token}")
+if "NO ACTIVE IMPLEMENTATION SPRINT" in active:
+    errors.append("ACTIVE_SPRINT still claims there is no active sprint")
+
+product_backlog = read("docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md")
+for token in ("P10", "COMPLETE", "P11", "Draft leakage"):
+    if token not in product_backlog:
+        errors.append(f"Product backlog missing reconciled token: {token}")
+if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
+    errors.append("Product backlog still describes P10 as active")
+
+series = read("docs/editorial/NEXT_SERIES_FOUNDATION.md")
+for token in (
+    "ACTIVE SERIES DIRECTION / P11 CONTINUATION",
+    "Context Is Part of the System",
+    "Plan Before Edit",
+    "low-owner-friction",
+):
+    if token not in series:
+        errors.append(f"Series foundation missing P11 token: {token}")
+
+settings = read("docs/repository-governance/github/01_REPOSITORY_SETTINGS_AND_SECURITY.md")
+for token in (
+    "visibility = PUBLIC",
+    "squash merge = ENABLED",
+    "merge commits = DISABLED",
+    "rebase merge = DISABLED",
+    "delete merged head branches = ENABLED",
+    "former GOV-2E settings drift is resolved",
+):
+    if token not in settings:
+        errors.append(f"settings authority missing current live token: {token}")
+
+route_source = read("src/pages/[...slug].astro")
+if ".filter(({ data }) => data.draft !== true)" not in route_source:
+    errors.append("catch-all article route does not exclude draft content from getStaticPaths")
+
+package_profile = read("00_MASTER/PACKAGE_PROFILE.txt")
+for token in (
+    "CANONICAL_ROADMAP=00_MASTER/PRODUCT_ROADMAP.md",
+    "PRODUCT_BRIEF=docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md",
+    f"CENTRAL_SNAPSHOT={CENTRAL_SNAPSHOT}",
+):
+    if token not in package_profile:
+        errors.append(f"PACKAGE_PROFILE missing startup token: {token}")
+
+for rel in (
+    "00_MASTER/00_MASTER_DOCTRINE.md",
+    "00_MASTER/WHERE_WE_ARE.md",
+    "00_MASTER/ACTIVE_SPRINT.md",
+    "00_MASTER/LAST_CLOSEOUT_PROMPT.txt",
+    "00_MASTER/PACKAGE_PROFILE.txt",
+    "docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md",
+):
+    body = read(rel)
+    for stale_snapshot in STALE_CENTRAL_SNAPSHOTS:
+        if stale_snapshot in body:
+            errors.append(f"stale central snapshot remains in current authority: {rel}")
+
 readme = read("README.md")
 for token in (
     "Portfolio 2.0 is live on `main`",
@@ -152,131 +247,46 @@ for token in (
     if token not in readme:
         errors.append(f"README missing current production/branch token: {token}")
 
-versioning_brief = read(
-    "docs/versioning/contactgilmore-portfolio/00_VERSIONING_BRIEF.md"
-)
-branch_workflow = read(
-    "docs/versioning/contactgilmore-portfolio/01_BRANCH_AND_RELEASE_WORKFLOW.md"
-)
+versioning_brief = read("docs/versioning/contactgilmore-portfolio/00_VERSIONING_BRIEF.md")
+branch_workflow = read("docs/versioning/contactgilmore-portfolio/01_BRANCH_AND_RELEASE_WORKFLOW.md")
 for token in (
-    CANDIDATE_HEAD,
-    BRANCH_RETIREMENT_RUN,
-    BRANCH_RETIREMENT_JOB,
     "no long-lived foundation or candidate branch",
-):
-    if token not in versioning_brief:
-        errors.append(f"Versioning Brief missing retirement token: {token}")
-for token in (
-    "main` is the only production branch",
     "candidate-packaging workflow is retired",
     "Public self-hosted execution remains prohibited",
 ):
-    if token not in branch_workflow:
-        errors.append(f"Branch workflow missing current rule: {token}")
+    if token not in f"{versioning_brief}\n{branch_workflow}":
+        errors.append(f"versioning authority missing retained production rule: {token}")
 
-where = read("00_MASTER/WHERE_WE_ARE.md")
-active = read("00_MASTER/ACTIVE_SPRINT.md")
-last = read("00_MASTER/LAST_CLOSEOUT_PROMPT.txt")
-for rel, body in (
-    ("00_MASTER/WHERE_WE_ARE.md", where),
-    ("00_MASTER/ACTIVE_SPRINT.md", active),
-    ("00_MASTER/LAST_CLOSEOUT_PROMPT.txt", last),
-):
-    for token in (
-        CENTRAL_SNAPSHOT,
-        CLEANUP_BASE,
-        CANDIDATE_HEAD,
-        BRANCH_RETIREMENT_HEAD,
-        BRANCH_RETIREMENT_RUN,
-        BRANCH_RETIREMENT_JOB,
-    ):
-        if token not in body:
-            errors.append(f"{rel} missing GOV-2E recovery token: {token}")
-
-for token in ("P10", "stability", "9090915653"):
-    if token not in where:
-        errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
-for token in (
-    "NO ACTIVE IMPLEMENTATION SPRINT",
-    "P10",
-    "CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED",
-    "candidate-packaging workflow = ABSENT",
-):
-    if token not in active:
-        errors.append(f"ACTIVE_SPRINT missing required token: {token}")
-
-settings = read(
-    "docs/repository-governance/github/01_REPOSITORY_SETTINGS_AND_SECURITY.md"
-)
-for token in (
-    "visibility = PUBLIC",
-    "squash merge = ENABLED",
-    "merge commits = ENABLED — DRIFT",
-    "rebase merge = ENABLED — DRIFT",
-    "delete merged head branches = DISABLED — DRIFT",
-    "separate bounded settings-only transaction",
-):
-    if token not in settings:
-        errors.append(f"settings authority missing audited drift token: {token}")
-
-actions_storage = read(
-    "docs/repository-governance/github/02_ACTIONS_RUNNERS_STORAGE_AND_CACHE.md"
-)
-lifecycle = read(
-    "docs/repository-governance/github/03_LIFECYCLE_AUDIT_AND_CLEANUP.md"
-)
+actions_storage = read("docs/repository-governance/github/02_ACTIONS_RUNNERS_STORAGE_AND_CACHE.md")
+lifecycle = read("docs/repository-governance/github/03_LIFECYCLE_AUDIT_AND_CLEANUP.md")
 for rel, body in (
     ("docs/repository-governance/github/02_ACTIONS_RUNNERS_STORAGE_AND_CACHE.md", actions_storage),
     ("docs/repository-governance/github/03_LIFECYCLE_AUDIT_AND_CLEANUP.md", lifecycle),
 ):
-    for token in (
-        "Actions artifacts",
-        "Actions caches",
-        "candidate-packaging workflow",
-    ):
+    for token in ("Actions artifacts", "Actions caches", "candidate-packaging workflow"):
         if token not in body:
-            errors.append(f"{rel} missing GOV-2E storage/lifecycle token: {token}")
-
-for rel in (
-    "00_MASTER/00_MASTER_DOCTRINE.md",
-    "00_MASTER/WHERE_WE_ARE.md",
-    "00_MASTER/ACTIVE_SPRINT.md",
-    "00_MASTER/LAST_CLOSEOUT_PROMPT.txt",
-    "docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md",
-):
-    body = read(rel)
-    for old_snapshot in OLD_CENTRAL_SNAPSHOTS:
-        if old_snapshot in body:
-            errors.append(f"stale central snapshot remains in current authority: {rel}")
+            errors.append(f"{rel} missing retained storage/lifecycle token: {token}")
 
 workflows = ROOT / ".github/workflows"
 for path in sorted(workflows.glob("*.y*ml")):
     body = path.read_text(encoding="utf-8")
     if re.search(r"runs-on:\s*\[?\s*self-hosted", body, re.I):
-        errors.append(
-            f"public portfolio workflow routes to self-hosted runner: {path.relative_to(ROOT)}"
-        )
+        errors.append(f"public portfolio workflow routes to self-hosted runner: {path.relative_to(ROOT)}")
     if re.search(r"uses:\s*actions/cache@", body):
         errors.append(f"GitHub dependency cache action found: {path.relative_to(ROOT)}")
     if re.search(r"^\s*cache:\s*(npm|yarn|pnpm)\b", body, re.MULTILINE):
-        errors.append(
-            f"setup-node cloud dependency cache found: {path.relative_to(ROOT)}"
-        )
+        errors.append(f"setup-node cloud dependency cache found: {path.relative_to(ROOT)}")
     if "actions/setup-node@" in body and "package-manager-cache: false" not in body:
-        errors.append(
-            f"setup-node does not explicitly disable package-manager-cache: {path.relative_to(ROOT)}"
-        )
+        errors.append(f"setup-node does not explicitly disable package-manager-cache: {path.relative_to(ROOT)}")
     if re.search(r"^\s*-?\s*run:\s*npm install(?:\s|$)", body, re.MULTILINE):
-        errors.append(
-            f"workflow uses npm install instead of lockfile-driven npm ci: {path.relative_to(ROOT)}"
-        )
+        errors.append(f"workflow uses npm install instead of lockfile-driven npm ci: {path.relative_to(ROOT)}")
     if "playwright-smoke-failure-evidence" in body and "retention-days: 1" not in body:
         errors.append("Playwright failure evidence must retain exactly one day")
 
 playwright = read(".github/workflows/playwright-smoke.yml")
 for token in ("runs-on: ubuntu-latest", "if: failure()", "retention-days: 1", "npm ci"):
     if token not in playwright:
-        errors.append(f"Playwright smoke missing public/local-first token: {token}")
+        errors.append(f"Playwright smoke missing public-runner/evidence token: {token}")
 
 if errors:
     print("Portfolio governance check: FAIL")

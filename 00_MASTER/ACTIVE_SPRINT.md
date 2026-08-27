@@ -1,50 +1,80 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-08-15
+Status: **ACTIVE**  
+Updated: 2026-08-27
 
-P10 — Employer Readiness and Final Portfolio Polish — remains complete, owner approved, merged, deployed, and production verified.
-
-Most recently completed sprint record:
-
-`docs/sprints/SPRINT_P10_EMPLOYER_READINESS_AND_FINAL_PORTFOLIO_POLISH_2026-08-10.md`
-
-Production authority:
+## P11 — Prompt. Prove. Ship. Editorial Continuation
 
 ```text
-production branch: main
-P10 implementation PR: #31
-P10 production merge: 99bcd3a82cc37a99350d6eae2171b053d8f27199
-Pages run: 31464158531 — SUCCESS
-Validate Astro migration run: 31464158520 — SUCCESS
-Playwright portfolio smoke run: 31464158526 — SUCCESS
-Playwright: 140 passed / 4 intentional skips / 0 failures
-historical production evidence artifact: 9090915653
-artifact digest: sha256:d64e15e5b55379dc705c17397b48a016e6eba214d94448b34bd48e6bc98eba06
+Roadmap = 00_MASTER/PRODUCT_ROADMAP.md
+Roadmap Horizon = H2 — Sustained professional signal and editorial proof
+Product Goal = PG-2
+Sprint = P11 — Prompt. Prove. Ship. Editorial Continuation
+Sprint record = docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md
+Working branch = p11-prompt-prove-ship-editorial-continuation
+Activation base = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
+Current branch/head/PR = resolve from live GitHub
 ```
 
-Current product posture: stability. Do not open another implementation sprint merely to continue cosmetic portfolio polishing. New product/content work requires a real defect, meaningful new professional evidence, a deliberate writing objective, or another concrete public outcome.
+## Sprint Goal
 
-## Central-maintenance posture
+Prove the low-owner-friction publishing model by selecting, researching, drafting, validating, and presenting the next **Prompt. Prove. Ship.** installment for owner approval while reconciling the portfolio to the current one-roadmap/deterministic-startup governance model.
 
-The Portfolio has no product sprint, but bounded central maintenance may proceed under the current central GOV-2 execution record.
+## Current work package
+
+**P11-A — Context Is Part of the System**
+
+Selected article:
+
+`#1. Prompt. Prove. Ship.: Context Is Part of the System`
+
+The article should teach how durable repository-native context makes agent work recoverable and useful without turning every tool-entry file into a duplicate encyclopedia. It should distinguish thin entry instructions, durable project authority, current roadmap/sprint state, and task-specific evidence. The next article—not this one—owns the deeper discussion of allowed/no-touch scope and stop conditions.
+
+## Allowed scope
+
+P11 may change only the smallest paths needed for:
 
 ```text
-CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
-CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
-CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-central snapshot = 377fbbd47c695d764e033e3839ea9a7c3fdba409
-GOV-2E cleanup base = 6cd58c05a5b68de0eac4a69e2315c3539c0a0144
-former candidate tip = c1211564f2086280d3a09fe992e1dc378aa960dd
-branch-retirement transaction head = 97a1d746c4517e84fdfb9eca01cc8d292d8fbaf6
-candidate branch retirement = COMPLETE / VERIFIED
-branch-retirement run = 31919041013 PASS
-branch-retirement job = 95095736087 PASS
-candidate branch = ABSENT
-candidate-packaging workflow = ABSENT
-GitHub Actions artifacts = 0
-GitHub Actions caches = 0
-settings correction = PENDING / separate settings-only transaction
+00_MASTER startup/roadmap/living-state authority
+current product backlog fact
+current editorial series foundation
+current P11 sprint record
+local repository-governance adoption facts/checker needed to make those authorities enforceable
+Astro draft-route isolation
+Prompt. Prove. Ship. article source/thumbnail/tests
 ```
 
-This maintenance state changes no public page, content, design, URL, application source, production build behavior, or deployment workflow. Public workflows remain GitHub-hosted only.
+## Protected / no-touch scope
+
+Do not alter as a side effect:
+
+```text
+historical article bodies, dates, slugs, or compatibility routes
+P10-approved Home / Work / case studies / About / Resume copy or design
+shared visual system except a new article-specific thumbnail asset
+production deployment triggers or runner trust boundary
+private infrastructure or private job-search information
+```
+
+## Acceptance gates
+
+Before owner article review:
+
+- canonical roadmap exists only at `00_MASTER/PRODUCT_ROADMAP.md`;
+- startup/living state agree on H2 / PG-2 / P11;
+- stale P10/GOV-2E current-state contradictions are removed from living authority/checks;
+- `draft: true` content has no generated public article route and is absent from Writing/home/series navigation;
+- article source pack uses current first-party documentation for time-sensitive claims;
+- article passes P9 voice/read-aloud review and factual/technical verification separately;
+- public disclosure/professional-read review passes;
+- Astro/build/content/link/asset checks pass;
+- affected Playwright responsive and accessibility proof passes;
+- exact changed-file/material diff is reviewed.
+
+## Owner gate
+
+Mike must approve the article's final public editorial/visual representation before the candidate is made publishable/merged to production. Routine research, drafting, metadata, branch/PR mechanics, deterministic repairs, and test progression remain delegated inside this sprint.
+
+## Stop conditions
+
+Stop for owner direction if the article requires an unsupported personal anecdote, material change in series/product direction, sensitive/private context, a new paid service, a material site redesign, or another owner-reserved boundary. Do not manufacture a story or widen the sprint to avoid the gate.
