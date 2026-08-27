@@ -8,31 +8,22 @@ Updated: 2026-08-27
 ```text
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
-current main = 736d0171b9905efcc442e5d0dc69eb90a0602fd6 at P11 production closeout; reconcile live at startup
-working branch = none after P11 closeout
-current PR = none after P11 closeout
+current main = reconcile live at startup
+working branch = none after P12 closeout
+current PR = none after P12 closeout
 hosting = GitHub Pages
 build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
+latest central company-brand reference = 35fc99a97e635e419e7af39541002421adfe470d
 ```
 
 ## Product position
 
-Portfolio 2.0 remains live and stable. P10 — Employer Readiness and Final Portfolio Polish — remains **COMPLETE / OWNER APPROVED / DEPLOYED**. Home, Work, professional case studies, About, Resume, and the shared visual system stay in stability posture unless new evidence justifies change.
+Portfolio 2.0 remains live and stable. P10 — Employer Readiness and Final Portfolio Polish — remains **COMPLETE / OWNER APPROVED / DEPLOYED**. Home, Work, professional case studies, About, Resume, and the shared visual system remain in stability posture unless new evidence justifies change.
 
-Accepted P10 production anchor:
-
-```text
-P10 PR = #31
-production merge = 99bcd3a82cc37a99350d6eae2171b053d8f27199
-Pages run = 31464158531 — SUCCESS
-Validate run = 31464158520 — SUCCESS
-Playwright run = 31464158526 — SUCCESS
-historical production artifact = 9090915653
-```
+P11 — Prompt. Prove. Ship. Editorial Continuation — remains **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
 
 ## Roadmap state
 
@@ -40,37 +31,36 @@ historical production artifact = 9090915653
 canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
-most recently completed sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — COMPLETE
-active implementation sprint = NO ACTIVE IMPLEMENTATION SPRINT
-next strongest candidate = Plan Before Edit
+most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
+active implementation sprint = NONE
+next strongest editorial candidate = Plan Before Edit
 ```
 
-## P11 production closeout
+## P12 color outcome
 
-P11 is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+Owner-approved portfolio identity colors:
 
 ```text
-PR #43 = MERGED
-production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
-pre-merge governance run = 33108072525 — SUCCESS
-pre-merge Astro run = 33108072628 — SUCCESS
-pre-merge Playwright run = 33108072580 — SUCCESS — 146 passed / 4 intentional skips / 0 failures
-post-merge governance run = 33108684787 — SUCCESS
-post-merge Astro run = 33108684801 — SUCCESS
-post-merge Playwright run = 33108684776 — SUCCESS
-Pages run = 33108684844 — SUCCESS
+canvas = #F7F8FA
+surface = #FFFFFF
+surface subtle = #EEF2F6
+ink = #18202A
+ink strong = #0D1117
+ink muted = #5E6876
+border = #DCE1E7
+accent = #7C3AED
+accent strong = #5B2C83
+accent soft = #C4B5FD
+depth = #111821
+depth soft = #1B2531
+focus = #A78BFA
 ```
 
-Published increment:
+The former electric-blue identity accent is retired. The approved result preserves the existing neutral portfolio and changes only bounded identity color moments such as labels, links, metrics, focus treatment, and dark-surface accent text.
 
-```text
-#1. Prompt. Prove. Ship.: Context Is Part of the System
-seriesOrder 1 = /prompt-prove-ship-context/
-publication date = 2026-08-27
-owner editorial/visual approval = RECEIVED 2026-08-27
-```
+The portfolio remains a personal product and does not consume Augusta Method company brand. Central governance separately promoted this successful color treatment as an approved color-only reference and froze equivalent company digital identity tokens at central merge `35fc99a97e635e419e7af39541002421adfe470d`.
 
-The article's length, tone, structure, and transition were accepted. It stays centered on recoverable context and ends naturally at the boundary question owned by **Plan Before Edit**.
+Do not infer that portfolio layout, typography, spacing, radii, navigation, or content are company-wide Augusta Method authority.
 
 ## Publishing workflow retained from P11
 
