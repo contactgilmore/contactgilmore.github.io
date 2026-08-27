@@ -13,6 +13,7 @@ Sprint = P11 — Prompt. Prove. Ship. Editorial Continuation
 Sprint record = docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md
 Working branch = p11-prompt-prove-ship-editorial-continuation
 Activation base = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
+Consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 Current branch/head/PR = resolve from live GitHub
 ```
 
