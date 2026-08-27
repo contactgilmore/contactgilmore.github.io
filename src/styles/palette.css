@@ -1,0 +1,16 @@
+:root {
+  /* Owner-approved portfolio identity colors, 2026-08-27. */
+  --accent: #7c3aed;
+  --accent-strong: #5b2c83;
+  --accent-soft: #c4b5fd;
+  --focus: #a78bfa;
+}
+
+:focus-visible {
+  outline-color: var(--focus);
+}
+
+.eyebrow--light,
+.case-metric strong {
+  color: var(--accent-soft);
+}
