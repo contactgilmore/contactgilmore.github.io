@@ -39,7 +39,7 @@
 .prose pre { overflow-x: auto; padding: 20px; border-radius: 14px; background: #111821; color: #eef3fa; }
 .prose code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .92em; }
 .prose :not(pre) > code { padding: .15em .35em; border-radius: 6px; background: #e9edf2; }
-.prose blockquote { margin-left: 0; padding: .3rem 0 .3rem 1.35rem; border-left: 3px solid #9eb6f5; color: var(--muted); }
+.prose blockquote { margin-left: 0; padding: .3rem 0 .3rem 1.35rem; border-left: 3px solid var(--focus); color: var(--muted); }
 .prose a { color: var(--accent-strong); text-underline-offset: 3px; }
 .prose hr { margin: 3rem 0; border: 0; border-top: 1px solid var(--line); }
 
