@@ -129,26 +129,32 @@ test('series continuation reaches Argo CD and GitOps', async ({ page }) => {
 
   seriesNav = page.getByRole('navigation', { name: /Git to Know You series navigation/i });
   await expect(seriesNav.getByRole('link', { name: /Previous.*OpenTelemetry/i })).toHaveAttribute('href', '/gtny-opentelemetry/');
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /argo-cd-logo\.svg$/);
-  await expect(page.locator('.blog-thumbnail')).toHaveAttribute('src', '/assets/images/blog2026/082026/argo-cd-logo.svg');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /argo-icon-color\.svg$/);
+  await expect(page.locator('.blog-thumbnail')).toHaveAttribute('src', '/assets/images/blog2026/082026/argo-icon-color.svg');
   await expect(page.locator('.blog-thumbnail')).toHaveCSS('object-fit', 'contain');
 });
 
 test('retired launch note points readers to current Writing', async ({ page }) => {
   await page.goto('/we-have-a-blog/', { waitUntil: 'networkidle' });
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Writing has moved');
-  await expect(page.getByRole('link', { name: 'Browse current writing' })).toHaveAttribute('href', '/blog/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('This early launch note has been retired.');
+  await expect(page.getByRole('link', { name: 'Go to Writing →' })).toHaveAttribute('href', '/blog/');
 });
 
 test('structured data stays public-safe and article metadata is complete', async ({ page }) => {
   await page.goto('/GTNY-terraform/', { waitUntil: 'networkidle' });
 
-  const articleJson = page.locator('script[type="application/ld+json"]').last();
-  const payload = JSON.parse(await articleJson.textContent() || '{}');
-  expect(payload['@type']).toBe('BlogPosting');
-  expect(payload.headline).toContain('Git to Know You: Terraform');
-  expect(payload.datePublished).toBeTruthy();
-  expect(payload.dateModified).toBeTruthy();
+  const jsonText = await page.locator('script[type="application/ld+json"]').textContent();
+  const payload = JSON.parse(jsonText || '{}');
+  const article = Array.isArray(payload['@graph'])
+    ? payload['@graph'].find((entry: { '@type'?: string }) => entry['@type'] === 'BlogPosting')
+    : payload['@type'] === 'BlogPosting'
+      ? payload
+      : undefined;
+
+  expect(article).toBeTruthy();
+  expect(article.headline).toContain('Git to Know You: Terraform');
+  expect(article.datePublished).toBeTruthy();
+  expect(article.dateModified).toBeTruthy();
 
   const body = await page.locator('body').innerText();
   expect(body).not.toMatch(/\b\d{3}[-.\s]\d{3}[-.\s]\d{4}\b/);
