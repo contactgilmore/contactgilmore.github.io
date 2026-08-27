@@ -12,3 +12,7 @@
 .case-metric strong {
   color: #c4b5fd;
 }
+
+.prose blockquote {
+  border-left-color: #a78bfa;
+}
