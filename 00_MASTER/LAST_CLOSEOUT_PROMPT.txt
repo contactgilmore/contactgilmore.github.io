@@ -6,31 +6,43 @@ CURRENT PRODUCT STATE
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
-- P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE.
-- Sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
-- PR #43 is the approved #1 publication transaction; reconcile its exact live state before acting.
+- P11 — Prompt. Prove. Ship. Editorial Continuation — COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
+- There is NO ACTIVE IMPLEMENTATION SPRINT after P11 closeout.
+- Most recent sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
+
+P11 PRODUCTION ANCHOR
+- PR #43 = MERGED.
+- production merge = `736d0171b9905efcc442e5d0dc69eb90a0602fd6`.
+- pre-merge governance `33108072525` = SUCCESS.
+- pre-merge Astro `33108072628` = SUCCESS.
+- pre-merge Playwright `33108072580` = SUCCESS, 146 passed / 4 intentional skips / 0 failures.
+- post-merge governance `33108684787` = SUCCESS.
+- post-merge Astro `33108684801` = SUCCESS.
+- post-merge Playwright `33108684776` = SUCCESS.
+- Pages deployment `33108684844` = SUCCESS.
 
 CENTRAL SHARED GOVERNANCE
-- canonical store: `contactgilmore/augusta-method-governance`
-- consumed snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`
-- `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`
-- `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`
-- `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`
+- canonical store: `contactgilmore/augusta-method-governance`.
+- consumed P11 snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`.
+- `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`.
+- `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`.
+- `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`.
 - do not recreate a local Sprint System or a second roadmap.
 
 P11 ACCEPTED LEARNING
 - GPT owns routine topic selection, source research, drafting, metadata, GitHub mechanics, and validation inside the approved Product Goal.
 - Mike's normal article gate is review/approval of the real rendered public representation.
-- Draft articles use `draft: true`; normal builds/public routes exclude them.
+- Candidate articles use `draft: true`; normal builds/public routes exclude them.
 - Local owner review uses `npm run review:drafts` to render the actual Astro page before publication.
 - A preview failure is repaired at the source; do not weaken draft isolation.
 - Local generated output such as `.astro/`, `dist/`, `node_modules/`, Playwright output, and `.DS_Store` is disposable and ignored rather than committed.
+- Exact-diff review must confirm that test fixes do not silently delete unrelated regression coverage.
 
 CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
-- #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, owner approved 2026-08-27.
+- #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
 - #1 editorial assessment: length/tone/structure accepted; one context-architecture mental model; direct established voice; natural lead-in to the next article.
-- next article: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+- next strongest article candidate: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
 
 NEXT ACTION
-Reconcile exact current `main`, P11 branch/PR #43, and Actions. If #1 is already merged and production verified, advance P11 to Plan Before Edit. If publication proof is still pending, complete only the remaining exact-head/production verification; do not reopen owner-approved article content without new evidence.
+Reconcile exact current `main`, open PRs, Actions, and living authority. If no newer evidence changes priority, open a new bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not reconstruct P11 from chat history, reopen the published #1 without new evidence, or publish merely to maintain cadence.

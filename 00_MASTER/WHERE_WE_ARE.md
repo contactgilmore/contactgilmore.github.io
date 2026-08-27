@@ -8,9 +8,9 @@ Updated: 2026-08-27
 ```text
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
-current main = resolve from live GitHub at startup
-working branch = p11-prompt-prove-ship-editorial-continuation
-current PR = #43
+current main = 736d0171b9905efcc442e5d0dc69eb90a0602fd6 at P11 production closeout; reconcile live at startup
+working branch = none after P11 closeout
+current PR = none after P11 closeout
 hosting = GitHub Pages
 build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
@@ -21,7 +21,7 @@ consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 
 ## Product position
 
-Portfolio 2.0 is live and stable. P10 — Employer Readiness and Final Portfolio Polish — remains **COMPLETE / OWNER APPROVED / DEPLOYED**. Home, Work, professional case studies, About, Resume, and the shared visual system stay in stability posture unless new evidence justifies change.
+Portfolio 2.0 remains live and stable. P10 — Employer Readiness and Final Portfolio Polish — remains **COMPLETE / OWNER APPROVED / DEPLOYED**. Home, Work, professional case studies, About, Resume, and the shared visual system stay in stability posture unless new evidence justifies change.
 
 Accepted P10 production anchor:
 
@@ -40,47 +40,59 @@ historical production artifact = 9090915653
 canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
-current sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE
-current work package = P11-WP2 — publish Context Is Part of the System
-next work package = P11-WP3 — Plan Before Edit
+most recently completed sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — COMPLETE
+active implementation sprint = NONE
+next strongest candidate = Plan Before Edit
 ```
 
-## Writing state
+## P11 production closeout
 
-The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
-
-**Prompt. Prove. Ship.** now has:
+P11 is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
 
 ```text
-series introduction = Prompt. Prove. Ship.: From Chat to Change
-seriesOrder 0 = /prompt-prove-ship/
-
-#1 = Context Is Part of the System
-seriesOrder 1 = /prompt-prove-ship-context/
-owner editorial/visual approval = RECEIVED 2026-08-27
-publication transaction = AUTHORIZED
-
-next = Plan Before Edit
+PR #43 = MERGED
+production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
+pre-merge governance run = 33108072525 — SUCCESS
+pre-merge Astro run = 33108072628 — SUCCESS
+pre-merge Playwright run = 33108072580 — SUCCESS — 146 passed / 4 intentional skips / 0 failures
+post-merge governance run = 33108684787 — SUCCESS
+post-merge Astro run = 33108684801 — SUCCESS
+post-merge Playwright run = 33108684776 — SUCCESS
+Pages run = 33108684844 — SUCCESS
 ```
 
-Editorial review found #1 appropriate in length, tone, structure, and flow. It opens with a direct practical thesis, stays centered on recoverable context rather than becoming a product feature tour, and intentionally ends at the boundary question that **Plan Before Edit** will own.
+Published increment:
 
-## Publishing workflow learned in P11
+```text
+#1. Prompt. Prove. Ship.: Context Is Part of the System
+seriesOrder 1 = /prompt-prove-ship-context/
+publication date = 2026-08-27
+owner editorial/visual approval = RECEIVED 2026-08-27
+```
 
-A tracked Markdown draft is not the best owner-review surface for a visual portfolio article. The durable review model is:
+The article's length, tone, structure, and transition were accepted. It stays centered on recoverable context and ends naturally at the boundary question owned by **Plan Before Edit**.
+
+## Publishing workflow retained from P11
 
 ```text
 draft: true
 -> normal build/public route excludes draft
 -> npm run review:drafts exposes the draft only for local editorial review
--> Mike reviews the actual Astro page
--> owner notes/approval
--> GPT makes the candidate publishable and runs exact-head proof
+-> owner reviews the actual Astro page
+-> owner approval/notes
+-> GPT makes the candidate publishable
+-> exact-head proof
+-> controlled merge/deploy
+-> production verification
 ```
 
-The first preview implementation failed due to Astro `getStaticPaths()` scope; the implementation was corrected without weakening draft isolation. This is retained as an operational lesson: review tooling must fail closed and source defects are repaired at the source.
+A failed preview is repaired at the source rather than weakening draft isolation. Local/generated `node_modules/`, `.astro/`, `dist/`, Playwright output, and `.DS_Store` are disposable and ignored rather than committed.
 
-Local review also exposed generated-file noise in GitHub Desktop. `.astro/`, `dist/`, `node_modules/`, Playwright output, and `.DS_Store` are disposable local output and are now ignored rather than treated as source changes.
+## Current Writing state
+
+The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
+
+**Prompt. Prove. Ship.** has a published introduction and published #1 installment. The next strongest editorial question is **Plan Before Edit**, but no sprint is active for it yet.
 
 ## Public-safety boundary
 

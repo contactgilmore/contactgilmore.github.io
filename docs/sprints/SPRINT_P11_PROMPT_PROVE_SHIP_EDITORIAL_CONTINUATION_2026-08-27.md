@@ -1,19 +1,23 @@
 # P11 — Prompt. Prove. Ship. Editorial Continuation
 
-Status: **ACTIVE**  
+Status: **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**  
 Opened: 2026-08-27  
+Closed: 2026-08-27  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
 Roadmap Horizon: **H2 — Sustained professional signal and editorial proof**  
 Product Goal: **PG-2**  
-Working branch: `p11-prompt-prove-ship-editorial-continuation`  
-PR: **#43**  
+Working branch: `p11-prompt-prove-ship-editorial-continuation` — merged/deleted by repository lifecycle  
+PR: **#43 — MERGED**  
 Activation base: `ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3`  
+Production merge: `736d0171b9905efcc442e5d0dc69eb90a0602fd6`  
 Consumed central snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`
 
 ## Sprint Goal
 
 Prove that the technical blog can continue with GPT carrying routine editorial/project work while Mike primarily reviews and approves the real public representation.
+
+**Outcome: ACCEPTED.** P11 published the first numbered **Prompt. Prove. Ship.** installment, reconciled deterministic startup/roadmap authority, established fail-closed draft review, retained local repository hygiene, and completed production proof.
 
 ## P11-WP0 — Deterministic startup and editorial-system reconciliation — COMPLETE
 
@@ -35,28 +39,27 @@ Validate Astro migration 33103394300 = SUCCESS
 Playwright portfolio smoke 33103394302 = SUCCESS
 ```
 
-## P11-WP1 — Context Is Part of the System — OWNER APPROVED
+## P11-WP1 — Context Is Part of the System — COMPLETE / OWNER APPROVED
 
-Article:
+Published article:
 
 ```text
 #1. Prompt. Prove. Ship.: Context Is Part of the System
 source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
 slug = /prompt-prove-ship-context/
 seriesOrder = 1
+publication date = 2026-08-27
 thumbnail = /assets/images/blog2026/082026/prompt-prove-ship-context.svg
 owner approval = 2026-08-27
 ```
 
-### Editorial assessment
-
-The approved draft is the right length for the current long-form corpus. Its opening has the direct voice found in the strongest Git/Terraform/Cursor pieces, the article stays centered on one context-architecture mental model, and the ending creates a natural transition into **Plan Before Edit** rather than pre-writing that article.
+Editorial assessment: the article is the right length for the current long-form corpus; its opening matches the direct voice of the strongest Git/Terraform/Cursor pieces; it stays centered on one context-architecture mental model; and it ends with a natural transition into **Plan Before Edit** rather than absorbing that article.
 
 No personal experience, customer story, metric, or screenshot was invented. Current first-party OpenAI Codex, GitHub Copilot, and Cursor instruction documentation was used as contemporary evidence for a vendor-neutral operating idea.
 
 ## Owner-review workflow learned and retained
 
-P11 exposed a missing operational step: a Markdown diff is not a sufficient owner editorial surface for a visual portfolio article.
+A Markdown diff alone is not a sufficient owner editorial surface for a visual portfolio article.
 
 Accepted workflow:
 
@@ -64,20 +67,20 @@ Accepted workflow:
 GPT prepares article + thumbnail + branch/PR
 -> article remains draft: true
 -> normal build/public routes exclude the draft
--> Mike checks out the PR branch locally
+-> owner checks out the PR branch locally
 -> npm run review:drafts
--> Mike reviews the actual Astro page at its intended route
+-> owner reviews the actual Astro page at its intended route
 -> editorial/visual approval or notes
 -> GPT removes draft status and runs publishable exact-head proof
+-> controlled merge/deploy
+-> production verification
 ```
 
-`npm run review:drafts` is review-only. Normal `npm run dev`, builds, CI, and production retain draft exclusion. The initial preview implementation failed because `getStaticPaths()` could not see an outer-scope review flag; the implementation was corrected at the source rather than weakening the draft boundary.
+`npm run review:drafts` is review-only. Normal `npm run dev`, builds, CI, and production retain draft exclusion. The initial preview implementation failed because `getStaticPaths()` could not see an outer-scope review flag; the source was corrected rather than weakening the draft boundary.
 
 ## Local repository hygiene learned and retained
 
-Owner review also exposed thousands of generated local files in GitHub Desktop. They were not intended source changes.
-
-The repository now ignores local/generated output including:
+Owner review exposed generated local files in GitHub Desktop that were not intended source changes. The repository now ignores:
 
 ```text
 node_modules/
@@ -88,57 +91,48 @@ playwright-report/
 .DS_Store
 ```
 
-GitHub remains source authority; generated local build output is disposable and must not be committed merely because a local review/build created it.
+GitHub remains source authority; generated local build output is disposable.
 
-## P11-WP2 — Publication and production proof — OWNER AUTHORIZED / ACTIVE
+## P11-WP2 — Publication and production proof — COMPLETE
 
-Publication transaction requirements:
+Final reviewed PR head:
 
-- remove draft status;
-- retain truthful publication date `2026-08-27`;
-- do not fabricate `publishedAt` when no real ordering need exists;
-- make the new article discoverable on Writing, Home featured content, and series navigation;
-- add published-route and accessibility regression proof;
-- run exact-head governance, Astro/content/link/asset, and Playwright proof;
-- review the exact diff and expected PR head;
-- mark PR ready and squash merge only after all proof passes;
-- verify automatic Pages deployment and the live article.
+`a3652ed6c6549ba23114b21797d9d7df1a1c9235`
 
-## P11-WP3 — Plan Before Edit — NEXT AFTER PRODUCTION PROOF
-
-Primary question:
-
-How do you define what an AI agent may change before it starts editing?
-
-Planned focus:
-
-- allowed scope;
-- no-touch boundaries;
-- acceptance criteria;
-- stop conditions;
-- why boundary writing matters more as agent autonomy grows.
-
-Topic order remains editorial direction, not a forced calendar.
-
-## Allowed paths
-
-P11 may modify the smallest necessary set under:
+Pre-merge exact-head proof:
 
 ```text
-00_MASTER/
-.gitignore
-package.json
-docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md
-docs/editorial/NEXT_SERIES_FOUNDATION.md
-docs/repository-governance/
-docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md
-scripts/check_governance.py
-src/pages/[...slug].astro
-src/content/blog/2026-08-27-prompt-prove-ship-context.md
-public/assets/images/blog2026/082026/prompt-prove-ship-context.svg
-tests/prompt-prove-ship.spec.ts
+Portfolio governance check 33108072525 = SUCCESS
+Validate Astro migration 33108072628 = SUCCESS
+Playwright portfolio smoke 33108072580 = SUCCESS
+Playwright = 146 passed / 4 intentional skips / 0 failures
 ```
 
-## Protected boundaries
+The material-diff review caught an attempted smoke-test repair that had removed unrelated historical regression coverage. That coverage was restored before merge; the final `tests/smoke.spec.ts` delta against the activation base contained only the seven obsolete Home-feature assertion lines. This is retained as a closeout lesson: a green test run is not sufficient if the diff weakened unrelated proof.
 
-Do not alter historical article identity, P10-approved core portfolio copy/design, production deployment semantics, public-runner trust boundaries, or private context as a side effect.
+Merge/deployment:
+
+```text
+PR #43 = SQUASH MERGED
+production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
+post-merge governance 33108684787 = SUCCESS
+post-merge Astro 33108684801 = SUCCESS
+post-merge Playwright 33108684776 = SUCCESS
+Pages deployment 33108684844 = SUCCESS
+```
+
+P11's public claim is therefore supported: the approved article is merged to `main`, the production build/deploy completed successfully, and post-merge validation remained green.
+
+## Next candidate after P11
+
+P11 is closed. **Plan Before Edit** is not a hidden P11 work package and no implementation sprint is active for it yet.
+
+The strongest current next editorial candidate under H2 / PG-2 is:
+
+**Plan Before Edit** — allowed scope, no-touch boundaries, acceptance criteria, stop conditions, and why boundary writing matters more as agent autonomy grows.
+
+A fresh chat should reconcile live truth and open a new bounded sprint only if this remains the strongest useful article. Topic order remains editorial direction, not a forced calendar.
+
+## Protected boundaries retained
+
+Do not alter historical article identity, P10-approved core portfolio copy/design, production deployment semantics, public-runner trust boundaries, or private context as a side effect of later Writing work.
