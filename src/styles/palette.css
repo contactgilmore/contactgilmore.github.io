@@ -14,3 +14,7 @@
 .case-metric strong {
   color: var(--accent-soft);
 }
+
+.prose blockquote {
+  border-left-color: var(--focus);
+}
