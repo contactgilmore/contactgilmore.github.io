@@ -4,8 +4,10 @@ import type { CollectionEntry, GetStaticPaths } from 'astro';
 import BlogPostLayout from '../layouts/BlogPostLayout.astro';
 import { getBlogPath } from '../lib/blog-paths';
 
+const includeDrafts = process.env.PORTFOLIO_REVIEW_DRAFTS === '1';
+
 export const getStaticPaths = (async () => {
-  const posts = (await getCollection('blog')).filter(({ data }) => data.draft !== true);
+  const posts = (await getCollection('blog')).filter(({ data }) => includeDrafts || data.draft !== true);
 
   return posts.map((post) => ({
     params: { slug: getBlogPath(post.id, post.data.slug).replace(/^\//, '').replace(/\/$/, '') },
@@ -25,7 +27,7 @@ let nextInSeries: { title: string; href: string } | undefined;
 
 if (post.data.series && post.data.seriesOrder !== undefined) {
   const seriesPosts = (await getCollection('blog'))
-    .filter(({ data }) => data.draft !== true && data.series === post.data.series && data.seriesOrder !== undefined)
+    .filter(({ data }) => (includeDrafts || data.draft !== true) && data.series === post.data.series && data.seriesOrder !== undefined)
     .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
 
   const currentIndex = seriesPosts.findIndex(({ id }) => id === post.id);
