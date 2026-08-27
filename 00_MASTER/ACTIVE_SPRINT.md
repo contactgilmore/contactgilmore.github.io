@@ -1,6 +1,6 @@
 # Active Sprint
 
-Status: **ACTIVE**  
+Status: **ACTIVE — OWNER ARTICLE REVIEW GATE NEXT**  
 Updated: 2026-08-27
 
 ## P11 — Prompt. Prove. Ship. Editorial Continuation
@@ -12,9 +12,10 @@ Product Goal = PG-2
 Sprint = P11 — Prompt. Prove. Ship. Editorial Continuation
 Sprint record = docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md
 Working branch = p11-prompt-prove-ship-editorial-continuation
+Draft PR = #43
 Activation base = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
 Consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
-Current branch/head/PR = resolve from live GitHub
+Current branch/head/Actions = resolve from live GitHub
 ```
 
 ## Sprint Goal
@@ -23,13 +24,32 @@ Prove the low-owner-friction publishing model by selecting, researching, draftin
 
 ## Current work package
 
-**P11-A — Context Is Part of the System**
+**P11-WP1 — Context Is Part of the System — OWNER REVIEW CANDIDATE**
 
 Selected article:
 
 `#1. Prompt. Prove. Ship.: Context Is Part of the System`
 
-The article should teach how durable repository-native context makes agent work recoverable and useful without turning every tool-entry file into a duplicate encyclopedia. It should distinguish thin entry instructions, durable project authority, current roadmap/sprint state, and task-specific evidence. The next article—not this one—owns the deeper discussion of allowed/no-touch scope and stop conditions.
+```text
+source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
+planned slug = /prompt-prove-ship-context/
+seriesOrder = 1
+draft = true
+publishedAt = intentionally absent
+thumbnail = /assets/images/blog2026/082026/prompt-prove-ship-context.svg
+```
+
+The article teaches how durable repository-native context makes agent work recoverable without turning every tool-entry file into a duplicate encyclopedia. It distinguishes thin entry instructions, durable project authority, current roadmap/sprint state, task-specific evidence, and live truth. The next article owns the deeper treatment of allowed/no-touch scope and stop conditions.
+
+## P11 setup checkpoint
+
+WP0 is complete on `11cceb19bd4de54b0d2a45f8e579cbc492acf3fc`:
+
+```text
+Portfolio governance check run 33103394319 = SUCCESS
+Validate Astro migration run 33103394300 = SUCCESS
+Playwright portfolio smoke run 33103394302 = SUCCESS
+```
 
 ## Allowed scope
 
@@ -52,7 +72,7 @@ Do not alter as a side effect:
 ```text
 historical article bodies, dates, slugs, or compatibility routes
 P10-approved Home / Work / case studies / About / Resume copy or design
-shared visual system except a new article-specific thumbnail asset
+shared visual system except the new article-specific thumbnail asset
 production deployment triggers or runner trust boundary
 private infrastructure or private job-search information
 ```
