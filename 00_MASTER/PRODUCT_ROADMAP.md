@@ -69,18 +69,7 @@ P9  Editorial voice and full-blog quality
 P10 Employer readiness and final portfolio polish
 ```
 
-H1 accepted outcomes include:
-
-- Astro/TypeScript static production on GitHub Pages;
-- stable historical blog URLs/publication dates and compatibility routes;
-- responsive/browser/accessibility regression coverage;
-- public-safe AI-assisted repository workflow;
-- three employer-facing case studies;
-- scan-first Resume and stable Home/Work/About/Writing hierarchy;
-- completed **Git to Know You #1–#10** series;
-- published **Prompt. Prove. Ship.: From Chat to Change** series introduction;
-- P9 technical essay/tutorial house standard;
-- P10 conclusion that the current portfolio does not need another redesign.
+H1 accepted outcomes include Astro/TypeScript static production on GitHub Pages, stable historical blog URLs/publication dates, responsive/browser/accessibility coverage, public-safe AI-assisted repository workflow, three employer-facing case studies, scan-first Resume, the completed **Git to Know You #1–#10** series, the **Prompt. Prove. Ship.** introduction, the P9 long-form house standard, and P10's conclusion that the core portfolio does not need another redesign.
 
 Historical detail belongs in the P1–P10 sprint records and Git history rather than expanding this roadmap indefinitely.
 
@@ -92,7 +81,7 @@ Historical detail belongs in the P1–P10 sprint records and Git history rather 
 
 The core portfolio is stable. The highest-value ongoing work is not cosmetic redesign; it is maintaining accurate professional proof and demonstrating useful technical thinking over time.
 
-The Writing system is intentionally an experiment in low-owner-friction AI-assisted publishing:
+The Writing system uses this operating model:
 
 ```text
 repository authority
@@ -101,7 +90,7 @@ repository authority
 -> source pack
 -> draft in established voice
 -> technical + editorial proof
--> owner review/approval
+-> real-page owner review/approval
 -> controlled merge/deploy
 -> production verification
 -> durable closeout
@@ -109,43 +98,51 @@ repository authority
 
 GPT should not ask Mike to supply routine article ideas, outlines, metadata, source research, branch mechanics, or test-driving steps that repository authority can resolve. Mike remains the public editorial gate.
 
-### P11 — Prompt. Prove. Ship. editorial continuation — ACTIVE
+### P11 — Prompt. Prove. Ship. editorial continuation — COMPLETE
 
 Sprint record:
 
 `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`
 
-Sprint Goal:
+P11 proved the low-owner-friction publishing model and reconciled the portfolio to the current one-roadmap/deterministic-startup hierarchy.
 
-> Prove the low-owner-friction publishing model by selecting, researching, drafting, validating, and presenting the next Prompt. Prove. Ship. installment for owner approval while bringing the repository onto the current one-roadmap startup hierarchy.
-
-Current work package:
-
-**P11-A — Context Is Part of the System**
-
-Selected article:
+Accepted public increment:
 
 ```text
 #1. Prompt. Prove. Ship.: Context Is Part of the System
+slug = /prompt-prove-ship-context/
+seriesOrder = 1
+publication date = 2026-08-27
+PR = #43
+production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
+Pages deployment = 33108684844 — SUCCESS
 ```
 
-Primary idea: an increasingly capable agent needs durable, layered project context more than it needs one enormous prompt. Repository-native instructions should route the agent to authoritative product/architecture/current-state material, while roadmap/sprint/task boundaries keep the context current and useful.
+Accepted P11 operational outcomes include fail-closed `draft: true` routing, local real-page review through `npm run review:drafts`, generated-file ignore hygiene, exact-head CI/production proof, and the rule that test fixes must not silently weaken unrelated regression coverage.
 
-The article should use current first-party documentation from multiple agent ecosystems as examples while teaching a vendor-neutral operating idea. It may use this public portfolio's own governance hierarchy as a transparent example, but it must not expose private project context.
+There is **no active implementation sprint** immediately after P11 closeout.
+
+### Next strongest H2 candidate — Plan Before Edit
+
+If current evidence still supports it at the next startup, open a new bounded sprint for:
+
+**Plan Before Edit** — allowed scope, no-touch boundaries, acceptance criteria, stop conditions, and why boundary writing matters before an AI agent edits a real system.
+
+Do not treat this candidate as already active and do not publish merely to maintain cadence.
 
 ### Prompt. Prove. Ship. sequencing principles
 
 The series remains bounded and value-driven rather than calendar-driven. The intro is `seriesOrder: 0`; numbered installments are selected one at a time based on reader value and source quality.
 
-Likely durable sequence after the current article, subject to evidence at each checkpoint:
+Current directional learning path:
 
-1. **Context Is Part of the System** — repository instructions, durable authority, context routing, stale-context failure modes.
-2. **Plan Before Edit** — allowed scope, no-touch boundaries, acceptance criteria, and stop conditions.
+1. **Context Is Part of the System** — PUBLISHED.
+2. **Plan Before Edit** — next strongest candidate.
 3. **The Agent Finished Is Not Evidence** — tests, browser evidence, source verification, and claim-matching proof.
 4. **Give Tools Less Trust, Not Less Usefulness** — permissions, connectors/MCP, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment/rollback/closeout.
 
-AI-assisted troubleshooting and multi-agent/background work remain later candidates after the fundamentals. This list is directional, not a publication promise. Do not publish weak entries simply to complete the list.
+AI-assisted troubleshooting and multi-agent/background work remain later candidates. This list is directional, not a publication promise. Reorder, combine, pause, replace, or stop when evidence says a different article better serves PG-2.
 
 ## Roadmap Horizon H3 — Future expansion — PLANNED / NOT ACTIVE
 

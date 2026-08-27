@@ -11,10 +11,13 @@ STALE_CENTRAL_SNAPSHOTS = {
     "4eaebde64a4a6ad3bf918d25c76812eae1db978a",
     "483a9e2dab6684ad82a043e9de8b184fc0b53adf",
 }
-ACTIVE_SPRINT = "P11"
-ACTIVE_HORIZON = "H2"
-ACTIVE_PRODUCT_GOAL = "PG-2"
-ACTIVE_SPRINT_RECORD = "docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
+CURRENT_HORIZON = "H2"
+CURRENT_PRODUCT_GOAL = "PG-2"
+MOST_RECENT_SPRINT = "P11"
+MOST_RECENT_SPRINT_RECORD = "docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
+P11_PRODUCTION_MERGE = "736d0171b9905efcc442e5d0dc69eb90a0602fd6"
+P11_PAGES_RUN = "33108684844"
+NEXT_ARTICLE = "Plan Before Edit"
 
 
 def read(rel: str) -> str:
@@ -45,7 +48,7 @@ required = {
     "docs/versioning/00_VERSIONING_DOCTRINE.md",
     "docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
     "docs/editorial/NEXT_SERIES_FOUNDATION.md",
-    ACTIVE_SPRINT_RECORD,
+    MOST_RECENT_SPRINT_RECORD,
     "src/pages/[...slug].astro",
 }
 for rel in sorted(required):
@@ -149,56 +152,79 @@ for token in (
     "Roadmap Horizon H2",
     "Product Goal PG-2",
     "P11",
+    "COMPLETE",
     "Context Is Part of the System",
+    NEXT_ARTICLE,
 ):
     if token not in roadmap:
         errors.append(f"Product Roadmap missing current direction token: {token}")
+if re.search(r"P11[^\n]*\bACTIVE\b", roadmap):
+    errors.append("Product Roadmap still describes P11 as active")
 
 where = read("00_MASTER/WHERE_WE_ARE.md")
 active = read("00_MASTER/ACTIVE_SPRINT.md")
 last = read("00_MASTER/LAST_CLOSEOUT_PROMPT.txt")
-sprint = read(ACTIVE_SPRINT_RECORD)
+sprint = read(MOST_RECENT_SPRINT_RECORD)
 for rel, body in (
     ("00_MASTER/WHERE_WE_ARE.md", where),
     ("00_MASTER/ACTIVE_SPRINT.md", active),
     ("00_MASTER/LAST_CLOSEOUT_PROMPT.txt", last),
-    (ACTIVE_SPRINT_RECORD, sprint),
+    (MOST_RECENT_SPRINT_RECORD, sprint),
 ):
-    for token in (CENTRAL_SNAPSHOT, ACTIVE_SPRINT, ACTIVE_HORIZON, ACTIVE_PRODUCT_GOAL):
+    for token in (CENTRAL_SNAPSHOT, MOST_RECENT_SPRINT, CURRENT_HORIZON, CURRENT_PRODUCT_GOAL):
         if token not in body:
-            errors.append(f"{rel} missing current sprint/central token: {token}")
+            errors.append(f"{rel} missing current closeout/central token: {token}")
 
 for token in ("P10", "COMPLETE", "stability", "9090915653"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE):
+    if token not in where:
+        errors.append(f"WHERE_WE_ARE missing P11 closeout token: {token}")
 
 for token in (
-    "Status: **ACTIVE**",
-    ACTIVE_SPRINT_RECORD,
-    "Context Is Part of the System",
-    "Owner gate",
+    "Status: **NO ACTIVE IMPLEMENTATION SPRINT**",
+    MOST_RECENT_SPRINT_RECORD,
+    MOST_RECENT_SPRINT,
+    "COMPLETE",
+    P11_PRODUCTION_MERGE,
+    P11_PAGES_RUN,
+    NEXT_ARTICLE,
 ):
     if token not in active:
-        errors.append(f"ACTIVE_SPRINT missing required token: {token}")
-if "NO ACTIVE IMPLEMENTATION SPRINT" in active:
-    errors.append("ACTIVE_SPRINT still claims there is no active sprint")
+        errors.append(f"ACTIVE_SPRINT missing no-active/P11 closeout token: {token}")
+if "Status: **ACTIVE**" in active:
+    errors.append("ACTIVE_SPRINT still claims an implementation sprint is active")
+
+for token in ("COMPLETE", P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE):
+    if token not in sprint:
+        errors.append(f"P11 sprint record missing closeout token: {token}")
+if re.search(r"^Status:\s*\*\*ACTIVE\*\*", sprint, re.MULTILINE):
+    errors.append("P11 sprint record still has ACTIVE status")
 
 product_backlog = read("docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md")
-for token in ("P10", "COMPLETE", "P11", "Draft leakage"):
+for token in ("P10", "COMPLETE", "P11", "Draft leakage", NEXT_ARTICLE, "NO ACTIVE IMPLEMENTATION SPRINT"):
     if token not in product_backlog:
         errors.append(f"Product backlog missing reconciled token: {token}")
 if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
     errors.append("Product backlog still describes P10 as active")
+if re.search(r"P11[^\n]*\bACTIVE\b", product_backlog):
+    errors.append("Product backlog still describes P11 as active")
 
 series = read("docs/editorial/NEXT_SERIES_FOUNDATION.md")
 for token in (
-    "ACTIVE SERIES DIRECTION / P11 CONTINUATION",
+    "ACTIVE SERIES DIRECTION / P11 COMPLETE",
     "Context Is Part of the System",
-    "Plan Before Edit",
+    NEXT_ARTICLE,
     "low-owner-friction",
+    P11_PRODUCTION_MERGE,
 ):
     if token not in series:
-        errors.append(f"Series foundation missing P11 token: {token}")
+        errors.append(f"Series foundation missing P11 closeout token: {token}")
+
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE, "NO ACTIVE IMPLEMENTATION SPRINT"):
+    if token not in last:
+        errors.append(f"LAST_CLOSEOUT_PROMPT missing P11 closeout token: {token}")
 
 settings = read("docs/repository-governance/github/01_REPOSITORY_SETTINGS_AND_SECURITY.md")
 for token in (

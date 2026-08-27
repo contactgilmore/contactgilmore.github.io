@@ -12,30 +12,35 @@ The following are no longer open product questions:
 - Resume presentation is live and P10 employer-readiness work is COMPLETE;
 - Writing/archive structure is live on typed Astro content collections;
 - Git to Know You #1–#10 is the first completed writing series;
-- Prompt. Prove. Ship. is the approved next-series direction and its introduction is published;
+- Prompt. Prove. Ship. is the active next-series direction; its introduction and #1 installment are published;
 - P9 full-corpus editorial audit is the durable long-form voice/quality authority;
 - the accepted Portfolio 2.0 core does not need another redesign;
 - canonical sprint records use `docs/sprints/` with the central 30-day recent-history window;
-- repository merge settings now match the intended squash-only/delete-merged-branch posture.
+- repository merge settings match the intended squash-only/delete-merged-branch posture;
+- P11 — **Prompt. Prove. Ship. Editorial Continuation** — is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
+
+P11 production anchor:
+
+```text
+PR #43 = MERGED
+production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
+Pages deployment = 33108684844 — SUCCESS
+post-merge governance = 33108684787 — SUCCESS
+post-merge Astro = 33108684801 — SUCCESS
+post-merge Playwright = 33108684776 — SUCCESS
+```
 
 ## Current bounded work
 
-P11 — **Prompt. Prove. Ship. Editorial Continuation** — advances Roadmap Horizon H2 / Product Goal PG-2.
+There is **NO ACTIVE IMPLEMENTATION SPRINT** immediately after P11 closeout.
 
-Current installment:
-
-`#1. Prompt. Prove. Ship.: Context Is Part of the System`
-
-P11 is deliberately testing the low-owner-friction editorial model established by P7/P9: GPT handles routine topic selection, source research, drafting, metadata, repository mechanics, and verification; Mike reviews/approves the final public representation.
-
-The same sprint is reconciling the small governance/editorial-system defects that would otherwise make future GPT continuation unreliable: canonical roadmap location, stale living/backlog state, stale governance-check invariants, and draft-route isolation.
-
-Do not convert P11 into a redesign or a broad rewrite of existing articles.
+Roadmap Horizon H2 / Product Goal PG-2 remain active. The strongest current next candidate is **Plan Before Edit**, but it must be opened as a new bounded sprint only after fresh startup/live-truth reconciliation confirms it still earns priority.
 
 ## Future backlog
 
+- **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits;
 - continue Prompt. Prove. Ship. one useful installment at a time after each accepted article; do not commit a calendar or publish to satisfy momentum;
-- likely durable next themes are plan/scope boundaries, claim-matching proof, safe tool/permission boundaries, and review/release control;
+- later durable themes include claim-matching proof, safe tool/permission boundaries, and review/release control;
 - AI-assisted troubleshooting and multi-agent/background work remain later candidates after fundamentals;
 - Cloud Foundations remains a later candidate only if it adds distinct portfolio value;
 - review category/topic discovery only when archive volume makes the current Writing list meaningfully harder to scan;
@@ -63,12 +68,17 @@ Do not convert P11 into a redesign or a broad rewrite of existing articles.
 ### Stale authority causing repeated work
 
 **Impact:** a fresh GPT reopens completed sprints or follows superseded process.  
-**Mitigation:** one canonical roadmap, concise living state, one active sprint record, current central snapshot, and governance checks that assert current hierarchy instead of preserving obsolete campaign tokens.
+**Mitigation:** one canonical roadmap, concise living state, truthful no-active-sprint posture after closeout, current central snapshot, and governance checks that assert current hierarchy rather than obsolete campaign tokens.
 
 ### Draft leakage
 
 **Impact:** an unapproved article can become directly reachable even if hidden from navigation.  
-**Mitigation:** `draft: true` must exclude generated routes as well as archive/home/series discovery, with claim-matching proof before owner review.
+**Mitigation:** `draft: true` must exclude generated routes as well as archive/home/series discovery. Local owner review uses `npm run review:drafts`; normal builds remain fail-closed.
+
+### Test-proof erosion during repair
+
+**Impact:** CI turns green because unrelated regression coverage was accidentally removed rather than because the product is correct.  
+**Mitigation:** exact material-diff review is mandatory after test repairs. Preserve unrelated coverage unless changed product behavior makes an assertion genuinely obsolete.
 
 ### Writing outranking professional proof
 
