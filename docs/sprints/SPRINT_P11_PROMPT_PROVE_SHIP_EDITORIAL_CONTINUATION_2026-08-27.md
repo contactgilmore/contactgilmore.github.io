@@ -1,13 +1,15 @@
 # P11 — Prompt. Prove. Ship. Editorial Continuation
 
-Status: **ACTIVE**  
+Status: **ACTIVE — OWNER ARTICLE REVIEW GATE NEXT**  
 Opened: 2026-08-27  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
 Roadmap Horizon: **H2 — Sustained professional signal and editorial proof**  
 Product Goal: **PG-2**  
 Working branch: `p11-prompt-prove-ship-editorial-continuation`  
-Activation base: `ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3`
+Draft PR: **#43**  
+Activation base: `ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3`  
+Consumed central snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`
 
 ## Sprint Goal
 
@@ -15,97 +17,119 @@ Prove the low-owner-friction publishing model by selecting, researching, draftin
 
 ## Why P11 exists
 
-P7 established GPT-assisted publishing. P9 established the durable long-form voice/quality standard. P10 completed the employer-facing site finish line. The next useful product increment is not another redesign; it is to prove that the Writing system can continue with GPT carrying the routine editorial workload and the owner acting mainly as the final public editorial gate.
+P7 established GPT-assisted publishing. P9 established the durable long-form voice/quality standard. P10 completed the employer-facing site finish line. The next useful product increment is not another redesign; it is to prove that Writing can continue with GPT carrying the routine editorial workload and Mike acting mainly as the final public editorial gate.
 
-The 2026-08-27 startup reconciliation also found a small set of continuity defects that would undermine that experiment if left in place. They belong in this sprint because they directly affect whether future GPT sessions can recover the correct roadmap/editorial state and keep unpublished content unpublished.
+P11 also owns the small continuity repairs directly required to make that model reliable for future GPT sessions. It does not reopen the accepted core portfolio.
 
-## Work packages
+## P11-WP0 — Deterministic startup and editorial-system reconciliation — COMPLETE
 
-### P11-WP0 — Deterministic startup and editorial-system reconciliation — ACTIVE
+Objective: align the portfolio with current central Development Governance and remove stale current-state assumptions before a new article becomes publishable.
 
-Objective: align the portfolio with current central Development Governance and remove stale current-state assumptions before the new article is prepared for publication.
+Accepted changes:
 
-Changes permitted:
+- canonical roadmap migrated from root `ROADMAP.md` to `00_MASTER/PRODUCT_ROADMAP.md`;
+- H2 / PG-2 / P11 startup chain made explicit in Master/living authority;
+- stale P10-active product backlog language reconciled;
+- local Repository Governance snapshot/settings facts reconciled to current central/live truth;
+- `scripts/check_governance.py` moved from closed GOV-2E campaign tokens to current roadmap/sprint/settings invariants;
+- Astro catch-all route generation now excludes `draft: true` posts.
 
-- move the one canonical roadmap from root `ROADMAP.md` to `00_MASTER/PRODUCT_ROADMAP.md` and add H2 / PG-2 / P11 direction;
-- reconcile Master startup routing, `WHERE_WE_ARE`, `ACTIVE_SPRINT`, `LAST_CLOSEOUT_PROMPT`, `00_MASTER/README`, and package profile;
-- reconcile local Repository Governance consumed snapshot and live settings facts;
-- reconcile the existing product backlog and series foundation;
-- update `scripts/check_governance.py` so CI enforces the current hierarchy rather than the closed GOV-2E campaign;
-- make `draft: true` exclude article route generation as well as archive/home/series discovery.
+Checkpoint head:
 
-Acceptance:
+`11cceb19bd4de54b0d2a45f8e579cbc492acf3fc`
+
+Proof:
 
 ```text
-exactly one canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
-root ROADMAP.md = absent from current tree
-H2 / PG-2 / P11 agree across current authority
-central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
-P10 = complete, not active
-former settings drift = current live settings fact, not pending work
-public draft route isolation = enforced in source
-current governance check = PASS
+Portfolio governance check run 33103394319 = SUCCESS
+Validate Astro migration run 33103394300 = SUCCESS
+Playwright portfolio smoke run 33103394302 = SUCCESS
 ```
 
-Owner gate: none beyond already authorized repository/editorial-continuity direction; these are deterministic governance/current-state repairs and do not publish the article.
+A first governance attempt (`33103301762`) failed because the active sprint did not contain the newly required central snapshot token. The authority was corrected once; the quality gate was not weakened.
 
-### P11-WP1 — Context Is Part of the System — PLANNED AFTER WP0 PROOF
+## P11-WP1 — Context Is Part of the System — OWNER REVIEW CANDIDATE
 
 Selected article:
 
 ```text
 #1. Prompt. Prove. Ship.: Context Is Part of the System
-planned source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
+source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
 planned slug = /prompt-prove-ship-context/
 seriesOrder = 1
+draft = true
+publishedAt = intentionally absent
+thumbnail = /assets/images/blog2026/082026/prompt-prove-ship-context.svg
 ```
 
-Objective: teach a practical, vendor-neutral context architecture for AI agents: thin entry instructions route to durable authority, current roadmap/sprint state, task-specific evidence, and live system truth instead of duplicating the entire project into one prompt.
+### Editorial objective
 
-Source-pack targets include current first-party documentation for repository/project instructions from multiple current agent ecosystems. Research breadth may exceed article breadth.
+Teach a practical, vendor-neutral context architecture for AI agents: thin entry instructions route to durable authority, current roadmap/sprint state, task-specific evidence, and live system truth instead of duplicating the entire project into one prompt.
 
-Draft requirements:
+The article deliberately leaves detailed allowed/no-touch scope, acceptance criteria, and stop-condition design for the next installment, **Plan Before Edit**.
 
-- technical essay/tutorial hybrid under P9;
-- sample the established real corpus before drafting;
-- direct beginner-friendly opening with a clear human problem;
-- one primary mental model rather than a vendor feature catalog;
-- authorial judgment without invented personal experience;
-- distinguish tool-entry instructions from durable project documentation;
-- explain stale/duplicated context as a reliability problem;
-- show a lightweight starting pattern and a larger-repository pattern without making the portfolio's exact governance mandatory for everyone;
-- use this public portfolio only as public-safe evidence/example;
-- leave detailed task-boundary design for the next installment, **Plan Before Edit**.
+### Source pack
 
-Candidate state before owner approval:
+Current first-party sources checked on 2026-08-27:
+
+- OpenAI Codex `AGENTS.md` guidance: `https://learn.chatgpt.com/docs/agent-configuration/agents-md`
+- GitHub Copilot repository/path/agent instructions: `https://docs.github.com/en/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide`
+- Cursor Rules / `AGENTS.md`: `https://prod.cursor.com/docs/rules`
+
+Current product details are examples only. The durable article claim is that agent context should be recoverable from project authority rather than reconstructed from one chat or duplicated across tool-specific files.
+
+### Voice review
+
+The draft was shaped after sampling the established internal references named by P9, including Rundeck, New Relic, PagerDuty, Git, Terraform, GitHub Actions, Cursor, and recent long-form Git to Know You entries.
+
+Target authorial signals preserved:
+
+- direct beginner-friendly opening;
+- one central mental model;
+- practical judgment rather than source-summary prose;
+- short cohesive paragraphs with intentional variation;
+- earned analogy/humor rather than repeated AI-style rhetorical devices;
+- explicit warning against over-documenting small repositories;
+- no invented tool use, incidents, customer stories, screenshots, or metrics.
+
+### Candidate publication boundary
+
+Until owner approval:
 
 ```text
 draft: true
+no generated article route
+not listed on Writing
+not featured on Home
+not present in series navigation
 no publishedAt fabrication
-new wordless concept thumbnail
-no direct public route
-absent from Writing index/home featured cards/series navigation
+PR remains draft
 ```
 
-Owner gate: Mike reviews and approves final article copy and visual representation before publication/merge.
+`tests/prompt-prove-ship.spec.ts` contains explicit draft-isolation regression coverage for these surfaces.
 
-### P11-WP2 — Publication and production proof — BLOCKED ON OWNER APPROVAL
+### Owner gate
+
+Mike reviews the exact article copy and wordless concept thumbnail after exact-head automated proof passes. Routine corrections remain delegated if they do not materially change the article's public thesis/voice or protected scope.
+
+## P11-WP2 — Publication and production proof — BLOCKED ON OWNER APPROVAL
 
 After owner approval only:
 
-- resolve final truthful publication date;
+- resolve the truthful final publication date;
 - remove `draft: true` or set it false;
-- do not fabricate `publishedAt`; add it only if a real ordering need and known first-publication instant justify it;
-- update tests from draft-isolation expectations to published-route/archive/series/accessibility expectations;
-- run exact-head build/browser/accessibility/link/asset proof;
-- review exact diff;
-- merge under the repository's squash-only production contract;
+- do not fabricate `publishedAt`; add it only for a real ordering need with a known first-publication instant;
+- replace draft-isolation expectations with published-route/archive/series/accessibility expectations;
+- run exact-head governance/build/browser/axe/link/asset proof;
+- review exact changed files;
+- mark PR ready only after all gates pass;
+- squash merge under the repository production contract;
 - verify automatic GitHub Pages deployment and affected live surfaces;
 - close P11 and reconcile roadmap/living state/series status.
 
 ## Allowed paths
 
-The sprint may modify the smallest necessary set under:
+P11 may modify only the smallest necessary set under:
 
 ```text
 00_MASTER/
@@ -119,10 +143,10 @@ src/pages/[...slug].astro
 src/content/blog/2026-08-27-prompt-prove-ship-context.md
 public/assets/images/blog2026/082026/prompt-prove-ship-context.svg
 tests/prompt-prove-ship.spec.ts
-ROADMAP.md only for removal after canonical migration
+ROADMAP.md only for completed removal after canonical migration
 ```
 
-If another source/test path is genuinely required to make claim-matching proof pass, record the reason here before widening.
+If another path is genuinely required to make claim-matching proof pass, record the reason here before widening.
 
 ## Protected / no-touch paths and facts
 
@@ -137,31 +161,18 @@ private sibling-repository content
 private job-search, personal, financial, health, or infrastructure-security context
 ```
 
-## Proof model
+## Current proof gate
 
-WP0 proof:
+The article transaction must pass on its exact candidate head:
 
-- governance checker passes current hierarchy/invariants;
-- exact changed-file set is reviewed;
-- root roadmap removal does not remove historical provenance from Git;
-- draft-route source contract is visible and coherent.
+- Portfolio governance check;
+- Astro build/content validation;
+- public asset and route/link checks;
+- Playwright draft-isolation and existing responsive regressions;
+- accessibility checks on unchanged published Prompt. Prove. Ship. surfaces;
+- exact changed-file review.
 
-WP1 proof before owner review:
-
-- source pack rechecked against current first-party docs;
-- factual/version-sensitive claims verified;
-- voice/read-aloud review passes separately;
-- public-safety/professional-read review passes;
-- Astro content/build, internal/external link and asset checks pass;
-- Playwright proves the draft article is not directly routable or discoverable;
-- no historical route/date regressions.
-
-WP2 production proof:
-
-- exact publishable head passes applicable build/browser/axe/link/asset regression;
-- article route, Writing index, series navigation, and responsive rendering behave correctly;
-- automatic Pages deployment succeeds after approved merge;
-- live route is verified after deployment.
+If the draft source itself is not publicly rendered because isolation works, editorial review occurs from the tracked Markdown and thumbnail source rather than weakening the draft boundary.
 
 ## Risks and stop conditions
 
@@ -169,12 +180,8 @@ Stop rather than invent or widen scope if:
 
 - a useful article requires an unsupported first-person implementation story;
 - current sources materially undermine the selected thesis;
-- a private sibling project would need to be exposed to make the example work;
+- private sibling-project details would need to be exposed;
 - the article becomes a generic product feature tour;
 - the scope turns into a site redesign or rewrite of existing corpus;
 - draft isolation cannot be proven;
 - an owner-reserved product/editorial/security/paid-service decision appears.
-
-## Current checkpoint
-
-P11 direction is selected. WP0 authority reconciliation is the first repository transaction. The article is not yet owner approved or publishable.

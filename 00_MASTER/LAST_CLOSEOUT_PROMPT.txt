@@ -1,14 +1,15 @@
 Review `contactgilmore/contactgilmore.github.io` and begin with `00_MASTER/00_MASTER_DOCTRINE.md`. Follow its deterministic central + local startup protocol before action.
 
 CURRENT PRODUCT STATE
-- Portfolio 2.0 is live and the P10 employer-readiness finish line remains COMPLETE / OWNER APPROVED / DEPLOYED.
+- Portfolio 2.0 is live; P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
 - Core Home / Work / case studies / About / Resume / visual presentation remain in stability posture.
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
 - P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE.
 - Sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
-- Current work package: P11-A — Context Is Part of the System.
+- Working branch: `p11-prompt-prove-ship-editorial-continuation`.
+- Draft PR: #43 — keep DRAFT / DO NOT MERGE until owner article approval.
 
 CENTRAL SHARED GOVERNANCE
 - canonical store: `contactgilmore/augusta-method-governance`
@@ -18,22 +19,28 @@ CENTRAL SHARED GOVERNANCE
 - `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`
 - do not recreate a local Sprint System or a second roadmap.
 
-P11 ARTICLE DIRECTION
+P11 SETUP CHECKPOINT — ACCEPTED
+- checkpoint head: `11cceb19bd4de54b0d2a45f8e579cbc492acf3fc`
+- governance run `33103394319` = SUCCESS
+- Astro validation run `33103394300` = SUCCESS
+- Playwright run `33103394302` = SUCCESS
+- canonical roadmap now lives only at `00_MASTER/PRODUCT_ROADMAP.md`
+- stale P10/GOV-2E current-state assumptions are removed from current authority/checks
+- live repository settings are reconciled: public, squash merge enabled, merge/rebase disabled, delete merged branch enabled
+- `draft: true` is excluded from Astro catch-all route generation as well as Writing/home/series discovery
+
+CURRENT ARTICLE CANDIDATE
 - series: `Prompt. Prove. Ship.`
 - published introduction: `Prompt. Prove. Ship.: From Chat to Change`, `/prompt-prove-ship/`, seriesOrder 0.
 - selected installment: `#1. Prompt. Prove. Ship.: Context Is Part of the System`.
+- source: `src/content/blog/2026-08-27-prompt-prove-ship-context.md`.
 - planned slug: `/prompt-prove-ship-context/`.
-- article thesis: increasingly capable agents need recoverable layered repository context rather than one giant prompt/chat-dependent memory; thin tool-entry instructions should route to durable project authority, current roadmap/sprint state, and task-specific evidence.
-- P9 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains the long-form voice/quality authority.
-- sample the real established article corpus before substantial drafting; do not rely on style adjectives alone.
+- seriesOrder: 1.
+- `draft: true`; `publishedAt` intentionally absent.
+- concept thumbnail: `public/assets/images/blog2026/082026/prompt-prove-ship-context.svg`.
+- article thesis: increasingly capable agents need recoverable layered repository context rather than one giant prompt/chat-dependent memory; thin tool-entry instructions should route to durable project authority, current roadmap/sprint state, task-specific evidence, and live truth.
+- current first-party examples: OpenAI Codex `AGENTS.md`, GitHub Copilot repository/path/agent instructions, Cursor Rules/`AGENTS.md`.
+- P9 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains the voice/quality authority.
 
-P11 STARTUP RECONCILIATION
-- activation base main: `ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3`; resolve exact current main/branch/PR/Actions from GitHub on continuation.
-- root `ROADMAP.md` is being retired in favor of the central-required `00_MASTER/PRODUCT_ROADMAP.md`.
-- stale P10-active product backlog language is being reconciled.
-- stale GOV-2E/snapshot assumptions in the governance checker are being replaced with current startup/roadmap/sprint invariants.
-- live GitHub settings were re-read 2026-08-27: public, squash merge enabled, merge/rebase disabled, delete merged head branches enabled.
-- Astro draft routing is being corrected so `draft: true` does not generate a public article route and remains absent from Writing/home/series navigation.
-
-OWNER GATE
-GPT is expected to perform routine topic selection, source research, drafting, metadata, repository work, and verification. Mike's next genuine gate is review/approval of the final public article and its visual representation. Do not publish merely because automated checks are green.
+NEXT GATE
+Reconcile exact live branch/PR/Actions. The article transaction must pass governance, Astro, Playwright draft-isolation/browser/accessibility, link, and asset proof on its exact head. Then Mike reviews the final draft and thumbnail. Do not remove `draft: true`, mark the PR ready, fabricate publication ordering metadata, or merge until that owner approval is explicit.

@@ -10,6 +10,8 @@ repository = contactgilmore/contactgilmore.github.io
 production branch = main
 main at P11 activation = ba9eac79873f5224e6f4ecdb664d1fbb386bbbd3
 current main = resolve from live GitHub at startup
+working branch = p11-prompt-prove-ship-editorial-continuation
+current PR = #43 — DRAFT / DO NOT MERGE UNTIL OWNER ARTICLE APPROVAL
 hosting = GitHub Pages
 build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
@@ -18,7 +20,7 @@ CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
 consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 ```
 
-No open pull request existed at P11 activation. Live GitHub must be reconciled again before any later mutation or merge.
+Live GitHub must be reconciled again before any later mutation or merge.
 
 ## Product position
 
@@ -45,10 +47,30 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 current sprint = P11 — Prompt. Prove. Ship. Editorial Continuation — ACTIVE
-current work package = P11-A — Context Is Part of the System
+current work package = P11-WP1 — Context Is Part of the System — OWNER REVIEW CANDIDATE
 ```
 
 P11 is the first deliberate continuation of the **Prompt. Prove. Ship.** series after its published introduction. It is also the proving ground for the intended low-owner-friction publishing model: GPT selects/researches/drafts/verifies useful articles; Mike primarily reviews and approves public representation.
+
+## P11 setup proof
+
+The deterministic startup/editorial-system reconciliation is complete on checkpoint head `11cceb19bd4de54b0d2a45f8e579cbc492acf3fc`.
+
+```text
+Portfolio governance check run 33103394319 = SUCCESS
+Validate Astro migration run 33103394300 = SUCCESS
+Playwright portfolio smoke run 33103394302 = SUCCESS
+```
+
+A prior governance run (`33103301762`) correctly failed because `ACTIVE_SPRINT.md` lacked the new central snapshot token. The authority was corrected once and the full checkpoint passed; no quality gate was weakened.
+
+Resolved continuity defects:
+
+1. canonical roadmap migrated from root `ROADMAP.md` to `00_MASTER/PRODUCT_ROADMAP.md`;
+2. stale P10-active product backlog language reconciled;
+3. governance validator moved from closed GOV-2E campaign tokens to current roadmap/sprint/settings invariants;
+4. `draft: true` article content is excluded from catch-all route generation as well as Writing/home/series discovery;
+5. live repository settings were reconciled to the already-correct squash-only/delete-merged-branch posture.
 
 ## Current Writing authority
 
@@ -56,7 +78,7 @@ The completed **Git to Know You #1–#10** series remains historical published c
 
 `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`
 
-The current series foundation is:
+Current series foundation:
 
 `docs/editorial/NEXT_SERIES_FOUNDATION.md`
 
@@ -68,48 +90,25 @@ slug = /prompt-prove-ship/
 seriesOrder = 0
 ```
 
-Selected next article:
+Current draft candidate:
 
 ```text
 #1. Prompt. Prove. Ship.: Context Is Part of the System
+source = src/content/blog/2026-08-27-prompt-prove-ship-context.md
 planned slug = /prompt-prove-ship-context/
 seriesOrder = 1
-publication state = NOT YET OWNER APPROVED
+draft = true
+publishedAt = intentionally absent
+owner publication gate = PENDING
 ```
 
-The article should teach a durable vendor-neutral idea: increasingly autonomous agents need recoverable, layered project context rather than one giant prompt or chat-dependent memory. Current first-party agent documentation may be used as examples, but the article must remain about the operating model rather than a product feature tour.
+The article teaches a durable vendor-neutral idea: increasingly autonomous agents need recoverable, layered project context rather than one giant prompt or chat-dependent memory. Current first-party Codex, GitHub Copilot, and Cursor documentation provides contemporary examples; the article teaches the operating model rather than a product feature tour.
 
-## P11 startup findings
+## Current owner gate
 
-The 2026-08-27 reconciliation found and is correcting four continuity defects before the article is published:
+The draft article and its wordless concept thumbnail are the next genuine owner-review surfaces. Automated draft-isolation, build, browser, accessibility, link, and asset evidence must pass on the exact article candidate head before the draft can be considered ready for approval.
 
-1. the canonical roadmap was still at root `ROADMAP.md` even though current central Development Governance requires `00_MASTER/PRODUCT_ROADMAP.md`;
-2. product backlog authority still described P10 as active after P10 had closed;
-3. the repository governance validator was hard-coded to the superseded central snapshot/GOV-2E recovery state;
-4. `draft: true` content was hidden from Writing/home discovery but still received a generated catch-all route, so draft metadata was not a safe publication boundary.
-
-These are governance/editorial-system fixes, not a redesign.
-
-## Repository settings posture
-
-Live GitHub was re-read on 2026-08-27:
-
-```text
-visibility = PUBLIC
-squash merge = ENABLED
-merge commits = DISABLED
-rebase merge = DISABLED
-delete merged head branches = ENABLED
-GitHub Pages = ENABLED
-```
-
-The former GOV-2E settings drift is resolved. Public/untrusted workflow code remains GitHub-hosted-only and must never be routed to private self-hosted infrastructure.
-
-## Next bounded transaction
-
-Complete the P11 governance/startup reconciliation on the P11 branch and inspect immediate CI. Then draft **Context Is Part of the System** with current source research, a wordless concept thumbnail, draft-isolation proof, voice/factual review, and exact changed-file review.
-
-The genuine owner gate is the article's public editorial/visual representation. Do not publish or merge the article merely because automated checks pass.
+Do not remove draft status, fabricate `publishedAt`, mark the PR ready, or merge until Mike approves the public article/visual representation.
 
 ## Public-safety boundary
 

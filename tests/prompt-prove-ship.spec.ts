@@ -37,3 +37,19 @@ test('Prompt. Prove. Ship. introduction passes accessibility scan', async ({ pag
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
+
+test('P11 draft installment is not publicly routable or discoverable', async ({ page }) => {
+  const draftTitle = '#1. Prompt. Prove. Ship.: Context Is Part of the System';
+
+  const draftResponse = await page.goto('/prompt-prove-ship-context/');
+  expect(draftResponse?.status()).toBe(404);
+
+  await page.goto('/blog/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('link', { name: draftTitle })).toHaveCount(0);
+
+  await page.goto('/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('link', { name: draftTitle })).toHaveCount(0);
+
+  await page.goto('/prompt-prove-ship/', { waitUntil: 'networkidle' });
+  await expect(page.getByRole('link', { name: draftTitle })).toHaveCount(0);
+});
