@@ -16,14 +16,24 @@ build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-latest central company-brand reference = 35fc99a97e635e419e7af39541002421adfe470d
+consumed central governance snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
+latest central company-brand color authority = 35fc99a97e635e419e7af39541002421adfe470d
 ```
 
 ## Product position
 
 Portfolio 2.0 remains live and stable. P10 — Employer Readiness and Final Portfolio Polish — remains **COMPLETE / OWNER APPROVED / DEPLOYED**. Home, Work, professional case studies, About, Resume, and the shared visual system remain in stability posture unless new evidence justifies change.
 
-P11 — Prompt. Prove. Ship. Editorial Continuation — remains **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+Accepted P10 production anchor:
+
+```text
+P10 PR = #31
+production merge = 99bcd3a82cc37a99350d6eae2171b053d8f27199
+Pages run = 31464158531 — SUCCESS
+Validate run = 31464158520 — SUCCESS
+Playwright run = 31464158526 — SUCCESS
+historical production artifact = 9090915653
+```
 
 ## Roadmap state
 
@@ -32,8 +42,33 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = NONE
+active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
 next strongest editorial candidate = Plan Before Edit
+```
+
+## P11 production closeout
+
+P11 — Prompt. Prove. Ship. Editorial Continuation — remains **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+
+```text
+PR #43 = MERGED
+production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
+pre-merge governance run = 33108072525 — SUCCESS
+pre-merge Astro run = 33108072628 — SUCCESS
+pre-merge Playwright run = 33108072580 — SUCCESS — 146 passed / 4 intentional skips / 0 failures
+post-merge governance run = 33108684787 — SUCCESS
+post-merge Astro run = 33108684801 — SUCCESS
+post-merge Playwright run = 33108684776 — SUCCESS
+Pages run = 33108684844 — SUCCESS
+```
+
+Published increment:
+
+```text
+#1. Prompt. Prove. Ship.: Context Is Part of the System
+seriesOrder 1 = /prompt-prove-ship-context/
+publication date = 2026-08-27
+owner editorial/visual approval = RECEIVED 2026-08-27
 ```
 
 ## P12 color outcome
