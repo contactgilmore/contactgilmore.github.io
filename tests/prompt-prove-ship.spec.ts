@@ -1,6 +1,12 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test.beforeEach(async ({ page }) => {
+  await page.route('https://static.cloudflareinsights.com/**', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }),
+  );
+});
+
 test('Prompt. Prove. Ship. introduction renders cleanly and is discoverable', async ({ page }) => {
   const consoleErrors: string[] = [];
   page.on('console', (message) => {
