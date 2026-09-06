@@ -1,7 +1,7 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-08-27
+Updated: 2026-09-05
 
 ## Current repository authority
 
@@ -45,6 +45,23 @@ most recently completed implementation = P12 — Portfolio Accent Palette Alignm
 active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
 next strongest editorial candidate = Plan Before Edit
 ```
+
+## Web analytics operational state
+
+Cloudflare Web Analytics is **INSTALLED / DEPLOYED / PRODUCTION VERIFIED** as a bounded optional enhancement. Hosting remains GitHub Pages, and no unrelated site behavior or hosting configuration changed.
+
+```text
+Cloudflare site token = 699c6f922e0a46f6b0a590026ed46e8f
+shared integration = src/layouts/BaseLayout.astro immediately before </body>
+PR #46 = MERGED
+production merge = 9c5b6001e13b83460aa3f5a92ac7610cefea46dc
+post-merge governance run = 34008061709 — SUCCESS
+post-merge Astro run = 34008061685 — SUCCESS
+post-merge Playwright run = 34008061703 — SUCCESS — 146 passed / 4 intentional skips / 0 failures
+Pages run = 34008061687 — SUCCESS
+```
+
+The live homepage serves the expected Cloudflare beacon URL and token, and Cloudflare recorded an owner-verified cellular iPhone Mobile Safari visit. The owner's home Pi-hole appears to block the analytics request without blocking the portfolio itself. That failure isolation is intentional: visitor privacy tools may prevent measurement, and portfolio content and navigation must remain fully functional when the beacon is blocked or unavailable. No additional repository change is indicated by analytics blocking alone.
 
 ## P11 production closeout
 

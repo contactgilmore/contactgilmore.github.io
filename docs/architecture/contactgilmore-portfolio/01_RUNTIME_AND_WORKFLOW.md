@@ -61,3 +61,17 @@ package.json
 ```
 
 Historical article URLs and required `/assets/...` paths remain compatibility contracts and are protected by automated regression checks.
+
+## Web analytics contract
+
+Cloudflare Web Analytics is the portfolio's bounded traffic-measurement service. The beacon is loaded from the shared Astro layout immediately before `</body>` so it applies consistently across generated pages:
+
+```text
+layout: src/layouts/BaseLayout.astro
+beacon: https://static.cloudflareinsights.com/beacon.min.js
+site token: 699c6f922e0a46f6b0a590026ed46e8f
+```
+
+Analytics is optional enhancement behavior, not a runtime dependency. Visitor privacy tools, DNS filtering, content blockers, or network policy may block the beacon; the portfolio's content, navigation, styling, and GitHub Pages availability must continue working normally when analytics is unavailable. Do not add a first-party proxy, blocker bypass, or other mechanism intended to defeat that visitor choice.
+
+Cloudflare supplies analytics only. Hosting and deployment remain GitHub Pages through GitHub Actions.
