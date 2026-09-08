@@ -35,13 +35,13 @@ for (const htmlFile of htmlFiles) {
 
     let url;
     try {
-      url = new URL(href, 'https://contactgilmore.github.io');
+      url = new URL(href, 'https://contactgilmore.com');
     } catch {
       failures.push(`${path.relative(distRoot, htmlFile)} -> invalid href: ${href}`);
       continue;
     }
 
-    if (url.origin !== 'https://contactgilmore.github.io') continue;
+    if (url.origin !== 'https://contactgilmore.com') continue;
 
     checked += 1;
     const target = targetForPathname(url.pathname);
