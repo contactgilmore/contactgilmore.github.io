@@ -43,7 +43,7 @@ for (const pageTarget of pages) {
 
     await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('main')).toBeVisible();
-    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://contactgilmore.github.io${pageTarget.path}`);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://contactgilmore.com${pageTarget.path}`);
     await expect(page.locator('link[rel="sitemap"]')).toHaveAttribute('href', '/sitemap-index.xml');
     await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
 
