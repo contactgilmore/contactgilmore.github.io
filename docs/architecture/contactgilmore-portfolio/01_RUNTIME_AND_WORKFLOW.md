@@ -22,7 +22,7 @@ site generator: Astro
 Pages build type: workflow
 public: true
 https_enforced: true
-production URL: https://contactgilmore.github.io/
+production URL: https://contactgilmore.com/
 production deployment: automatic after approved merge to main
 workflow_dispatch: operational fallback
 ```
@@ -74,4 +74,4 @@ site token: 699c6f922e0a46f6b0a590026ed46e8f
 
 Analytics is optional enhancement behavior, not a runtime dependency. Visitor privacy tools, DNS filtering, content blockers, or network policy may block the beacon; the portfolio's content, navigation, styling, and GitHub Pages availability must continue working normally when analytics is unavailable. Do not add a first-party proxy, blocker bypass, or other mechanism intended to defeat that visitor choice.
 
-Cloudflare supplies analytics only. Hosting and deployment remain GitHub Pages through GitHub Actions.
+Cloudflare supplies analytics and authoritative DNS for `contactgilmore.com`. Hosting and deployment remain GitHub Pages through GitHub Actions.
