@@ -300,19 +300,21 @@ for path in sorted(workflows.glob("*.y*ml")):
         errors.append(f"public portfolio workflow routes to self-hosted runner: {path.relative_to(ROOT)}")
     if re.search(r"uses:\s*actions/cache@", body):
         errors.append(f"GitHub dependency cache action found: {path.relative_to(ROOT)}")
+    if re.search(r"uses:\s*actions/upload-artifact@", body):
+        errors.append(f"ordinary GitHub artifact upload found: {path.relative_to(ROOT)}")
     if re.search(r"^\s*cache:\s*(npm|yarn|pnpm)\b", body, re.MULTILINE):
         errors.append(f"setup-node cloud dependency cache found: {path.relative_to(ROOT)}")
     if "actions/setup-node@" in body and "package-manager-cache: false" not in body:
         errors.append(f"setup-node does not explicitly disable package-manager-cache: {path.relative_to(ROOT)}")
     if re.search(r"^\s*-?\s*run:\s*npm install(?:\s|$)", body, re.MULTILINE):
         errors.append(f"workflow uses npm install instead of lockfile-driven npm ci: {path.relative_to(ROOT)}")
-    if "playwright-smoke-failure-evidence" in body and "retention-days: 1" not in body:
-        errors.append("Playwright failure evidence must retain exactly one day")
 
 playwright = read(".github/workflows/playwright-smoke.yml")
-for token in ("runs-on: ubuntu-latest", "if: failure()", "retention-days: 1", "npm ci"):
+for token in ("runs-on: ubuntu-latest", "npm ci"):
     if token not in playwright:
-        errors.append(f"Playwright smoke missing public-runner/evidence token: {token}")
+        errors.append(f"Playwright smoke missing public-runner/lockfile token: {token}")
+if "actions/upload-artifact@" in playwright:
+    errors.append("Playwright smoke must not upload ordinary Actions artifacts")
 
 if errors:
     print("Portfolio governance check: FAIL")
