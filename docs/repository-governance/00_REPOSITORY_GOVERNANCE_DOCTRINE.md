@@ -5,7 +5,7 @@ Updated: 2026-08-27
 
 ```text
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
-central repository = contactgilmore/augusta-method-governance
+central repository = contactgilmore/central-governance
 consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 ```
 

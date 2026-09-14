@@ -67,7 +67,7 @@ for forbidden in (
 
 master = read("00_MASTER/00_MASTER_DOCTRINE.md")
 for token in (
-    "contactgilmore/augusta-method-governance",
+    "contactgilmore/central-governance",
     CENTRAL_SNAPSHOT,
     "CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED",
     "CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED",

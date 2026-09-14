@@ -10,7 +10,7 @@ This repository's local startup authority is subordinate to the current central 
 
 Before relying on local project authority or beginning any mutation, GPT MUST execute this order:
 
-1. Read `contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md` from current live `main` **in full and in detail**. Do not substitute memory, a chat summary, a consumed snapshot, an excerpt, or cached context.
+1. Read `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md` from current live `main` **in full and in detail**. Do not substitute memory, a chat summary, a consumed snapshot, an excerpt, or cached context.
 2. Only after the current central master has been fully read, read this repository's `00_MASTER/00_MASTER_DOCTRINE.md` in full.
 3. When `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`, read the current central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and the routed `docs/development-governance/sprint-system/03_GPT_EXECUTION_AND_CHANGE_GUARDRAILS.md` before execution. This includes connector/API-first execution, owner-local minimization, `~/Downloads` ephemeral delivery, long-output-to-`.txt`/`.md`, GPT-staged one-time scripts, cleanup, and interactive-shell safety laws.
 4. Then continue the remaining local startup protocol, roadmap/state/sprint routing, and task-specific authority.
@@ -41,7 +41,7 @@ Do not require a ZIP, local handoff script, prior conversation transcript, or re
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
 CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED
 CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE
-central repository = contactgilmore/augusta-method-governance
+central repository = contactgilmore/central-governance
 consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
 ```
 
@@ -72,7 +72,7 @@ The canonical roadmap is `00_MASTER/PRODUCT_ROADMAP.md`. A second roadmap, roadm
 Before tracked mutation, read in this order:
 
 1. this file;
-2. `contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md`;
+2. `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md`;
 3. central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and its exactly five Sprint System children when Development Governance is REQUIRED;
 4. `00_MASTER/PRODUCT_ROADMAP.md`;
 5. `docs/product/00_PRODUCT_DOCTRINE.md` and `docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md`;
