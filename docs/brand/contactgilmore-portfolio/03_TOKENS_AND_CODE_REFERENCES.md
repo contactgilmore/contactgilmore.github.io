@@ -57,7 +57,7 @@ However, the owner-approved 2026-08-27 portfolio color treatment was deliberatel
 Central promotion anchor:
 
 ```text
-contactgilmore/augusta-method-governance
+contactgilmore/central-governance
 GOV-3 — Company Color Token Freeze and Rollout
 central merge = 35fc99a97e635e419e7af39541002421adfe470d
 ```

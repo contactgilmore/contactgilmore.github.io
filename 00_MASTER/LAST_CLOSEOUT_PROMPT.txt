@@ -22,7 +22,7 @@ P11 PRODUCTION ANCHOR
 - Pages deployment `33108684844` = SUCCESS.
 
 CENTRAL SHARED GOVERNANCE
-- canonical store: `contactgilmore/augusta-method-governance`.
+- canonical store: `contactgilmore/central-governance`.
 - consumed P11 snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`.
 - `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`.
 - `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`.
