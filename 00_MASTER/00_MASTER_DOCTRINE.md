@@ -54,8 +54,8 @@ Do not recreate `00_MASTER/01_SPRINT_SYSTEM/` or another local copy of central D
 The portfolio follows this project-management chain:
 
 ```text
-00_MASTER/00_MASTER_DOCTRINE.md
--> central governance master
+central governance master
+-> 00_MASTER/00_MASTER_DOCTRINE.md
 -> applicable central doctrine + child documents
 -> 00_MASTER/PRODUCT_ROADMAP.md
 -> product brief / task-required local doctrine
@@ -71,8 +71,8 @@ The canonical roadmap is `00_MASTER/PRODUCT_ROADMAP.md`. A second roadmap, roadm
 
 Before tracked mutation, read in this order:
 
-1. this file;
-2. `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md`;
+1. `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md` from current live `main`;
+2. this file;
 3. central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and its exactly five Sprint System children when Development Governance is REQUIRED;
 4. `00_MASTER/PRODUCT_ROADMAP.md`;
 5. `docs/product/00_PRODUCT_DOCTRINE.md` and `docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md`;
@@ -159,11 +159,9 @@ Do not create parallel notes, plans, decisions, summaries, handoff trees, or sty
 00_MASTER/WHERE_WE_ARE.md
 00_MASTER/ACTIVE_SPRINT.md
 00_MASTER/LAST_CLOSEOUT_PROMPT.txt
-00_MASTER/README.md
-00_MASTER/PACKAGE_PROFILE.txt
 ```
 
-There is exactly one roadmap, one `WHERE_WE_ARE.md`, and one `ACTIVE_SPRINT.md`.
+The `00_MASTER/` directory contains exactly the five living startup files listed above and no support README/profile files. There is exactly one roadmap, one `WHERE_WE_ARE.md`, and one `ACTIVE_SPRINT.md`.
 
 `WHERE_WE_ARE.md` is durable current position, not a chronological log. `ACTIVE_SPRINT.md` is concise execution state. Detailed evidence belongs in the current sprint record.
 

@@ -35,8 +35,6 @@ required = {
     "00_MASTER/WHERE_WE_ARE.md",
     "00_MASTER/ACTIVE_SPRINT.md",
     "00_MASTER/LAST_CLOSEOUT_PROMPT.txt",
-    "00_MASTER/README.md",
-    "00_MASTER/PACKAGE_PROFILE.txt",
     "package.json",
     "package-lock.json",
     "docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md",
@@ -54,6 +52,21 @@ required = {
 for rel in sorted(required):
     if not (ROOT / rel).is_file():
         errors.append(f"missing required file: {rel}")
+
+expected_master = {
+    "00_MASTER_DOCTRINE.md",
+    "PRODUCT_ROADMAP.md",
+    "WHERE_WE_ARE.md",
+    "ACTIVE_SPRINT.md",
+    "LAST_CLOSEOUT_PROMPT.txt",
+}
+master_dir = ROOT / "00_MASTER"
+actual_master = {p.name for p in master_dir.iterdir() if p.is_file()} if master_dir.is_dir() else set()
+if actual_master != expected_master:
+    errors.append(
+        "00_MASTER five-file law violation: "
+        f"expected={sorted(expected_master)} actual={sorted(actual_master)}"
+    )
 
 if (ROOT / "ROADMAP.md").exists():
     errors.append("parallel root ROADMAP.md must be absent; canonical roadmap is 00_MASTER/PRODUCT_ROADMAP.md")
@@ -242,21 +255,11 @@ route_source = read("src/pages/[...slug].astro")
 if ".filter(({ data }) => data.draft !== true)" not in route_source:
     errors.append("catch-all article route does not exclude draft content from getStaticPaths")
 
-package_profile = read("00_MASTER/PACKAGE_PROFILE.txt")
-for token in (
-    "CANONICAL_ROADMAP=00_MASTER/PRODUCT_ROADMAP.md",
-    "PRODUCT_BRIEF=docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md",
-    f"CENTRAL_SNAPSHOT={CENTRAL_SNAPSHOT}",
-):
-    if token not in package_profile:
-        errors.append(f"PACKAGE_PROFILE missing startup token: {token}")
-
 for rel in (
     "00_MASTER/00_MASTER_DOCTRINE.md",
     "00_MASTER/WHERE_WE_ARE.md",
     "00_MASTER/ACTIVE_SPRINT.md",
     "00_MASTER/LAST_CLOSEOUT_PROMPT.txt",
-    "00_MASTER/PACKAGE_PROFILE.txt",
     "docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md",
 ):
     body = read(rel)
