@@ -4,6 +4,19 @@ Status: active doctrine
 Owner: Mike Gilmore  
 Home: `00_MASTER/00_MASTER_DOCTRINE.md`
 
+## Mandatory central-first startup gate
+
+This repository's local startup authority is subordinate to the current central bootstrap authority for execution and governance routing. **This gate is read-order authority and supersedes any later local wording that appears to say to read this file first.**
+
+Before relying on local project authority or beginning any mutation, GPT MUST execute this order:
+
+1. Read `contactgilmore/augusta-method-governance/00_MASTER/00_MASTER_DOCTRINE.md` from current live `main` **in full and in detail**. Do not substitute memory, a chat summary, a consumed snapshot, an excerpt, or cached context.
+2. Only after the current central master has been fully read, read this repository's `00_MASTER/00_MASTER_DOCTRINE.md` in full.
+3. When `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`, read the current central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and the routed `docs/development-governance/sprint-system/03_GPT_EXECUTION_AND_CHANGE_GUARDRAILS.md` before execution. This includes connector/API-first execution, owner-local minimization, `~/Downloads` ephemeral delivery, long-output-to-`.txt`/`.md`, GPT-staged one-time scripts, cleanup, and interactive-shell safety laws.
+4. Then continue the remaining local startup protocol, roadmap/state/sprint routing, and task-specific authority.
+
+A project chat may not claim that central policy is inherited or known unless the current central authority required above was actually loaded in that chat. If any later local startup list says `this file` or the local master is first, interpret it as **first local authority after the mandatory central read**.
+
 ## Purpose
 
 This is the repository-wide **single start-here authority** for the ContactGilmore professional portfolio. Mike is owner and final public-representation decision maker. GPT is project manager/editor and may perform bounded GitHub work inside owner-authorized scope.
