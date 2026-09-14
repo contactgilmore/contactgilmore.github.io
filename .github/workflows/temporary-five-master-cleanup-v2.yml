@@ -1,0 +1,102 @@
+name: Temporary portfolio five-master cleanup v2
+
+on:
+  push:
+    branches:
+      - governance-five-master-cleanup
+    paths:
+      - '.github/workflows/temporary-five-master-cleanup-v2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out cleanup branch
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: governance-five-master-cleanup
+
+      - name: Apply bounded portfolio governance cleanup
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          master_path = Path('00_MASTER/00_MASTER_DOCTRINE.md')
+          master = master_path.read_text()
+
+          old_order = '''1. this file;\n2. `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md`;\n3. central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and its exactly five Sprint System children when Development Governance is REQUIRED;'''
+          new_order = '''1. `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md` from current live `main`;\n2. this file;\n3. central `docs/development-governance/00_DEVELOPMENT_GOVERNANCE_DOCTRINE.md` and its exactly five Sprint System children when Development Governance is REQUIRED;'''
+          if master.count(old_order) != 1:
+              raise SystemExit(f'REFUSE: deterministic startup block changed; matches={master.count(old_order)}')
+          master = master.replace(old_order, new_order, 1)
+
+          old_hierarchy = '''00_MASTER/00_MASTER_DOCTRINE.md\n-> central governance master\n-> applicable central doctrine + child documents'''
+          new_hierarchy = '''central governance master\n-> 00_MASTER/00_MASTER_DOCTRINE.md\n-> applicable central doctrine + child documents'''
+          if master.count(old_hierarchy) != 1:
+              raise SystemExit(f'REFUSE: authority hierarchy block changed; matches={master.count(old_hierarchy)}')
+          master = master.replace(old_hierarchy, new_hierarchy, 1)
+
+          for stale in ('00_MASTER/README.md\n', '00_MASTER/PACKAGE_PROFILE.txt\n'):
+              if master.count(stale) != 1:
+                  raise SystemExit(f'REFUSE: expected one living-master entry for {stale.strip()}, found {master.count(stale)}')
+              master = master.replace(stale, '', 1)
+          marker = 'There is exactly one roadmap, one `WHERE_WE_ARE.md`, and one `ACTIVE_SPRINT.md`.\n'
+          if master.count(marker) != 1:
+              raise SystemExit('REFUSE: living-master marker changed')
+          master = master.replace(marker, 'The `00_MASTER/` directory contains exactly the five living startup files listed above and no support README/profile files. There is exactly one roadmap, one `WHERE_WE_ARE.md`, and one `ACTIVE_SPRINT.md`.\n', 1)
+          master_path.write_text(master)
+
+          check_path = Path('scripts/check_governance.py')
+          check = check_path.read_text()
+          readme_line = '    "00_MASTER/README.md",\n'
+          if check.count(readme_line) != 1:
+              raise SystemExit(f'REFUSE: expected one README requirement, found {check.count(readme_line)}')
+          check = check.replace(readme_line, '', 1)
+
+          profile_line = '    "00_MASTER/PACKAGE_PROFILE.txt",\n'
+          if check.count(profile_line) != 2:
+              raise SystemExit(f'REFUSE: expected two PACKAGE_PROFILE validator references, found {check.count(profile_line)}')
+          check = check.replace(profile_line, '')
+
+          anchor = 'for rel in sorted(required):\n    if not (ROOT / rel).is_file():\n        errors.append(f"missing required file: {rel}")\n\n'
+          if check.count(anchor) != 1:
+              raise SystemExit('REFUSE: required-file validator anchor changed')
+          exact = '''for rel in sorted(required):\n    if not (ROOT / rel).is_file():\n        errors.append(f"missing required file: {rel}")\n\nexpected_master = {\n    "00_MASTER_DOCTRINE.md",\n    "PRODUCT_ROADMAP.md",\n    "WHERE_WE_ARE.md",\n    "ACTIVE_SPRINT.md",\n    "LAST_CLOSEOUT_PROMPT.txt",\n}\nmaster_dir = ROOT / "00_MASTER"\nactual_master = {p.name for p in master_dir.iterdir() if p.is_file()} if master_dir.is_dir() else set()\nif actual_master != expected_master:\n    errors.append(\n        "00_MASTER five-file law violation: "\n        f"expected={sorted(expected_master)} actual={sorted(actual_master)}"\n    )\n\n'''
+          check = check.replace(anchor, exact, 1)
+
+          profile_block = '''package_profile = read("00_MASTER/PACKAGE_PROFILE.txt")\nfor token in (\n    "CANONICAL_ROADMAP=00_MASTER/PRODUCT_ROADMAP.md",\n    "PRODUCT_BRIEF=docs/product/contactgilmore-portfolio/00_PRODUCT_BRIEF.md",\n    f"CENTRAL_SNAPSHOT={CENTRAL_SNAPSHOT}",\n):\n    if token not in package_profile:\n        errors.append(f"PACKAGE_PROFILE missing startup token: {token}")\n\n'''
+          if check.count(profile_block) != 1:
+              raise SystemExit(f'REFUSE: PACKAGE_PROFILE validator block changed; matches={check.count(profile_block)}')
+          check = check.replace(profile_block, '', 1)
+          check_path.write_text(check)
+
+          for rel in ('00_MASTER/README.md', '00_MASTER/PACKAGE_PROFILE.txt'):
+              path = Path(rel)
+              if not path.is_file():
+                  raise SystemExit(f'REFUSE: expected extra master file absent: {rel}')
+              path.unlink()
+
+          for rel in ('.github/workflows/temporary-five-master-cleanup.yml', '.github/workflows/temporary-five-master-cleanup-v2.yml'):
+              path = Path(rel)
+              if path.is_file():
+                  path.unlink()
+          print('PASS: portfolio governance cleanup applied')
+          PY
+          python3 scripts/check_governance.py
+          git diff --check
+
+      - name: Commit bounded cleanup
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && { echo 'REFUSE: no cleanup change staged'; exit 1; }
+          git commit -m 'Enforce central-first five-file master policy'
+          git push origin HEAD:governance-five-master-cleanup
+          echo 'PASS: portfolio governance cleanup committed'
