@@ -1,0 +1,46 @@
+name: Temporary central-governance repository rename
+
+on:
+  push:
+    branches: [governance-central-repo-rename]
+
+permissions:
+  contents: write
+
+jobs:
+  rename-references:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+      - name: Replace tracked repository references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          old='contactgilmore/'+'augusta-method-'+'governance'; new='contactgilmore/central-governance'; changed=[]
+          for raw in subprocess.check_output(['git','ls-files','-z']).split(b'\0'):
+              if not raw: continue
+              p=Path(raw.decode())
+              if p.as_posix()=='.github/workflows/temporary-central-repo-rename.yml': continue
+              data=p.read_bytes()
+              if b'\0' in data: continue
+              try: text=data.decode('utf-8')
+              except UnicodeDecodeError: continue
+              if old in text:
+                  p.write_text(text.replace(old,new),encoding='utf-8'); changed.append(p.as_posix())
+          print('UPDATED_FILES='+str(len(changed)))
+          for p in changed: print(p)
+          if not changed: raise SystemExit('REFUSE: no old repository references found')
+          PY
+          git rm .github/workflows/temporary-central-repo-rename.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git diff --cached --check
+          git commit -m "Rename central governance repository references"
+          git push origin HEAD
