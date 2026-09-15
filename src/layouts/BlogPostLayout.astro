@@ -28,7 +28,7 @@ const {
   previousInSeries,
   nextInSeries,
 } = Astro.props;
-const siteUrl = 'https://contactgilmore.github.io';
+const siteUrl = 'https://contactgilmore.com';
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 const formatLongDate = (value: Date) => value.toLocaleDateString('en-US', {
   year: 'numeric',

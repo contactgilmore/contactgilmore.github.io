@@ -71,7 +71,7 @@ test('site identity metadata includes favicon, site name, and home WebSite struc
     '@type': 'WebSite',
     name: 'Mike Gilmore',
     alternateName: 'ContactGilmore',
-    url: 'https://contactgilmore.github.io/',
+    url: 'https://contactgilmore.com/',
   });
 
   const favicon = await request.get('/favicon.svg');

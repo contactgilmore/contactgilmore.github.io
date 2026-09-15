@@ -1,8 +1,8 @@
 # Portfolio 2.0 Deployment and Rollback Contract
 
-Updated: 2026-08-08  
+Updated: 2026-09-08  
 Production repository: `contactgilmore/contactgilmore.github.io`  
-Production URL: `https://contactgilmore.github.io/`
+Production URL: `https://contactgilmore.com/`
 
 ## Current production authority
 
@@ -85,4 +85,4 @@ The workflow uses GitHub-hosted `ubuntu-latest`, grants only required source/Pag
 
 ## Configuration note
 
-This is the user-site repository `contactgilmore/contactgilmore.github.io`, so Astro's site root is `https://contactgilmore.github.io` and no repository-name base path is required.
+This remains the user-site repository `contactgilmore/contactgilmore.github.io`, but the public canonical site root is `https://contactgilmore.com`. No repository-name base path is required.
