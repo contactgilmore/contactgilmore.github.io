@@ -72,6 +72,44 @@ def normalized_selector(rendered: str) -> str:
     return rendered.strip().strip("[]").strip().strip("'\"").lower()
 
 
+def enforce_ci_architecture(violations: list[str]) -> None:
+    expected = {
+        "deploy-pages.yml",
+        "governance-check.yml",
+        "playwright-smoke.yml",
+        "validate-astro.yml",
+    }
+    actual = {path.name for path in WORKFLOWS.glob("*.yml")} | {path.name for path in WORKFLOWS.glob("*.yaml")}
+    if actual != expected:
+        violations.append(f"living_workflow_set_mismatch={sorted(actual)} expected={sorted(expected)}")
+
+    governance = (WORKFLOWS / "governance-check.yml").read_text(encoding="utf-8")
+    astro = (WORKFLOWS / "validate-astro.yml").read_text(encoding="utf-8")
+    playwright = (WORKFLOWS / "playwright-smoke.yml").read_text(encoding="utf-8")
+    pages = (WORKFLOWS / "deploy-pages.yml").read_text(encoding="utf-8")
+
+    for required in ("pull_request:", "push:", "workflow_dispatch:", "cancel-in-progress: true"):
+        if required not in governance:
+            violations.append(f"governance-check.yml:missing_required_contract={required}")
+    if "paths:" in governance or "paths-ignore:" in governance:
+        violations.append("governance-check.yml:governance_must_remain_universal")
+
+    for name, content in (("validate-astro.yml", astro), ("playwright-smoke.yml", playwright)):
+        for required in ("pull_request:", "push:", "paths:", "cancel-in-progress: true"):
+            if required not in content:
+                violations.append(f"{name}:missing_required_contract={required}")
+        if "workflow_dispatch:" in content:
+            violations.append(f"{name}:routine_validation_manual_trigger_not_authorized")
+
+    if "pull_request:" in pages:
+        violations.append("deploy-pages.yml:pull_request_trigger_forbidden")
+    for required in ("push:", "branches: [main]", "workflow_dispatch:", "cancel-in-progress: true", "actions/upload-pages-artifact@", "actions/deploy-pages@"):
+        if required not in pages:
+            violations.append(f"deploy-pages.yml:missing_required_contract={required}")
+    if "actions/upload-artifact@" in pages:
+        violations.append("deploy-pages.yml:ordinary_artifact_upload_forbidden")
+
+
 def main() -> None:
     policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
     assert policy["repository"] == "contactgilmore/contactgilmore.github.io"
@@ -84,6 +122,8 @@ def main() -> None:
     max_timeout = int(policy.get("max_job_timeout_minutes", 60))
     violations: list[str] = []
     selectors_checked = 0
+
+    enforce_ci_architecture(violations)
 
     for path in sorted([*WORKFLOWS.glob("*.yml"), *WORKFLOWS.glob("*.yaml")]):
         lines = path.read_text(encoding="utf-8").splitlines()
@@ -134,6 +174,9 @@ def main() -> None:
     print("private_self_hosted_infrastructure_allowed=false")
     print("github_hosted_runners_allowed=true")
     print("standard_hosted_runner_labels_only=true")
+    print("ci_posture=governance-universal astro-path-aware playwright-path-aware pages-main-only")
+    print("stale_pr_cancellation=governance,astro,playwright")
+    print("pages_artifact_exception=deployment-only")
     print("bounded_jobs=true")
     print("github_dependency_cache_allowed=false")
 
