@@ -52,3 +52,6 @@ CURRENT ROUTING
 
 NEXT ACTION
 After live reconciliation, if no newer evidence changes priority, open one bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not publish merely to maintain cadence and do not reconstruct older sprint state from chat history.
+
+OWNER-APPROVAL PROMPT LAW
+At every genuine material owner-approval gate, end with the exact question: `Do you approve that step?` Do not substitute alternate approval phrasing. The owner should be able to answer with only `yes` or `no`. This does not create approval friction for already-connected and authorized tools or internal mechanics within an approved bounded package.
