@@ -10,7 +10,9 @@
   ],
   "github_dependency_cache_allowed": false,
   "github_artifact_upload_allowed": false,
-  "github_artifact_exceptions": [],
+  "github_artifact_exceptions": [
+    ".github/workflows/playwright-smoke.yml"
+  ],
   "job_timeout_required": true,
   "max_job_timeout_minutes": 60,
   "require_explicit_setup_cache_disable": true,
