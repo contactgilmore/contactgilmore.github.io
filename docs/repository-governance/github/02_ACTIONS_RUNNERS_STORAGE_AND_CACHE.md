@@ -46,4 +46,6 @@ GitHub-native Actions storage is fail-closed. `actions/upload-artifact`, `action
 
 The former GitHub Pages Actions deployment workflow is removed because its required Pages artifact conflicts with the zero-native-storage rule. The currently published site must not be treated as authorization to recreate that workflow. A future hosting/deployment route must preserve the public-repository trust boundary while avoiding GitHub Actions artifact/cache storage.
 
+The retired candidate-packaging workflow remains prohibited and must not be recreated as a storage workaround.
+
 Stale pull-request heads are non-authoritative. Governance, Astro validation, and Playwright must use PR/ref-keyed concurrency with `cancel-in-progress: true` so superseded heads stop consuming hosted compute.
