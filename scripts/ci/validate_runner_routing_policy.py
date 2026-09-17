@@ -74,6 +74,7 @@ def normalized_selector(rendered: str) -> str:
 
 def enforce_ci_architecture(violations: list[str]) -> None:
     expected = {
+        "deploy-pages.yml",
         "governance-check.yml",
         "playwright-smoke.yml",
         "validate-astro.yml",
@@ -85,6 +86,7 @@ def enforce_ci_architecture(violations: list[str]) -> None:
     governance = (WORKFLOWS / "governance-check.yml").read_text(encoding="utf-8")
     astro = (WORKFLOWS / "validate-astro.yml").read_text(encoding="utf-8")
     playwright = (WORKFLOWS / "playwright-smoke.yml").read_text(encoding="utf-8")
+    pages = (WORKFLOWS / "deploy-pages.yml").read_text(encoding="utf-8")
 
     for required in ("pull_request:", "push:", "workflow_dispatch:", "cancel-in-progress: true"):
         if required not in governance:
@@ -99,6 +101,14 @@ def enforce_ci_architecture(violations: list[str]) -> None:
         if "workflow_dispatch:" in content:
             violations.append(f"{name}:routine_validation_manual_trigger_not_authorized")
 
+    if "pull_request:" in pages:
+        violations.append("deploy-pages.yml:pull_request_trigger_forbidden")
+    for required in ("push:", "branches: [main]", "workflow_dispatch:", "cancel-in-progress: true", "actions/upload-pages-artifact@", "actions/deploy-pages@"):
+        if required not in pages:
+            violations.append(f"deploy-pages.yml:missing_required_contract={required}")
+    if "actions/upload-artifact@" in pages:
+        violations.append("deploy-pages.yml:ordinary_artifact_upload_forbidden")
+
 
 def main() -> None:
     policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
@@ -106,11 +116,9 @@ def main() -> None:
     assert policy["trust_mode"] == "public_untrusted_github_hosted"
     assert policy["private_self_hosted_infrastructure_allowed"] is False
     assert policy["github_hosted_runners_allowed"] is True
-    assert policy["github_artifact_upload_allowed"] is False
-    assert policy["github_dependency_cache_allowed"] is False
-    assert policy.get("github_artifact_exceptions", []) == []
 
     allowed_labels = {str(x).lower() for x in policy.get("allowed_hosted_runner_labels", [])}
+    artifact_exceptions = set(policy.get("github_artifact_exceptions", []))
     max_timeout = int(policy.get("max_job_timeout_minutes", 60))
     violations: list[str] = []
     selectors_checked = 0
@@ -137,11 +145,12 @@ def main() -> None:
                 elif timeout is not None and timeout > max_timeout:
                     violations.append(f"{rel}:{index + 1}:job_timeout_minutes_exceeds_policy={timeout}>{max_timeout}")
 
-            if "actions/upload-artifact@" in line or "actions/upload-pages-artifact@" in line:
-                violations.append(f"{rel}:{index + 1}:github_artifact_upload_forbidden")
-            if "actions/cache@" in line:
+            if "actions/upload-artifact@" in line:
+                if not policy.get("github_artifact_upload_allowed", False) and rel not in artifact_exceptions:
+                    violations.append(f"{rel}:{index + 1}:github_artifact_upload_forbidden")
+            if "actions/cache@" in line and not policy["github_dependency_cache_allowed"]:
                 violations.append(f"{rel}:{index + 1}:github_dependency_cache_forbidden")
-            if CLOUD_CACHE.match(line):
+            if CLOUD_CACHE.match(line) and not policy["github_dependency_cache_allowed"]:
                 violations.append(f"{rel}:{index + 1}:setup_action_cloud_cache_forbidden")
             if (
                 policy.get("require_explicit_setup_cache_disable")
@@ -165,10 +174,9 @@ def main() -> None:
     print("private_self_hosted_infrastructure_allowed=false")
     print("github_hosted_runners_allowed=true")
     print("standard_hosted_runner_labels_only=true")
-    print("ci_posture=governance-universal astro-path-aware playwright-path-aware")
+    print("ci_posture=governance-universal astro-path-aware playwright-path-aware pages-main-only")
     print("stale_pr_cancellation=governance,astro,playwright")
-    print("github_artifact_upload_allowed=false")
-    print("github_artifact_exceptions=none")
+    print("pages_artifact_exception=deployment-only")
     print("bounded_jobs=true")
     print("github_dependency_cache_allowed=false")
 
