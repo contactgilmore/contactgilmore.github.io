@@ -1,7 +1,7 @@
 # ContactGilmore Portfolio Product Roadmap
 
 Status: active canonical roadmap  
-Updated: 2026-08-27  
+Updated: 2026-09-16  
 Canonical path: `00_MASTER/PRODUCT_ROADMAP.md`
 
 ## North star
@@ -120,7 +120,25 @@ Pages deployment = 33108684844 — SUCCESS
 
 Accepted P11 operational outcomes include fail-closed `draft: true` routing, local real-page review through `npm run review:drafts`, generated-file ignore hygiene, exact-head CI/production proof, and the rule that test fixes must not silently weaken unrelated regression coverage.
 
-There is **no active implementation sprint** immediately after P11 closeout.
+### P12 — Portfolio Accent Palette Alignment — COMPLETE
+
+P12 accepted a bounded portfolio-local violet/aubergine accent family while preserving the existing neutral portfolio system. It did not authorize a redesign or make the portfolio an Augusta Method Company Brand consumer.
+
+Accepted outcome:
+
+```text
+P12 = COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED
+accent = #7C3AED
+accent strong = #5B2C83
+accent soft = #C4B5FD
+focus = #A78BFA
+layout / typography / spacing / geometry / content / routes = preserved
+hosting = GitHub Pages unchanged
+```
+
+P12 is the most recently completed portfolio implementation. Cloudflare Web Analytics was subsequently installed and production-verified as a bounded optional enhancement without changing the GitHub Pages hosting model or unrelated site behavior.
+
+There is **no active implementation sprint** after P12 closeout.
 
 ### Next strongest H2 candidate — Plan Before Edit
 

@@ -5,7 +5,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
-CENTRAL_SNAPSHOT = "065c670ea96878d2d21f065908d6b66d49c16dc2"
+CONSUMED_CENTRAL_SNAPSHOT = "065c670ea96878d2d21f065908d6b66d49c16dc2"
 STALE_CENTRAL_SNAPSHOTS = {
     "377fbbd47c695d764e033e3839ea9a7c3fdba409",
     "4eaebde64a4a6ad3bf918d25c76812eae1db978a",
@@ -13,8 +13,8 @@ STALE_CENTRAL_SNAPSHOTS = {
 }
 CURRENT_HORIZON = "H2"
 CURRENT_PRODUCT_GOAL = "PG-2"
-MOST_RECENT_SPRINT = "P11"
-MOST_RECENT_SPRINT_RECORD = "docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
+MOST_RECENT_IMPLEMENTATION = "P12"
+P11_SPRINT_RECORD = "docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
 P11_PRODUCTION_MERGE = "736d0171b9905efcc442e5d0dc69eb90a0602fd6"
 P11_PAGES_RUN = "33108684844"
 NEXT_ARTICLE = "Plan Before Edit"
@@ -46,7 +46,7 @@ required = {
     "docs/versioning/00_VERSIONING_DOCTRINE.md",
     "docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
     "docs/editorial/NEXT_SERIES_FOUNDATION.md",
-    MOST_RECENT_SPRINT_RECORD,
+    P11_SPRINT_RECORD,
     "src/pages/[...slug].astro",
 }
 for rel in sorted(required):
@@ -81,7 +81,7 @@ for forbidden in (
 master = read("00_MASTER/00_MASTER_DOCTRINE.md")
 for token in (
     "contactgilmore/central-governance",
-    CENTRAL_SNAPSHOT,
+    "Mandatory central-first startup gate",
     "CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED",
     "CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED",
     "CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE",
@@ -156,8 +156,8 @@ for rel_dir, expected_names in {
         )
 
 repo_root = read("docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md")
-if CENTRAL_SNAPSHOT not in repo_root:
-    errors.append("repository-governance root missing current central snapshot")
+if CONSUMED_CENTRAL_SNAPSHOT not in repo_root:
+    errors.append("repository-governance root missing its consumed central snapshot provenance")
 
 roadmap = read("00_MASTER/PRODUCT_ROADMAP.md")
 for token in (
@@ -165,6 +165,7 @@ for token in (
     "Roadmap Horizon H2",
     "Product Goal PG-2",
     "P11",
+    MOST_RECENT_IMPLEMENTATION,
     "COMPLETE",
     "Context Is Part of the System",
     NEXT_ARTICLE,
@@ -173,39 +174,39 @@ for token in (
         errors.append(f"Product Roadmap missing current direction token: {token}")
 if re.search(r"P11[^\n]*\bACTIVE\b", roadmap):
     errors.append("Product Roadmap still describes P11 as active")
+if re.search(r"P12[^\n]*\bACTIVE\b", roadmap):
+    errors.append("Product Roadmap still describes P12 as active")
 
 where = read("00_MASTER/WHERE_WE_ARE.md")
 active = read("00_MASTER/ACTIVE_SPRINT.md")
 last = read("00_MASTER/LAST_CLOSEOUT_PROMPT.txt")
-sprint = read(MOST_RECENT_SPRINT_RECORD)
+sprint = read(P11_SPRINT_RECORD)
+
 for rel, body in (
     ("00_MASTER/WHERE_WE_ARE.md", where),
     ("00_MASTER/ACTIVE_SPRINT.md", active),
     ("00_MASTER/LAST_CLOSEOUT_PROMPT.txt", last),
-    (MOST_RECENT_SPRINT_RECORD, sprint),
 ):
-    for token in (CENTRAL_SNAPSHOT, MOST_RECENT_SPRINT, CURRENT_HORIZON, CURRENT_PRODUCT_GOAL):
+    for token in (MOST_RECENT_IMPLEMENTATION, CURRENT_HORIZON, CURRENT_PRODUCT_GOAL):
         if token not in body:
-            errors.append(f"{rel} missing current closeout/central token: {token}")
+            errors.append(f"{rel} missing current post-P12 token: {token}")
 
 for token in ("P10", "COMPLETE", "stability", "9090915653"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
-for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE):
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE, "Cloudflare Web Analytics"):
     if token not in where:
-        errors.append(f"WHERE_WE_ARE missing P11 closeout token: {token}")
+        errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
 for token in (
     "Status: **NO ACTIVE IMPLEMENTATION SPRINT**",
-    MOST_RECENT_SPRINT_RECORD,
-    MOST_RECENT_SPRINT,
+    MOST_RECENT_IMPLEMENTATION,
     "COMPLETE",
-    P11_PRODUCTION_MERGE,
-    P11_PAGES_RUN,
     NEXT_ARTICLE,
+    "Cloudflare Web Analytics",
 ):
     if token not in active:
-        errors.append(f"ACTIVE_SPRINT missing no-active/P11 closeout token: {token}")
+        errors.append(f"ACTIVE_SPRINT missing current no-active/P12 token: {token}")
 if "Status: **ACTIVE**" in active:
     errors.append("ACTIVE_SPRINT still claims an implementation sprint is active")
 
@@ -235,9 +236,14 @@ for token in (
     if token not in series:
         errors.append(f"Series foundation missing P11 closeout token: {token}")
 
-for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE, "NO ACTIVE IMPLEMENTATION SPRINT"):
+for token in (
+    "contactgilmore/central-governance",
+    "NO ACTIVE IMPLEMENTATION SPRINT",
+    MOST_RECENT_IMPLEMENTATION,
+    NEXT_ARTICLE,
+):
     if token not in last:
-        errors.append(f"LAST_CLOSEOUT_PROMPT missing P11 closeout token: {token}")
+        errors.append(f"LAST_CLOSEOUT_PROMPT missing current routing token: {token}")
 
 settings = read("docs/repository-governance/github/01_REPOSITORY_SETTINGS_AND_SECURITY.md")
 for token in (

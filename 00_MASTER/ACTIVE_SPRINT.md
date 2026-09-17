@@ -1,33 +1,27 @@
 # Active Sprint
 
 Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-08-27
+Updated: 2026-09-16
 
-P11 — **Prompt. Prove. Ship. Editorial Continuation** — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+P12 — **Portfolio Accent Palette Alignment** — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
 
-Most recently completed sprint record:
+The portfolio is currently between implementation sprints under Roadmap Horizon H2 / Product Goal PG-2. Do not manufacture a sprint merely because the repository is active.
 
-`docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`
-
-Production authority:
+Current durable state:
 
 ```text
 production branch = main
-P11 PR = #43
-P11 production merge = 736d0171b9905efcc442e5d0dc69eb90a0602fd6
-pre-merge governance = 33108072525 — SUCCESS
-pre-merge Astro = 33108072628 — SUCCESS
-pre-merge Playwright = 33108072580 — SUCCESS — 146 passed / 4 intentional skips / 0 failures
-post-merge governance = 33108684787 — SUCCESS
-post-merge Astro = 33108684801 — SUCCESS
-post-merge Playwright = 33108684776 — SUCCESS
-Pages deployment = 33108684844 — SUCCESS
-consumed central snapshot = 065c670ea96878d2d21f065908d6b66d49c16dc2
+most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
+active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
+Cloudflare Web Analytics = INSTALLED / DEPLOYED / PRODUCTION VERIFIED
+next strongest editorial candidate = Plan Before Edit
 ```
 
-Published increment:
+P12 accepted the bounded portfolio-local violet/aubergine accent family while preserving the existing neutral layout, typography, spacing, geometry, content, routes, article artwork, and GitHub Pages hosting model. The portfolio does not consume Augusta Method Company Brand; the accepted color treatment remains portfolio-local identity authority.
+
+P11 — **Prompt. Prove. Ship. Editorial Continuation** — remains **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED** and established the current low-owner-friction editorial workflow. Its accepted production article remains:
 
 ```text
 #1. Prompt. Prove. Ship.: Context Is Part of the System
@@ -36,12 +30,12 @@ seriesOrder = 1
 publication date = 2026-08-27
 ```
 
-P11 proved the intended low-owner-friction editorial workflow. Candidate articles remain `draft: true` until owner approval; normal builds and public routes exclude drafts; owner review uses the actual local Astro page via `npm run review:drafts`; generated local output remains disposable and ignored.
+Candidate articles remain `draft: true` until owner approval; normal builds and public routes exclude drafts; owner review uses the actual local Astro page via `npm run review:drafts`; generated local output remains disposable and ignored.
 
 ## Next eligible product transaction
 
-No next sprint is active yet. The strongest current candidate under H2 / PG-2 is the next **Prompt. Prove. Ship.** installment:
+No next sprint is active. The strongest current H2 / PG-2 editorial candidate remains:
 
 **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits a real system.
 
-A fresh chat should reconcile live `main`, current Actions, roadmap/living state, and then open a bounded sprint for that article if it still earns priority. Do not begin it merely to maintain publishing cadence.
+A fresh chat must first reconcile current central governance, this repository's living startup authority, exact live `main`, open PRs/issues, and applicable Actions. Open governance or maintenance PRs do not become active product sprints merely by existing. If current evidence still supports the article, open one bounded sprint for it. Do not begin it merely to maintain publishing cadence, and do not reopen P11 or P12 without new evidence.
