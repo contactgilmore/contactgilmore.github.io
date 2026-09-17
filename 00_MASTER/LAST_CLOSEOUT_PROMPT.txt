@@ -1,35 +1,36 @@
-Review `contactgilmore/contactgilmore.github.io` and begin with `00_MASTER/00_MASTER_DOCTRINE.md`. Follow its deterministic central + local startup protocol before action.
+Continue governed work in `contactgilmore/contactgilmore.github.io` from live GitHub authority.
+
+Mandatory startup: read current `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md` from live `main` in full, then this repository's `00_MASTER/00_MASTER_DOCTRINE.md`, current central Development Governance and GPT execution guardrails, then the canonical roadmap, product brief, `WHERE_WE_ARE.md`, `ACTIVE_SPRINT.md`, and this closeout authority. Reconcile exact live `main`, open PRs/issues, and applicable Actions before mutation.
 
 CURRENT PRODUCT STATE
-- Portfolio 2.0 is live; P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
-- Core Home / Work / case studies / About / Resume / visual presentation remain in stability posture.
+- Portfolio 2.0 is live and stable.
+- P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
+- P11 — Prompt. Prove. Ship. Editorial Continuation — remains COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
+- P12 — Portfolio Accent Palette Alignment — is the most recently completed implementation and is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
+- Cloudflare Web Analytics is INSTALLED / DEPLOYED / PRODUCTION VERIFIED as a bounded optional enhancement; hosting remains GitHub Pages.
+- Core Home / Work / case studies / About / Resume / neutral layout / typography / spacing / geometry remain in stability posture.
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
-- P11 — Prompt. Prove. Ship. Editorial Continuation — COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
-- There is NO ACTIVE IMPLEMENTATION SPRINT after P11 closeout.
-- Most recent sprint record: `docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`.
+- There is NO ACTIVE IMPLEMENTATION SPRINT.
 
-P11 PRODUCTION ANCHOR
-- PR #43 = MERGED.
-- production merge = `736d0171b9905efcc442e5d0dc69eb90a0602fd6`.
-- pre-merge governance `33108072525` = SUCCESS.
-- pre-merge Astro `33108072628` = SUCCESS.
-- pre-merge Playwright `33108072580` = SUCCESS, 146 passed / 4 intentional skips / 0 failures.
-- post-merge governance `33108684787` = SUCCESS.
-- post-merge Astro `33108684801` = SUCCESS.
-- post-merge Playwright `33108684776` = SUCCESS.
-- Pages deployment `33108684844` = SUCCESS.
+P12 ACCEPTED COLOR AUTHORITY
+- canvas = `#F7F8FA`
+- surface = `#FFFFFF`
+- surface subtle = `#EEF2F6`
+- ink = `#18202A`
+- ink strong = `#0D1117`
+- ink muted = `#5E6876`
+- border = `#DCE1E7`
+- accent = `#7C3AED`
+- accent strong = `#5B2C83`
+- accent soft = `#C4B5FD`
+- depth = `#111821`
+- depth soft = `#1B2531`
+- focus = `#A78BFA`
+- portfolio remains a personal product and does NOT consume Augusta Method Company Brand.
 
-CENTRAL SHARED GOVERNANCE
-- canonical store: `contactgilmore/central-governance`.
-- consumed P11 snapshot: `065c670ea96878d2d21f065908d6b66d49c16dc2`.
-- `CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED`.
-- `CENTRAL_DEVELOPMENT_GOVERNANCE = REQUIRED`.
-- `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`.
-- do not recreate a local Sprint System or a second roadmap.
-
-P11 ACCEPTED LEARNING
+P11 RETAINED EDITORIAL LEARNING
 - GPT owns routine topic selection, source research, drafting, metadata, GitHub mechanics, and validation inside the approved Product Goal.
 - Mike's normal article gate is review/approval of the real rendered public representation.
 - Candidate articles use `draft: true`; normal builds/public routes exclude them.
@@ -41,8 +42,13 @@ P11 ACCEPTED LEARNING
 CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
 - #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
-- #1 editorial assessment: length/tone/structure accepted; one context-architecture mental model; direct established voice; natural lead-in to the next article.
-- next strongest article candidate: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+- next strongest editorial candidate: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+
+CURRENT ROUTING
+- open governance/maintenance PRs must be reconciled separately and do not become active product sprints merely by existing.
+- do not reopen P11 or P12 without new evidence.
+- do not redesign the portfolio merely because H2 is active.
+- do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-Reconcile exact current `main`, open PRs, Actions, and living authority. If no newer evidence changes priority, open a new bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not reconstruct P11 from chat history, reopen the published #1 without new evidence, or publish merely to maintain cadence.
+After live reconciliation, if no newer evidence changes priority, open one bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not publish merely to maintain cadence and do not reconstruct older sprint state from chat history.
