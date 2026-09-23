@@ -182,7 +182,7 @@ A strong article should add something beyond a source summary through verified e
 Detailed drafting and review rules live in:
 
 ```text
-docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md
 ```
 
 ## Navigation and semantic rules

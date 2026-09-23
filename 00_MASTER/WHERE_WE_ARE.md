@@ -132,7 +132,7 @@ A failed preview is repaired at the source rather than weakening draft isolation
 
 ## Current Writing state
 
-The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
+The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
 
 **Prompt. Prove. Ship.** has a published introduction and published #1 installment. The next strongest editorial question is **Plan Before Edit**, but no sprint is active for it yet.
 

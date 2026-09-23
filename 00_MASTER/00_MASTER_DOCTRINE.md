@@ -49,6 +49,10 @@ Shared repository/GitHub and Sprint System policy comes from the central reposit
 
 Do not recreate `00_MASTER/01_SPRINT_SYSTEM/` or another local copy of central Development Governance.
 
+## Cross-repository business resources
+
+The canonical seven-repository purpose/resource map is maintained in the current Central master; do not duplicate it here. The portfolio normally consumes Career for public-safe professional source material and Central for repository governance. Strategy, Studio, Site and Homelab may be consulted only for public-safe project descriptions or evidence appropriate for publication. This public repository must never become a source or copy of private founder, company, career, customer, credential, or infrastructure state.
+
 ## Required authority hierarchy
 
 The portfolio follows this project-management chain:
@@ -89,8 +93,9 @@ For GitHub settings, Actions, runners, storage, cache, permissions, or repositor
 For article creation or material article revision, additionally read:
 
 ```text
-docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md
-docs/editorial/NEXT_SERIES_FOUNDATION.md when the series is relevant
+docs/editorial/00_EDITORIAL_DOCTRINE.md
+docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md
+docs/editorial/system/NEXT_SERIES_FOUNDATION.md when the series is relevant
 representative established articles named by the editorial workflow
 current Astro content schema and affected Writing routes/tests
 ```
@@ -169,7 +174,7 @@ The `00_MASTER/` directory contains exactly the five living startup files listed
 
 Writing is professional proof, not filler content. New posts are published only when they teach something useful and fit the portfolio's professional direction.
 
-`docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` owns the durable editorial workflow and P9 voice standard. GPT is the default researcher, source-pack builder, drafter, metadata editor, and verification operator. Mike's routine role is review and public editorial approval, not driving research or repository mechanics.
+`docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md` owns the durable editorial workflow and P9 voice standard. GPT is the default researcher, source-pack builder, drafter, metadata editor, and verification operator. Mike's routine role is review and public editorial approval, not driving research or repository mechanics.
 
 GPT must never invent first-person tool use, employer/customer incidents, metrics, screenshots, or lived experience. First-person professional judgment is allowed when it is genuinely judgment rather than fabricated biography.
 
