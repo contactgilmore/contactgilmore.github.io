@@ -115,11 +115,11 @@ A smaller supporting section containing selected engineering projects and/or con
 
 Recommended starting evidence:
 
-- Terraform/cloud infrastructure project;
-- New Relic/API automation project;
+- Terraform/cloud infrastructure proof: the published Terraform writing plus retained factual evidence from the retired `azure-basic` demonstration;
+- New Relic/API automation proof: the published New Relic writing plus retained factual evidence from the retired `new-relic-loop` automation demonstration;
 - optionally one later project that better demonstrates integrations or automation.
 
-The section exists to prove hands-on depth, not to redefine the site as a junior developer portfolio.
+The standalone demo repositories are not required as permanent portfolio architecture. Their useful technical facts belong in the existing proof authority; the section exists to prove hands-on depth, not to redefine the site as a junior developer portfolio.
 
 ### 5. Featured Writing
 
