@@ -152,6 +152,14 @@ def main() -> None:
                 violations.append(f"{rel}:{index + 1}:github_dependency_cache_forbidden")
             if CLOUD_CACHE.match(line) and not policy["github_dependency_cache_allowed"]:
                 violations.append(f"{rel}:{index + 1}:setup_action_cloud_cache_forbidden")
+            if policy.get("require_immutable_action_pins"):
+                action_match = re.search(r"uses:\s*([^\s#]+)", line)
+                if action_match:
+                    action_ref = action_match.group(1)
+                    if not action_ref.startswith("./") and not action_ref.startswith("docker://"):
+                        if "@" not in action_ref or not re.fullmatch(r"[0-9a-fA-F]{40}", action_ref.rsplit("@", 1)[1]):
+                            violations.append(f"{rel}:{index + 1}:mutable_external_action_ref={action_ref}")
+
             if (
                 policy.get("require_explicit_setup_cache_disable")
                 and re.search(r"uses:\s*actions/setup-node@", line, re.IGNORECASE)
