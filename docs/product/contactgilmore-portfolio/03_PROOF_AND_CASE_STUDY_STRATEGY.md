@@ -5,7 +5,7 @@ Updated: 2026-08-10
 
 ## Purpose
 
-Primary proof should shift from basic technology demonstrations to sanitized professional case studies. Existing Terraform, New Relic, automation, and similar GitHub projects remain useful as secondary engineering evidence.
+Primary proof should shift from basic technology demonstrations to sanitized professional case studies. Terraform, New Relic, automation, and similar hands-on work remain useful as secondary engineering evidence, but permanent standalone demo repositories are not required when their useful facts are preserved here and the portfolio already contains stronger writing/case-study proof.
 
 This file is also the canonical truth/evidence authority for the three published professional case studies. It constrains public writing to evidence Mike can safely and truthfully present. It is not a résumé replacement and must not accumulate private job-search notes or confidential work artifacts.
 
@@ -18,6 +18,36 @@ Evidence basis: Mike's current 2026-08-08 Business Systems Analyst / Program Del
 3. **Reliability and operational improvement** — observability, automation, incident/problem analysis, alerting/runbook/process improvement, or another safely documentable example of making systems easier to operate.
 
 These are lanes, not permission to publish confidential employer or customer details.
+
+## Supporting technical project evidence
+
+The GOV-9 repository rationalization retires two small public demo repositories while preserving the technical facts that remain useful for professional proof.
+
+### Azure / Terraform demonstration
+
+Historical public demonstration: `contactgilmore/azure-basic`.
+
+Supported facts retained after repository retirement:
+
+- Terraform configuration targeted Azure and demonstrated reusable modules rather than one monolithic file;
+- provider aliases represented separate stage/prod subscription targets;
+- reusable modules covered resource groups, virtual network, subnets, network security groups, Key Vault, and backend-storage patterns;
+- configuration used variables/outputs and remote-state thinking rather than embedding secrets in Git;
+- the useful portfolio claim is hands-on infrastructure-as-code structure and environment separation, not that this small demo was a production platform.
+
+### New Relic automation demonstration
+
+Historical public demonstration: `contactgilmore/new-relic-loop`.
+
+Supported facts retained after repository retirement:
+
+- PowerShell automated New Relic Synthetic monitor discovery through the New Relic CLI / NerdGraph GraphQL API;
+- the script handled pagination, domain-suffix filtering and an optional environment/scope marker;
+- monitor GUIDs were used for tag mutations;
+- tag application supported a deliberate `-DryRun` path before live mutation;
+- the useful portfolio claim is API/CLI automation with scoped mutation and metadata-driven observability operations, not a broad New Relic product integration.
+
+These facts may support Technical Depth or a future sanitized code/example treatment without recreating the retired repositories. If later public content needs exact implementation code, recover it from Git history or a deliberate archival source rather than restoring a permanent standalone repo by default.
 
 ## Case-study contract
 
