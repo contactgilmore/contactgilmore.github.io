@@ -63,7 +63,7 @@ Mike should not need to supply routine topic ideas, outlines, metadata, source r
 
 ## Voice contract
 
-P9's `docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains controlling long-form authority. Preserve:
+P9's `docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md` remains controlling long-form authority. Preserve:
 
 - direct beginner framing without talking down;
 - one primary mental model per article;

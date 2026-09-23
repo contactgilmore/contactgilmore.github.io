@@ -44,8 +44,9 @@ required = {
     "docs/architecture/00_ARCHITECTURE_DOCTRINE.md",
     "docs/brand/00_BRAND_DOCTRINE.md",
     "docs/versioning/00_VERSIONING_DOCTRINE.md",
-    "docs/editorial/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
-    "docs/editorial/NEXT_SERIES_FOUNDATION.md",
+    "docs/editorial/00_EDITORIAL_DOCTRINE.md",
+    "docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
+    "docs/editorial/system/NEXT_SERIES_FOUNDATION.md",
     P11_SPRINT_RECORD,
     "src/pages/[...slug].astro",
 }
@@ -155,6 +156,15 @@ for rel_dir, expected_names in {
             f"expected={sorted(expected_names)} actual={sorted(actual)}"
         )
 
+editorial_root = ROOT / "docs/editorial"
+editorial_entries = {path.name for path in editorial_root.iterdir()} if editorial_root.is_dir() else set()
+if editorial_entries != {"00_EDITORIAL_DOCTRINE.md", "system"}:
+    errors.append(f"editorial module shape violation: actual={sorted(editorial_entries)}")
+editorial_system = editorial_root / "system"
+editorial_children = {path.name for path in editorial_system.iterdir() if path.is_file()} if editorial_system.is_dir() else set()
+if editorial_children != {"AI_ASSISTED_PUBLISHING_WORKFLOW.md", "NEXT_SERIES_FOUNDATION.md"}:
+    errors.append(f"editorial child-package violation: actual={sorted(editorial_children)}")
+
 repo_root = read("docs/repository-governance/00_REPOSITORY_GOVERNANCE_DOCTRINE.md")
 if CONSUMED_CENTRAL_SNAPSHOT not in repo_root:
     errors.append("repository-governance root missing its consumed central snapshot provenance")
@@ -225,7 +235,7 @@ if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
 if re.search(r"P11[^\n]*\bACTIVE\b", product_backlog):
     errors.append("Product backlog still describes P11 as active")
 
-series = read("docs/editorial/NEXT_SERIES_FOUNDATION.md")
+series = read("docs/editorial/system/NEXT_SERIES_FOUNDATION.md")
 for token in (
     "ACTIVE SERIES DIRECTION / P11 COMPLETE",
     "Context Is Part of the System",
