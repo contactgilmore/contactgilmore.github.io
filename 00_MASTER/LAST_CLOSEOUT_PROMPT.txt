@@ -12,7 +12,9 @@ CURRENT PRODUCT STATE
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
-- There is NO ACTIVE IMPLEMENTATION SPRINT.
+- P13 — Plan Before Edit — is ACTIVE / DRAFT PREPARATION on branch `p13-plan-before-edit`.
+- Draft PR #67 is the current candidate.
+- The article remains `draft: true` and is NOT PUBLIC.
 
 P12 ACCEPTED COLOR AUTHORITY
 - canvas = `#F7F8FA`
@@ -42,7 +44,8 @@ P11 RETAINED EDITORIAL LEARNING
 CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
 - #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
-- next strongest editorial candidate: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+- #2: **Plan Before Edit** at target slug `/prompt-prove-ship-plan-before-edit/`, seriesOrder 2, currently DRAFT / NOT PUBLIC on PR #67.
+- next planned installment after P13: **The Agent Finished Is Not Evidence**.
 
 CURRENT ROUTING
 - open governance/maintenance PRs must be reconciled separately and do not become active product sprints merely by existing.
@@ -51,7 +54,7 @@ CURRENT ROUTING
 - do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-After live reconciliation, if no newer evidence changes priority, open one bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not publish merely to maintain cadence and do not reconstruct older sprint state from chat history.
+Continue P13 from draft PR #67. Reconcile exact live head and CI, verify current first-party source claims, perform voice/public-safety/exact-diff review, then prepare the real local Astro draft-review surface. Stop at Mike's editorial/visual owner gate before removing `draft: true` or merging to production.
 
 OWNER-APPROVAL PROMPT LAW
 At every genuine material owner-approval gate, end with the exact question: `Do you approve that step?` Do not substitute alternate approval phrasing. The owner should be able to answer with only `yes` or `no`. This does not create approval friction for already-connected and authorized tools or internal mechanics within an approved bounded package.
