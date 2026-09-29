@@ -1,7 +1,7 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-09-05
+Updated: 2026-09-29
 
 ## Current repository authority
 
@@ -9,8 +9,8 @@ Updated: 2026-09-05
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
 current main = reconcile live at startup
-working branch = none after P12 closeout
-current PR = none after P12 closeout
+working branch = p13-plan-before-edit
+current PR = #67 — DRAFT
 hosting = GitHub Pages
 build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
@@ -42,8 +42,8 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
-next strongest editorial candidate = Plan Before Edit
+active implementation sprint = P13 — Plan Before Edit — ACTIVE / DRAFT PREPARATION
+current article = #2. Prompt. Prove. Ship.: Plan Before Edit — DRAFT / NOT PUBLIC
 ```
 
 ## Web analytics operational state
@@ -134,7 +134,7 @@ A failed preview is repaired at the source rather than weakening draft isolation
 
 The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
 
-**Prompt. Prove. Ship.** has a published introduction and published #1 installment. The next strongest editorial question is **Plan Before Edit**, but no sprint is active for it yet.
+**Prompt. Prove. Ship.** has a published introduction and published #1 installment. P13 is actively preparing **#2. Plan Before Edit** on draft PR #67. The candidate remains `draft: true` and must not become public before Mike reviews the real rendered page.
 
 ## Public-safety boundary
 
