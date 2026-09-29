@@ -136,25 +136,37 @@ layout / typography / spacing / geometry / content / routes = preserved
 hosting = GitHub Pages unchanged
 ```
 
-P12 is the most recently completed portfolio implementation. Cloudflare Web Analytics was subsequently installed and production-verified as a bounded optional enhancement without changing the GitHub Pages hosting model or unrelated site behavior.
+Cloudflare Web Analytics remains production-verified as a bounded optional enhancement without changing the GitHub Pages hosting model or unrelated site behavior.
 
-### P14 — Portfolio Public Identity Alignment — ACTIVE
+### P14 — Portfolio Public Identity Alignment — COMPLETE
 
-P14 is the current bounded H2 / PG-2 implementation sprint.
+P14 is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
 
-Purpose:
+Accepted outcomes:
 
-- preserve Mike Gilmore's personal career evidence and recruiter utility;
-- align whole-site typography, spacing, visual hierarchy, restrained Purple, message style and proof presentation to the frozen Augusta Method public-site calibration reference;
-- keep the portfolio personal, first-person and Career-aligned;
-- avoid importing Augusta Method company identity geometry, commercial copy, customer claims or launch authority;
-- complete whole-site browser/accessibility/visual proof before merge.
+- personal Mike Gilmore / MG identity preserved;
+- primary public positioning aligned to Implementation / Professional Services;
+- whole-site typography, spacing, visual hierarchy, restrained Purple, copy density, and proof presentation calibrated to the frozen Augusta Method public reference without consuming Company Brand;
+- Home, Work, case studies, About, Resume, Writing, and article presentation accepted across desktop, laptop, tablet, and phone;
+- Resume chronology preserved at Cityworks 2018–2022 / Trimble 2022–2026;
+- repeated/template-like copy reduced without keyword stuffing;
+- Person structured data strengthened and About ProfilePage structured data added;
+- GitHub Pages canonical origin retained; custom-domain activation remains separately governed by Issue #64.
 
-Rollback checkpoint:
+Production receipt:
 
-`checkpoint/pre-p14-public-identity-alignment-20260929` at accepted pre-P14 `main@9c9812482d38e8c102846a737f23db0407c4dfec`.
+```text
+PR #68 = MERGED
+production merge = 96085102bd9d46930b004e480450e693933dd2bb
+governance = 36618045582 — SUCCESS
+Astro = 36618045196 — SUCCESS
+Playwright = 36618045458 — SUCCESS
+Pages = 36618045352 — SUCCESS
+```
 
-P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **PAUSED / DRAFT-ONLY / NOT PUBLIC** until P14 visual acceptance.
+P14 is now the most recently completed portfolio implementation.
+
+P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **DRAFT-ONLY / NOT PUBLIC**. Its branch predates P14 and must be reconciled against current `main` before editorial work resumes.
 
 ### Prompt. Prove. Ship. sequencing principles
 
@@ -163,7 +175,7 @@ The series remains bounded and value-driven rather than calendar-driven. The int
 Current directional learning path:
 
 1. **Context Is Part of the System** — PUBLISHED.
-2. **Plan Before Edit** — PAUSED draft on PR #67 until P14 visual acceptance.
+2. **Plan Before Edit** — draft PR #67; reconcile against the P14 production baseline before resuming editorial review.
 3. **The Agent Finished Is Not Evidence** — tests, browser evidence, source verification, and claim-matching proof.
 4. **Give Tools Less Trust, Not Less Usefulness** — permissions, connectors/MCP, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment/rollback/closeout.
