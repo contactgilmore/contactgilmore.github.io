@@ -212,7 +212,7 @@ for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "P14", "#68", P14_ROLLBACK, "
         errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
 for token in (
-    "Status: **ACTIVE — P14 FINAL POLISH REVIEW**",
+    "Status: **P14 OWNER APPROVED / READY TO MERGE**",
     "p14-public-identity-alignment",
     P14_SPRINT_RECORD,
     P14_ROLLBACK,
@@ -231,7 +231,7 @@ if re.search(r"^Status:\s*\*\*ACTIVE\*\*", sprint, re.MULTILINE):
     errors.append("P11 sprint record still has ACTIVE status")
 
 p14_sprint = read(P14_SPRINT_RECORD)
-for token in ("Status: **ACTIVE / FINAL POLISH REVIEW**", P14_ROLLBACK, "P13 / PR #67", "PAUSED / DRAFT-ONLY / NOT PUBLIC"):
+for token in ("Status: **OWNER APPROVED / READY TO MERGE**", P14_ROLLBACK, "P13 / PR #67", "PAUSED / DRAFT-ONLY / NOT PUBLIC"):
     if token not in p14_sprint:
         errors.append(f"P14 sprint record missing active alignment token: {token}")
 
