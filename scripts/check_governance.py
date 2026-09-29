@@ -231,7 +231,7 @@ if re.search(r"^Status:\s*\*\*ACTIVE\*\*", sprint, re.MULTILINE):
     errors.append("P11 sprint record still has ACTIVE status")
 
 p14_sprint = read(P14_SPRINT_RECORD)
-for token in ("Status: **ACTIVE / WHOLE-SITE VISUAL REVIEW**", P14_ROLLBACK, "P13 / PR #67", "PAUSED / DRAFT-ONLY / NOT PUBLIC"):
+for token in ("Status: **OWNER APPROVED / READY TO MERGE**", P14_ROLLBACK, "P13 / PR #67", "PAUSED / DRAFT-ONLY / NOT PUBLIC"):
     if token not in p14_sprint:
         errors.append(f"P14 sprint record missing active alignment token: {token}")
 
