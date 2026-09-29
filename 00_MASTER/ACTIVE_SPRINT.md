@@ -1,6 +1,6 @@
 # Active Sprint
 
-Status: **ACTIVE — P14 PORTFOLIO PUBLIC IDENTITY ALIGNMENT**  
+Status: **P14 OWNER APPROVED / READY TO MERGE**  
 Updated: 2026-09-29
 
 P14 — **Portfolio Public Identity Alignment** — is the active bounded implementation sprint under Roadmap Horizon H2 / Product Goal PG-2.
@@ -16,7 +16,7 @@ rollback checkpoint = checkpoint/pre-p14-public-identity-alignment-20260929
 working branch = p14-public-identity-alignment
 active sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
 scope = whole-site presentation alignment
-current checkpoint = WHOLE-SITE VISUAL REVIEW
+current checkpoint = OWNER APPROVED / READY TO MERGE
 frozen calibration = contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
 Career positioning = contactgilmore/career@3642dd1c3ad8c4141884ac1729fad0b628898037
 P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
@@ -46,6 +46,6 @@ Execute P14 in precedence:
 3. Work — COMPLETE FOR REVIEW;
 4. About + Resume — COMPLETE FOR REVIEW;
 5. Writing/archive presentation — COMPLETE FOR REVIEW;
-6. whole-site browser/accessibility/visual review — ACTIVE.
+6. whole-site browser/accessibility/visual review — COMPLETE / OWNER APPROVED.
 
-Do not merge P14 until Mike reviews the rendered whole-site result. Do not advance P13 toward publication while P14 is active.
+Mike approved the rendered whole-site result on 2026-09-29. Merge is authorized only after exact-head governance, Astro, and Playwright remain green. Do not advance P13 toward publication while P14 is active.
