@@ -46,7 +46,7 @@ CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
 - #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
 - P13 **Plan Before Edit** remains preserved on draft PR #67 but is paused until P14 visual acceptance.
-- P14 current scope = final bounded polish after owner manual smoke: Writing series-intro spacing, Resume summary/message readability, Writing positioning, footer/About microcopy, regression proof, then one fresh whole-site visual ZIP.
+- P14 final candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` is OWNER APPROVED after final visual ZIP review; only documentation-only merge-readiness receipt, exact-head CI, squash merge, production verification, and durable closeout remain.
 
 CURRENT ROUTING
 - open governance/maintenance PRs must be reconciled separately and do not become active product sprints merely by existing.
@@ -55,7 +55,7 @@ CURRENT ROUTING
 - do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-Continue P14 from draft PR #68. Preserve both the original pre-P14 rollback checkpoint and green pre-polish head `f942993a9d745ddab27d85bebe9b39e3c3ab0b74`. Complete the approved final polish, exact-head automated proof, and one fresh deterministic whole-site visual ZIP before restoring merge readiness. Do not resume P13 publication work until P14 is accepted and production verified.
+Continue P14 from draft PR #68. Preserve both the original pre-P14 rollback checkpoint and green pre-polish head `f942993a9d745ddab27d85bebe9b39e3c3ab0b74`. The final rendered candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` is owner approved. Complete the documentation-only merge-readiness receipt, exact-head CI, squash merge, production verification, and durable P14 closeout. Do not resume P13 publication work until P14 is production verified.
 
 OWNER-APPROVAL PROMPT LAW
 At every genuine material owner-approval gate, end with the exact question: `Do you approve that step?` Do not substitute alternate approval phrasing. The owner should be able to answer with only `yes` or `no`. This does not create approval friction for already-connected and authorized tools or internal mechanics within an approved bounded package.
