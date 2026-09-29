@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:smoke": "playwright test"
+    "test:smoke": "playwright test",
+    "review:visual": "rm -rf p14-visual-review && npm run build && playwright test tests/p14-visual-review.spec.ts --project=desktop-chromium"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
