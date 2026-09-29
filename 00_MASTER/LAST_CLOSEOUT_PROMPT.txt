@@ -12,7 +12,10 @@ CURRENT PRODUCT STATE
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
-- There is NO ACTIVE IMPLEMENTATION SPRINT.
+- P14 — Portfolio Public Identity Alignment — is ACTIVE on `p14-public-identity-alignment`.
+- Draft PR #68 is the current candidate.
+- Rollback checkpoint `checkpoint/pre-p14-public-identity-alignment-20260929` preserves accepted pre-P14 `main@9c9812482d38e8c102846a737f23db0407c4dfec`.
+- P13 / PR #67 remains PAUSED / DRAFT-ONLY / NOT PUBLIC.
 
 P12 ACCEPTED COLOR AUTHORITY
 - canvas = `#F7F8FA`
@@ -42,7 +45,8 @@ P11 RETAINED EDITORIAL LEARNING
 CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
 - #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
-- next strongest editorial candidate: **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+- P13 **Plan Before Edit** remains preserved on draft PR #67 but is paused until P14 visual acceptance.
+- P14 current scope = shared visual foundation + Home, then Work, About + Resume, Writing, then whole-site proof.
 
 CURRENT ROUTING
 - open governance/maintenance PRs must be reconciled separately and do not become active product sprints merely by existing.
@@ -51,7 +55,7 @@ CURRENT ROUTING
 - do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-After live reconciliation, if no newer evidence changes priority, open one bounded editorial sprint for **Plan Before Edit** under H2 / PG-2. Do not publish merely to maintain cadence and do not reconstruct older sprint state from chat history.
+Continue P14 from draft PR #68. Preserve the rollback checkpoint. Complete the whole-site personal/public identity alignment in bounded visual checkpoints: foundation + Home, Work, About + Resume, Writing, then whole-site browser/accessibility/owner review. Do not resume P13 publication work until P14 is accepted.
 
 OWNER-APPROVAL PROMPT LAW
 At every genuine material owner-approval gate, end with the exact question: `Do you approve that step?` Do not substitute alternate approval phrasing. The owner should be able to answer with only `yes` or `no`. This does not create approval friction for already-connected and authorized tools or internal mechanics within an approved bounded package.
