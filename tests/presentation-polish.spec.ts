@@ -30,31 +30,37 @@ test('Writing orders publications deterministically and distinguishes series int
 
   const introStyle = await rows.nth(1).evaluate((element) => {
     const style = getComputedStyle(element);
+    const marker = getComputedStyle(element, '::before');
     return {
-      backgroundColor: style.backgroundColor,
-      borderRadius: style.borderRadius,
+      backgroundImage: style.backgroundImage,
+      markerWidth: marker.width,
+      markerColor: marker.backgroundColor,
     };
   });
 
-  expect(introStyle.backgroundColor).not.toBe('rgba(0, 0, 0, 0)');
-  expect(Number.parseFloat(introStyle.borderRadius)).toBeGreaterThan(0);
+  expect(introStyle.backgroundImage).not.toBe('none');
+  expect(Number.parseFloat(introStyle.markerWidth)).toBeGreaterThanOrEqual(2);
+  expect(introStyle.markerColor).not.toBe('rgba(0, 0, 0, 0)');
 });
 
-test('Work case-study actions have clear separation from capability pills', async ({ page }) => {
+test('Work case-study rows keep evidence distinct from the primary case-study action', async ({ page }) => {
   await page.goto('/work/', { waitUntil: 'networkidle' });
 
-  const card = page.locator('.detail-card').first();
-  const tags = card.locator('.tag-list');
-  const link = card.getByRole('link', { name: 'View case study →' });
+  const row = page.locator('.work-index-row').first();
+  const proof = row.locator('.work-index-row__proof');
+  const link = row.getByRole('link', { name: /View case study/i });
 
-  const tagsBox = await tags.boundingBox();
+  await expect(proof).toBeVisible();
+  await expect(link).toBeVisible();
+  await expect(row.locator('.work-index-evidence li')).toHaveCount(3);
+  await expect(row.locator('.work-index-skills li')).toHaveCount(5);
+
+  const proofBox = await proof.boundingBox();
   const linkBox = await link.boundingBox();
 
-  expect(tagsBox).not.toBeNull();
+  expect(proofBox).not.toBeNull();
   expect(linkBox).not.toBeNull();
-
-  const gap = (linkBox?.y ?? 0) - ((tagsBox?.y ?? 0) + (tagsBox?.height ?? 0));
-  expect(gap).toBeGreaterThanOrEqual(20);
+  expect(proofBox?.width ?? 0).toBeGreaterThan(180);
 });
 
 test('series introduction thumbnails use wordless vector artwork', async ({ page, request }) => {
