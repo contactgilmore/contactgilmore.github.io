@@ -1,7 +1,7 @@
 # Brand Brief
 
-Status: **ACTIVE — proven visual direction**  
-Validated: 2026-08-08
+Status: **ACTIVE — P14 public-identity alignment authority**  
+Validated: 2026-09-29
 
 ## Brand expression
 
@@ -14,18 +14,32 @@ experienced
 calm
 technical
 customer-aware
-modern
+plainspoken
 precise
 credible
 ```
 
-The site should feel closer to a restrained modern B2B SaaS/product editorial experience than to a conventional résumé page or themed developer portfolio.
+The site should feel like the personal professional expression of the same operating philosophy visible in the frozen Augusta Method public site: quiet technical confidence, strong typography, low copy density, restrained purple, clear ownership, concrete outcomes and clean handoff. It must remain unmistakably Mike Gilmore's portfolio rather than a company-site clone.
 
 ## Visual personality
 
-Use high-contrast oversized editorial headlines, disciplined spacing, simple neutral surfaces, restrained blue accents, generous but intentional whitespace, strong evidence cards, and minimal chrome.
+Use Onest for display/headline roles and Inter for body/UI. Favor high-contrast editorial headlines, disciplined spacing, White/Cloud breathing room, restrained Purple signals, thin rules/rails, and minimal chrome.
 
-The design should create confidence through hierarchy and clarity rather than animation or decorative technology imagery.
+Reduce card-wall behavior, heavy radius, shadows, pills and decorative containment. Evidence should usually read as editorial structure rather than a dashboard component. The design should create confidence through hierarchy, clarity and proof rather than animation or decorative technology imagery.
+
+### Frozen calibration reference
+
+Owner-approved presentation calibration reference:
+
+```text
+contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
+public reference = AM-PUBLIC-WEB-REFERENCE-2.0
+display = Onest
+body/UI = Inter
+purple = #7142BB
+```
+
+This is a presentation calibration reference only. The portfolio keeps `CENTRAL_AUGUSTA_METHOD_BRAND = NOT_APPLICABLE`. Do not import the Augusta Method wordmark, AM identity geometry, company commercial copy, service/pricing structure, customer claims, or launch authority.
 
 ## Content-to-design relationship
 
@@ -45,7 +59,11 @@ Technical tools may appear as concise tags or supporting context. They must not 
 
 ## Tone
 
-Copy and design should feel confident without exaggeration. Avoid generic personal-brand slogans, consultant clichés, buzzword density, fake testimonials, fabricated metrics, skill percentages, or visual devices that imply expertise without proof.
+Copy and design should feel confident without exaggeration and should lead with one concrete professional truth before capability inventory. Prefer plainspoken operational consequences over abstract transformation language.
+
+Career public-positioning authority remains external in `contactgilmore/career`. P14 must preserve the current center of gravity around implementation, Professional Services, Technical Success, customer-facing advisory/delivery, operations transformation and technology-enabled change. Cloud/SRE depth supports that story; it does not become the headline identity.
+
+Avoid generic personal-brand slogans, consultant clichés, buzzword density, fake testimonials, fabricated metrics, skill percentages, or visual devices that imply expertise without proof.
 
 ## Brand mark
 
