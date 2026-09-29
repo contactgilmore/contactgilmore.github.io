@@ -1,6 +1,6 @@
 # P14 — Portfolio Public Identity Alignment
 
-Status: **OWNER APPROVED / READY TO MERGE**  
+Status: **ACTIVE / FINAL POLISH REVIEW**  
 Opened: 2026-09-29  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
@@ -132,7 +132,7 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - preserve historical article bodies, dates, routes and accepted art;
 - do not publish P13 as part of alignment.
 
-### WP6 — whole-site proof — COMPLETE / OWNER APPROVED
+### WP6 — whole-site proof — ACTIVE / FRESH POLISH PROOF REQUIRED
 
 - automated governance/Astro/Playwright CI remains mandatory but is not visual acceptance;
 - deterministic M1 visual captures use `npm run review:visual`;
@@ -170,6 +170,44 @@ Playwright portfolio smoke = SUCCESS
 ```
 
 Owner accepted the whole-site presentation across Home, Work, case study, About, Resume, Writing, article, and the five target viewport sizes.
+
+## Final polish reopening
+
+Manual owner smoke after the first acceptance found two legitimate presentation issues before merge:
+
+- Writing series-introduction marker crowding the title;
+- Resume professional-summary copy rendered at an overly large display scale.
+
+The owner also requested one final message-alignment pass against current Career positioning and the frozen Augusta Method public reference.
+
+The previously green pre-polish branch head remains a bounded rollback point inside P14:
+
+```text
+pre-polish head = f942993a9d745ddab27d85bebe9b39e3c3ab0b74
+governance = SUCCESS
+Astro = SUCCESS
+Playwright = SUCCESS
+```
+
+Approved final-polish changes are limited to:
+
+- Writing series-intro spacing;
+- Resume role line and summary readability;
+- Writing page positioning copy;
+- concrete footer wording;
+- removal of one abstract About phrase;
+- matching regression updates.
+
+The four-year/four-year public chronology remains unchanged:
+
+```text
+Cityworks = 2018–2022
+Trimble = 2022–2026
+```
+
+The current Career LinkedIn working draft uses an acquisition-era month split that no longer matches the owner-authorized public chronology. LinkedIn should be reconciled separately to the real 2022 operational handoff month; P14 must not invent that month.
+
+Fresh deterministic visual ZIP review is required after this polish before merge readiness is restored.
 
 ## Stop conditions
 
