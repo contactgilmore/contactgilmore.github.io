@@ -102,7 +102,7 @@ GPT should not ask Mike to supply routine article ideas, outlines, metadata, sou
 
 Sprint record:
 
-`docs/sprints/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`
+`docs/sprints/archive/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md`
 
 P11 proved the low-owner-friction publishing model and reconciled the portfolio to the current one-roadmap/deterministic-startup hierarchy.
 
