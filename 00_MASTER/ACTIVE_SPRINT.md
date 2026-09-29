@@ -1,22 +1,26 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-09-16
+Status: **ACTIVE — P14 PORTFOLIO PUBLIC IDENTITY ALIGNMENT**  
+Updated: 2026-09-29
 
-P12 — **Portfolio Accent Palette Alignment** — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+P14 — **Portfolio Public Identity Alignment** — is the active bounded implementation sprint under Roadmap Horizon H2 / Product Goal PG-2.
 
-The portfolio is currently between implementation sprints under Roadmap Horizon H2 / Product Goal PG-2. Do not manufacture a sprint merely because the repository is active.
+P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **PAUSED / DRAFT-ONLY / NOT PUBLIC**.
 
-Current durable state:
+Current execution state:
 
 ```text
 production branch = main
-most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
+production baseline = 9c9812482d38e8c102846a737f23db0407c4dfec
+rollback checkpoint = checkpoint/pre-p14-public-identity-alignment-20260929
+working branch = p14-public-identity-alignment
+active sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
+scope = whole-site presentation alignment
+frozen calibration = contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
+Career positioning = contactgilmore/career@3642dd1c3ad8c4141884ac1729fad0b628898037
+P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
-Cloudflare Web Analytics = INSTALLED / DEPLOYED / PRODUCTION VERIFIED
-next strongest editorial candidate = Plan Before Edit
 ```
 
 P12 accepted the bounded portfolio-local violet/aubergine accent family while preserving the existing neutral layout, typography, spacing, geometry, content, routes, article artwork, and GitHub Pages hosting model. The portfolio does not consume Augusta Method Company Brand; the accepted color treatment remains portfolio-local identity authority.
@@ -32,10 +36,15 @@ publication date = 2026-08-27
 
 Candidate articles remain `draft: true` until owner approval; normal builds and public routes exclude drafts; owner review uses the actual local Astro page via `npm run review:drafts`; generated local output remains disposable and ignored.
 
-## Next eligible product transaction
+## Current checkpoint
 
-No next sprint is active. The strongest current H2 / PG-2 editorial candidate remains:
+Execute P14 in precedence:
 
-**Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits a real system.
+1. shared visual foundation + header/footer;
+2. Home message hierarchy and proof sequencing;
+3. Work;
+4. About + Resume;
+5. Writing/archive presentation;
+6. whole-site browser/accessibility/visual review.
 
-A fresh chat must first reconcile current central governance, this repository's living startup authority, exact live `main`, open PRs/issues, and applicable Actions. Open governance or maintenance PRs do not become active product sprints merely by existing. If current evidence still supports the article, open one bounded sprint for it. Do not begin it merely to maintain publishing cadence, and do not reopen P11 or P12 without new evidence.
+Do not merge P14 until Mike reviews the rendered whole-site result. Do not advance P13 toward publication while P14 is active.
