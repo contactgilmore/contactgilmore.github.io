@@ -1,6 +1,6 @@
 # Active Sprint
 
-Status: **ACTIVE — P14 FINAL POLISH REVIEW**  
+Status: **P14 OWNER APPROVED / READY TO MERGE**  
 Updated: 2026-09-29
 
 P14 — **Portfolio Public Identity Alignment** — is the active bounded implementation sprint under Roadmap Horizon H2 / Product Goal PG-2.
@@ -16,7 +16,7 @@ rollback checkpoint = checkpoint/pre-p14-public-identity-alignment-20260929
 working branch = p14-public-identity-alignment
 active sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
 scope = whole-site presentation alignment
-current checkpoint = FINAL POLISH REVIEW / FRESH VISUAL ZIP REQUIRED
+current checkpoint = OWNER APPROVED / READY TO MERGE
 frozen calibration = contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
 Career positioning = contactgilmore/career@3642dd1c3ad8c4141884ac1729fad0b628898037
 P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
@@ -46,6 +46,6 @@ Execute P14 in precedence:
 3. Work — COMPLETE FOR REVIEW;
 4. About + Resume — COMPLETE FOR REVIEW;
 5. Writing/archive presentation — COMPLETE FOR REVIEW;
-6. whole-site browser/accessibility/visual review — REOPENED FOR FINAL POLISH.
+6. whole-site browser/accessibility/visual review — COMPLETE / OWNER APPROVED.
 
-Mike's first whole-site approval remains valid evidence for the overall direction, but manual smoke found a Writing spacing defect and an over-scaled Resume summary before merge. Final polish is owner-authorized. A fresh deterministic local visual ZIP, exact-head governance, Astro, and Playwright are required before merge readiness is restored. Do not advance P13 toward publication while P14 is active.
+Final owner approval was received on exact rendered candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` after the final polish, copy-deduplication, and SEO hardening pass. Visual bundle `p14-visual-review-a05ce96e852b-20260929-130630.zip` passed review. Merge is authorized after the documentation-only approval receipt head is green on governance, Astro, and Playwright. Do not advance P13 toward publication while P14 is active.
