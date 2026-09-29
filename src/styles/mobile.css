@@ -1,35 +1,80 @@
-@media (max-width: 560px) {
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 32px, var(--max-width));
+  }
+
   .site-header__inner {
     min-height: 0;
-    padding-block: 10px 12px;
+    padding-block: 14px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr auto;
+    gap: 12px 20px;
   }
 
   .brand {
     width: fit-content;
   }
 
-  .brand__mark {
-    width: 34px;
-    height: 34px;
+  .brand__name {
+    display: inline;
   }
 
   .site-header nav {
+    grid-column: 1 / -1;
     width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-header nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-list {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     justify-content: space-between;
-    gap: 8px;
+    gap: 20px;
   }
 
   .nav-list a {
-    display: inline-flex;
     min-height: 36px;
-    align-items: center;
-    font-size: 0.78rem;
+    padding: 8px 0 10px;
+    font-size: .76rem;
+  }
+
+  .nav-list a::after {
+    bottom: 3px;
+  }
+
+  .nav-action {
+    font-size: .76rem;
+  }
+
+  .site-footer__inner {
+    min-height: 0;
+    padding-block: 48px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .site-footer__nav,
+  .site-footer__links {
+    gap: 14px 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand__name {
+    display: none;
+  }
+
+  .nav-list {
+    gap: 16px;
+  }
+
+  .nav-list a,
+  .nav-action {
+    font-size: .72rem;
   }
 }
