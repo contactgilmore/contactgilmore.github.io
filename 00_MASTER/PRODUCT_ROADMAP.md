@@ -138,15 +138,23 @@ hosting = GitHub Pages unchanged
 
 P12 is the most recently completed portfolio implementation. Cloudflare Web Analytics was subsequently installed and production-verified as a bounded optional enhancement without changing the GitHub Pages hosting model or unrelated site behavior.
 
-There is **no active implementation sprint** after P12 closeout.
+### P14 — Portfolio Public Identity Alignment — ACTIVE
 
-### Next strongest H2 candidate — Plan Before Edit
+P14 is the current bounded H2 / PG-2 implementation sprint.
 
-If current evidence still supports it at the next startup, open a new bounded sprint for:
+Purpose:
 
-**Plan Before Edit** — allowed scope, no-touch boundaries, acceptance criteria, stop conditions, and why boundary writing matters before an AI agent edits a real system.
+- preserve Mike Gilmore's personal career evidence and recruiter utility;
+- align whole-site typography, spacing, visual hierarchy, restrained Purple, message style and proof presentation to the frozen Augusta Method public-site calibration reference;
+- keep the portfolio personal, first-person and Career-aligned;
+- avoid importing Augusta Method company identity geometry, commercial copy, customer claims or launch authority;
+- complete whole-site browser/accessibility/visual proof before merge.
 
-Do not treat this candidate as already active and do not publish merely to maintain cadence.
+Rollback checkpoint:
+
+`checkpoint/pre-p14-public-identity-alignment-20260929` at accepted pre-P14 `main@9c9812482d38e8c102846a737f23db0407c4dfec`.
+
+P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **PAUSED / DRAFT-ONLY / NOT PUBLIC** until P14 visual acceptance.
 
 ### Prompt. Prove. Ship. sequencing principles
 
@@ -155,7 +163,7 @@ The series remains bounded and value-driven rather than calendar-driven. The int
 Current directional learning path:
 
 1. **Context Is Part of the System** — PUBLISHED.
-2. **Plan Before Edit** — next strongest candidate.
+2. **Plan Before Edit** — PAUSED draft on PR #67 until P14 visual acceptance.
 3. **The Agent Finished Is Not Evidence** — tests, browser evidence, source verification, and claim-matching proof.
 4. **Give Tools Less Trust, Not Less Usefulness** — permissions, connectors/MCP, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment/rollback/closeout.
