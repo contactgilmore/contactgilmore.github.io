@@ -7,18 +7,21 @@ The site is Mike Gilmore's professional portfolio and technical writing platform
 
 ## Recommended positioning architecture
 
-Primary identity territory remains customer-facing implementation and technical delivery.
-
-Career's current public-positioning evidence sharpens that into:
+Primary public identity:
 
 ```text
 Implementation / Professional Services
-Technical Success / Customer Solutions
-Operations Transformation
-Technology-Enabled Change
 ```
 
-The portfolio may still use `Technical Delivery & Customer Solutions` as supporting taxonomy, but the first viewport should lead with one memorable professional truth rather than a résumé-style category label.
+Supporting positioning:
+
+```text
+Technical Success / Customer Solutions
+customer-facing technical delivery
+operations transformation / technology-enabled change
+```
+
+The first viewport should lead with one memorable professional truth rather than a résumé-style category label. Search/browser metadata should use concrete role language that a recruiter or hiring manager is likely to recognize, while broader transformation language remains supporting context rather than the main label.
 
 Supporting role territory:
 
