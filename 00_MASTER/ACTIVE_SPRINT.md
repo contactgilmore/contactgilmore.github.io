@@ -16,6 +16,7 @@ rollback checkpoint = checkpoint/pre-p14-public-identity-alignment-20260929
 working branch = p14-public-identity-alignment
 active sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
 scope = whole-site presentation alignment
+current checkpoint = WHOLE-SITE VISUAL REVIEW
 frozen calibration = contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
 Career positioning = contactgilmore/career@3642dd1c3ad8c4141884ac1729fad0b628898037
 P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
@@ -40,11 +41,11 @@ Candidate articles remain `draft: true` until owner approval; normal builds and 
 
 Execute P14 in precedence:
 
-1. shared visual foundation + header/footer;
-2. Home message hierarchy and proof sequencing;
-3. Work;
-4. About + Resume;
-5. Writing/archive presentation;
-6. whole-site browser/accessibility/visual review.
+1. shared visual foundation + header/footer — COMPLETE FOR REVIEW;
+2. Home message hierarchy and proof sequencing — COMPLETE FOR REVIEW;
+3. Work — COMPLETE FOR REVIEW;
+4. About + Resume — COMPLETE FOR REVIEW;
+5. Writing/archive presentation — COMPLETE FOR REVIEW;
+6. whole-site browser/accessibility/visual review — ACTIVE.
 
 Do not merge P14 until Mike reviews the rendered whole-site result. Do not advance P13 toward publication while P14 is active.
