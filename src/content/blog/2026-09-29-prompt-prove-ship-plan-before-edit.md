@@ -128,7 +128,7 @@ A good automation system should not depend on every tool being physically incapa
 
 A plan becomes much more useful when completion is something the real system can demonstrate.
 
-OpenAI's current guidance for long-horizon Codex work separates goals and non-goals from hard constraints, deliverables, “done when” checks, milestones, and validation. GitHub's repository-instruction guidance similarly recommends documenting how a project builds, tests, and validates changes so the agent can reproduce the expected checks. Those details are not paperwork around the engineering work. They define how the work proves itself.
+OpenAI's current [long-horizon Codex guidance](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) separates goals and non-goals from hard constraints, deliverables, “done when” checks, milestones, and validation. GitHub's [repository custom-instructions guidance](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) similarly recommends documenting how a project builds, tests, and validates changes so the agent can reproduce the expected checks. Those details are not paperwork around the engineering work. They define how the work proves itself.
 
 Compare these two completion criteria:
 
@@ -200,7 +200,7 @@ That is the part I think many planning systems miss. Good boundaries reduce bure
 
 Repository-level instructions are useful because they keep durable rules close to the code.
 
-GitHub supports repository-wide, path-specific, and agent instructions for Copilot. Cursor Rules can store persistent project guidance in version control. OpenAI's Codex guidance similarly treats repository instructions and planning artifacts as ways to make long-running work more recoverable and verifiable.
+GitHub supports repository-wide, path-specific, and agent instructions for Copilot. [Cursor Rules](https://cursor.com/docs/rules) can store persistent project guidance in version control. OpenAI's Codex guidance similarly treats repository instructions and planning artifacts as ways to make long-running work more recoverable and verifiable.
 
 Those mechanisms can tell an agent how the project normally works:
 
