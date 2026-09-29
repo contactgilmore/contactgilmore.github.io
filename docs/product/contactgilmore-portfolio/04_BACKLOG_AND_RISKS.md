@@ -35,22 +35,21 @@ post-merge Playwright = 33108684776 — SUCCESS
 
 ## Current bounded work
 
-There is **NO ACTIVE IMPLEMENTATION SPRINT** after P12 closeout and the September governance/lifecycle reconciliation.
-
-Roadmap Horizon H2 / Product Goal PG-2 remain active. Fresh live-state reconciliation still supports **Plan Before Edit** as the next bounded product transaction.
+P14 — **Portfolio Public Identity Alignment** — is **ACTIVE** under Roadmap Horizon H2 / Product Goal PG-2. P13 remains preserved as a paused draft on PR #67 until the new whole-site presentation is owner accepted.
 
 ## Prioritized backlog
 
-1. **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits.
-2. **The Agent Finished Is Not Evidence** — claim-matching proof across builds, tests, browser evidence, source verification, and exact changed material.
-3. **Give Tools Less Trust, Not Less Usefulness** — useful automation under explicit permission, credential, public/private, and destructive-operation boundaries.
-4. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment, rollback, and closeout.
-5. **Reconcile Before Retry** — recover safely after interrupted automation or partial remote writes by reading exact live state before repeating an action.
-6. **Cleanup Needs Provenance** — why branch age, names, or squash-merge history are insufficient deletion evidence and why unique history should fail closed.
-7. AI-assisted troubleshooting and background/multi-agent orchestration after the core operating model is established.
-8. Cloud Foundations only if it adds distinct employer-facing value rather than another parallel publishing stream.
-9. Category/topic discovery only when Writing volume makes the current archive materially harder to scan.
-10. Custom-domain evaluation remains parked in Issue #64 until a separate owner-approved activation transaction.
+1. **Portfolio Public Identity Alignment** — ACTIVE P14; align the personal portfolio's whole-site presentation to the frozen Augusta Method public-site calibration reference without losing Career context or personal identity.
+2. **Plan Before Edit** — PAUSED P13 draft; resume after P14 visual acceptance.
+3. **The Agent Finished Is Not Evidence** — claim-matching proof across builds, tests, browser evidence, source verification, and exact changed material.
+4. **Give Tools Less Trust, Not Less Usefulness** — useful automation under explicit permission, credential, public/private, and destructive-operation boundaries.
+5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment, rollback, and closeout.
+6. **Reconcile Before Retry** — recover safely after interrupted automation or partial remote writes by reading exact live state before repeating an action.
+7. **Cleanup Needs Provenance** — why branch age, names, or squash-merge history are insufficient deletion evidence and why unique history should fail closed.
+8. AI-assisted troubleshooting and background/multi-agent orchestration after the core operating model is established.
+9. Cloud Foundations only if it adds distinct employer-facing value rather than another parallel publishing stream.
+10. Category/topic discovery only when Writing volume makes the current archive materially harder to scan.
+11. Custom-domain evaluation remains parked in Issue #64 until a separate owner-approved activation transaction.
 
 Continuous maintenance remains evidence-driven: revisit featured writing and professional positioning after meaningful changes; add professional proof only when new public-safe evidence exists; and maintain dependencies, links, browser/accessibility coverage, and time-sensitive technical claims when evidence requires it.
 
