@@ -20,15 +20,15 @@ test('portfolio navigation distinguishes current pages from nested current locat
 test('Resume presents direct identity, public-safe contact paths, and one concise summary', async ({ page }) => {
   await page.goto('/resume/', { waitUntil: 'networkidle' });
 
-  await expect(page).toHaveTitle('Mike Gilmore Resume | Technical Delivery & Customer Solutions');
+  await expect(page).toHaveTitle('Mike Gilmore Resume | Implementation & Professional Services');
   await expect(page.getByRole('heading', { level: 1, name: 'Mike Gilmore' })).toBeVisible();
-  await expect(page.getByText('Operations Transformation & Implementation · Technology-Enabled Change', { exact: true })).toHaveCount(1);
+  await expect(page.getByText('Implementation · Professional Services · Technical Success', { exact: true })).toHaveCount(1);
   await expect(page.getByText('Professional summary', { exact: true })).toBeVisible();
   await expect(page.getByText('Salt Lake City area', { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'contactgilmore@gmail.com' })).toHaveAttribute('href', 'mailto:contactgilmore@gmail.com');
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute('href', 'https://www.linkedin.com/in/contactgilmore/');
   await expect(page.getByRole('link', { name: 'GitHub' }).first()).toHaveAttribute('href', 'https://github.com/contactgilmore');
-  await expect(page.getByText(/Customer-facing technical delivery professional with experience translating requirements/i)).toBeVisible();
+  await expect(page.getByText(/I work across enterprise implementation, Professional Services, and technical delivery/i)).toBeVisible();
   await expect(page.getByText(/Enterprise SaaS implementation, business systems and program delivery, integrations,/i)).toHaveCount(0);
   await expect(page.getByText(/I work where customer requirements/i)).toHaveCount(0);
 });
