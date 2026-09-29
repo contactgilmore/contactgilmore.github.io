@@ -1,4 +1,104 @@
-.detail-card__link {
-  display: inline-block;
-  margin-top: 24px;
+.work-hero {
+  max-width: 1020px;
+}
+
+.work-index {
+  padding-bottom: clamp(96px, 11vw, 164px);
+  border-top: 1px solid rgba(8,11,16,.24);
+}
+
+.work-index-row {
+  display: grid;
+  grid-template-columns: 56px minmax(0,1.15fr) minmax(280px,.65fr);
+  gap: clamp(26px, 5vw, 72px);
+  align-items: start;
+  padding: clamp(38px, 5vw, 66px) 0;
+  border-bottom: 1px solid rgba(8,11,16,.14);
+}
+
+.work-index-row__number {
+  color: var(--muted);
+  font-size: .7rem;
+  letter-spacing: .16em;
+}
+
+.work-index-row__main h2 {
+  max-width: 720px;
+  margin: 14px 0 18px;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 4.1vw, 4.6rem);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.055em;
+  color: var(--ink-strong);
+}
+
+.work-index-row__summary {
+  max-width: 700px;
+  margin: 0 0 26px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.work-index-row__proof {
+  border-left: 1px solid rgba(8,11,16,.14);
+  padding-left: clamp(22px, 3vw, 36px);
+}
+
+.work-index-row__proof-label {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.work-index-evidence,
+.work-index-skills {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-index-evidence {
+  margin-bottom: 28px;
+}
+
+.work-index-evidence li,
+.work-index-skills li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(8,11,16,.1);
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.45;
+}
+
+.work-index-evidence li:first-child,
+.work-index-skills li:first-child {
+  border-top: 1px solid rgba(8,11,16,.1);
+}
+
+@media (max-width: 900px) {
+  .work-index-row {
+    grid-template-columns: 40px minmax(0,1fr);
+  }
+
+  .work-index-row__proof {
+    grid-column: 2;
+    border-left: 0;
+    border-top: 1px solid rgba(8,11,16,.12);
+    padding: 28px 0 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .work-index-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .work-index-row__proof {
+    grid-column: 1;
+  }
 }
