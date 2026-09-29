@@ -7,7 +7,7 @@ Updated: 2026-09-29
 
 The following are no longer open product questions:
 
-- role/value proposition language is established around `Technical Delivery & Customer Solutions`;
+- role/value proposition language is established around `Implementation / Professional Services`, with Technical Success, customer solutions, and technical delivery as supporting territory;
 - three primary professional case studies are selected and published;
 - Resume presentation is live and P10 employer-readiness work is COMPLETE;
 - Writing/archive structure is live on typed Astro content collections;
@@ -88,7 +88,7 @@ Continuous maintenance remains evidence-driven: revisit featured writing and pro
 ### Writing outranking professional proof
 
 **Impact:** the portfolio over-positions as a content/tool site rather than employer-facing technical delivery/customer solutions evidence.  
-**Mitigation:** keep Home/Work/case-study/Resume hierarchy stable and publish Writing only as supporting proof.
+**Mitigation:** keep Home/Work/case-study/Resume hierarchy stable around implementation / Professional Services evidence and publish Writing only as supporting proof.
 
 ### Public disclosure
 
