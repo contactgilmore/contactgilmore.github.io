@@ -22,6 +22,14 @@ const surfaces = [
   { name: 'article', path: '/prompt-prove-ship-context/' },
 ];
 
+test.skip(process.env.P14_VISUAL_REVIEW !== '1', 'P14 visual capture is a local opt-in acceptance harness.');
+
+test.beforeEach(async ({ page }) => {
+  await page.route('https://static.cloudflareinsights.com/**', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }),
+  );
+});
+
 fs.mkdirSync(outputRoot, { recursive: true });
 
 for (const viewport of viewports) {
