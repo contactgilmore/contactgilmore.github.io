@@ -1,6 +1,6 @@
 # P14 — Portfolio Public Identity Alignment
 
-Status: **ACTIVE / FOUNDATION + HOME ALIGNMENT**  
+Status: **ACTIVE / WHOLE-SITE VISUAL REVIEW**  
 Opened: 2026-09-29  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
@@ -93,7 +93,7 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 
 ## Work packages
 
-### WP1 — Authority + visual foundation
+### WP1 — Authority + visual foundation — COMPLETE FOR REVIEW
 
 - update durable portfolio brand/product authority;
 - adopt Augusta Method public site as calibration reference, not brand authority;
@@ -104,7 +104,7 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - establish larger editorial typography, rails and breathing room;
 - preserve accessibility and responsive law.
 
-### WP2 — Home
+### WP2 — Home — COMPLETE FOR REVIEW
 
 - sharpen first-viewport professional truth;
 - preserve Implementation / Professional Services / Technical Success positioning;
@@ -113,26 +113,26 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - reduce duplicate capability explanation;
 - keep technical depth as supporting proof.
 
-### WP3 — Work
+### WP3 — Work — COMPLETE FOR REVIEW
 
 - preserve all accepted case-study facts and metrics;
 - convert card-heavy listing to editorial evidence rows/chapters;
 - make customer/operational result lead before capability tags.
 
-### WP4 — About + Resume
+### WP4 — About + Resume — COMPLETE FOR REVIEW
 
 - preserve truthful context;
 - reduce boxed-essay presentation;
 - use larger typographic chapters, rails and whitespace;
 - keep Resume dense enough for recruiter utility.
 
-### WP5 — Writing
+### WP5 — Writing — COMPLETE FOR REVIEW
 
 - align archive/article presentation to the final personal visual system;
 - preserve historical article bodies, dates, routes and accepted art;
 - do not publish P13 as part of alignment.
 
-### WP6 — whole-site proof
+### WP6 — whole-site proof — ACTIVE
 
 - automated governance/Astro/Playwright CI remains mandatory but is not visual acceptance;
 - deterministic M1 visual captures use `npm run review:visual`;
