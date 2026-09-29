@@ -235,7 +235,7 @@ for token in ("Status: **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCT
         errors.append(f"P14 sprint record missing active alignment token: {token}")
 
 product_backlog = read("docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md")
-for token in ("P10", "COMPLETE", "P11", "P14", "NO ACTIVE IMPLEMENTATION SPRINT", "Draft leakage", NEXT_ARTICLE, "RECONCILIATION"):
+for token in ("P10", "COMPLETE", "P11", "P14", "NO ACTIVE IMPLEMENTATION SPRINT", "Draft leakage", NEXT_ARTICLE, "reconciliation"):
     if token not in product_backlog:
         errors.append(f"Product backlog missing reconciled token: {token}")
 if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
