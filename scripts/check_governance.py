@@ -15,6 +15,8 @@ CURRENT_HORIZON = "H2"
 CURRENT_PRODUCT_GOAL = "PG-2"
 MOST_RECENT_IMPLEMENTATION = "P12"
 P11_SPRINT_RECORD = "docs/sprints/archive/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
+P13_SPRINT_RECORD = "docs/sprints/SPRINT_P13_PLAN_BEFORE_EDIT_2026-09-29.md"
+P13_DRAFT_ARTICLE = "src/content/blog/2026-09-29-prompt-prove-ship-plan-before-edit.md"
 P11_PRODUCTION_MERGE = "736d0171b9905efcc442e5d0dc69eb90a0602fd6"
 P11_PAGES_RUN = "33108684844"
 NEXT_ARTICLE = "Plan Before Edit"
@@ -48,6 +50,8 @@ required = {
     "docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
     "docs/editorial/system/NEXT_SERIES_FOUNDATION.md",
     P11_SPRINT_RECORD,
+    P13_SPRINT_RECORD,
+    P13_DRAFT_ARTICLE,
     "src/pages/[...slug].astro",
 }
 for rel in sorted(required):
@@ -204,21 +208,21 @@ for rel, body in (
 for token in ("P10", "COMPLETE", "stability", "9090915653"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
-for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE, "Cloudflare Web Analytics"):
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "P13", "ACTIVE / DRAFT PREPARATION", "current PR = #67 — DRAFT", NEXT_ARTICLE, "Cloudflare Web Analytics"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
 for token in (
-    "Status: **NO ACTIVE IMPLEMENTATION SPRINT**",
-    MOST_RECENT_IMPLEMENTATION,
-    "COMPLETE",
-    NEXT_ARTICLE,
-    "Cloudflare Web Analytics",
+    "Status: **ACTIVE — P13 PLAN BEFORE EDIT**",
+    "p13-plan-before-edit",
+    P13_SPRINT_RECORD,
+    "#2. Prompt. Prove. Ship.: Plan Before Edit",
+    "DRAFT / NOT PUBLIC",
+    CURRENT_HORIZON,
+    CURRENT_PRODUCT_GOAL,
 ):
     if token not in active:
-        errors.append(f"ACTIVE_SPRINT missing current no-active/P12 token: {token}")
-if "Status: **ACTIVE**" in active:
-    errors.append("ACTIVE_SPRINT still claims an implementation sprint is active")
+        errors.append(f"ACTIVE_SPRINT missing current P13 token: {token}")
 
 for token in ("COMPLETE", P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE):
     if token not in sprint:
@@ -226,8 +230,20 @@ for token in ("COMPLETE", P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE):
 if re.search(r"^Status:\s*\*\*ACTIVE\*\*", sprint, re.MULTILINE):
     errors.append("P11 sprint record still has ACTIVE status")
 
+p13_sprint = read(P13_SPRINT_RECORD)
+for token in ("Status: **ACTIVE / DRAFT PREPARATION**", "Draft PR: **#67**", "Plan Before Edit", "draft = true until owner approval"):
+    if token not in p13_sprint:
+        errors.append(f"P13 sprint record missing active draft token: {token}")
+
+p13_article = read(P13_DRAFT_ARTICLE)
+for token in ('title: "#2. Prompt. Prove. Ship.: Plan Before Edit"', "slug: prompt-prove-ship-plan-before-edit", "seriesOrder: 2", "draft: true"):
+    if token not in p13_article:
+        errors.append(f"P13 draft article missing fail-closed token: {token}")
+if "draft: false" in p13_article:
+    errors.append("P13 article must remain draft-only before owner approval")
+
 product_backlog = read("docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md")
-for token in ("P10", "COMPLETE", "P11", "Draft leakage", NEXT_ARTICLE, "NO ACTIVE IMPLEMENTATION SPRINT"):
+for token in ("P10", "COMPLETE", "P11", "P12", "Draft leakage", NEXT_ARTICLE, "P13", "ACTIVE / DRAFT PREPARATION"):
     if token not in product_backlog:
         errors.append(f"Product backlog missing reconciled token: {token}")
 if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
@@ -237,19 +253,21 @@ if re.search(r"P11[^\n]*\bACTIVE\b", product_backlog):
 
 series = read("docs/editorial/system/NEXT_SERIES_FOUNDATION.md")
 for token in (
-    "ACTIVE SERIES DIRECTION / P11 COMPLETE",
+    "ACTIVE SERIES DIRECTION / P13 ACTIVE",
     "Context Is Part of the System",
     NEXT_ARTICLE,
     "low-owner-friction",
     P11_PRODUCTION_MERGE,
+    "p13-plan-before-edit",
 ):
     if token not in series:
-        errors.append(f"Series foundation missing P11 closeout token: {token}")
+        errors.append(f"Series foundation missing current P13 token: {token}")
 
 for token in (
     "contactgilmore/central-governance",
-    "NO ACTIVE IMPLEMENTATION SPRINT",
-    MOST_RECENT_IMPLEMENTATION,
+    "P13",
+    "p13-plan-before-edit",
+    "Draft PR #67",
     NEXT_ARTICLE,
 ):
     if token not in last:

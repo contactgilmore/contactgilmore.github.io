@@ -35,13 +35,11 @@ post-merge Playwright = 33108684776 — SUCCESS
 
 ## Current bounded work
 
-There is **NO ACTIVE IMPLEMENTATION SPRINT** after P12 closeout and the September governance/lifecycle reconciliation.
-
-Roadmap Horizon H2 / Product Goal PG-2 remain active. Fresh live-state reconciliation still supports **Plan Before Edit** as the next bounded product transaction.
+P13 — **Plan Before Edit** — is **ACTIVE / DRAFT PREPARATION** under Roadmap Horizon H2 / Product Goal PG-2. The article remains draft-only until real-page owner editorial/visual approval.
 
 ## Prioritized backlog
 
-1. **Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits.
+1. **Plan Before Edit** — ACTIVE P13; allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits.
 2. **The Agent Finished Is Not Evidence** — claim-matching proof across builds, tests, browser evidence, source verification, and exact changed material.
 3. **Give Tools Less Trust, Not Less Usefulness** — useful automation under explicit permission, credential, public/private, and destructive-operation boundaries.
 4. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment, rollback, and closeout.

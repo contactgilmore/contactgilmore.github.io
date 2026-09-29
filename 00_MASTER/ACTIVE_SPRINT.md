@@ -1,22 +1,23 @@
 # Active Sprint
 
-Status: **NO ACTIVE IMPLEMENTATION SPRINT**  
-Updated: 2026-09-16
+Status: **ACTIVE — P13 PLAN BEFORE EDIT**  
+Updated: 2026-09-29
 
-P12 — **Portfolio Accent Palette Alignment** — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+P13 — **Plan Before Edit** — is the active bounded implementation sprint under Roadmap Horizon H2 / Product Goal PG-2.
 
-The portfolio is currently between implementation sprints under Roadmap Horizon H2 / Product Goal PG-2. Do not manufacture a sprint merely because the repository is active.
-
-Current durable state:
+Current execution state:
 
 ```text
 production branch = main
-most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
+production baseline at sprint open = 9c9812482d38e8c102846a737f23db0407c4dfec
+working branch = p13-plan-before-edit
+active sprint record = docs/sprints/SPRINT_P13_PLAN_BEFORE_EDIT_2026-09-29.md
+target article = #2. Prompt. Prove. Ship.: Plan Before Edit
+target slug = /prompt-prove-ship-plan-before-edit/
+publication state = DRAFT / NOT PUBLIC
+owner gate = real-page editorial/visual approval before publication
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
-Cloudflare Web Analytics = INSTALLED / DEPLOYED / PRODUCTION VERIFIED
-next strongest editorial candidate = Plan Before Edit
 ```
 
 P12 accepted the bounded portfolio-local violet/aubergine accent family while preserving the existing neutral layout, typography, spacing, geometry, content, routes, article artwork, and GitHub Pages hosting model. The portfolio does not consume Augusta Method Company Brand; the accepted color treatment remains portfolio-local identity authority.
@@ -32,10 +33,8 @@ publication date = 2026-08-27
 
 Candidate articles remain `draft: true` until owner approval; normal builds and public routes exclude drafts; owner review uses the actual local Astro page via `npm run review:drafts`; generated local output remains disposable and ignored.
 
-## Next eligible product transaction
+## Current checkpoint
 
-No next sprint is active. The strongest current H2 / PG-2 editorial candidate remains:
+Tracked draft preparation is active. GPT should complete source verification, editorial/voice review, public-disclosure review, exact-diff review, and available automated proof before asking Mike for editorial judgment.
 
-**Plan Before Edit** — allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters before an agent edits a real system.
-
-A fresh chat must first reconcile current central governance, this repository's living startup authority, exact live `main`, open PRs/issues, and applicable Actions. Open governance or maintenance PRs do not become active product sprints merely by existing. If current evidence still supports the article, open one bounded sprint for it. Do not begin it merely to maintain publishing cadence, and do not reopen P11 or P12 without new evidence.
+Do not make the article publishable or merge it to `main` before the owner reviews the real rendered draft page. Do not reopen P11 or P12 without new evidence.

@@ -138,15 +138,20 @@ hosting = GitHub Pages unchanged
 
 P12 is the most recently completed portfolio implementation. Cloudflare Web Analytics was subsequently installed and production-verified as a bounded optional enhancement without changing the GitHub Pages hosting model or unrelated site behavior.
 
-There is **no active implementation sprint** after P12 closeout.
+### P13 — Plan Before Edit — ACTIVE / DRAFT PREPARATION
 
-### Next strongest H2 candidate — Plan Before Edit
+P13 is the current bounded H2 / PG-2 implementation sprint.
 
-If current evidence still supports it at the next startup, open a new bounded sprint for:
+Target increment:
 
-**Plan Before Edit** — allowed scope, no-touch boundaries, acceptance criteria, stop conditions, and why boundary writing matters before an AI agent edits a real system.
+```text
+#2. Prompt. Prove. Ship.: Plan Before Edit
+slug = /prompt-prove-ship-plan-before-edit/
+seriesOrder = 2
+publication state = DRAFT / NOT PUBLIC
+```
 
-Do not treat this candidate as already active and do not publish merely to maintain cadence.
+P13 focuses on allowed scope, protected boundaries, done-when evidence, stop conditions, and the distinction between task scope and technical permission. Publication remains blocked on real-page owner editorial/visual approval.
 
 ### Prompt. Prove. Ship. sequencing principles
 
@@ -155,7 +160,7 @@ The series remains bounded and value-driven rather than calendar-driven. The int
 Current directional learning path:
 
 1. **Context Is Part of the System** — PUBLISHED.
-2. **Plan Before Edit** — next strongest candidate.
+2. **Plan Before Edit** — ACTIVE P13 draft; publication requires owner approval.
 3. **The Agent Finished Is Not Evidence** — tests, browser evidence, source verification, and claim-matching proof.
 4. **Give Tools Less Trust, Not Less Usefulness** — permissions, connectors/MCP, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment/rollback/closeout.
