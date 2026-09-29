@@ -1,7 +1,7 @@
 # ContactGilmore Portfolio Product Roadmap
 
 Status: active canonical roadmap  
-Updated: 2026-09-16  
+Updated: 2026-09-29  
 Canonical path: `00_MASTER/PRODUCT_ROADMAP.md`
 
 ## North star
@@ -160,7 +160,9 @@ Current directional learning path:
 4. **Give Tools Less Trust, Not Less Usefulness** — permissions, connectors/MCP, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, pull requests, expected-head checks, owner judgment, deployment/rollback/closeout.
 
-AI-assisted troubleshooting and multi-agent/background work remain later candidates. This list is directional, not a publication promise. Reorder, combine, pause, replace, or stop when evidence says a different article better serves PG-2.
+After the five core installments, later evidence-backed candidates include **Reconcile Before Retry** and **Cleanup Needs Provenance**, followed by AI-assisted troubleshooting and multi-agent/background work. These are later candidates, not parallel active work.
+
+This list is directional, not a publication promise. Reorder, combine, pause, replace, or stop when evidence says a different article better serves PG-2.
 
 ## Roadmap Horizon H3 — Future expansion — PLANNED / NOT ACTIVE
 
