@@ -1,7 +1,7 @@
 # Prompt. Prove. Ship. — Series Foundation
 
 Status: **ACTIVE SERIES DIRECTION / P11 COMPLETE**  
-Updated: 2026-08-27
+Updated: 2026-09-29
 
 ## Identity
 
@@ -84,7 +84,12 @@ The published #1 article fits this standard: its direct opening, context-layer m
 4. **Give Tools Less Trust, Not Less Usefulness** — connectors/MCP, permissions, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, PRs, expected-head checks, owner decisions, deployment/rollback, durable closeout.
 
-Later candidates include AI-assisted troubleshooting and background/multi-agent orchestration.
+Later candidates include:
+
+- **Reconcile Before Retry** — interrupted automation, partial remote writes, exact live-state recovery, and idempotent continuation;
+- **Cleanup Needs Provenance** — branch/history cleanup after squash merges, ancestry proof, and fail-closed preservation of unique history;
+- AI-assisted troubleshooting;
+- background/multi-agent orchestration.
 
 This is a learning path, not a publication calendar. Reorder, combine, replace, pause, or stop when evidence says a different article better serves the series promise.
 
