@@ -1,6 +1,6 @@
 # Prompt. Prove. Ship. — Series Foundation
 
-Status: **ACTIVE SERIES DIRECTION / P11 COMPLETE**  
+Status: **ACTIVE SERIES DIRECTION / P13 ACTIVE**  
 Updated: 2026-09-29
 
 ## Identity
@@ -79,7 +79,7 @@ The published #1 article fits this standard: its direct opening, context-layer m
 ## Current learning path
 
 1. **Context Is Part of the System** — PUBLISHED 2026-08-27.
-2. **Plan Before Edit** — next strongest candidate; allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
+2. **Plan Before Edit** — ACTIVE P13 draft; allowed/no-touch scope, acceptance criteria, stop conditions, and why boundary writing matters.
 3. **The Agent Finished Is Not Evidence** — builds, tests, browser evidence, source verification, and claim-matching proof.
 4. **Give Tools Less Trust, Not Less Usefulness** — connectors/MCP, permissions, credentials, public/private boundaries, destructive operations.
 5. **Review Is a Release Control** — branches, PRs, expected-head checks, owner decisions, deployment/rollback, durable closeout.
@@ -93,15 +93,17 @@ Later candidates include:
 
 This is a learning path, not a publication calendar. Reorder, combine, replace, pause, or stop when evidence says a different article better serves the series promise.
 
-## Next article candidate — Plan Before Edit
+## Current article — Plan Before Edit
+
+P13 is active on `p13-plan-before-edit`.
 
 Primary question:
 
 How do you define what an AI agent may change before it starts editing?
 
-The article should build directly from #1's final question and focus on allowed scope, no-touch boundaries, acceptance criteria, and stop conditions. It should explain why more capable agents make boundary writing more valuable, while avoiding bureaucracy for small/low-risk tasks.
+The draft builds directly from #1's final question and focuses on allowed scope, protected boundaries, done-when evidence, stop conditions, and the distinction between task scope and technical permission. It must explain why more capable agents make boundary writing more valuable while avoiding bureaucracy for small/low-risk tasks.
 
-No sprint is active for this article at P11 closeout. A fresh chat must reconcile roadmap/live truth and open a bounded sprint before tracked drafting begins.
+Publication remains blocked on current-source verification, exact-head proof, and Mike's review of the real rendered draft page.
 
 ## Source posture
 
