@@ -1,6 +1,6 @@
 # P14 — Portfolio Public Identity Alignment
 
-Status: **OWNER APPROVED / READY TO MERGE**  
+Status: **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**  
 Opened: 2026-09-29  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
@@ -87,9 +87,9 @@ hard exclusion = Site Reliability Engineer
 
 ## P13 relationship
 
-P13 / PR #67 remains **PAUSED / DRAFT-ONLY / NOT PUBLIC**.
+P13 / PR #67 remains **DRAFT-ONLY / NOT PUBLIC**.
 
-Do not publish P13 against the superseded portfolio presentation. Resume P13 only after the P14 visual system reaches owner acceptance.
+P14 acceptance is complete. PR #67 is now non-mergeable against the P14 production baseline and must be reconciled against current `main` before P13 resumes. Do not publish P13 as a side effect of that reconciliation.
 
 ## Work packages
 
@@ -224,6 +224,21 @@ Playwright = SUCCESS
 ```
 
 The owner approved this exact rendered candidate for governed merge.
+
+## Production closeout
+
+P14 was squash-merged and production-verified on 2026-09-29:
+
+```text
+PR #68 = MERGED
+production merge = 96085102bd9d46930b004e480450e693933dd2bb
+post-merge governance run = 36618045582 — SUCCESS
+post-merge Astro run = 36618045196 — SUCCESS
+post-merge Playwright run = 36618045458 — SUCCESS
+GitHub Pages run = 36618045352 — SUCCESS
+```
+
+The original rollback branch `checkpoint/pre-p14-public-identity-alignment-20260929` remains preserved as recovery evidence. P14 introduced no custom-domain cutover; Issue #64 remains the separate authority for any future `contactgilmore.com` activation.
 
 ## Stop conditions
 
