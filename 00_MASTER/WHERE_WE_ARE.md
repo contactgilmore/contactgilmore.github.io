@@ -10,7 +10,7 @@ repository = contactgilmore/contactgilmore.github.io
 production branch = main
 current main = reconcile live at startup
 working branch = p14-public-identity-alignment
-current PR = #68 — DRAFT
+current PR = #68 — DRAFT / OWNER APPROVED FOR READY + MERGE
 rollback = checkpoint/pre-p14-public-identity-alignment-20260929
 P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
 hosting = GitHub Pages
@@ -44,7 +44,7 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = P14 — Portfolio Public Identity Alignment — ACTIVE / FINAL POLISH REVIEW
+active implementation sprint = P14 — Portfolio Public Identity Alignment — OWNER APPROVED / READY TO MERGE
 P13 = Plan Before Edit — PAUSED / DRAFT-ONLY / NOT PUBLIC
 ```
 
