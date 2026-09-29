@@ -30,14 +30,14 @@ Sprint records under `docs/sprints/` advance goals defined here. Do not create a
 Primary professional identity:
 
 ```text
-Technical Delivery & Customer Solutions
+Implementation / Professional Services
 ```
 
 Supporting role territory:
 
 ```text
-Implementation / Professional Services
-Technical Success
+Technical Success / Customer Solutions
+customer-facing technical delivery
 Solutions / Customer Engineering
 Technical Program or Systems Delivery
 ```
