@@ -6,16 +6,16 @@ CURRENT PRODUCT STATE
 - Portfolio 2.0 is live and stable.
 - P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
 - P11 — Prompt. Prove. Ship. Editorial Continuation — remains COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
-- P12 — Portfolio Accent Palette Alignment — is the most recently completed implementation and is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
+- P14 — Portfolio Public Identity Alignment — is the most recently completed implementation and is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED at `main@96085102bd9d46930b004e480450e693933dd2bb`.
 - Cloudflare Web Analytics is INSTALLED / DEPLOYED / PRODUCTION VERIFIED as a bounded optional enhancement; hosting remains GitHub Pages.
 - Core Home / Work / case studies / About / Resume / neutral layout / typography / spacing / geometry remain in stability posture.
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
 - Roadmap Horizon: H2 — Sustained professional signal and editorial proof — ACTIVE.
 - Product Goal: PG-2 — ACTIVE.
-- P14 — Portfolio Public Identity Alignment — is ACTIVE on `p14-public-identity-alignment`.
-- Draft PR #68 is the current candidate.
-- Rollback checkpoint `checkpoint/pre-p14-public-identity-alignment-20260929` preserves accepted pre-P14 `main@9c9812482d38e8c102846a737f23db0407c4dfec`.
-- P13 / PR #67 remains PAUSED / DRAFT-ONLY / NOT PUBLIC.
+- P14 production proof: governance `36618045582` SUCCESS; Astro `36618045196` SUCCESS; Playwright `36618045458` SUCCESS; Pages `36618045352` SUCCESS.
+- Rollback checkpoint `checkpoint/pre-p14-public-identity-alignment-20260929` remains preserved as recovery evidence.
+- There is no active implementation sprint after P14 closeout.
+- P13 / PR #67 remains DRAFT-ONLY / NOT PUBLIC and must be reconciled against current `main` before editorial work resumes.
 
 P12 ACCEPTED COLOR AUTHORITY
 - canvas = `#F7F8FA`
@@ -45,8 +45,8 @@ P11 RETAINED EDITORIAL LEARNING
 CURRENT SERIES
 - introduction: `Prompt. Prove. Ship.: From Chat to Change` at `/prompt-prove-ship/`, seriesOrder 0.
 - #1: `Context Is Part of the System` at `/prompt-prove-ship-context/`, seriesOrder 1, published and production verified 2026-08-27.
-- P13 **Plan Before Edit** remains preserved on draft PR #67 but is paused until P14 visual acceptance.
-- P14 final candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` is OWNER APPROVED after final visual ZIP review; only documentation-only merge-readiness receipt, exact-head CI, squash merge, production verification, and durable closeout remain.
+- P13 **Plan Before Edit** remains preserved on draft PR #67 with `draft: true`.
+- P14 is closed and production verified. P13 is the next routed item, but its pre-P14 branch is non-mergeable against current `main` and must be reconciled before any publication review resumes.
 
 CURRENT ROUTING
 - open governance/maintenance PRs must be reconciled separately and do not become active product sprints merely by existing.
@@ -55,7 +55,9 @@ CURRENT ROUTING
 - do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-Continue P14 from draft PR #68. Preserve both the original pre-P14 rollback checkpoint and green pre-polish head `f942993a9d745ddab27d85bebe9b39e3c3ab0b74`. The final rendered candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` is owner approved. Complete the documentation-only merge-readiness receipt, exact-head CI, squash merge, production verification, and durable P14 closeout. Do not resume P13 publication work until P14 is production verified.
+Reconcile P13 / PR #67 against current production `main@96085102bd9d46930b004e480450e693933dd2bb`. Preserve the article's `draft: true` boundary and its existing content/art as the starting evidence. Do not publish or make PR #67 ready merely by reconciling it. First re-establish current governance/living-state authority on a branch derived from current `main`, compare the preserved P13 draft content against that baseline, repair only true conflicts or stale presentation assumptions, then run exact-head governance/Astro/Playwright and owner visual review before any publication decision.
+
+Issue #64 remains the separate custom-domain activation path; do not combine it with P13.
 
 OWNER-APPROVAL PROMPT LAW
 At every genuine material owner-approval gate, end with the exact question: `Do you approve that step?` Do not substitute alternate approval phrasing. The owner should be able to answer with only `yes` or `no`. This does not create approval friction for already-connected and authorized tools or internal mechanics within an approved bounded package.

@@ -8,9 +8,9 @@ Updated: 2026-09-29
 ```text
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
-current main = reconcile live at startup
-working branch = p14-public-identity-alignment
-current PR = #68 — DRAFT / OWNER APPROVED FOR READY + MERGE
+current main = 96085102bd9d46930b004e480450e693933dd2bb
+working branch = none
+current PR = #67 — DRAFT / RECONCILE BEFORE RESUME
 rollback = checkpoint/pre-p14-public-identity-alignment-20260929
 P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
 hosting = GitHub Pages
@@ -43,10 +43,29 @@ historical production artifact = 9090915653
 canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
-most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = P14 — Portfolio Public Identity Alignment — OWNER APPROVED / READY TO MERGE
-P13 = Plan Before Edit — PAUSED / DRAFT-ONLY / NOT PUBLIC
+most recently completed implementation = P14 — Portfolio Public Identity Alignment — COMPLETE / PRODUCTION VERIFIED
+active implementation sprint = NONE
+P13 = Plan Before Edit — DRAFT-ONLY / NOT PUBLIC / RECONCILIATION NEXT
 ```
+
+## P14 production closeout
+
+P14 — Portfolio Public Identity Alignment — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED**.
+
+```text
+PR #68 = MERGED
+production merge = 96085102bd9d46930b004e480450e693933dd2bb
+final visual candidate = a05ce96e852be8bb90bc9c76fadb3a87a5551a6f
+final visual bundle = p14-visual-review-a05ce96e852b-20260929-130630.zip
+post-merge governance = 36618045582 — SUCCESS
+post-merge Astro = 36618045196 — SUCCESS
+post-merge Playwright = 36618045458 — SUCCESS
+Pages = 36618045352 — SUCCESS
+```
+
+The accepted public identity now leads with Implementation / Professional Services; Technical Success, customer-facing technical delivery, integrations, reliability, cloud, and operational improvement remain supporting depth. The portfolio remains personal and does not consume Augusta Method Company Brand. Custom-domain activation remains separately parked in Issue #64.
+
+P13 / PR #67 remains draft-only. Its pre-P14 branch is non-mergeable against current `main`; reconcile it before resuming editorial work.
 
 ## Web analytics operational state
 
@@ -136,7 +155,7 @@ A failed preview is repaired at the source rather than weakening draft isolation
 
 The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
 
-**Prompt. Prove. Ship.** has a published introduction and published #1 installment. P13 draft PR #67 remains preserved and `draft: true`, but publication work is paused until P14 establishes the accepted whole-site presentation.
+**Prompt. Prove. Ship.** has a published introduction and published #1 installment. P13 draft PR #67 remains preserved and `draft: true`. P14 is complete; the next step is to reconcile P13 against the new production baseline before any publication review resumes.
 
 ## Public-safety boundary
 
