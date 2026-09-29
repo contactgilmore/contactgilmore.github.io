@@ -1,25 +1,24 @@
 # Active Sprint
 
-Status: **P14 OWNER APPROVED / READY TO MERGE**  
+Status: **NO ACTIVE IMPLEMENTATION SPRINT — P13 RECONCILIATION NEXT**  
 Updated: 2026-09-29
 
-P14 — **Portfolio Public Identity Alignment** — is the active bounded implementation sprint under Roadmap Horizon H2 / Product Goal PG-2.
+P14 — **Portfolio Public Identity Alignment** — is **COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED** under Roadmap Horizon H2 / Product Goal PG-2.
 
-P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **PAUSED / DRAFT-ONLY / NOT PUBLIC**.
+P13 — **Plan Before Edit** — remains preserved on draft PR #67 as **DRAFT-ONLY / NOT PUBLIC**. Its branch predates P14 and is currently non-mergeable against the new production baseline, so reconciliation against current `main` is the next transaction before editorial work resumes.
 
 Current execution state:
 
 ```text
 production branch = main
-production baseline = 9c9812482d38e8c102846a737f23db0407c4dfec
+production baseline = 96085102bd9d46930b004e480450e693933dd2bb
 rollback checkpoint = checkpoint/pre-p14-public-identity-alignment-20260929
-working branch = p14-public-identity-alignment
-active sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
-scope = whole-site presentation alignment
-current checkpoint = OWNER APPROVED / READY TO MERGE
+working branch = none
+completed sprint record = docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md
+current checkpoint = P14 PRODUCTION VERIFIED / P13 RECONCILIATION NEXT
 frozen calibration = contactgilmore/augusta-method-site@71d774461e6676300474857f461ebfb774270cc5
 Career positioning = contactgilmore/career@3642dd1c3ad8c4141884ac1729fad0b628898037
-P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
+P13 = PR #67 / DRAFT-ONLY / NOT PUBLIC / RECONCILE AGAINST CURRENT MAIN
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 ```
@@ -39,13 +38,15 @@ Candidate articles remain `draft: true` until owner approval; normal builds and 
 
 ## Current checkpoint
 
-Execute P14 in precedence:
+P14 is closed and production verified:
 
-1. shared visual foundation + header/footer — COMPLETE FOR REVIEW;
-2. Home message hierarchy and proof sequencing — COMPLETE FOR REVIEW;
-3. Work — COMPLETE FOR REVIEW;
-4. About + Resume — COMPLETE FOR REVIEW;
-5. Writing/archive presentation — COMPLETE FOR REVIEW;
-6. whole-site browser/accessibility/visual review — COMPLETE / OWNER APPROVED.
+```text
+PR #68 = MERGED
+production merge = 96085102bd9d46930b004e480450e693933dd2bb
+governance = 36618045582 — SUCCESS
+Astro = 36618045196 — SUCCESS
+Playwright = 36618045458 — SUCCESS
+Pages = 36618045352 — SUCCESS
+```
 
-Final owner approval was received on exact rendered candidate `a05ce96e852be8bb90bc9c76fadb3a87a5551a6f` after the final polish, copy-deduplication, and SEO hardening pass. Visual bundle `p14-visual-review-a05ce96e852b-20260929-130630.zip` passed review. Merge is authorized after the documentation-only approval receipt head is green on governance, Astro, and Playwright. Do not advance P13 toward publication while P14 is active.
+Next transaction: reconcile P13 / PR #67 against current `main`, preserve its `draft: true` publication boundary, re-run exact diff/governance/browser proof, and only then decide whether its editorial review should resume. Do not advance P13 toward publication while P14 is active.
