@@ -44,7 +44,7 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = P14 — Portfolio Public Identity Alignment — ACTIVE / WHOLE-SITE VISUAL REVIEW
+active implementation sprint = P14 — Portfolio Public Identity Alignment — OWNER APPROVED / READY TO MERGE
 P13 = Plan Before Edit — PAUSED / DRAFT-ONLY / NOT PUBLIC
 ```
 
