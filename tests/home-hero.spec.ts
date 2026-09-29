@@ -15,7 +15,7 @@ test('homepage hero keeps the value proposition and primary CTA in the first lap
 
     const heading = page.getByRole('heading', {
       level: 1,
-      name: /I get complicated technical change from requirement to a stable result/i,
+      name: /I turn complicated technical change into stable, supportable results/i,
     });
     const primaryCta = page.getByRole('link', { name: /See the work/i });
 
