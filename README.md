@@ -6,9 +6,9 @@ Portfolio 2.0 is live on `main` using Astro and TypeScript. Production changes u
 
 ## Current direction
 
-- Technical Delivery & Customer Solutions positioning
+- Implementation / Professional Services positioning
 - Professional work and evidence first
-- Business systems analysis, program delivery, implementation, integrations, and reliability represented together
+- Technical Success, customer-facing delivery, integrations, operations, and reliability represented as supporting depth
 - Dedicated technical writing archive
 - Public-safe content only
 
