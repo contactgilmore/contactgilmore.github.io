@@ -1,6 +1,6 @@
 # P14 — Portfolio Public Identity Alignment
 
-Status: **ACTIVE / WHOLE-SITE VISUAL REVIEW**  
+Status: **OWNER APPROVED / READY TO MERGE**  
 Opened: 2026-09-29  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
@@ -132,7 +132,7 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - preserve historical article bodies, dates, routes and accepted art;
 - do not publish P13 as part of alignment.
 
-### WP6 — whole-site proof — ACTIVE
+### WP6 — whole-site proof — COMPLETE / OWNER APPROVED
 
 - automated governance/Astro/Playwright CI remains mandatory but is not visual acceptance;
 - deterministic M1 visual captures use `npm run review:visual`;
@@ -144,6 +144,32 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - repeat the capture/ZIP review loop after material visual changes until accepted;
 - Playwright accessibility/navigation/focus/overflow proof remains mandatory;
 - owner review of the rendered whole-site result remains mandatory before merge.
+
+## Acceptance evidence
+
+Owner approval received: **2026-09-29**.
+
+Accepted runtime visual candidate:
+
+```text
+runtime head = b8069d81f42397bf89f47ee00417993645259652
+visual bundle = p14-visual-review-b8069d81f423-20260929-040157.zip
+visual_review_rc = 0
+working tree = clean
+```
+
+The final branch head adds only governance/test reconciliation after that runtime capture; no runtime presentation file changed after the accepted visual bundle.
+
+Exact-head proof before merge:
+
+```text
+head = 26c35e89014d27b4a0d7fe08d5fc84be7d24f6b5
+Portfolio governance check = SUCCESS
+Validate Astro migration = SUCCESS
+Playwright portfolio smoke = SUCCESS
+```
+
+Owner accepted the whole-site presentation across Home, Work, case study, About, Resume, Writing, article, and the five target viewport sizes.
 
 ## Stop conditions
 
