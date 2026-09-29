@@ -134,12 +134,16 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 
 ### WP6 — whole-site proof
 
-- desktop/tablet/phone;
-- Playwright;
-- accessibility;
-- navigation/focus/overflow;
-- visual family review across Home, Work, About, Resume and Writing;
-- owner review before merge.
+- automated governance/Astro/Playwright CI remains mandatory but is not visual acceptance;
+- deterministic M1 visual captures use `npm run review:visual`;
+- capture matrix includes 1600x900, 1440x900, 1280x800, 1024x768 and 390x844;
+- capture Home, Work, implementation case study, About, Resume, Writing archive and one representative article;
+- capture both first viewport and full-page images;
+- package the ignored `p14-visual-review/` output into a ZIP and provide it to GPT for manual visual inspection;
+- review the ZIP for clipping, hierarchy, density, whitespace, typography, section rhythm, responsive transitions and cross-page family coherence;
+- repeat the capture/ZIP review loop after material visual changes until accepted;
+- Playwright accessibility/navigation/focus/overflow proof remains mandatory;
+- owner review of the rendered whole-site result remains mandatory before merge.
 
 ## Stop conditions
 
@@ -151,4 +155,5 @@ Stop and reconcile if:
 - company-only logo/copy/commercial authority leaks into the personal site;
 - a historical article body/date/slug would need to change;
 - accessibility or responsive proof weakens;
+- a material visual change is accepted without a fresh deterministic local screenshot ZIP review;
 - the branch expands into unrelated hosting, analytics, custom-domain or Career master-document work.
