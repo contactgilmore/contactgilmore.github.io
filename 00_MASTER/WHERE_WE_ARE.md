@@ -8,7 +8,7 @@ Updated: 2026-09-29
 ```text
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
-current main = 96085102bd9d46930b004e480450e693933dd2bb
+current main = RECONCILE LIVE GITHUB AT STARTUP / DO NOT SELF-PIN A MOVING SHA
 working branch = none
 current PR = #67 — DRAFT / RECONCILE BEFORE RESUME
 rollback = checkpoint/pre-p14-public-identity-alignment-20260929
