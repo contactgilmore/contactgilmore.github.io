@@ -35,12 +35,14 @@ test('Writing orders publications deterministically and distinguishes series int
       backgroundImage: style.backgroundImage,
       markerWidth: marker.width,
       markerColor: marker.backgroundColor,
+      paddingLeft: style.paddingLeft,
     };
   });
 
   expect(introStyle.backgroundImage).not.toBe('none');
   expect(Number.parseFloat(introStyle.markerWidth)).toBeGreaterThanOrEqual(2);
   expect(introStyle.markerColor).not.toBe('rgba(0, 0, 0, 0)');
+  expect(Number.parseFloat(introStyle.paddingLeft)).toBeGreaterThanOrEqual(16);
 });
 
 test('Work case-study rows keep evidence distinct from the primary case-study action', async ({ page }) => {
