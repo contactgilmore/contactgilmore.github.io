@@ -208,7 +208,7 @@ for rel, body in (
 for token in ("P10", "COMPLETE", "stability", "9090915653"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
-for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE, "Cloudflare Web Analytics"):
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "P13", "ACTIVE / DRAFT PREPARATION", "Draft PR #67", NEXT_ARTICLE, "Cloudflare Web Analytics"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
