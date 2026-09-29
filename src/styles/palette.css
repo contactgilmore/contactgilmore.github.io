@@ -1,9 +1,9 @@
 :root {
-  /* Owner-approved portfolio identity colors, 2026-08-27. */
-  --accent: #7c3aed;
-  --accent-strong: #5b2c83;
-  --accent-soft: #c4b5fd;
-  --focus: #a78bfa;
+  /* P14 personal identity alignment, calibrated to the frozen public reference. */
+  --accent: #7142bb;
+  --accent-strong: #58308f;
+  --accent-soft: #d5c8ea;
+  --focus: #8f67ce;
 }
 
 :focus-visible {
