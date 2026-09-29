@@ -63,6 +63,7 @@
 
 .writing-row--series-intro {
   position: relative;
+  padding-left: 22px;
   background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 6%, #fff), transparent 38%);
 }
 
@@ -279,6 +280,10 @@
   .writing-row__meta {
     padding: 0;
     border-left: 0;
+  }
+
+  .writing-row--series-intro {
+    padding-left: 16px;
   }
 
   .writing-row--series-intro::before {
