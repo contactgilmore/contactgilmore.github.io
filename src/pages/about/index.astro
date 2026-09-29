@@ -1,11 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/about.css';
+
+const siteUrl = 'https://contactgilmore.github.io';
+const profileStructuredData = {
+  '@type': 'ProfilePage',
+  '@id': `${siteUrl}/about/#profile`,
+  url: `${siteUrl}/about/`,
+  inLanguage: 'en-US',
+  mainEntity: {
+    '@id': `${siteUrl}/#person`,
+  },
+};
 ---
 
 <BaseLayout
-  title="About Mike Gilmore | Technical Delivery & Customer Solutions"
-  description="About Mike Gilmore: technical delivery, customer solutions, systems analysis, cloud infrastructure, reliability, and people-powered leadership."
+  title="About Mike Gilmore | Implementation & Professional Services"
+  description="Mike Gilmore's background spans enterprise implementation, customer-facing SaaS delivery, cloud infrastructure, reliability, and cross-functional leadership."
+  structuredData={profileStructuredData}
 >
   <header class="page-hero shell about-hero">
     <p class="eyebrow">About</p>
