@@ -6,7 +6,8 @@ Owner: Mike Gilmore
 Repository: `contactgilmore/contactgilmore.github.io`  
 Roadmap Horizon: **H2 — Sustained professional signal and editorial proof**  
 Product Goal: **PG-2**  
-Working branch: `p13-plan-before-edit`
+Working branch: `p13-plan-before-edit`  
+Draft PR: **#67**
 
 ## Sprint Goal
 
@@ -75,4 +76,4 @@ Stop before publication if:
 
 ## Current checkpoint
 
-Draft preparation is active. The next owner gate is editorial/visual review of the real draft page after tracked source, automated proof, and exact-diff review are complete.
+Draft preparation is active on PR #67. The next owner gate is editorial/visual review of the real draft page after tracked source, automated proof, and exact-diff review are complete.
