@@ -6,7 +6,7 @@ CURRENT PRODUCT STATE
 - Portfolio 2.0 is live and stable.
 - P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
 - P11 — Prompt. Prove. Ship. Editorial Continuation — remains COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED.
-- P14 — Portfolio Public Identity Alignment — is the most recently completed implementation and is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED at `main@96085102bd9d46930b004e480450e693933dd2bb`.
+- P14 — Portfolio Public Identity Alignment — is the most recently completed implementation and is COMPLETE / OWNER APPROVED / MERGED / DEPLOYED / PRODUCTION VERIFIED. Its immutable production implementation anchor is `96085102bd9d46930b004e480450e693933dd2bb`; resolve live `main` at startup rather than treating that implementation SHA as a moving repository pointer.
 - Cloudflare Web Analytics is INSTALLED / DEPLOYED / PRODUCTION VERIFIED as a bounded optional enhancement; hosting remains GitHub Pages.
 - Core Home / Work / case studies / About / Resume / neutral layout / typography / spacing / geometry remain in stability posture.
 - Canonical roadmap: `00_MASTER/PRODUCT_ROADMAP.md`.
@@ -55,7 +55,7 @@ CURRENT ROUTING
 - do not change hosting, analytics, deployment, branding, public content, or professional claims as a side effect of startup/state maintenance.
 
 NEXT ACTION
-Reconcile P13 / PR #67 against current production `main@96085102bd9d46930b004e480450e693933dd2bb`. Preserve the article's `draft: true` boundary and its existing content/art as the starting evidence. Do not publish or make PR #67 ready merely by reconciling it. First re-establish current governance/living-state authority on a branch derived from current `main`, compare the preserved P13 draft content against that baseline, repair only true conflicts or stale presentation assumptions, then run exact-head governance/Astro/Playwright and owner visual review before any publication decision.
+Reconcile P13 / PR #67 against current live `main` resolved at startup. Preserve `96085102bd9d46930b004e480450e693933dd2bb` as the immutable P14 production implementation anchor, not as a moving-main pointer. Preserve the article's `draft: true` boundary and its existing content/art as the starting evidence. Do not publish or make PR #67 ready merely by reconciling it. First re-establish current governance/living-state authority on a branch derived from current `main`, compare the preserved P13 draft content against that baseline, repair only true conflicts or stale presentation assumptions, then run exact-head governance/Astro/Playwright and owner visual review before any publication decision.
 
 Issue #64 remains the separate custom-domain activation path; do not combine it with P13.
 
