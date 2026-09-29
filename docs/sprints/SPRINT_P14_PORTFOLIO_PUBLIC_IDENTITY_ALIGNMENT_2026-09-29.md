@@ -189,14 +189,19 @@ Astro = SUCCESS
 Playwright = SUCCESS
 ```
 
-Approved final-polish changes are limited to:
+Approved final-polish changes include:
 
 - Writing series-intro spacing;
 - Resume role line and summary readability;
 - Writing page positioning copy;
 - concrete footer wording;
 - removal of one abstract About phrase;
+- repeated-phrase reduction across Home and case-study takeaways;
+- recruiter/search metadata alignment around Implementation / Professional Services;
+- stronger Person structured data plus About ProfilePage structured data;
 - matching regression updates.
+
+Custom-domain cutover is not part of this pass. Issue #64 remains the separate activation authority because DNS, GitHub Pages custom-domain state, TLS/redirect behavior, and rollback must be proven before canonical URLs move away from `contactgilmore.github.io`.
 
 The four-year/four-year public chronology remains unchanged:
 
