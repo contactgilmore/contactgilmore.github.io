@@ -21,9 +21,15 @@
 
   .site-header nav {
     grid-column: 1 / -1;
+    grid-row: 2;
     width: 100%;
     overflow-x: auto;
     scrollbar-width: none;
+  }
+
+  .nav-action {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .site-header nav::-webkit-scrollbar {
