@@ -1,6 +1,6 @@
 # P14 — Portfolio Public Identity Alignment
 
-Status: **ACTIVE / FINAL POLISH REVIEW**  
+Status: **OWNER APPROVED / READY TO MERGE**  
 Opened: 2026-09-29  
 Owner: Mike Gilmore  
 Repository: `contactgilmore/contactgilmore.github.io`  
@@ -132,7 +132,7 @@ Do not publish P13 against the superseded portfolio presentation. Resume P13 onl
 - preserve historical article bodies, dates, routes and accepted art;
 - do not publish P13 as part of alignment.
 
-### WP6 — whole-site proof — ACTIVE / FRESH POLISH PROOF REQUIRED
+### WP6 — whole-site proof — COMPLETE / OWNER APPROVED
 
 - automated governance/Astro/Playwright CI remains mandatory but is not visual acceptance;
 - deterministic M1 visual captures use `npm run review:visual`;
@@ -212,7 +212,18 @@ Trimble = 2022–2026
 
 The current Career LinkedIn working draft uses an acquisition-era month split that no longer matches the owner-authorized public chronology. LinkedIn should be reconciled separately to the real 2022 operational handoff month; P14 must not invent that month.
 
-Fresh deterministic visual ZIP review is required after this polish before merge readiness is restored.
+Final deterministic visual review accepted by the owner on 2026-09-29:
+
+```text
+final candidate head = a05ce96e852be8bb90bc9c76fadb3a87a5551a6f
+visual bundle = p14-visual-review-a05ce96e852b-20260929-130630.zip
+visual review = PASS
+governance = SUCCESS
+Astro = SUCCESS
+Playwright = SUCCESS
+```
+
+The owner approved this exact rendered candidate for governed merge.
 
 ## Stop conditions
 
