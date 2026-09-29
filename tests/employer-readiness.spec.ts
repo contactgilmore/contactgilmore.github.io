@@ -56,22 +56,55 @@ test('case studies use precise claim language and provide a resume next step', a
   await expect(page.getByRole('heading', { level: 1 })).toContainText('shared operating model');
 });
 
-test('site identity metadata includes favicon, site name, and home WebSite structured data', async ({ page, request }) => {
+test('site identity metadata includes crawlable professional identity and structured data', async ({ page, request }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
 
+  await expect(page).toHaveTitle('Mike Gilmore | Implementation Consultant & Professional Services');
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    'content',
+    /implementation and Professional Services professional/i,
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://contactgilmore.github.io/');
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/favicon.svg');
   await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'Mike Gilmore');
 
   const jsonLdText = await page.locator('script[type="application/ld+json"]').textContent();
   const jsonLd = JSON.parse(jsonLdText || '{}');
   const graph = Array.isArray(jsonLd['@graph']) ? jsonLd['@graph'] : [];
+  const person = graph.find((entry: { '@type'?: string }) => entry['@type'] === 'Person');
   const website = graph.find((entry: { '@type'?: string }) => entry['@type'] === 'WebSite');
+
+  expect(person).toMatchObject({
+    '@type': 'Person',
+    name: 'Mike Gilmore',
+    alternateName: 'ContactGilmore',
+    url: 'https://contactgilmore.github.io',
+  });
+  expect(person?.description).toMatch(/Implementation and Professional Services professional/i);
+  expect(person?.knowsAbout).toEqual(expect.arrayContaining([
+    'Enterprise implementation',
+    'Professional Services',
+    'Technical delivery',
+    'Customer onboarding',
+  ]));
 
   expect(website).toMatchObject({
     '@type': 'WebSite',
     name: 'Mike Gilmore',
     alternateName: 'ContactGilmore',
     url: 'https://contactgilmore.github.io/',
+  });
+
+  await page.goto('/about/', { waitUntil: 'networkidle' });
+  const aboutJsonLdText = await page.locator('script[type="application/ld+json"]').textContent();
+  const aboutJsonLd = JSON.parse(aboutJsonLdText || '{}');
+  const aboutGraph = Array.isArray(aboutJsonLd['@graph']) ? aboutJsonLd['@graph'] : [];
+  const profile = aboutGraph.find((entry: { '@type'?: string }) => entry['@type'] === 'ProfilePage');
+
+  expect(profile).toMatchObject({
+    '@type': 'ProfilePage',
+    url: 'https://contactgilmore.github.io/about/',
+    mainEntity: { '@id': 'https://contactgilmore.github.io/#person' },
   });
 
   const favicon = await request.get('/favicon.svg');
@@ -82,9 +115,9 @@ test('site identity metadata includes favicon, site name, and home WebSite struc
 
 test('generic interior page titles identify their employer-facing purpose', async ({ page }) => {
   const pages = [
-    { path: '/work/', title: 'Work & Case Studies | Mike Gilmore' },
-    { path: '/about/', title: 'About Mike Gilmore | Technical Delivery & Customer Solutions' },
-    { path: '/blog/', title: 'Technical Writing | Mike Gilmore' },
+    { path: '/work/', title: 'Implementation & Technical Delivery Case Studies | Mike Gilmore' },
+    { path: '/about/', title: 'About Mike Gilmore | Implementation & Professional Services' },
+    { path: '/blog/', title: 'Implementation & Technical Operations Writing | Mike Gilmore' },
   ];
 
   for (const target of pages) {
