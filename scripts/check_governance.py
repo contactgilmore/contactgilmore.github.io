@@ -212,7 +212,7 @@ for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "P14", "#68", P14_ROLLBACK, "
         errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
 for token in (
-    "Status: **ACTIVE — P14 PORTFOLIO PUBLIC IDENTITY ALIGNMENT**",
+    "Status: **P14 OWNER APPROVED / READY TO MERGE**",
     "p14-public-identity-alignment",
     P14_SPRINT_RECORD,
     P14_ROLLBACK,
