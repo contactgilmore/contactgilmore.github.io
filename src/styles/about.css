@@ -1,0 +1,87 @@
+.about-hero {
+  max-width: 980px;
+}
+
+.about-chapters {
+  padding-bottom: clamp(96px, 11vw, 164px);
+  border-top: 1px solid rgba(8,11,16,.24);
+}
+
+.about-chapter {
+  display: grid;
+  grid-template-columns: minmax(180px,.35fr) minmax(0,1fr);
+  gap: clamp(48px, 9vw, 136px);
+  padding: clamp(64px, 8vw, 118px) 0;
+  border-bottom: 1px solid rgba(8,11,16,.14);
+}
+
+.about-chapter__rail {
+  align-self: start;
+}
+
+.about-chapter__rail > span {
+  display: block;
+  margin-bottom: 26px;
+  color: var(--muted);
+  font-size: .72rem;
+  letter-spacing: .16em;
+}
+
+.about-chapter__body {
+  max-width: 840px;
+}
+
+.about-chapter__body h2 {
+  margin: 0 0 30px;
+  font-family: var(--display);
+  font-size: clamp(2.7rem, 5vw, 5.3rem);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.06em;
+  color: var(--ink-strong);
+}
+
+.about-chapter__body p {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+.about-chapter__body p + p {
+  margin-top: 22px;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.about-chapter--close {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .about-chapter {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 58px 0;
+  }
+
+  .about-chapter__rail {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  }
+
+  .about-chapter__rail > span {
+    margin: 0;
+  }
+
+  .about-chapter__body h2 {
+    font-size: clamp(2.45rem, 10vw, 4rem);
+  }
+}

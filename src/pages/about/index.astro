@@ -1,12 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/about.css';
+
+const siteUrl = 'https://contactgilmore.github.io';
+const profileStructuredData = {
+  '@type': 'ProfilePage',
+  '@id': `${siteUrl}/about/#profile`,
+  url: `${siteUrl}/about/`,
+  inLanguage: 'en-US',
+  mainEntity: {
+    '@id': `${siteUrl}/#person`,
+  },
+};
 ---
 
 <BaseLayout
-  title="About Mike Gilmore | Technical Delivery & Customer Solutions"
-  description="About Mike Gilmore: technical delivery, customer solutions, systems analysis, cloud infrastructure, reliability, and people-powered leadership."
+  title="About Mike Gilmore | Implementation & Professional Services"
+  description="Mike Gilmore's background spans enterprise implementation, customer-facing SaaS delivery, cloud infrastructure, reliability, and cross-functional leadership."
+  structuredData={profileStructuredData}
 >
-  <header class="page-hero shell">
+  <header class="page-hero shell about-hero">
     <p class="eyebrow">About</p>
     <h1>I like the work between the requirement and the reality.</h1>
     <p>
@@ -14,46 +27,66 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </p>
   </header>
 
-  <section class="shell page-grid">
-    <article class="detail-card">
-      <p class="eyebrow">Career foundation</p>
-      <h2>I learned to lead without assuming authority was the same thing as influence.</h2>
-      <p>
-        Multi-unit leadership changed how I worked with people. I was no longer the person directly running every location I supported, so telling experienced managers what their own business looked like was rarely useful. The better approach was to understand how they saw the opportunity, bring experience and best practices, help them build a plan around the behaviors they could influence, and use my network to bring in support they could not access alone.
-      </p>
-      <p>
-        That lesson carried naturally into customer-facing technical work. Customers, Product, Engineering, implementation partners, and operations teams usually do not report to the person trying to move the problem forward. Progress depends on context, trust, good questions, and enough shared evidence for people to choose the next action themselves.
-      </p>
+  <section class="shell about-chapters">
+    <article class="about-chapter">
+      <div class="about-chapter__rail">
+        <span>01</span>
+        <p class="eyebrow">Career foundation</p>
+      </div>
+      <div class="about-chapter__body">
+        <h2>I learned to lead without assuming authority was the same thing as influence.</h2>
+        <p>
+          Multi-unit leadership changed how I worked with people. I was no longer the person directly running every location I supported, so telling experienced managers what their own business looked like was rarely useful. The better approach was to understand how they saw the opportunity, bring experience and best practices, help them build a plan around the behaviors they could influence, and use my network to bring in support they could not access alone.
+        </p>
+        <p>
+          That lesson carried naturally into customer-facing technical work. Customers, Product, Engineering, implementation partners, and operations teams usually do not report to the person trying to move the problem forward. Progress depends on context, trust, good questions, and enough shared evidence for people to choose the next action themselves.
+        </p>
+      </div>
     </article>
 
-    <article class="detail-card">
-      <p class="eyebrow">How I solve problems</p>
-      <h2>Start with what someone is trying to accomplish, then decide how technical the answer needs to be.</h2>
-      <p>
-        Sometimes the answer is an API flow, authentication issue, SQL validation, cloud configuration, or production signal. Sometimes it is a better requirement, clearer ownership, a readiness check, or a process that stops the same issue from coming back. I am comfortable moving between those layers because I have spent years working on both the customer and engineering sides of the problem.
-      </p>
+    <article class="about-chapter">
+      <div class="about-chapter__rail">
+        <span>02</span>
+        <p class="eyebrow">How I solve problems</p>
+      </div>
+      <div class="about-chapter__body">
+        <h2>Start with what someone is trying to accomplish, then decide how technical the answer needs to be.</h2>
+        <p>
+          Sometimes the answer is an API flow, authentication issue, SQL validation, cloud configuration, or production signal. Sometimes it is a better requirement, clearer ownership, a readiness check, or a process that stops the same issue from coming back. I am comfortable moving between those layers because I have spent years working on both the customer and engineering sides of the problem.
+        </p>
+      </div>
     </article>
 
-    <article class="detail-card">
-      <p class="eyebrow">How I think about teams</p>
-      <h2>Build around complementary strengths instead of expecting everyone to be good at everything.</h2>
-      <p>
-        I tend to notice the work people are naturally good at and the work that gives them energy. I would rather put ownership where those strengths fit, then balance the team with people whose strengths cover the remaining gaps, than spend most of the effort trying to make every person look the same.
-      </p>
-      <p>
-        That people-powered approach shapes how I lead, how I work with customers, and how I coordinate across teams: understand what each person can contribute, make ownership clear, and build a system where those strengths fit together.
-      </p>
+    <article class="about-chapter">
+      <div class="about-chapter__rail">
+        <span>03</span>
+        <p class="eyebrow">How I think about teams</p>
+      </div>
+      <div class="about-chapter__body">
+        <h2>Build around complementary strengths instead of expecting everyone to be good at everything.</h2>
+        <p>
+          I tend to notice the work people are naturally good at and the work that gives them energy. I would rather put ownership where those strengths fit, then balance the team with people whose strengths cover the remaining gaps, than spend most of the effort trying to make every person look the same.
+        </p>
+        <p>
+          That approach shapes how I lead, how I work with customers, and how I coordinate across teams: understand what each person can contribute, make ownership clear, and build a system where those strengths fit together.
+        </p>
+      </div>
     </article>
 
-    <article class="detail-card">
-      <p class="eyebrow">What I bring now</p>
-      <h2>Customer perspective backed by real engineering depth.</h2>
-      <p>
-        Enterprise implementation taught me how to translate discovery into practical delivery. Cloud and SRE work gave me deeper context across integrations, authentication, SQL, infrastructure, observability, incidents, and production behavior. Earlier customer and leadership roles keep the focus on whether the solution is understandable, supportable, and useful to the people who have to live with it.
-      </p>
-      <div class="button-row">
-        <a class="button button--primary" href="/work/">Explore selected work</a>
-        <a class="button button--secondary" href="/resume/">View experience</a>
+    <article class="about-chapter about-chapter--close">
+      <div class="about-chapter__rail">
+        <span>04</span>
+        <p class="eyebrow">What I bring now</p>
+      </div>
+      <div class="about-chapter__body">
+        <h2>Customer perspective backed by real engineering depth.</h2>
+        <p>
+          Enterprise implementation taught me how to translate discovery into practical delivery. Cloud and SRE work gave me deeper context across integrations, authentication, SQL, infrastructure, observability, incidents, and production behavior. Earlier customer and leadership roles keep the focus on whether the solution is understandable, supportable, and useful to the people who have to live with it.
+        </p>
+        <div class="about-actions">
+          <a class="text-link" href="/work/">Explore selected work <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="/resume/">View experience <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </article>
   </section>

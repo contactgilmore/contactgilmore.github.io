@@ -1,7 +1,7 @@
 # Where We Are
 
 Status: active living state  
-Updated: 2026-09-05
+Updated: 2026-09-29
 
 ## Current repository authority
 
@@ -9,8 +9,10 @@ Updated: 2026-09-05
 repository = contactgilmore/contactgilmore.github.io
 production branch = main
 current main = reconcile live at startup
-working branch = none after P12 closeout
-current PR = none after P12 closeout
+working branch = p14-public-identity-alignment
+current PR = #68 — DRAFT / OWNER APPROVED FOR READY + MERGE
+rollback = checkpoint/pre-p14-public-identity-alignment-20260929
+P13 = PR #67 / PAUSED / DRAFT-ONLY / NOT PUBLIC
 hosting = GitHub Pages
 build = Astro static HTML
 CENTRAL_REPOSITORY_GOVERNANCE = REQUIRED
@@ -42,8 +44,8 @@ canonical roadmap = 00_MASTER/PRODUCT_ROADMAP.md
 Roadmap Horizon = H2 — Sustained professional signal and editorial proof — ACTIVE
 Product Goal = PG-2 — ACTIVE
 most recently completed implementation = P12 — Portfolio Accent Palette Alignment — COMPLETE
-active implementation sprint = NONE / NO ACTIVE IMPLEMENTATION SPRINT
-next strongest editorial candidate = Plan Before Edit
+active implementation sprint = P14 — Portfolio Public Identity Alignment — OWNER APPROVED / READY TO MERGE
+P13 = Plan Before Edit — PAUSED / DRAFT-ONLY / NOT PUBLIC
 ```
 
 ## Web analytics operational state
@@ -134,7 +136,7 @@ A failed preview is repaired at the source rather than weakening draft isolation
 
 The completed **Git to Know You #1–#10** series remains published history. P9 remains the long-form voice/quality authority through `docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md`.
 
-**Prompt. Prove. Ship.** has a published introduction and published #1 installment. The next strongest editorial question is **Plan Before Edit**, but no sprint is active for it yet.
+**Prompt. Prove. Ship.** has a published introduction and published #1 installment. P13 draft PR #67 remains preserved and `draft: true`, but publication work is paused until P14 establishes the accepted whole-site presentation.
 
 ## Public-safety boundary
 

@@ -1,18 +1,21 @@
 # Tokens and Code References
 
 Status: **ACTIVE — implemented token authority**  
-Validated: 2026-08-27
+Validated: 2026-09-29
 
 Primary structural implementation: `src/styles/global.css`  
 Approved identity-color layer: `src/styles/palette.css`
 
 ## Typeface
 
+P14 aligns the personal portfolio with the frozen public presentation reference:
+
 ```css
-font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+display/headlines = "Onest", system-ui, sans-serif
+body/UI = "Inter", system-ui, sans-serif
 ```
 
-The stack is intentionally system-friendly. Do not add externally hosted web fonts merely for novelty. A future type change must improve the system enough to justify dependency/performance impact.
+The same Google Fonts import used by the frozen Augusta Method public site is accepted for this portfolio alignment because the typography is now an intentional cross-surface presentation calibration rather than novelty. Preserve system fallbacks and keep weight usage bounded.
 
 ## Active color tokens
 
@@ -29,14 +32,13 @@ Neutral/depth foundation remains owned by `src/styles/global.css`:
 --dark-soft: #1b2531;
 ```
 
-Owner-approved portfolio identity colors are owned by `src/styles/palette.css`:
+P14 primary personal identity color aligns to the frozen Augusta Method public Purple while remaining personal-portfolio authority:
 
 ```css
---accent: #7c3aed;
---accent-strong: #5b2c83;
---accent-soft: #c4b5fd;
---focus: #a78bfa;
+--accent: #7142bb;
 ```
+
+Supporting dark/light values may remain portfolio-specific when required for contrast, but they must derive from the same restrained purple family rather than restore the retired electric-blue family.
 
 Page canvas:
 
@@ -64,11 +66,7 @@ central merge = 35fc99a97e635e419e7af39541002421adfe470d
 
 ## Geometry
 
-```css
---max-width: 1180px;
---radius: 20px;
---shadow: 0 18px 50px rgba(18, 28, 45, 0.08);
-```
+P14 intentionally reduces the prior SaaS-card geometry. The system should favor square/low-radius editorial surfaces, thin rules, and whitespace over shadows and floating panels. Large radius and shadow remain exceptions for content that genuinely needs containment rather than default identity behavior.
 
 The general page shell is:
 

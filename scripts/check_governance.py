@@ -15,6 +15,8 @@ CURRENT_HORIZON = "H2"
 CURRENT_PRODUCT_GOAL = "PG-2"
 MOST_RECENT_IMPLEMENTATION = "P12"
 P11_SPRINT_RECORD = "docs/sprints/archive/SPRINT_P11_PROMPT_PROVE_SHIP_EDITORIAL_CONTINUATION_2026-08-27.md"
+P14_SPRINT_RECORD = "docs/sprints/SPRINT_P14_PORTFOLIO_PUBLIC_IDENTITY_ALIGNMENT_2026-09-29.md"
+P14_ROLLBACK = "checkpoint/pre-p14-public-identity-alignment-20260929"
 P11_PRODUCTION_MERGE = "736d0171b9905efcc442e5d0dc69eb90a0602fd6"
 P11_PAGES_RUN = "33108684844"
 NEXT_ARTICLE = "Plan Before Edit"
@@ -48,6 +50,7 @@ required = {
     "docs/editorial/system/AI_ASSISTED_PUBLISHING_WORKFLOW.md",
     "docs/editorial/system/NEXT_SERIES_FOUNDATION.md",
     P11_SPRINT_RECORD,
+    P14_SPRINT_RECORD,
     "src/pages/[...slug].astro",
 }
 for rel in sorted(required):
@@ -204,21 +207,22 @@ for rel, body in (
 for token in ("P10", "COMPLETE", "stability", "9090915653"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted production token: {token}")
-for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "NO ACTIVE", NEXT_ARTICLE, "Cloudflare Web Analytics"):
+for token in (P11_PRODUCTION_MERGE, P11_PAGES_RUN, "P14", "#68", P14_ROLLBACK, "PAUSED", NEXT_ARTICLE, "Cloudflare Web Analytics"):
     if token not in where:
         errors.append(f"WHERE_WE_ARE missing accepted current-state token: {token}")
 
 for token in (
-    "Status: **NO ACTIVE IMPLEMENTATION SPRINT**",
-    MOST_RECENT_IMPLEMENTATION,
-    "COMPLETE",
-    NEXT_ARTICLE,
-    "Cloudflare Web Analytics",
+    "Status: **P14 OWNER APPROVED / READY TO MERGE**",
+    "p14-public-identity-alignment",
+    P14_SPRINT_RECORD,
+    P14_ROLLBACK,
+    "PR #67",
+    "PAUSED",
+    CURRENT_HORIZON,
+    CURRENT_PRODUCT_GOAL,
 ):
     if token not in active:
-        errors.append(f"ACTIVE_SPRINT missing current no-active/P12 token: {token}")
-if "Status: **ACTIVE**" in active:
-    errors.append("ACTIVE_SPRINT still claims an implementation sprint is active")
+        errors.append(f"ACTIVE_SPRINT missing current P14 token: {token}")
 
 for token in ("COMPLETE", P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE):
     if token not in sprint:
@@ -226,8 +230,13 @@ for token in ("COMPLETE", P11_PRODUCTION_MERGE, P11_PAGES_RUN, NEXT_ARTICLE):
 if re.search(r"^Status:\s*\*\*ACTIVE\*\*", sprint, re.MULTILINE):
     errors.append("P11 sprint record still has ACTIVE status")
 
+p14_sprint = read(P14_SPRINT_RECORD)
+for token in ("Status: **OWNER APPROVED / READY TO MERGE**", P14_ROLLBACK, "P13 / PR #67", "PAUSED / DRAFT-ONLY / NOT PUBLIC"):
+    if token not in p14_sprint:
+        errors.append(f"P14 sprint record missing active alignment token: {token}")
+
 product_backlog = read("docs/product/contactgilmore-portfolio/04_BACKLOG_AND_RISKS.md")
-for token in ("P10", "COMPLETE", "P11", "Draft leakage", NEXT_ARTICLE, "NO ACTIVE IMPLEMENTATION SPRINT"):
+for token in ("P10", "COMPLETE", "P11", "P14", "ACTIVE", "Draft leakage", NEXT_ARTICLE, "PAUSED"):
     if token not in product_backlog:
         errors.append(f"Product backlog missing reconciled token: {token}")
 if re.search(r"P10[^\n]*\bactive\b", product_backlog, re.IGNORECASE):
@@ -248,9 +257,12 @@ for token in (
 
 for token in (
     "contactgilmore/central-governance",
-    "NO ACTIVE IMPLEMENTATION SPRINT",
-    MOST_RECENT_IMPLEMENTATION,
-    NEXT_ARTICLE,
+    "P14",
+    "p14-public-identity-alignment",
+    "Draft PR #68",
+    P14_ROLLBACK,
+    "PR #67",
+    "PAUSED",
 ):
     if token not in last:
         errors.append(f"LAST_CLOSEOUT_PROMPT missing current routing token: {token}")

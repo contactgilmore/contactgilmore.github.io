@@ -4,14 +4,16 @@ import '../../styles/work.css';
 
 const work = [
   {
+    index: '01',
     label: 'Enterprise implementation',
     title: 'From a difficult first migration to repeatable delivery',
-    summary: 'Worked directly with customers and implementation partners to prove complex migrations safely, then turned the lessons into scripts, validation checks, runbooks, and repeatable workflows.',
-    evidence: ['100+ enterprise migrations, implementations, and deployments supported', '40% faster deployments through repeatable workflows', '50% reduction in onboarding effort'],
+    summary: 'Worked directly with customers and implementation partners to prove complex migrations safely, then turned the lessons into scripts, validation checks, runbooks, and reusable workflows.',
+    evidence: ['100+ enterprise migrations, implementations, and deployments supported', '40% faster deployments through standardized workflows', '50% reduction in onboarding effort'],
     skills: ['Requirements discovery', 'Implementation planning', 'API & integration context', 'Data validation', 'Stakeholder coordination'],
     href: '/work/implementation-delivery/',
   },
   {
+    index: '02',
     label: 'Reliability and customer impact',
     title: 'From outage complaints to durable remediation',
     summary: 'Built the observability needed to connect intermittent customer outages to a recurring workload and memory-failure pattern, documented the RCA, and helped move the issue into cross-functional software remediation.',
@@ -20,6 +22,7 @@ const work = [
     href: '/work/reliability-remediation/',
   },
   {
+    index: '03',
     label: 'Operations and program delivery',
     title: 'A shared operating model for reliability work',
     summary: 'Improved dashboards and alerts, standardized runbooks and RCA practices, added workflow automation, and helped teams adopt a common incident and response model.',
@@ -31,10 +34,10 @@ const work = [
 ---
 
 <BaseLayout
-  title="Work & Case Studies | Mike Gilmore"
-  description="Selected professional work spanning enterprise implementation, SaaS reliability, customer delivery, systems analysis, and operational improvement."
+  title="Implementation & Technical Delivery Case Studies | Mike Gilmore"
+  description="Case studies from Mike Gilmore covering enterprise implementation, Professional Services, SaaS reliability, customer delivery, integrations, and operational improvement."
 >
-  <header class="page-hero shell">
+  <header class="page-hero shell work-hero">
     <p class="eyebrow">Work</p>
     <h1>Three examples of turning ambiguity into a delivery system people can use.</h1>
     <p>
@@ -42,19 +45,26 @@ const work = [
     </p>
   </header>
 
-  <section class="shell page-grid" aria-label="Selected professional work">
+  <section class="shell work-index" aria-label="Selected professional work">
     {work.map((item) => (
-      <article class="detail-card">
-        <p class="eyebrow">{item.label}</p>
-        <h2>{item.title}</h2>
-        <p>{item.summary}</p>
-        <ul>
-          {item.evidence.map((point) => <li>{point}</li>)}
-        </ul>
-        <ul class="tag-list" aria-label="Capabilities demonstrated">
-          {item.skills.map((skill) => <li>{skill}</li>)}
-        </ul>
-        <a class="text-link detail-card__link" href={item.href}>View case study →</a>
+      <article class="work-index-row">
+        <div class="work-index-row__number">{item.index}</div>
+        <div class="work-index-row__main">
+          <p class="eyebrow">{item.label}</p>
+          <h2>{item.title}</h2>
+          <p class="work-index-row__summary">{item.summary}</p>
+          <a class="text-link" href={item.href}>View case study <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="work-index-row__proof">
+          <p class="work-index-row__proof-label">Evidence</p>
+          <ul class="work-index-evidence">
+            {item.evidence.map((point) => <li>{point}</li>)}
+          </ul>
+          <p class="work-index-row__proof-label">Capabilities demonstrated</p>
+          <ul class="work-index-skills" aria-label="Capabilities demonstrated">
+            {item.skills.map((skill) => <li>{skill}</li>)}
+          </ul>
+        </div>
       </article>
     ))}
   </section>
