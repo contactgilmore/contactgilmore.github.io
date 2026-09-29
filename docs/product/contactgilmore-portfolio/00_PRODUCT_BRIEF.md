@@ -1,19 +1,24 @@
 # Product Brief
 
 Status: active product support document  
-Positioning checkpoint: 2026-08-08
+Positioning checkpoint: 2026-09-29
 
 The site is Mike Gilmore's professional portfolio and technical writing platform. Its job is not to duplicate a resume. It should quickly establish a coherent professional identity, show evidence of how Mike solves technical/customer problems, and provide deeper proof through case studies, engineering projects, and writing.
 
 ## Recommended positioning architecture
 
-Primary identity:
+Primary identity territory remains customer-facing implementation and technical delivery.
+
+Career's current public-positioning evidence sharpens that into:
 
 ```text
-Technical Delivery & Customer Solutions
+Implementation / Professional Services
+Technical Success / Customer Solutions
+Operations Transformation
+Technology-Enabled Change
 ```
 
-This is a message architecture, not yet final hero copy. It intentionally contains the strongest overlapping role families without forcing the site to choose one narrow job title.
+The portfolio may still use `Technical Delivery & Customer Solutions` as supporting taxonomy, but the first viewport should lead with one memorable professional truth rather than a résumé-style category label.
 
 Supporting role territory:
 
@@ -79,8 +84,23 @@ Demote or remove from the homepage:
 
 Those capabilities may still appear where context supports them.
 
+## P14 presentation relationship
+
+The frozen Augusta Method public website is the approved style/messaging calibration reference for presentation maturity, not a content or company-brand authority.
+
+The personal portfolio should feel continuous with Augusta Method in professional philosophy:
+
+```text
+clear boundary
+-> deliberate change
+-> observable proof
+-> clean ownership / handoff
+```
+
+It must preserve Mike-specific context, employment proof, metrics, first-person voice, Resume, LinkedIn and technical writing.
+
 ## Success definition
 
-A visitor should understand Mike's professional value in under a minute, see evidence rather than only skill claims, and be able to choose a deeper path without reading the entire homepage.
+A visitor coming from LinkedIn should recognize the same professional story immediately, then see concrete proof without encountering a competing visual or message identity. A visitor who later encounters Augusta Method should recognize the same operating philosophy without confusing the personal portfolio for the company site.
 
-Final wording remains Mike's owner decision.
+Final wording and public representation remain Mike's owner decision.
