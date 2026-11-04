@@ -30,7 +30,7 @@ GitHub repository truth is authoritative. Chat history and GPT memory are useful
 A new GPT chat should normally need only:
 
 ```text
-Review contactgilmore/contactgilmore.github.io and begin with 00_MASTER/00_MASTER_DOCTRINE.md. Follow its startup protocol before taking action.
+Review contactgilmore/contactgilmore.github.io. First read the current contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md from live main in full. Then read contactgilmore/contactgilmore.github.io/00_MASTER/00_MASTER_DOCTRINE.md in full. Follow applicable central modules and local startup routing before taking action.
 ```
 
 Do not require a ZIP, local handoff script, prior conversation transcript, or remembered branch state when connected GitHub and repository authority can recover the project.
