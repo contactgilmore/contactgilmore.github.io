@@ -36,8 +36,18 @@ test('Resume presents direct identity, public-safe contact paths, and one concis
   await expect(page.getByText('Bachelor of Science, Information Technology · 2019')).toBeVisible();
   await expect(page.getByText('Bachelor of Science, Software Development · 2020')).toBeVisible();
   await expect(page.getByText('Certifications', { exact: true })).toBeVisible();
-  await expect(page.getByText(/AWS Certified SysOps Administrator/)).toBeVisible();
-  await expect(page.getByText(/CompTIA Security\+/)).toBeVisible();
+  for (const certification of [
+    'AWS Certified SysOps Administrator – Associate',
+    'LPIC-1: Linux Administrator',
+    'ITIL Foundation',
+    'CompTIA Security+',
+    'CompTIA Network+',
+    'CompTIA Cloud+',
+    'CompTIA Project+',
+    'CompTIA A+',
+  ]) {
+    await expect(page.getByText(certification, { exact: true })).toBeVisible();
+  }
 });
 
 test('case studies use precise claim language and provide a resume next step', async ({ page }) => {
