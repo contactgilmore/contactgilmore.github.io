@@ -31,6 +31,13 @@ test('Resume presents direct identity, public-safe contact paths, and one concis
   await expect(page.getByText(/I work across enterprise implementation, Professional Services, and technical delivery/i)).toBeVisible();
   await expect(page.getByText(/Enterprise SaaS implementation, business systems and program delivery, integrations,/i)).toHaveCount(0);
   await expect(page.getByText(/I work where customer requirements/i)).toHaveCount(0);
+  await expect(page.getByText('Education', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Western Governors University' })).toBeVisible();
+  await expect(page.getByText('Bachelor of Science, Information Technology · 2019')).toBeVisible();
+  await expect(page.getByText('Bachelor of Science, Software Development · 2020')).toBeVisible();
+  await expect(page.getByText('Certifications', { exact: true })).toBeVisible();
+  await expect(page.getByText(/AWS Certified SysOps Administrator/)).toBeVisible();
+  await expect(page.getByText(/CompTIA Security\+/)).toBeVisible();
 });
 
 test('case studies use precise claim language and provide a resume next step', async ({ page }) => {
