@@ -24,7 +24,7 @@ test('Resume presents direct identity, public-safe contact paths, and one concis
   await expect(page.getByRole('heading', { level: 1, name: 'Mike Gilmore' })).toBeVisible();
   await expect(page.getByText('Implementation · Professional Services · Technical Success', { exact: true })).toHaveCount(1);
   await expect(page.getByText('Professional summary', { exact: true })).toBeVisible();
-  await expect(page.getByText('Salt Lake City area', { exact: true })).toBeVisible();
+  await expect(page.getByText('Relocating to Tampa, FL', { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'contactgilmore@gmail.com' })).toHaveAttribute('href', 'mailto:contactgilmore@gmail.com');
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute('href', 'https://www.linkedin.com/in/contactgilmore/');
   await expect(page.getByRole('link', { name: 'GitHub' }).first()).toHaveAttribute('href', 'https://github.com/contactgilmore');
