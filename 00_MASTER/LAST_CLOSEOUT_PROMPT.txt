@@ -2,6 +2,14 @@ Continue governed work in `contactgilmore/contactgilmore.github.io` from live Gi
 
 Mandatory startup: read current `contactgilmore/central-governance/00_MASTER/00_MASTER_DOCTRINE.md` from live `main` in full, then this repository's `00_MASTER/00_MASTER_DOCTRINE.md`, current central Development Governance and GPT execution guardrails, then the canonical roadmap, product brief, `WHERE_WE_ARE.md`, `ACTIVE_SPRINT.md`, and this closeout authority. Reconcile exact live `main`, open PRs/issues, and applicable Actions before mutation.
 
+2026-11-19 APPROVED PORTFOLIO COPY CLOSEOUT
+- PR #75 owner approved, merged at main@7ec7ed7421337abb9e2d8f20272172ea1b5bc8ed; initial exact base/rollback source anchor fc671d3126b2b875b74e17f58792c6075d9fd9bb.
+- Copy-only Home/About/Resume/Person JSON-LD and employer-readiness test changes; no design/UI/UX/layout/CSS, articles, case studies, navigation, host changes or Career master-doc mutations.
+- Pre-merge Governance 44569122794, Astro 44569122363 and Playwright 44569122287 PASSED; post-merge main source was read back and verified.
+- Post-merge GitHub Pages deployment/live visual status is UNVERIFIED from available connectors, so do not claim production browser PASS. Complete a read-only observation when accessible.
+- Private Career PR #192 merged an owner-reviewed proposed LinkedIn working draft; LIVE LINKEDIN PROFILE NOT UPDATED. That separate approved browser interaction must attempt via Work/available signed-in browser, with account authentication/MFA not bypassed. Career authority owns the corresponding next-step checklist. No protected Career master or application snapshot was changed.
+- No active portfolio implementation sprint is opened; P13 PR #67 remains DRAFT-ONLY and separate from this bounded copy update.
+
 CURRENT PRODUCT STATE
 - Portfolio 2.0 is live and stable.
 - P10 remains COMPLETE / OWNER APPROVED / DEPLOYED.
