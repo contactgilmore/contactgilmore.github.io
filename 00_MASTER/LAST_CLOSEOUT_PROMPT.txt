@@ -6,8 +6,8 @@ Mandatory startup: read current `contactgilmore/central-governance/00_MASTER/00_
 - PR #75 owner approved, merged at main@7ec7ed7421337abb9e2d8f20272172ea1b5bc8ed; initial exact base/rollback source anchor fc671d3126b2b875b74e17f58792c6075d9fd9bb.
 - Copy-only Home/About/Resume/Person JSON-LD and employer-readiness test changes; no design/UI/UX/layout/CSS, articles, case studies, navigation, host changes or Career master-doc mutations.
 - Pre-merge Governance 44569122794, Astro 44569122363 and Playwright 44569122287 PASSED; post-merge main source was read back and verified.
-- Post-merge GitHub Pages deployment/live visual status is UNVERIFIED from available connectors, so do not claim production browser PASS. Complete a read-only observation when accessible.
-- Private Career PR #192 merged an owner-reviewed proposed LinkedIn working draft; LIVE LINKEDIN PROFILE NOT UPDATED. That separate approved browser interaction must attempt via Work/available signed-in browser, with account authentication/MFA not bypassed. Career authority owns the corresponding next-step checklist. No protected Career master or application snapshot was changed.
+- Production browser verification PASS on November 19: requested Home/Resume/About GitHub Pages URLs resolved to corresponding contactgilmore.com routes and displayed approved copy. Rendered text and viewport screenshots inspected; no design or hosting changes. Pages 44572800243, Astro 44572800236, Playwright 44572800235 and governance 44572800407 SUCCESS for PR #75's merge; PR #76 governance 44573230605 SUCCESS. Detailed verification remains in WHERE_WE_ARE.
+- The separately approved LinkedIn headline/About/top-skills browser update is complete and verified after reload. Career's existing canonical closeout owns its detailed receipt and rollback values. No protected Career master or application snapshot was changed.
 - No active portfolio implementation sprint is opened; P13 PR #67 remains DRAFT-ONLY and separate from this bounded copy update.
 
 CURRENT PRODUCT STATE
