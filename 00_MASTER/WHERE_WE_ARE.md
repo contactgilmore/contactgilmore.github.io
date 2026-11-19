@@ -67,6 +67,14 @@ The accepted public identity now leads with Implementation / Professional Servic
 
 P13 / PR #67 remains draft-only. Its pre-P14 branch is non-mergeable against current `main`; reconcile it before resuming editorial work.
 
+## November 19 approved career-copy alignment
+
+Owner approved the wording and visual continuity of [portfolio PR #75](https://github.com/contactgilmore/contactgilmore.github.io/pull/75). The exact-head, copy-only candidate was merged into `main` as `7ec7ed7421337abb9e2d8f20272172ea1b5bc8ed`, based on `fc671d3126b2b875b74e17f58792c6075d9fd9bb` (preserved pre-edit rollback/source anchor).
+
+Accepted scope: Home, About, Resume, Person structured-data wording and the corresponding employer-readiness assertions. Resume displays `Tampa, FL`; the homepage skill rail no longer claims Kubernetes or Terraform; supported enterprise implementation, technical support and IT-service-delivery experience receive appropriate emphasis. No CSS, visual geometry, UI/UX, navigation, blog/article/case-study assets, hosting or security boundaries changed. No protected Career resume DOCX master or application snapshot was edited.
+
+The exact pre-merge head `8523a6d758f24d3666d801a786bd4440d6d53445` passed Portfolio Governance `44569122794`, Astro `44569122363`, and Playwright `44569122287`. Post-merge `main` source content was read back and verified; the available GitHub connector did not expose post-merge Pages/push-run results, and the public URL was inaccessible from this session. **GitHub Pages deployment/live browser verification remains UNVERIFIED**, not a proven production acceptance. Complete that bounded read-only check when a suitable browser or provider observation is available. This content adjustment does not reopen P14 or activate an implementation sprint; P13 PR #67 remains separately paused/draft-only.
+
 ## Web analytics operational state
 
 Cloudflare Web Analytics is **INSTALLED / DEPLOYED / PRODUCTION VERIFIED** as a bounded optional enhancement. Hosting remains GitHub Pages, and no unrelated site behavior or hosting configuration changed.
